@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__figma-desktop__get_screenshot",
+      "mcp__figma-desktop__get_variable_defs",
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(node --version:*)",
+      "Bash(npm:*)",
+      "Bash(export PATH=\"/usr/local/bin:/opt/homebrew/bin:$HOME/.nvm/versions/node/*/bin:$HOME/.volta/bin:$HOME/.fnm/aliases/default/bin:$PATH\")",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\")",
+      "Bash(brew list:*)",
+      "Bash(/opt/homebrew/bin/grep -i node)",
+      "Bash(export PATH=\"/opt/homebrew/bin:/usr/bin:/usr/local/bin:$PATH\")",
+      "Bash(brew install:*)",
+      "Bash(npx:*)",
+      "Bash(export PATH=\"/opt/homebrew/bin:/usr/bin:/bin:$PATH\")",
+      "Bash(/Users/vlad.georgescu/claude/node_modules/.bin/next build:*)",
+      "Bash(ls:*)",
+      "mcp__figma-desktop__get_design_context",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(/opt/homebrew/bin/npm install:*)",
+      "Bash(git rm:*)"
+    ]
+  },
+  "outputStyle": "Explanatory"
+}

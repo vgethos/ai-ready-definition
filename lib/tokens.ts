@@ -1,0 +1,16 @@
+export const colors = {
+  canvas: "#03211e",
+  "cypress-100": "#056257",
+  "cypress-125": "#05594f",
+  "cypress-10": "#e6efee",
+  "gray-100": "#272727",
+  "gray-80": "#3d3d3d",
+  "gray-60": "#727272",
+  "gray-40": "#7e7e7e",
+  "gray-20": "#d4d4d4",
+  "accent-subtle3x": "#dae7e6",
+  "accent-subtle4x": "#f3f7f7",
+  "info-bg": "#deebff",
+  "info-text": "#244d8a",
+  error: "#fa640a",
+} as const;
