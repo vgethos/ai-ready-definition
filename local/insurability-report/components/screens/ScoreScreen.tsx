@@ -355,8 +355,8 @@ export default function ScoreScreen({
   }, [score, motionScore]);
 
   return (
-    <>
-      {/* Scrollable content area — 128px bottom padding for fixed CTA */}
+    <div className="relative h-full overflow-y-auto">
+      {/* Scrollable content area — 128px bottom padding for sticky CTA */}
       <div
         className="flex flex-col"
         style={{
@@ -431,9 +431,9 @@ export default function ScoreScreen({
         </motion.div>
       </div>
 
-      {/* Fixed bottom CTA */}
+      {/* Sticky bottom CTA — stays visible while scrolling */}
       <div
-        className="absolute bottom-0 left-0 right-0 bg-white py-4 px-4"
+        className="sticky bottom-0 left-0 right-0 bg-white py-4 px-4"
         style={{ boxShadow: "0px -2px 4px rgba(16,24,40,0.06)" }}
       >
         <button
@@ -450,6 +450,6 @@ export default function ScoreScreen({
           Continue
         </button>
       </div>
-    </>
+    </div>
   );
 }

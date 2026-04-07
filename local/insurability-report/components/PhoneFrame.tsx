@@ -9,8 +9,7 @@ export default function PhoneFrame({ children }: { children: React.ReactNode }) 
         boxShadow: "0px 2px 50px rgba(0, 0, 0, 0.15)",
       }}
     >
-      {/* Content area */}
-      <div className="h-full overflow-y-auto">{children}</div>
+      {children}
     </div>
   );
 }

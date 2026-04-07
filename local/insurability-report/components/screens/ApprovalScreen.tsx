@@ -344,7 +344,7 @@ export default function ApprovalScreen({
             (e.currentTarget.style.backgroundColor = "#272727")
           }
         >
-          Continue
+          Restart demo ↺
         </button>
       </motion.div>
     </div>

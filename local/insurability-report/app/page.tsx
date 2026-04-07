@@ -113,42 +113,44 @@ export default function Home() {
       </div>
 
       <PhoneFrame>
-        {/* EthosHeader shows on all screens except interstitials */}
-        {(screen === "score" || screen === "approval") && <EthosHeader />}
+        <div className="h-full flex flex-col">
+          {/* EthosHeader shows on all screens except interstitials */}
+          {(screen === "score" || screen === "approval") && <EthosHeader />}
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={screen}
-            className="h-full"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-          >
-            {screen === "computing" && (
-              <ComputingResults onComplete={goToScore} persona={persona} />
-            )}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={screen}
+              className="flex-1 min-h-0 relative"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              {screen === "computing" && (
+                <ComputingResults onComplete={goToScore} persona={persona} />
+              )}
 
-            {screen === "score" && (
-              <ScoreScreen
-                persona={persona}
-                onContinue={goToFinding}
-                spacing={shared.spacing}
-                typography={shared.typography}
-                colors={shared.colors}
-                score={variantI.score}
-              />
-            )}
+              {screen === "score" && (
+                <ScoreScreen
+                  persona={persona}
+                  onContinue={goToFinding}
+                  spacing={shared.spacing}
+                  typography={shared.typography}
+                  colors={shared.colors}
+                  score={variantI.score}
+                />
+              )}
 
-            {screen === "finding" && (
-              <FindingCarrier onComplete={goToApproval} persona={persona} />
-            )}
+              {screen === "finding" && (
+                <FindingCarrier onComplete={goToApproval} persona={persona} />
+              )}
 
-            {screen === "approval" && (
-              <ApprovalScreen persona={persona} onRestart={restart} />
-            )}
-          </motion.div>
-        </AnimatePresence>
+              {screen === "approval" && (
+                <ApprovalScreen persona={persona} onRestart={restart} />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </PhoneFrame>
     </div>
   );
