@@ -129,17 +129,19 @@
 
 #### Why Multiple Agents [4:50 - 5:50]
 
-**On screen:** Diagram showing orchestrator agent connected to three milestone agents, each with different skill labels.
+**On screen:** Diagram showing orchestrator at center, connected to a roster of single-purpose agents — each with a name and one-line role: "Research Agent," "Narrative Agent," "Presentation Agent," "Audience Analyst," "Adversarial Reviewer," "Delivery Coach."
 
 **Say:**
 
-> "Now here's what makes this level 4 and not just 'I asked an AI to help me.' The main agent — the orchestrator — didn't do much of the actual work. Its job was to coordinate. It assigned a *separate* agent to each milestone.
+> "Now here's what makes this level 4 and not just 'I asked an AI to help me.' The main agent — the orchestrator — didn't do much of the actual work. Its job was to coordinate. It spun up *single-purpose* agents, each one doing one thing really well.
 >
-> Why? A few reasons. First, context. After a lot of back and forth, a single agent starts to drift — it gets less sharp. Separate agents each get a fresh context window. Second, skills. One agent was loaded with skills for copywriting and narrative design. Another had skills for building beautiful web presentations. Different specializations, different context.
+> A research agent studied what makes great demos land — looked at examples, pulled patterns, figured out what resonates with a mixed-technical audience. An audience analyst looked at the context: who's in the room, what have they already seen today, what's going to feel fresh versus redundant. A narrative agent took all of that research and turned it into a story — the levels framework, the examples, the transitions. A presentation agent turned that story into what you're looking at right now. And a delivery coach helped me with dry runs, timing, and pacing.
 >
-> And third — this is the important one — review loops. When a milestone agent finished its work, the orchestrator reviewed it. And now you have a back-and-forth. The orchestrator gives feedback: 'this section is too long,' 'the closing needs to be more practical,' 'emphasize how the levels compound.' The milestone agent integrates that, sends it back. Two, three, four rounds. Each round polishes the quality.
+> Why single-purpose? Because after too much back-and-forth, a single agent starts to drift — it gets less sharp. Each specialized agent gets a fresh context window loaded only with the skills it needs. A copywriting agent doesn't need to know how to build slides. A presentation agent doesn't need to carry the weight of narrative research. Each one stays focused and sharp.
 >
-> You can even have an adversarial review agent whose only job is to poke holes — find the flaws in the thinking, the gaps in the strategy. It produces a report, and the implementing agent integrates that too."
+> And then — this is the important part — review loops. When an agent finishes its work, the orchestrator reviews it. 'This section is too long.' 'The closing needs to be more practical.' 'Emphasize how the levels compound.' The agent integrates that, sends it back. Two, three, four rounds. Each round polishes the quality.
+>
+> You can even have an adversarial reviewer whose only job is to poke holes — find the flaws in the thinking, the gaps in the strategy. It produces a report, and the implementing agent integrates that too."
 
 #### Human in the Loop [5:50 - 6:20]
 
@@ -202,7 +204,7 @@
 | 3:30 | Terminal: goal input "Create a presentation about how I work with AI" |
 | 3:50 | Agent exploring files — CLAUDE.md files, prototypes, artifacts |
 | 4:20 | Three milestones laid out (narrative, presentation build, delivery prep) |
-| 4:50 | Diagram: orchestrator agent connected to milestone agents with skill labels |
+| 4:50 | Diagram: orchestrator at center, roster of single-purpose agents (Research, Narrative, Presentation, Audience Analyst, Adversarial Reviewer, Delivery Coach) |
 | 5:50 | Executive summary / review interface prepared for Vlad |
 | 6:20 | Meta-reveal moment (no screen change needed — let the words land) |
 | 6:50 | 5-level ladder with L5 highlighted, "POC" label |
