@@ -38,7 +38,7 @@
 - L1: "Write this email for me"
 - L2: "Help me analyze this document"
 - L3: "I never want to document our funnel manually again"
-- L4: "Create this entire presentation — from a single goal"
+- L4: "Build a complete presentation — narrative, visuals, delivery prep — from a single sentence"
 - L5: "Solve a complex problem end-to-end with minimal guidance"
 
 **Say:**
@@ -115,9 +115,9 @@
 
 **Say:**
 
-> "The first thing the agent did was explore. It looked at files on my machine — project instructions I've written, prototypes I've built, artifacts I've saved along the way. It was trying to figure out: who is this person? What does he do? What has he been building? What's interesting enough to present?
+> "The first thing the agent did was explore. It read through dozens of project files — instructions I've written, prototypes I've built, tools, research artifacts, things I'd honestly forgotten about. It synthesized a picture of what I'd been doing and what was worth presenting. That kind of synthesis across that many files? That's not something I'd do myself — I'd cherry-pick. The agent was thorough in a way I wouldn't have been.
 >
-> Then it asked me questions. A bunch of follow-up questions to fill in the gaps — what's the audience like, what have other presenters covered, what's the vibe of the session. The agent was gathering context."
+> Then it asked me targeted follow-up questions — what's the audience like, what have other presenters covered, what do I want people to walk away thinking. It was filling in the gaps that files alone couldn't answer."
 
 #### Milestone Decomposition [4:20 - 4:50]
 
@@ -137,11 +137,11 @@
 >
 > A research agent studied what makes great demos land — looked at examples, pulled patterns, figured out what resonates with a mixed-technical audience. An audience analyst looked at the context: who's in the room, what have they already seen today, what's going to feel fresh versus redundant. A narrative agent took all of that research and turned it into a story — the levels framework, the examples, the transitions. A presentation agent turned that story into what you're looking at right now. And a delivery coach helped me with dry runs, timing, and pacing.
 >
-> Why single-purpose? Because after too much back-and-forth, a single agent starts to drift — it gets less sharp. Each specialized agent gets a fresh context window loaded only with the skills it needs. A copywriting agent doesn't need to know how to build slides. A presentation agent doesn't need to carry the weight of narrative research. Each one stays focused and sharp.
+> And here's where the levels connect: these agents aren't generic. They're loaded with the same automated workflows I built at Level 3. The same funnel documentation, the same design integrations, the same project instructions. Level 3 tools became Level 4 agent specializations.
 >
-> And then — this is the important part — review loops. When an agent finishes its work, the orchestrator reviews it. 'This section is too long.' 'The closing needs to be more practical.' 'Emphasize how the levels compound.' The agent integrates that, sends it back. Two, three, four rounds. Each round polishes the quality.
+> Why single-purpose? Because after too much back-and-forth, a single agent starts to drift — it gets less sharp. Each specialized agent gets a fresh context window loaded only with the skills it needs. It stays focused and sharp.
 >
-> You can even have an adversarial reviewer whose only job is to poke holes — find the flaws in the thinking, the gaps in the strategy. It produces a report, and the implementing agent integrates that too."
+> And then — this is the important part — review loops. When an agent finishes its work, the orchestrator reviews it. 'This section is too long.' 'The closing needs to be more practical.' The agent integrates that, sends it back. Two, three, four rounds. Each round polishes the quality. You can even have an adversarial reviewer whose only job is to poke holes and find flaws — and the implementing agent integrates that feedback too."
 
 #### Human in the Loop [5:50 - 6:20]
 
@@ -165,7 +165,9 @@
 >
 > This is the output. Right now. This is what multi-agent orchestration produced.
 >
-> *(pause for effect)*"
+> *(pause for effect)*
+>
+> And this is a small example. The same orchestration pattern built a product prototype that shipped to our engineering team, and analyzed 10 user research interviews into evidence-based personas. The pattern is the same — the goals are different."
 
 **Audience takeaway:** Level 4 = multiple specialized agents with an orchestrator, review loops, adversarial feedback, and human-in-the-loop. The audience just experienced the output firsthand. The meta-reveal makes it visceral — they didn't just hear about orchestration, they watched it.
 
