@@ -1,4 +1,4 @@
-# All-Hands Presentation: The 5 Levels of AI Usage
+# All-Hands Presentation: The 5 Levels of Working with AI
 
 **Speaker:** Vlad Georgescu
 **Format:** Live screenshare, 7-8 minutes
@@ -9,35 +9,37 @@
 
 | Level | Example | Why This One |
 |---|---|---|
-| L3: Single Agentic Workflows | **Funnel capture tool** — breadth flash of ecosystem, then deep-dive on automated funnel documentation (29 screens) | Relatable problem, shows the *practice* of tool-building, compound returns (team reuse) |
-| L4: Multi-Agent Orchestration | **Prototype factory + research pipeline + HQ orchestration** — insurability report, user research profiles, and multi-agent goal decomposition with feedback loops | Visually stunning, demonstrates L3 tools composing into orchestrated creation. Meta-reveal is the payoff |
+| L3: Single Agentic Workflows | **Funnel capture tool** — deep-dive on automated funnel documentation (29 screens) | Relatable problem, shows the *practice* of automating the repetitive, compound returns (team reuse) |
+| L4: Multi-Agent Orchestration | **Prototype factory + HQ orchestration** — insurability report built from L3 infrastructure, multi-agent goal decomposition with research pipeline woven in, feedback loops | Visually stunning, demonstrates L3 tools composing into orchestrated creation. Meta-reveal is the payoff |
 | L5: Advanced Autonomous Solutioning | **Brief teaser** — forward-looking, currently in POC stage | Sets the trajectory without overselling |
 
 **Narrative arc:** automate → compose → orchestrate. Each level funds the next.
 
 ## Full Script with Timing
 
-### OPENING HOOK [0:00 - 0:20]
+### OPENING HOOK [0:00 - 0:30]
 
 **On screen:** Title slide — clean, minimal. Just Vlad's name and a question.
 
 **Say:**
 
-> "Everyone who presented before me showed you what AI can do today — and it's genuinely useful stuff. But I want to show you what becomes possible when you stop thinking of AI as a tool that answers questions... and start thinking of it as a tool that achieves goals.
+> "Everyone who presented before me showed you what AI can do today — and it's genuinely useful stuff. Copilot, ChatGPT, document analysis. But I want to show you something different.
 >
-> I think about AI usage in 5 levels — not by the tool you use, but by the ambition of the goal you set."
+> I want to show you what becomes possible when you stop thinking of AI as a tool that answers questions... and start thinking of it as a tool that achieves goals.
+>
+> I think about working with AI in 5 levels — not by the tool you use, but by the ambition of the goal you set."
 
-**Audience takeaway:** This session is about ambition, not features.
+**Audience takeaway:** This session is about ambition, not features. The extra beat lets the audience settle in.
 
-### LEVEL 1: BASIC PROMPTING [0:20 - 0:40]
+### LEVEL 1: BASIC PROMPTING [0:30 - 0:50]
 
 **On screen:** The 5-level ladder visual — all levels visible, "ambition of goals" on the Y axis. Level 1 highlighted:
 
 - L1: "Write this email for me"
 - L2: "Help me analyze this document"
 - L3: "I never want to document our funnel manually again"
-- L4: "Orchestrate a team of AI agents to achieve a complex goal"
-- L5: "Identify the problems worth solving"
+- L4: "Ship a prototype with research, design, and code — from one sentence"
+- L5: "Solve a complex problem end-to-end with minimal guidance"
 
 **Say:**
 
@@ -45,7 +47,7 @@
 
 **Audience takeaway:** Quick acknowledgment. We're moving past this fast.
 
-### LEVEL 2: ADVANCED PROMPTING [0:40 - 1:20]
+### LEVEL 2: ADVANCED PROMPTING [0:50 - 1:30]
 
 **On screen:** Level 2 highlighted on the ladder.
 
@@ -59,29 +61,17 @@
 
 **Audience takeaway:** Levels 1-2 are powerful but bounded — AI assists *you*. The jump to Level 3 changes the relationship entirely.
 
-### LEVEL 3: SINGLE AGENTIC WORKFLOWS [1:20 - 3:20]
+### LEVEL 3: SINGLE AGENTIC WORKFLOWS [1:30 - 3:20]
 
-**The practice: Tool-building as a habit**
-
-**On screen:** Simple grid of 5-6 tiles (icon + short label each), shown for 5-10 seconds. Think "glancing at a toolbelt":
-- "One-click PRDs"
-- "Figma + AI bridge"
-- "Jira + Chrome integration"
-- "Live design tuning"
-- "Visual UI feedback"
-- "Automated funnel docs"
-
-**Say:**
-
-> "Level 3 is where AI starts working *for* you, not just *with* you. And it's not a one-off. It's a practice. Over the past few months, I've built about a dozen custom tools and integrations. Commands that generate PRDs from a hypothesis. Live connections between design tools, project management, and the browser. A system for tuning design parameters in real-time. Each one eliminates a manual workflow I was doing over and over.
->
-> Let me show you one that everyone can relate to."
-
-**The story: Funnel Capture**
+**The practice: Automating the repetitive**
 
 **On screen:** The automated funnel documentation tool running — browser window + capture control panel side by side.
 
-> "I'm a PM, and I need to reference our consumer life insurance funnel constantly — in PRDs, in design reviews, in conversations with engineers. Our funnel is 29 screens long. Every time I needed to reference it, I was taking screenshots, pasting them into docs, writing descriptions by hand. Took an hour. Outdated the next week.
+**Say:**
+
+> "Level 3 is where AI starts working *for* you, not just *with* you. The goal changes completely. Let me show you what I mean with something everyone can relate to.
+>
+> I'm a PM, and I need to reference our consumer life insurance funnel constantly — in PRDs, in design reviews, in conversations with engineers. Our funnel is 29 screens long. Every time I needed to reference it, I was taking screenshots, pasting them into docs, writing descriptions by hand. Took an hour. Outdated the next week.
 >
 > So the goal: I never want to do this manually again."
 
@@ -95,7 +85,7 @@
 >
 > But here's what separates level 3 from level 2. I spent a couple of hours building this. Now 10 people on my team use it without doing that work themselves. Level 2 helps *you*. Level 3 helps your *team*. That's the compound return."
 
-**Audience takeaway:** Level 3 = build reusable automated workflows, not one-time answers. The investment compounds because it helps your whole team.
+**Audience takeaway:** Level 3 = automate the repetitive, not just get one-time answers. The investment compounds because it helps your whole team.
 
 **Transition to L4:**
 
@@ -117,7 +107,7 @@
 
 > "We needed a new experience for our customers — an insurability score screen. Something that shows applicants where they stand after their health interview. This didn't exist anywhere. No designs, no wireframes, just a hypothesis.
 >
-> This is NOT 'AI wrote some code.' This is what happens when a dozen level 3 investments start compounding. AI has access to our design system as a local dependency — it knows our components. It knows our brand conventions through project instructions I've written. Live tuning lets me adjust animation timing and spacing in real-time. A visual feedback loop lets me point at a UI element and say 'fix that spacing.'"
+> This is NOT 'AI wrote some code.' This is what happens when a dozen level 3 investments start compounding. AI has access to our design system — it knows our components. It knows our brand conventions through project instructions I've written. Live tuning lets me adjust animation timing and spacing in real-time. A visual feedback loop lets me point at a UI element and say 'fix that spacing.'"
 
 **On screen:** Click through the 4-screen flow: loading interstitial → score reveal → carrier matching → approval.
 
@@ -125,17 +115,7 @@
 
 **Audience takeaway:** Level 3 tools compose into creation capability. The prototype is the visual wow; the compounding is the insight.
 
-#### Part 2: Research Pipeline [4:15 - 4:45]
-
-**On screen:** Research profile output — structured persona with evidence citations.
-
-**Say:**
-
-> "Here's another one. I needed to analyze 10 user research interviews and generate evidence-based profiles. An agent reads the transcripts, cross-references demographic data, then walks each profile through our funnel screen by screen — the same funnel documentation from Level 3 — flagging friction points specific to that persona. Qualitative research that used to take weeks, grounded in real evidence."
-
-**Audience takeaway:** The Level 3 funnel documentation becomes an input to a Level 4 pipeline. Tools compose.
-
-#### Part 3: The Orchestration Layer [4:45 - 6:30]
+#### Part 2: The Orchestration Layer [4:15 - 6:30]
 
 **On screen:** Terminal showing the HQ system — goal input → milestone decomposition.
 
@@ -143,7 +123,7 @@
 
 > "Now here's where it all comes together. I have a system where I can give AI a high-level goal — not a task, not a step-by-step plan, just a goal. And what happens next isn't a chatbot producing output. It's a team forming.
 >
-> A director agent analyzes the goal and decomposes it into milestones. It assigns each milestone to a specialist agent — and this part matters: each specialist has different skills and context loaded. One is focused on research and strategy. Another on writing. Another on design evaluation. Another on code.
+> A director agent analyzes the goal and decomposes it into milestones. It assigns each milestone to a specialist agent — and this part matters: each specialist has different skills and context loaded. One agent analyzed 10 user research interviews and generated evidence-based profiles. Another used that research — along with the same funnel documentation from Level 3 — to inform the prototype. Another wrote a speaker script. They're feeding into each other's work.
 >
 > *(beat)* A few days ago, I typed this:"
 
@@ -157,9 +137,9 @@
 
 **On screen:** Show the milestone breakdown, revision notes, and agent output artifacts.
 
-> "And here's where all the levels tie together. Remember those level 3 tools I built? The automated workflows, the design skills, the integrations? Those became the *specializations* I assigned to agents. The infrastructure from every previous level compounds into this team's capabilities."
+> "And here's where all the levels tie together. Remember those level 3 automated workflows? The funnel documentation, the design integrations? Those became the *specializations* I assigned to agents. The infrastructure from every previous level compounds into this team's capabilities."
 
-#### Part 4: The Meta-Reveal [6:30 - 6:50]
+#### Part 3: The Meta-Reveal [6:30 - 6:50]
 
 **Say:**
 
@@ -177,11 +157,11 @@
 
 **Say:**
 
-> "There's a Level 5, and it's where this is heading. Agents that don't just achieve goals you set — they identify the problems worth solving. Systems that notice a pattern in customer behavior, form a hypothesis, and propose a solution before you even ask.
+> "There's a Level 5, and it's where this is heading. AI that can take a complex, multi-step problem — the kind that today requires weeks of cross-functional work — and solve it end-to-end with minimal guidance. Not just executing tasks, but reasoning through the full problem space autonomously.
 >
-> Right now this is in proof-of-concept stage. But the trajectory is clear: every level makes the next one possible. The same way level 3 tools funded level 4 orchestration, level 4 orchestration will fund level 5 autonomy."
+> Right now this is in proof-of-concept stage. But the trajectory is clear: every level makes the next one possible. The same way level 3 automated workflows funded level 4 orchestration, level 4 orchestration is building toward level 5 autonomy."
 
-**Audience takeaway:** The future is visible from here. Don't oversell it, but set the direction.
+**Audience takeaway:** The future is visible from here. Grounded in "solving complex problems," not sci-fi.
 
 ### CLOSING [7:20 - 7:50]
 
@@ -200,15 +180,13 @@
 | Timing | On Screen |
 |---|---|
 | 0:00 | Title slide with hook question |
-| 0:20 | 5-level ladder — goals on Y axis |
-| 1:20 | Breadth grid: 5-6 tiles (icon + label), shown 5-10 sec |
-| 1:35 | Automated funnel documentation tool (browser + panel) |
-| 2:30 | funnel-capture.md output (structured text) |
+| 0:30 | 5-level ladder — goals on Y axis |
+| 1:30 | Automated funnel documentation tool (browser + panel) |
+| 2:20 | funnel-capture.md output (structured text) |
 | 3:30 | Insurability report prototype (score screen, 4-screen flow) |
-| 4:15 | Research profile output with evidence citations |
-| 4:45 | Terminal: HQ system with goal input |
-| 5:15 | Goal input: "Put together a quick demo/presentation for company all-hands" |
-| 5:30 | Milestone breakdown + revision notes + agent artifacts |
+| 4:15 | Terminal: HQ system with goal input |
+| 4:45 | Goal input: "Put together a quick demo/presentation for company all-hands" |
+| 5:00 | Milestone breakdown + revision notes + agent artifacts |
 | 6:30 | Meta-reveal moment (no screen change needed — let the words land) |
 | 6:50 | 5-level ladder with L5 highlighted, "POC" label |
 | 7:20 | 5-level ladder (L3-L4 highlighted, "funds →" connections) |
@@ -217,7 +195,7 @@
 
 | From → To | Transition |
 |---|---|
-| Opening → L1 | "I think about AI usage in 5 levels — not by the tool you use, but by the ambition of the goal you set." |
+| Opening → L1 | "I think about working with AI in 5 levels — not by the tool you use, but by the ambition of the goal you set." |
 | L1 → L2 | "Level 2: Advanced Prompting. The goals get more specific." |
 | L2 → L3 | "Now watch what happens when the goal changes from 'help me with this task' to 'I never want to do this task again.'" |
 | L3 → L4 | "Now, level 4. This is where it gets really interesting. The goal: 'Don't just automate one workflow — orchestrate many of them together.'" |
@@ -227,12 +205,12 @@
 ## Key Delivery Notes
 
 1. **State the goal first at each level.** The audience should feel the jump in scope before you explain anything. The goal IS the hook.
-2. **L1-L2: Move fast, don't linger.** These levels are acknowledgment, not content. The audience knows this stuff. Get to Level 3 within 80 seconds.
+2. **L1-L2: Move fast, don't linger.** These levels are acknowledgment, not content. The audience knows this stuff. Get to Level 3 within 90 seconds.
 3. **The L2→L3 transition is the fulcrum.** "Help me with this task" vs. "I never want to do this task again" — this is where the talk shifts from familiar to new. Land it clearly.
-4. **L3: Breadth then depth.** Flash the ecosystem (5 seconds) so the audience knows funnel capture is one example of many. Then go deep on the relatable one. End on shareability — "10 people use it."
-5. **L4: Three examples, one insight.** The prototype, the research pipeline, and the orchestration layer are all examples of the same principle: Level 3 tools composing into something greater. Don't let the audience think these are unrelated demos.
+4. **L3: One strong story beats a montage.** Go straight into the funnel capture problem. Don't list other tools — the audience has no context for them. The funnel story IS the proof that Level 3 is a practice. End on shareability — "10 people use it."
+5. **L4: Prototype then orchestration.** The prototype is the visual wow that earns attention. The orchestration layer is the conceptual wow that earns understanding. The research pipeline is woven into the orchestration narrative to show agents feeding into each other — don't treat it as a separate demo.
 6. **L4: Team, not hierarchy.** Emphasize collaboration: specialists building on each other's work, director sending revision notes back, feedback loops. Don't let the audience reduce this to "AI wrote your talk." Own the human role confidently — judgment, direction, taste — not defensively.
 7. **The meta-reveal needs the pause.** "That speaker script... is what I'm reading from right now." Pause before AND after. Let it land. This is the emotional peak of the talk.
-8. **L5: Understate, don't oversell.** "Proof-of-concept stage" is honest and credible. The audience will project the potential themselves — you just need to point the direction.
+8. **L5: Understate, don't oversell.** "Proof-of-concept stage" is honest and credible. Frame it as solving complex problems end-to-end, not autonomous problem discovery. The audience will project the potential themselves.
 9. **Closing is practical.** No inspirational fluff. "Don't skip levels. Go to the next one. It compounds." This is actionable for everyone regardless of where they are.
 10. **Don't over-explain tech.** No one needs to hear "Playwright" or "Framer Motion." They need to feel the escalation of ambition and understand the compounding principle.
