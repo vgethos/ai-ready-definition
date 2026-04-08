@@ -9,25 +9,25 @@ const LEVELS = [
   {
     num: 1,
     goal: "Spell this word right",
-    description: "Autocorrect, grammar check",
+    description: "Autocorrect, Grammarly — AI works invisibly in the background",
     icon: SpellCheck,
   },
   {
     num: 2,
     goal: "Write this email for me",
-    description: "ChatGPT, one-shot prompting",
+    description: "ChatGPT — simple prompt in, finished output out",
     icon: Mail,
   },
   {
     num: 3,
-    goal: "Help me while I code",
-    description: "Copilot, transcription, in-app AI",
+    goal: "Help me while I work",
+    description: "Notion AI, Otter, Figma AI — smart features inside your everyday tools",
     icon: Code,
   },
   {
     num: 4,
     goal: "Analyze this 50-page document",
-    description: "Context-loaded, iterative analysis",
+    description: "Strategic prompting — you load context, refine iteratively, steer the output",
     icon: FileSearch,
   },
 ];

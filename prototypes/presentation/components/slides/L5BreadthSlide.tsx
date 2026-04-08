@@ -18,7 +18,7 @@ const tiles = [
   { icon: Link, label: "Jira + Chrome integration" },
   { icon: SlidersHorizontal, label: "Live design tuning" },
   { icon: Eye, label: "Visual UI feedback" },
-  { icon: Search, label: "Automated funnel docs", highlight: true },
+  { icon: Search, label: "Automated funnel docs" },
 ];
 
 export default function L5BreadthSlide() {
@@ -46,11 +46,7 @@ export default function L5BreadthSlide() {
           return (
             <motion.div
               key={tile.label}
-              className={`relative w-[200px] h-[200px] flex flex-col items-center justify-center gap-3 rounded-xl shadow-sm ${
-                tile.highlight
-                  ? "bg-white ring-1 ring-cypress bg-cypress/5"
-                  : "bg-white"
-              }`}
+              className="relative w-[200px] h-[200px] flex flex-col items-center justify-center gap-3 rounded-xl shadow-sm bg-white"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{

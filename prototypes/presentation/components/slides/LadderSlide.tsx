@@ -7,7 +7,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const LEVELS = [
   { num: 1, goal: "Spell this word right" },
   { num: 2, goal: "Write this email for me" },
-  { num: 3, goal: "Help me while I code" },
+  { num: 3, goal: "Help me while I work" },
   { num: 4, goal: "Analyze this 50-page document" },
   { num: 5, goal: "I never want to document our funnel manually again" },
   { num: 6, goal: "Build me a product that doesn't exist yet" },
@@ -55,9 +55,7 @@ export default function LadderSlide() {
               )}
 
               <div
-                className={`flex items-center gap-4 px-5 py-3 bg-white rounded-xl shadow-sm ${
-                  isAdvanced ? "border-l-2 border-l-cypress" : ""
-                }`}
+                className="flex items-center gap-4 px-5 py-3 bg-white rounded-xl shadow-sm"
               >
                 {/* Level badge */}
                 <span

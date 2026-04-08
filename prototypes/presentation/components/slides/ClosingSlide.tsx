@@ -8,7 +8,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const LEVELS = [
   { num: 1, goal: "Spell this word right" },
   { num: 2, goal: "Write this email for me" },
-  { num: 3, goal: "Help me while I code" },
+  { num: 3, goal: "Help me while I work" },
   { num: 4, goal: "Analyze this 50-page document" },
   { num: 5, goal: "Never document our funnel manually again" },
   { num: 6, goal: "Build me a product that doesn't exist yet" },
@@ -48,7 +48,7 @@ export default function ClosingSlide() {
               <motion.div
                 className={`flex items-center gap-3 px-4 py-2 rounded-md ${
                   isHighlighted
-                    ? "border-l-2 border-l-cypress text-ink"
+                    ? "text-ink"
                     : "text-ink-40"
                 }`}
                 initial={{ opacity: 0, x: -16 }}
