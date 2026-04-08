@@ -6,13 +6,11 @@ import { ArrowRight } from "lucide-react";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const LEVELS = [
-  { num: 1, goal: "Spell this word right" },
-  { num: 2, goal: "Write this email for me" },
-  { num: 3, goal: "Help me while I work" },
-  { num: 4, goal: "Analyze this 50-page document" },
-  { num: 5, goal: "Never document our funnel manually again" },
-  { num: 6, goal: "Build me a product that doesn't exist yet" },
-  { num: 7, goal: "Achieve this goal — figure out the steps yourself" },
+  { num: 1, goal: "Write this email for me" },
+  { num: 2, goal: "Help me analyze this document" },
+  { num: 3, goal: "I never want to document our funnel manually again" },
+  { num: 4, goal: "Build a complete presentation from a single sentence" },
+  { num: 5, goal: "Solve a complex problem end-to-end" },
 ];
 
 function FundsArrow({ delay }: { delay: number }) {
@@ -42,14 +40,12 @@ export default function ClosingSlide() {
         transition={{ duration: 0.6, ease: EASE }}
       >
         {LEVELS.map((level) => {
-          const isHighlighted = level.num >= 5;
+          const isHighlighted = level.num === 3 || level.num === 4;
           return (
             <div key={level.num}>
               <motion.div
                 className={`flex items-center gap-3 px-4 py-2 rounded-md ${
-                  isHighlighted
-                    ? "text-ink"
-                    : "text-ink-40"
+                  isHighlighted ? "text-ink" : "text-ink-40"
                 }`}
                 initial={{ opacity: 0, x: -16 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -72,8 +68,8 @@ export default function ClosingSlide() {
                   &ldquo;{level.goal}&rdquo;
                 </span>
               </motion.div>
-              {level.num === 5 && <FundsArrow delay={0.8} />}
-              {level.num === 6 && <FundsArrow delay={1.1} />}
+              {level.num === 2 && <FundsArrow delay={0.6} />}
+              {level.num === 3 && <FundsArrow delay={0.9} />}
             </div>
           );
         })}
@@ -84,26 +80,21 @@ export default function ClosingSlide() {
         className="text-center max-w-2xl"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 1.4, ease: EASE }}
+        transition={{ duration: 0.8, delay: 1.2, ease: EASE }}
       >
         <p className="font-serif text-2xl text-ink mb-4">
-          Don&rsquo;t try to jump to level 6.
-        </p>
-        <p className="text-lg text-ink-60 leading-relaxed">
-          Go to the next level. Get comfortable. Then think a little bigger.
-          <br />
-          Put in the work, level by level, and it compounds.
+          The investment is sequential. Each level funds the next.
         </p>
       </motion.div>
 
       {/* Final CTA */}
       <motion.p
-        className="mt-10 text-lg text-cypress font-semibold text-center"
+        className="mt-6 text-lg text-cypress font-semibold text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 2.0, ease: EASE }}
+        transition={{ duration: 0.8, delay: 1.8, ease: EASE }}
       >
-        Figure out what level you&rsquo;re at. Start thinking about the next one.
+        Figure out your level. Go to the next one. It compounds.
       </motion.p>
     </div>
   );

@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function L5ToolSlide() {
+export default function L3ToolSlide() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
@@ -15,7 +15,7 @@ export default function L5ToolSlide() {
         transition={{ duration: 0.6, ease: EASE }}
       >
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
-          Level 5
+          Level 3
         </span>
         <h2 className="font-serif text-3xl text-ink">
           The Funnel Capture Tool

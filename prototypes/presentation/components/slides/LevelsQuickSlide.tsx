@@ -1,33 +1,25 @@
 "use client";
 
 import { motion } from "motion/react";
-import { SpellCheck, Mail, Code, FileSearch } from "lucide-react";
+import { SpellCheck, FileSearch } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const LEVELS = [
   {
     num: 1,
-    goal: "Spell this word right",
-    description: "Autocorrect, Grammarly — AI works invisibly in the background",
+    label: "Basic Prompting",
+    goal: "Write this email for me",
+    description:
+      "One-off requests. Useful answers. You already know this.",
     icon: SpellCheck,
   },
   {
     num: 2,
-    goal: "Write this email for me",
-    description: "ChatGPT — simple prompt in, finished output out",
-    icon: Mail,
-  },
-  {
-    num: 3,
-    goal: "Help me while I work",
-    description: "Notion AI, Otter, Figma AI — smart features inside your everyday tools",
-    icon: Code,
-  },
-  {
-    num: 4,
-    goal: "Analyze this 50-page document",
-    description: "Strategic prompting — you load context, refine iteratively, steer the output",
+    label: "Advanced Prompting",
+    goal: "Help me analyze this document",
+    description:
+      "Copilot, document analysis, iterative back-and-forth. AI is a powerful assistant.",
     icon: FileSearch,
   },
 ];
@@ -41,10 +33,10 @@ export default function LevelsQuickSlide() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: EASE }}
       >
-        Levels 1–4: You already know these
+        Levels 1 &amp; 2: You already know these
       </motion.p>
 
-      <div className="grid grid-cols-2 gap-6 w-full max-w-4xl">
+      <div className="grid grid-cols-2 gap-6 w-full max-w-3xl">
         {LEVELS.map((level, i) => {
           const Icon = level.icon;
           return (
@@ -62,12 +54,26 @@ export default function LevelsQuickSlide() {
 
               <Icon className="w-10 h-10 text-cypress mb-5" strokeWidth={1.5} />
 
-              <p className="text-lg text-ink font-medium">{level.goal}</p>
-              <p className="mt-2 text-sm text-ink-60">{level.description}</p>
+              <p className="text-lg text-ink font-medium">{level.label}</p>
+              <p className="mt-1 text-sm text-ink-60 italic">
+                &ldquo;{level.goal}&rdquo;
+              </p>
+              <p className="mt-3 text-sm text-ink-60 leading-relaxed">
+                {level.description}
+              </p>
             </motion.div>
           );
         })}
       </div>
+
+      <motion.p
+        className="mt-10 text-base text-ink-40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
+      >
+        Most teams are here today. And that&rsquo;s great.
+      </motion.p>
     </div>
   );
 }

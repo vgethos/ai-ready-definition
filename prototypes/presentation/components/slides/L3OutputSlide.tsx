@@ -34,7 +34,7 @@ const screens = [
   },
 ];
 
-export default function L5OutputSlide() {
+export default function L3OutputSlide() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
@@ -45,7 +45,7 @@ export default function L5OutputSlide() {
         transition={{ duration: 0.6, ease: EASE }}
       >
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
-          Level 5
+          Level 3
         </span>
         <h2 className="font-serif text-2xl text-ink">
           The Output: 29 Screens, Structured &amp; Searchable

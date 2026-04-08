@@ -5,44 +5,34 @@ import { motion } from "motion/react";
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const terminalLines = [
-  { text: "$ hq goal create", style: "command" },
+  { text: '$ agent explore --goal "Create a presentation about AI workflows"', style: "command" },
   { text: "", style: "blank" },
-  { text: 'Goal: "Put together a quick demo/presentation', style: "text" },
-  { text: '       for company all-hands"', style: "text" },
+  { text: "Reading CLAUDE.md files...          ✓", style: "status" },
+  { text: "Scanning prototypes/                ✓  (12 projects found)", style: "status" },
+  { text: "Analyzing tools/                    ✓  (capture-funnel, research-profiles)", style: "status" },
+  { text: "Reviewing docs/                     ✓  (PRDs, funnel docs, storyboards)", style: "status" },
+  { text: "Reading sandbox-demos/              ✓  (deployed platform)", style: "status" },
   { text: "", style: "blank" },
-  { text: "⟩ Analyzing goal...", style: "status" },
-  { text: "⟩ Decomposing into milestones...", style: "status" },
-  { text: "", style: "blank" },
-  { text: "┌─ Milestone 1: Narrative Design", style: "border" },
-  { text: "│  Research examples, design talk structure,", style: "border" },
-  { text: "│  write speaker script", style: "border" },
-  { text: "│", style: "border" },
-  { text: "├─ Milestone 2: Presentation Build", style: "border" },
-  { text: "│  Create visual assets and slide deck", style: "border" },
-  { text: "│", style: "border" },
-  { text: "└─ Milestone 3: Demo Preparation", style: "border" },
-  { text: "   Polish demos, rehearse, prepare fallbacks", style: "text" },
-  { text: "", style: "blank" },
-  { text: '⟩ Assigning specialist agents...', style: "status" },
-  { text: '⟩ Agent "Strategist" → Milestone 1', style: "status" },
-  { text: '⟩ Agent "Designer"   → Milestone 2', style: "status" },
-  { text: '⟩ Agent "Engineer"   → Milestone 3', style: "status" },
+  { text: "Synthesis complete. 47 artifacts indexed.", style: "result" },
+  { text: "Generating follow-up questions...", style: "result" },
 ];
 
 function lineColor(style: string) {
   switch (style) {
     case "command":
+      return "text-cypress-light";
     case "status":
       return "text-cypress-light";
-    case "border":
-      return "text-cypress-light";
-    case "text":
+    case "result":
+      return "text-white";
     default:
       return "text-white";
   }
 }
 
-export default function L7SetupSlide() {
+export default function L4DiscoverySlide() {
+  const lastLineDelay = 0.5 + terminalLines.length * 0.18;
+
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
@@ -53,10 +43,10 @@ export default function L7SetupSlide() {
         transition={{ duration: 0.6, ease: EASE }}
       >
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
-          Level 7
+          Level 4
         </span>
         <h2 className="font-serif text-3xl text-ink">
-          Achieve this goal &mdash; figure out the steps yourself
+          Discovery: The Agent Explores
         </h2>
       </motion.div>
 
@@ -84,7 +74,7 @@ export default function L7SetupSlide() {
               animate={{ opacity: 1 }}
               transition={{
                 duration: 0.15,
-                delay: 0.5 + i * 0.15,
+                delay: 0.5 + i * 0.18,
                 ease: EASE,
               }}
             >
@@ -96,12 +86,12 @@ export default function L7SetupSlide() {
 
       {/* Bottom caption */}
       <motion.p
-        className="mt-8 text-sm text-ink-60 italic"
+        className="mt-8 text-sm text-ink-40 italic"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 4.2, ease: EASE }}
+        transition={{ duration: 0.8, delay: lastLineDelay + 0.5, ease: EASE }}
       >
-        I typed one sentence. A team formed.
+        Thorough in a way I wouldn&rsquo;t have been.
       </motion.p>
     </div>
   );

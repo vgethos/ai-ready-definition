@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AI Demo — Ethos",
-  description: "AI capabilities demo for the design and product team",
+  title: "The 5 Levels of Working with AI — Ethos All-Hands",
+  description: "Vlad Georgescu — AI scales with the ambition of your goals",
 };
 
 export default function RootLayout({

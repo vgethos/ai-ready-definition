@@ -17,10 +17,19 @@ export default function TitleSlide() {
       </motion.h1>
 
       <motion.p
+        className="mt-6 text-xl text-ink-60"
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
+      >
+        5 levels. Same technology. Bigger thinking.
+      </motion.p>
+
+      <motion.p
         className="mt-10 text-[11px] text-ink-60 tracking-[1.5px] uppercase font-medium"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
+        transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
       >
         Vlad Georgescu
       </motion.p>

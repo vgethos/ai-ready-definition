@@ -4,14 +4,14 @@ import SlideController from "@/components/SlideController";
 import TitleSlide from "@/components/slides/TitleSlide";
 import LadderSlide from "@/components/slides/LadderSlide";
 import LevelsQuickSlide from "@/components/slides/LevelsQuickSlide";
-import L5BreadthSlide from "@/components/slides/L5BreadthSlide";
-import L5ToolSlide from "@/components/slides/L5ToolSlide";
-import L5OutputSlide from "@/components/slides/L5OutputSlide";
-import L6IntroSlide from "@/components/slides/L6IntroSlide";
-import L6StackSlide from "@/components/slides/L6StackSlide";
-import L6FlowSlide from "@/components/slides/L6FlowSlide";
-import L7SetupSlide from "@/components/slides/L7SetupSlide";
-import L7TeamSlide from "@/components/slides/L7TeamSlide";
+import L3ToolSlide from "@/components/slides/L3ToolSlide";
+import L3OutputSlide from "@/components/slides/L3OutputSlide";
+import L4GoalSlide from "@/components/slides/L4GoalSlide";
+import L4DiscoverySlide from "@/components/slides/L4DiscoverySlide";
+import L4MilestonesSlide from "@/components/slides/L4MilestonesSlide";
+import L4TeamSlide from "@/components/slides/L4TeamSlide";
+import L4ReviewSlide from "@/components/slides/L4ReviewSlide";
+import L5TeaserSlide from "@/components/slides/L5TeaserSlide";
 import ClosingSlide from "@/components/slides/ClosingSlide";
 
 export default function Presentation() {
@@ -20,14 +20,14 @@ export default function Presentation() {
       <TitleSlide />
       <LadderSlide />
       <LevelsQuickSlide />
-      <L5BreadthSlide />
-      <L5ToolSlide />
-      <L5OutputSlide />
-      <L6IntroSlide />
-      <L6StackSlide />
-      <L6FlowSlide />
-      <L7SetupSlide />
-      <L7TeamSlide />
+      <L3ToolSlide />
+      <L3OutputSlide />
+      <L4GoalSlide />
+      <L4DiscoverySlide />
+      <L4MilestonesSlide />
+      <L4TeamSlide />
+      <L4ReviewSlide />
+      <L5TeaserSlide />
       <ClosingSlide />
     </SlideController>
   );

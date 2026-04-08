@@ -5,13 +5,11 @@ import { motion } from "motion/react";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const LEVELS = [
-  { num: 1, goal: "Spell this word right" },
-  { num: 2, goal: "Write this email for me" },
-  { num: 3, goal: "Help me while I work" },
-  { num: 4, goal: "Analyze this 50-page document" },
-  { num: 5, goal: "I never want to document our funnel manually again" },
-  { num: 6, goal: "Build me a product that doesn't exist yet" },
-  { num: 7, goal: "Prepare my all-hands presentation" },
+  { num: 1, goal: "Write this email for me", label: "Basic Prompting" },
+  { num: 2, goal: "Help me analyze this document", label: "Advanced Prompting" },
+  { num: 3, goal: "I never want to document our funnel manually again", label: "Single Agentic Workflows" },
+  { num: 4, goal: "Build a complete presentation — narrative, visuals, delivery prep — from a single sentence", label: "Multi-Agent Orchestration" },
+  { num: 5, goal: "Solve a complex problem end-to-end with minimal guidance", label: "Advanced Autonomous Solutioning" },
 ];
 
 export default function LadderSlide() {
@@ -23,7 +21,7 @@ export default function LadderSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        The 7 Levels
+        The 5 Levels
       </motion.h2>
 
       {/* Vertical "ambition of goals" label on the right */}
@@ -39,7 +37,7 @@ export default function LadderSlide() {
 
       <div className="flex flex-col-reverse gap-2 w-full max-w-3xl">
         {LEVELS.map((level, i) => {
-          const isAdvanced = level.num >= 5;
+          const isAdvanced = level.num >= 3;
           const delay = i * 0.08;
 
           return (
@@ -49,8 +47,8 @@ export default function LadderSlide() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay, ease: EASE }}
             >
-              {/* Divider between L4 and L5 */}
-              {level.num === 5 && (
+              {/* Dashed divider between L2 and L3 — "help me" vs "work for me" boundary */}
+              {level.num === 3 && (
                 <div className="mb-3 mt-1 border-t border-dashed border-ink-40/30" />
               )}
 
@@ -68,14 +66,23 @@ export default function LadderSlide() {
                   L{level.num}
                 </span>
 
-                {/* Goal text */}
-                <span
-                  className={`text-lg ${
-                    isAdvanced ? "text-ink" : "text-ink-40"
-                  }`}
-                >
-                  &ldquo;{level.goal}&rdquo;
-                </span>
+                {/* Goal text and label */}
+                <div className="flex flex-col">
+                  <span
+                    className={`text-lg ${
+                      isAdvanced ? "text-ink" : "text-ink-40"
+                    }`}
+                  >
+                    &ldquo;{level.goal}&rdquo;
+                  </span>
+                  <span
+                    className={`text-xs tracking-wide uppercase ${
+                      isAdvanced ? "text-ink-40" : "text-ink-40/60"
+                    }`}
+                  >
+                    {level.label}
+                  </span>
+                </div>
               </div>
             </motion.div>
           );
