@@ -128,7 +128,7 @@ export default function L5ToolSlide() {
               animate={{ opacity: 1 }}
               transition={{ delay: 1.25, duration: 0.4, ease: EASE }}
             >
-              <span className="text-cypress-glow">████████</span>
+              <span className="text-cypress-light">████████</span>
               <span className="text-ink-60">░░</span>
               <span className="text-ink-40 ml-2">48% complete</span>
             </motion.div>

@@ -54,7 +54,7 @@ export default function L5OutputSlide() {
 
       {/* Document viewer */}
       <motion.div
-        className="w-full max-w-3xl rounded-xl overflow-hidden bg-canvas-light border border-ink-20/10 shadow-lg shadow-black/20"
+        className="w-full max-w-3xl rounded-xl overflow-hidden bg-white/[0.03] border border-ink-20/10 shadow-lg shadow-black/20"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
@@ -109,7 +109,7 @@ export default function L5OutputSlide() {
 
       {/* Bottom callout */}
       <motion.div
-        className="mt-6 w-full max-w-3xl rounded-xl border border-ink-20/10 bg-canvas-light px-6 py-4 text-center"
+        className="mt-6 w-full max-w-3xl rounded-xl border border-ink-20/10 bg-white/[0.03] px-6 py-4 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.1, ease: EASE }}

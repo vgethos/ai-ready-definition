@@ -64,7 +64,7 @@ export default function L6StackSlide() {
         {CARDS.map((card, i) => (
           <div key={card.title} className="flex items-center gap-3">
             <motion.div
-              className="bg-canvas-light rounded-xl border border-subtle/20 p-6 flex flex-col items-center text-center w-[200px]"
+              className="bg-white/[0.03] rounded-xl border border-subtle/20 p-6 flex flex-col items-center text-center w-[200px]"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{

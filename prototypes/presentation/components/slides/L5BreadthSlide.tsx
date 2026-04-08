@@ -48,8 +48,8 @@ export default function L5BreadthSlide() {
               key={tile.label}
               className={`relative w-[200px] h-[200px] flex flex-col items-center justify-center gap-3 rounded-xl border border-ink-20/10 ${
                 tile.highlight
-                  ? "bg-canvas-light ring-1 ring-cypress-glow/40"
-                  : "bg-canvas-light"
+                  ? "bg-white/[0.03] ring-1 ring-cypress-light/40"
+                  : "bg-white/[0.03]"
               }`}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function L5BreadthSlide() {
               }}
             >
               {tile.highlight && (
-                <div className="absolute inset-0 rounded-xl bg-cypress-glow/5 pointer-events-none" />
+                <div className="absolute inset-0 rounded-xl bg-cypress-light/5 pointer-events-none" />
               )}
               <Icon className="size-8 text-cypress-light" />
               <span className="text-sm text-subtle-2x text-center px-3">

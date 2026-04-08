@@ -85,7 +85,7 @@ export default function SlideController({ children }: SlideControllerProps) {
       </AnimatePresence>
 
       {/* Progress bar */}
-      <div className="fixed bottom-0 left-0 w-full h-[2px] bg-canvas-light">
+      <div className="fixed bottom-0 left-0 w-full h-[2px] bg-white/[0.03]">
         <motion.div
           className="h-full bg-cypress"
           initial={false}

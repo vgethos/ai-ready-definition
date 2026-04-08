@@ -117,7 +117,7 @@ export default function L7TeamSlide() {
           return (
             <div key={agent.name} className="flex items-stretch">
               <motion.div
-                className="w-[220px] bg-canvas-light rounded-xl border border-white/5 p-6 flex flex-col"
+                className="w-[220px] bg-white/[0.03] rounded-xl border border-white/5 p-6 flex flex-col"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.2, ease: EASE }}
@@ -153,7 +153,7 @@ export default function L7TeamSlide() {
 
       {/* Director Row */}
       <motion.div
-        className="relative w-[720px] bg-canvas-light rounded-xl border border-white/5 p-5 flex items-center justify-center gap-4"
+        className="relative w-[720px] bg-white/[0.03] rounded-xl border border-white/5 p-5 flex items-center justify-center gap-4"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.1, ease: EASE }}

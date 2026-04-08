@@ -14,8 +14,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "The 7 Levels of AI — Vlad Georgescu",
-  description: "AI scales with the ambition of your goals",
+  title: "AI Demo — Ethos",
+  description: "AI capabilities demo for the design and product team",
 };
 
 export default function RootLayout({

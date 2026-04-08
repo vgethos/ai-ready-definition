@@ -50,13 +50,13 @@ export default function LevelsQuickSlide() {
           return (
             <motion.div
               key={level.num}
-              className="relative flex flex-col items-center text-center px-8 py-10 rounded-xl border border-ink-20/10 bg-canvas-light/40"
+              className="relative flex flex-col items-center text-center px-8 py-10 rounded-xl border border-ink-20/10 bg-white/[0.02]"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.15, ease: EASE }}
             >
               {/* Level badge */}
-              <span className="absolute top-4 left-4 text-xs font-medium text-ink-40 bg-canvas-light px-2 py-0.5 rounded-full">
+              <span className="absolute top-4 left-4 text-xs font-medium text-ink-40 bg-white/[0.03] px-2 py-0.5 rounded-full">
                 L{level.num}
               </span>
 

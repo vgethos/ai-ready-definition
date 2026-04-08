@@ -64,7 +64,7 @@ export default function LadderSlide() {
                   className={`flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium ${
                     isAdvanced
                       ? "bg-cypress text-subtle-2x"
-                      : "bg-canvas-light text-ink-40"
+                      : "bg-white/[0.03] text-ink-40"
                   }`}
                 >
                   L{level.num}

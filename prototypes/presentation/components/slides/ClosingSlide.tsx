@@ -63,7 +63,7 @@ export default function ClosingSlide() {
                   className={`flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full text-xs font-medium ${
                     isHighlighted
                       ? "bg-cypress text-subtle-2x"
-                      : "bg-canvas-light text-ink-40"
+                      : "bg-white/[0.03] text-ink-40"
                   }`}
                 >
                   {level.num}
