@@ -12,18 +12,18 @@ const DASH_OFFSET = CIRCUMFERENCE * (1 - SCORE_PERCENT);
 
 export default function L6IntroSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-canvas">
-      {/* Header */}
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
+      {/* Level badge + headline */}
       <motion.div
         className="flex items-center gap-4 mb-10"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-subtle-2x text-sm font-medium">
+        <span className="px-3 py-1 rounded-full bg-cypress text-white text-sm font-medium">
           Level 6
         </span>
-        <h2 className="font-serif text-3xl text-subtle-2x">
+        <h2 className="font-serif text-3xl text-ink">
           Create something that doesn&rsquo;t exist yet
         </h2>
       </motion.div>
@@ -37,7 +37,7 @@ export default function L6IntroSlide() {
       >
         {/* Status / header bar */}
         <div className="flex items-center justify-center py-4 border-b border-gray-100">
-          <span className="text-xs font-semibold tracking-widest text-ink uppercase">
+          <span className="text-[14px] font-semibold text-ink tracking-[1px]">
             ETHOS
           </span>
         </div>
@@ -46,7 +46,7 @@ export default function L6IntroSlide() {
         <div className="flex flex-col items-center px-8 pt-8 pb-10">
           {/* Greeting */}
           <motion.p
-            className="font-serif text-2xl text-ink text-center"
+            className="font-serif text-[26px] text-ink text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.6, ease: EASE }}
@@ -54,7 +54,7 @@ export default function L6IntroSlide() {
             Great news, Sarah
           </motion.p>
           <motion.p
-            className="mt-2 text-sm text-ink-60 text-center max-w-[260px]"
+            className="mt-2 text-[14px] text-ink-60 text-center max-w-[260px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.8, ease: EASE }}
@@ -71,7 +71,7 @@ export default function L6IntroSlide() {
                 cy="90"
                 r={RADIUS}
                 fill="none"
-                stroke="#dae7e6"
+                stroke="#f3f7f7"
                 strokeWidth="10"
               />
               {/* Animated score ring */}
@@ -86,7 +86,13 @@ export default function L6IntroSlide() {
                 strokeDasharray={CIRCUMFERENCE}
                 initial={{ strokeDashoffset: CIRCUMFERENCE }}
                 animate={{ strokeDashoffset: DASH_OFFSET }}
-                transition={{ duration: 1.4, delay: 1.0, ease: EASE }}
+                transition={{
+                  duration: 1.4,
+                  delay: 1.0,
+                  type: "spring",
+                  stiffness: 40,
+                  damping: 15,
+                }}
                 style={{ transform: "rotate(-90deg)", transformOrigin: "center" }}
               />
             </svg>
@@ -97,24 +103,29 @@ export default function L6IntroSlide() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 1.6, ease: EASE }}
             >
-              <span className="font-serif text-5xl text-ink">847</span>
-              <span className="text-xs font-medium text-cypress mt-1">Excellent</span>
+              <span className="font-serif text-[48px] text-ink">847</span>
+              <span className="text-[11px] text-cypress font-semibold uppercase tracking-[1px]">
+                Excellent
+              </span>
             </motion.div>
           </div>
 
-          {/* Percentile badge */}
+          {/* Social proof pill */}
           <motion.span
-            className="px-4 py-1.5 rounded-full bg-subtle-2x text-xs font-medium text-cypress"
+            className="inline-flex items-center gap-1.5 bg-subtle-2x px-3.5 py-1.5 rounded-full text-[13px] text-cypress font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.8, ease: EASE }}
           >
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="#056257">
+              <path d="M7 0l2.16 4.38L14 5.08l-3.5 3.41.83 4.82L7 11.17 2.67 13.31l.83-4.82L0 5.08l4.84-.7L7 0z" />
+            </svg>
             Top 14% of all applicants
           </motion.span>
 
           {/* CTA button */}
           <motion.button
-            className="mt-8 w-full py-3.5 rounded-full bg-cypress text-white text-sm font-medium"
+            className="mt-8 w-full min-h-[52px] rounded-lg bg-ink text-white font-medium text-[17px]"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 2.0, ease: EASE }}
@@ -126,7 +137,7 @@ export default function L6IntroSlide() {
 
       {/* Caption below phone */}
       <motion.p
-        className="mt-8 text-sm text-ink-40 italic text-center max-w-xl"
+        className="mt-8 text-sm text-ink-60 italic text-center max-w-xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 2.2, ease: EASE }}

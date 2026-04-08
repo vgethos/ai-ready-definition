@@ -34,9 +34,9 @@ const LEVELS = [
 
 export default function LevelsQuickSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-canvas">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       <motion.p
-        className="text-ink-40 text-sm tracking-wide uppercase mb-10"
+        className="text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium mb-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: EASE }}
@@ -50,20 +50,20 @@ export default function LevelsQuickSlide() {
           return (
             <motion.div
               key={level.num}
-              className="relative flex flex-col items-center text-center px-8 py-10 rounded-xl border border-ink-20/10 bg-white/[0.02]"
+              className="relative flex flex-col items-center text-center bg-white rounded-xl shadow-sm p-8"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.15, ease: EASE }}
             >
               {/* Level badge */}
-              <span className="absolute top-4 left-4 text-xs font-medium text-ink-40 bg-white/[0.03] px-2 py-0.5 rounded-full">
+              <span className="absolute top-4 left-4 text-[11px] font-medium text-ink-40 bg-subtle-2x px-3.5 py-1.5 rounded-full">
                 L{level.num}
               </span>
 
-              <Icon className="w-10 h-10 text-cypress-light mb-5" strokeWidth={1.5} />
+              <Icon className="w-10 h-10 text-cypress mb-5" strokeWidth={1.5} />
 
-              <p className="text-lg text-subtle-2x">{level.goal}</p>
-              <p className="mt-2 text-sm text-ink-40">{level.description}</p>
+              <p className="text-lg text-ink font-medium">{level.goal}</p>
+              <p className="mt-2 text-sm text-ink-60">{level.description}</p>
             </motion.div>
           );
         })}

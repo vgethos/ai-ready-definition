@@ -16,9 +16,9 @@ const LEVELS = [
 
 export default function LadderSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-canvas relative">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5] relative">
       <motion.h2
-        className="font-serif text-4xl text-subtle-2x mb-10"
+        className="font-serif text-4xl text-ink mb-10"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
@@ -28,7 +28,7 @@ export default function LadderSlide() {
 
       {/* Vertical "ambition of goals" label on the right */}
       <motion.div
-        className="absolute right-8 top-1/2 text-xs text-ink-40 tracking-widest uppercase"
+        className="absolute right-8 top-1/2 text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium"
         style={{ transform: "translateY(-50%) rotate(90deg)", transformOrigin: "center center" }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -55,16 +55,16 @@ export default function LadderSlide() {
               )}
 
               <div
-                className={`flex items-center gap-4 px-5 py-3 rounded-lg ${
-                  isAdvanced ? "border-l-2 border-l-cypress-light" : ""
+                className={`flex items-center gap-4 px-5 py-3 bg-white rounded-xl shadow-sm ${
+                  isAdvanced ? "border-l-2 border-l-cypress" : ""
                 }`}
               >
                 {/* Level badge */}
                 <span
                   className={`flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium ${
                     isAdvanced
-                      ? "bg-cypress text-subtle-2x"
-                      : "bg-white/[0.03] text-ink-40"
+                      ? "bg-cypress text-white"
+                      : "bg-subtle-2x text-ink-40"
                   }`}
                 >
                   L{level.num}
@@ -73,7 +73,7 @@ export default function LadderSlide() {
                 {/* Goal text */}
                 <span
                   className={`text-lg ${
-                    isAdvanced ? "text-subtle-2x" : "text-ink-40"
+                    isAdvanced ? "text-ink" : "text-ink-40"
                   }`}
                 >
                   &ldquo;{level.goal}&rdquo;

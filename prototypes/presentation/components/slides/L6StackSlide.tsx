@@ -33,7 +33,7 @@ export default function L6StackSlide() {
   const allCardsVisible = 0.4 + CARDS.length * cardDelay;
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-canvas">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-3"
@@ -41,17 +41,17 @@ export default function L6StackSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-subtle-2x text-sm font-medium">
+        <span className="px-3 py-1 rounded-full bg-cypress text-white text-sm font-medium">
           Level 6
         </span>
-        <h2 className="font-serif text-2xl text-subtle-2x">
+        <h2 className="font-serif text-2xl text-ink">
           Why this worked: L5 tools compounding
         </h2>
       </motion.div>
 
       {/* Subheader */}
       <motion.p
-        className="text-lg text-cypress-light italic mb-12"
+        className="text-lg text-cypress italic mb-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2, ease: EASE }}
@@ -64,7 +64,7 @@ export default function L6StackSlide() {
         {CARDS.map((card, i) => (
           <div key={card.title} className="flex items-center gap-3">
             <motion.div
-              className="bg-white/[0.03] rounded-xl border border-subtle/20 p-6 flex flex-col items-center text-center w-[200px]"
+              className="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center w-[200px]"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -73,17 +73,20 @@ export default function L6StackSlide() {
                 ease: EASE,
               }}
             >
-              <card.Icon className="w-7 h-7 text-cypress-light mb-3" />
-              <h3 className="text-sm font-medium text-subtle-2x mb-1">
+              <card.Icon className="w-7 h-7 text-cypress mb-3" />
+              <h3 className="text-sm font-medium text-ink mb-1">
                 {card.title}
               </h3>
-              <p className="text-xs text-ink-40">{card.description}</p>
+              <p className="text-sm text-ink-60">{card.description}</p>
             </motion.div>
 
             {/* Arrow between cards */}
             {i < CARDS.length - 1 && (
-              <motion.span
-                className="text-xl text-ink-40"
+              <motion.svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{
@@ -92,8 +95,14 @@ export default function L6StackSlide() {
                   ease: EASE,
                 }}
               >
-                →
-              </motion.span>
+                <path
+                  d="M5 12h14M13 6l6 6-6 6"
+                  stroke="#056257"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </motion.svg>
             )}
           </div>
         ))}
@@ -107,7 +116,7 @@ export default function L6StackSlide() {
         transition={{ duration: 0.6, delay: allCardsVisible, ease: EASE }}
       >
         <span className="text-4xl text-ink-40 font-light">=</span>
-        <span className="text-xl text-cypress-light font-serif">
+        <span className="text-xl text-cypress font-semibold">
           Creation capability
         </span>
       </motion.div>

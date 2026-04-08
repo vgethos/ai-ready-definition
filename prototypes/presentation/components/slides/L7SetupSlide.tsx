@@ -33,18 +33,18 @@ function lineColor(style: string) {
   switch (style) {
     case "command":
     case "status":
-      return "text-[#5bbfb3]";
+      return "text-cypress-light";
     case "border":
-      return "text-[#056257]";
+      return "text-cypress-light";
     case "text":
     default:
-      return "text-[#f3f7f7]";
+      return "text-white";
   }
 }
 
 export default function L7SetupSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-canvas">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-8"
@@ -52,24 +52,23 @@ export default function L7SetupSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-subtle-2x text-xs font-medium tracking-wide uppercase">
+        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
           Level 7
         </span>
-        <h2 className="font-serif text-3xl text-subtle-2x">
+        <h2 className="font-serif text-3xl text-ink">
           Achieve this goal &mdash; figure out the steps yourself
         </h2>
       </motion.div>
 
       {/* Terminal Window */}
       <motion.div
-        className="w-[700px] rounded-xl overflow-hidden border border-white/5"
-        style={{ backgroundColor: "#0a0a0a" }}
+        className="w-[700px] bg-ink rounded-2xl shadow-lg overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
       >
         {/* Terminal chrome */}
-        <div className="flex items-center gap-2 px-4 py-3 bg-[#1a1a1a] border-b border-white/5">
+        <div className="flex items-center gap-2 px-4 py-3 bg-ink-80 border-b border-white/10">
           <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
           <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
           <div className="w-3 h-3 rounded-full bg-[#28c840]" />
@@ -97,7 +96,7 @@ export default function L7SetupSlide() {
 
       {/* Bottom caption */}
       <motion.p
-        className="mt-8 text-sm text-ink-40 italic"
+        className="mt-8 text-sm text-ink-60 italic"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 4.2, ease: EASE }}

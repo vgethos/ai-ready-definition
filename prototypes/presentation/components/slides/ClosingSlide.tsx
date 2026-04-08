@@ -23,17 +23,17 @@ function FundsArrow({ delay }: { delay: number }) {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.5, delay, ease: EASE }}
     >
-      <span className="text-xs text-cypress-light font-medium tracking-wide">
+      <span className="text-xs text-cypress font-medium tracking-wide">
         funds
       </span>
-      <ArrowRight className="size-3 text-cypress-light" />
+      <ArrowRight className="size-3 text-cypress" />
     </motion.div>
   );
 }
 
 export default function ClosingSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-canvas">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Ladder */}
       <motion.div
         className="flex flex-col w-full max-w-2xl mb-12"
@@ -48,7 +48,7 @@ export default function ClosingSlide() {
               <motion.div
                 className={`flex items-center gap-3 px-4 py-2 rounded-md ${
                   isHighlighted
-                    ? "border-l-2 border-l-cypress text-subtle-2x"
+                    ? "border-l-2 border-l-cypress text-ink"
                     : "text-ink-40"
                 }`}
                 initial={{ opacity: 0, x: -16 }}
@@ -62,8 +62,8 @@ export default function ClosingSlide() {
                 <span
                   className={`flex-shrink-0 w-7 h-7 flex items-center justify-center rounded-full text-xs font-medium ${
                     isHighlighted
-                      ? "bg-cypress text-subtle-2x"
-                      : "bg-white/[0.03] text-ink-40"
+                      ? "bg-cypress text-white"
+                      : "bg-subtle-2x text-ink-40"
                   }`}
                 >
                   {level.num}
@@ -86,10 +86,10 @@ export default function ClosingSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 1.4, ease: EASE }}
       >
-        <p className="font-serif text-3xl text-subtle-2x mb-4">
+        <p className="font-serif text-2xl text-ink mb-4">
           Don&rsquo;t try to jump to level 6.
         </p>
-        <p className="text-xl text-subtle-2x leading-relaxed">
+        <p className="text-lg text-ink-60 leading-relaxed">
           Go to the next level. Get comfortable. Then think a little bigger.
           <br />
           Put in the work, level by level, and it compounds.
@@ -98,7 +98,7 @@ export default function ClosingSlide() {
 
       {/* Final CTA */}
       <motion.p
-        className="mt-10 text-lg text-cypress-light text-center"
+        className="mt-10 text-lg text-cypress font-semibold text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 2.0, ease: EASE }}

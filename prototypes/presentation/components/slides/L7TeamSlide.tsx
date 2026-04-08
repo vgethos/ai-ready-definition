@@ -46,7 +46,7 @@ function FlowArrow({ delay }: { delay: number }) {
       <svg width="32" height="24" viewBox="0 0 32 24" fill="none">
         <motion.path
           d="M4 12 L22 12"
-          stroke="#5bbfb3"
+          stroke="#056257"
           strokeWidth="1.5"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
@@ -55,7 +55,7 @@ function FlowArrow({ delay }: { delay: number }) {
         />
         <motion.path
           d="M19 7 L25 12 L19 17"
-          stroke="#5bbfb3"
+          stroke="#056257"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -82,7 +82,7 @@ function FeedbackArrow({ delay, side }: { delay: number; side: "left" | "center"
       <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
         <path
           d="M12 14 L12 4 M8 8 L12 2 L16 8"
-          stroke="#5bbfb3"
+          stroke="#056257"
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -94,7 +94,7 @@ function FeedbackArrow({ delay, side }: { delay: number; side: "left" | "center"
 
 export default function L7TeamSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-canvas">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-10"
@@ -102,10 +102,10 @@ export default function L7TeamSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-subtle-2x text-xs font-medium tracking-wide uppercase">
+        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
           Level 7
         </span>
-        <h2 className="font-serif text-3xl text-subtle-2x">
+        <h2 className="font-serif text-3xl text-ink">
           Not delegation. Collaboration.
         </h2>
       </motion.div>
@@ -117,20 +117,20 @@ export default function L7TeamSlide() {
           return (
             <div key={agent.name} className="flex items-stretch">
               <motion.div
-                className="w-[220px] bg-white/[0.03] rounded-xl border border-white/5 p-6 flex flex-col"
+                className="w-[220px] bg-white rounded-xl shadow-sm p-6 flex flex-col"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.2, ease: EASE }}
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <Icon className="size-6 text-cypress-light" />
-                  <span className="text-subtle-2x font-medium">{agent.name}</span>
+                  <Icon className="size-6 text-cypress" />
+                  <span className="text-ink font-medium">{agent.name}</span>
                 </div>
                 <ul className="flex flex-col gap-2">
                   {agent.bullets.map((bullet, j) => (
                     <motion.li
                       key={j}
-                      className="text-sm text-ink-40 flex items-start gap-2"
+                      className="text-sm text-ink-60 flex items-start gap-2"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{
@@ -139,7 +139,7 @@ export default function L7TeamSlide() {
                         ease: EASE,
                       }}
                     >
-                      <span className="text-cypress-light mt-0.5">·</span>
+                      <span className="text-cypress mt-0.5">·</span>
                       {bullet}
                     </motion.li>
                   ))}
@@ -153,7 +153,7 @@ export default function L7TeamSlide() {
 
       {/* Director Row */}
       <motion.div
-        className="relative w-[720px] bg-white/[0.03] rounded-xl border border-white/5 p-5 flex items-center justify-center gap-4"
+        className="relative w-[720px] bg-white rounded-xl shadow-sm p-5 flex items-center justify-center gap-4"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.1, ease: EASE }}
@@ -161,15 +161,15 @@ export default function L7TeamSlide() {
         <FeedbackArrow delay={1.3} side="left" />
         <FeedbackArrow delay={1.4} side="center" />
         <FeedbackArrow delay={1.5} side="right" />
-        <Crown className="size-5 text-cypress-light flex-shrink-0" />
-        <span className="text-sm text-subtle">
+        <Crown className="size-5 text-cypress flex-shrink-0" />
+        <span className="text-sm text-ink-60">
           Reviews work · Sends revision notes · Coordinates dependencies
         </span>
       </motion.div>
 
       {/* The Reveal */}
       <motion.p
-        className="mt-12 text-xl text-cypress-light font-semibold text-center max-w-2xl"
+        className="mt-12 text-xl text-cypress font-semibold text-center max-w-2xl"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.2, delay: 1.8, ease: EASE }}

@@ -10,7 +10,7 @@ import {
   Search,
 } from "lucide-react";
 
-const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 const tiles = [
   { icon: FileText, label: "One-click PRDs" },
@@ -23,7 +23,7 @@ const tiles = [
 
 export default function L5BreadthSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-canvas">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-10"
@@ -31,10 +31,10 @@ export default function L5BreadthSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-subtle-2x text-xs font-medium tracking-wide uppercase">
+        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
           Level 5
         </span>
-        <h2 className="font-serif text-2xl text-subtle-2x">
+        <h2 className="font-serif text-2xl text-ink">
           The Practice: Tool-Building
         </h2>
       </motion.div>
@@ -46,10 +46,10 @@ export default function L5BreadthSlide() {
           return (
             <motion.div
               key={tile.label}
-              className={`relative w-[200px] h-[200px] flex flex-col items-center justify-center gap-3 rounded-xl border border-ink-20/10 ${
+              className={`relative w-[200px] h-[200px] flex flex-col items-center justify-center gap-3 rounded-xl shadow-sm ${
                 tile.highlight
-                  ? "bg-white/[0.03] ring-1 ring-cypress-light/40"
-                  : "bg-white/[0.03]"
+                  ? "bg-white ring-1 ring-cypress bg-cypress/5"
+                  : "bg-white"
               }`}
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -59,11 +59,8 @@ export default function L5BreadthSlide() {
                 ease: EASE,
               }}
             >
-              {tile.highlight && (
-                <div className="absolute inset-0 rounded-xl bg-cypress-light/5 pointer-events-none" />
-              )}
-              <Icon className="size-8 text-cypress-light" />
-              <span className="text-sm text-subtle-2x text-center px-3">
+              <Icon className="size-8 text-cypress" />
+              <span className="text-[14px] text-ink text-center px-3">
                 {tile.label}
               </span>
             </motion.div>
@@ -73,7 +70,7 @@ export default function L5BreadthSlide() {
 
       {/* Bottom text */}
       <motion.p
-        className="mt-10 text-sm text-ink-40"
+        className="mt-10 text-[14px] text-ink-40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.0, ease: EASE }}
