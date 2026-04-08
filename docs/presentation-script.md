@@ -10,7 +10,7 @@
 | Level | Example | Why This One |
 |---|---|---|
 | L3: Single Agentic Workflows | **Funnel capture tool** — deep-dive on automated funnel documentation (29 screens) | Relatable problem, shows the *practice* of automating the repetitive, compound returns (team reuse) |
-| L4: Multi-Agent Orchestration | **Prototype factory + HQ orchestration** — insurability report built from L3 infrastructure, multi-agent goal decomposition with research pipeline woven in, feedback loops | Visually stunning, demonstrates L3 tools composing into orchestrated creation. Meta-reveal is the payoff |
+| L4: Multi-Agent Orchestration | **This presentation** — the entire talk was built by multi-agent orchestration starting from one vague goal | Meta and relatable (everyone does presentations), demonstrates exploration, milestone decomposition, specialized agents, review loops, adversarial review, human-in-the-loop. The audience is watching the output. |
 | L5: Advanced Autonomous Solutioning | **Brief teaser** — forward-looking, currently in POC stage | Sets the trajectory without overselling |
 
 **Narrative arc:** automate → compose → orchestrate. Each level funds the next.
@@ -38,7 +38,7 @@
 - L1: "Write this email for me"
 - L2: "Help me analyze this document"
 - L3: "I never want to document our funnel manually again"
-- L4: "Ship a prototype with research, design, and code — from one sentence"
+- L4: "Create this entire presentation — from a single goal"
 - L5: "Solve a complex problem end-to-end with minimal guidance"
 
 **Say:**
@@ -89,67 +89,83 @@
 
 **Transition to L4:**
 
-> "Now, level 4. This is where it gets really interesting. The goal: 'Don't just automate one workflow — orchestrate many of them together.'"
+> "Now, level 4. The goal gets much bigger — and much more vague."
 
 ### LEVEL 4: MULTI-AGENT ORCHESTRATION [3:20 - 6:50]
 
-**The concept**
+**The story: This presentation**
 
 **Say:**
 
-> "Level 4 is about combining multiple AI workflows — not running one tool, but orchestrating many. And the examples I'm about to show you are only possible because the level 3 investments already existed."
+> "Level 4 is about combining multiple AI workflows — not running one agent, but orchestrating many. And I want to show you what that looks like with something you can all relate to: putting together a presentation."
 
-#### Part 1: Prototype Factory [3:30 - 4:15]
+#### The Goal [3:30 - 3:50]
 
-**On screen:** The insurability report prototype — score screen with the animated gauge, persona toggle visible.
-
-**Say:**
-
-> "We needed a new experience for our customers — an insurability score screen. Something that shows applicants where they stand after their health interview. This didn't exist anywhere. No designs, no wireframes, just a hypothesis.
->
-> This is NOT 'AI wrote some code.' This is what happens when a dozen level 3 investments start compounding. AI has access to our design system — it knows our components. It knows our brand conventions through project instructions I've written. Live tuning lets me adjust animation timing and spacing in real-time. A visual feedback loop lets me point at a UI element and say 'fix that spacing.'"
-
-**On screen:** Click through the 4-screen flow: loading interstitial → score reveal → carrier matching → approval.
-
-> "Four screens. Animated transitions. A score gauge that shifts color by tier. Two personas with different messaging. This prototype shipped to our engineering team — they're building from working code, not a mockup."
-
-**Audience takeaway:** Level 3 tools compose into creation capability. The prototype is the visual wow; the compounding is the insight.
-
-#### Part 2: The Orchestration Layer [4:15 - 6:30]
-
-**On screen:** Terminal showing the HQ system — goal input → milestone decomposition.
+**On screen:** Terminal showing the goal input: "Create a presentation about how I work with AI"
 
 **Say:**
 
-> "Now here's where it all comes together. I have a system where I can give AI a high-level goal — not a task, not a step-by-step plan, just a goal. And what happens next isn't a chatbot producing output. It's a team forming.
+> "A few weeks ago, I knew I was going to present at this all-hands. And my goal was pretty vague: 'Create a presentation about how I work with AI.' That's it. I didn't have a narrative, I didn't have slides, I didn't know which examples to show. I just had the goal.
 >
-> A director agent analyzes the goal and decomposes it into milestones. It assigns each milestone to a specialist agent — and this part matters: each specialist has different skills and context loaded. One agent analyzed 10 user research interviews and generated evidence-based profiles. Another used that research — along with the same funnel documentation from Level 3 — to inform the prototype. Another wrote a speaker script. They're feeding into each other's work.
->
-> *(beat)* A few days ago, I typed this:"
+> So I assigned an agent to it."
 
-**On screen:** Show the original goal input: "Put together a quick demo/presentation for company all-hands"
+#### Discovery [3:50 - 4:20]
 
-> "The director created milestones: narrative design, presentation build, and demo preparation. It assigned a specialist to each one.
->
-> But here's what makes this orchestration and not just delegation. The specialists build on each other's outputs. The narrative agent researched my codebase, evaluated candidate examples, and wrote a speaker script. The director reviewed it and sent revision notes back — 'make the closing more practical,' 'emphasize how the levels compound.' Just like a real manager giving feedback.
->
-> The narrative agent revised the script. Then the presentation agent used that revised script to build visuals. There are feedback loops, not just handoffs. The agents are collaborating."
-
-**On screen:** Show the milestone breakdown, revision notes, and agent output artifacts.
-
-> "And here's where all the levels tie together. Remember those level 3 automated workflows? The funnel documentation, the design integrations? Those became the *specializations* I assigned to agents. The infrastructure from every previous level compounds into this team's capabilities."
-
-#### Part 3: The Meta-Reveal [6:30 - 6:50]
+**On screen:** Show agent exploring files — CLAUDE.md files, prototypes, artifacts on the machine.
 
 **Say:**
 
-> "*(look at audience)* That revised speaker script... is what I'm reading from right now.
+> "The first thing the agent did was explore. It looked at files on my machine — project instructions I've written, prototypes I've built, artifacts I've saved along the way. It was trying to figure out: who is this person? What does he do? What has he been building? What's interesting enough to present?
 >
-> *(pause for effect)*
->
-> My job was judgment, direction, taste, and decision-making — not tedious execution. That's always been true of my role. AI just makes the separation explicit."
+> Then it asked me questions. A bunch of follow-up questions to fill in the gaps — what's the audience like, what have other presenters covered, what's the vibe of the session. The agent was gathering context."
 
-**Audience takeaway:** Level 4 = AI agents forming a specialized, collaborating team with feedback loops, reviews, and shared context. L3 tools become L4 specializations. The meta-reveal makes it visceral.
+#### Milestone Decomposition [4:20 - 4:50]
+
+**On screen:** Show the three milestones laid out.
+
+**Say:**
+
+> "Once it had enough context, the agent broke the goal down into three concrete milestones. First: align on the narrative — what's the message? I could talk about a million things, so let's choose the one that resonates for 800 people at an Ethos all-hands. Second: turn that narrative into an actual web-based presentation — what you're looking at right now. Third: delivery prep — dry runs, timing, feedback, confidence that this is going to go well today."
+
+#### Why Multiple Agents [4:50 - 5:50]
+
+**On screen:** Diagram showing orchestrator agent connected to three milestone agents, each with different skill labels.
+
+**Say:**
+
+> "Now here's what makes this level 4 and not just 'I asked an AI to help me.' The main agent — the orchestrator — didn't do much of the actual work. Its job was to coordinate. It assigned a *separate* agent to each milestone.
+>
+> Why? A few reasons. First, context. After a lot of back and forth, a single agent starts to drift — it gets less sharp. Separate agents each get a fresh context window. Second, skills. One agent was loaded with skills for copywriting and narrative design. Another had skills for building beautiful web presentations. Different specializations, different context.
+>
+> And third — this is the important one — review loops. When a milestone agent finished its work, the orchestrator reviewed it. And now you have a back-and-forth. The orchestrator gives feedback: 'this section is too long,' 'the closing needs to be more practical,' 'emphasize how the levels compound.' The milestone agent integrates that, sends it back. Two, three, four rounds. Each round polishes the quality.
+>
+> You can even have an adversarial review agent whose only job is to poke holes — find the flaws in the thinking, the gaps in the strategy. It produces a report, and the implementing agent integrates that too."
+
+#### Human in the Loop [5:50 - 6:20]
+
+**On screen:** Show the executive summary / review interface the orchestrator prepared for Vlad.
+
+**Say:**
+
+> "At some point, the orchestrator decides: this is ready for human review. It prepares an executive summary for me — here's the work that's been done, here are the decisions we've made, here are open questions. I can review a lot of work very quickly and in a very concise way. If I spot a flawed assumption, I point it out, and the agents go back and integrate that.
+>
+> My role is judgment, direction, and taste. The agents handle the research, the iteration, the coordination. Some milestones run in parallel, some are sequential because they depend on each other. But the work comes together step by step."
+
+#### The Meta-Reveal [6:20 - 6:50]
+
+**Say:**
+
+> "*(look at audience, pause)*
+>
+> So the narrative you've been hearing... the presentation you've been watching... the timing, the structure, the transitions between levels...
+>
+> *(beat)*
+>
+> This is the output. Right now. This is what multi-agent orchestration produced.
+>
+> *(pause for effect)*"
+
+**Audience takeaway:** Level 4 = multiple specialized agents with an orchestrator, review loops, adversarial feedback, and human-in-the-loop. The audience just experienced the output firsthand. The meta-reveal makes it visceral — they didn't just hear about orchestration, they watched it.
 
 ### LEVEL 5: ADVANCED AUTONOMOUS SOLUTIONING [6:50 - 7:20]
 
@@ -183,11 +199,12 @@
 | 0:30 | 5-level ladder — goals on Y axis |
 | 1:30 | Automated funnel documentation tool (browser + panel) |
 | 2:20 | funnel-capture.md output (structured text) |
-| 3:30 | Insurability report prototype (score screen, 4-screen flow) |
-| 4:15 | Terminal: HQ system with goal input |
-| 4:45 | Goal input: "Put together a quick demo/presentation for company all-hands" |
-| 5:00 | Milestone breakdown + revision notes + agent artifacts |
-| 6:30 | Meta-reveal moment (no screen change needed — let the words land) |
+| 3:30 | Terminal: goal input "Create a presentation about how I work with AI" |
+| 3:50 | Agent exploring files — CLAUDE.md files, prototypes, artifacts |
+| 4:20 | Three milestones laid out (narrative, presentation build, delivery prep) |
+| 4:50 | Diagram: orchestrator agent connected to milestone agents with skill labels |
+| 5:50 | Executive summary / review interface prepared for Vlad |
+| 6:20 | Meta-reveal moment (no screen change needed — let the words land) |
 | 6:50 | 5-level ladder with L5 highlighted, "POC" label |
 | 7:20 | 5-level ladder (L3-L4 highlighted, "funds →" connections) |
 
@@ -198,7 +215,7 @@
 | Opening → L1 | "I think about working with AI in 5 levels — not by the tool you use, but by the ambition of the goal you set." |
 | L1 → L2 | "Level 2: Advanced Prompting. The goals get more specific." |
 | L2 → L3 | "Now watch what happens when the goal changes from 'help me with this task' to 'I never want to do this task again.'" |
-| L3 → L4 | "Now, level 4. This is where it gets really interesting. The goal: 'Don't just automate one workflow — orchestrate many of them together.'" |
+| L3 → L4 | "Level 4 is about combining multiple AI workflows — not running one agent, but orchestrating many. And I want to show you what that looks like with something you can all relate to: putting together a presentation." |
 | L4 reveal → L5 | "There's a Level 5, and it's where this is heading." |
 | L5 → Closing | "Here's what I want you to take away. The investment is sequential, and each level funds the next." |
 
@@ -208,8 +225,8 @@
 2. **L1-L2: Move fast, don't linger.** These levels are acknowledgment, not content. The audience knows this stuff. Get to Level 3 within 90 seconds.
 3. **The L2→L3 transition is the fulcrum.** "Help me with this task" vs. "I never want to do this task again" — this is where the talk shifts from familiar to new. Land it clearly.
 4. **L3: One strong story beats a montage.** Go straight into the funnel capture problem. Don't list other tools — the audience has no context for them. The funnel story IS the proof that Level 3 is a practice. End on shareability — "10 people use it."
-5. **L4: Prototype then orchestration.** The prototype is the visual wow that earns attention. The orchestration layer is the conceptual wow that earns understanding. The research pipeline is woven into the orchestration narrative to show agents feeding into each other — don't treat it as a separate demo.
-6. **L4: Team, not hierarchy.** Emphasize collaboration: specialists building on each other's work, director sending revision notes back, feedback loops. Don't let the audience reduce this to "AI wrote your talk." Own the human role confidently — judgment, direction, taste — not defensively.
+5. **L4: One story, five concepts.** The presentation story naturally demonstrates exploration, decomposition, specialization, review loops, and human-in-the-loop — don't let it feel like a feature list. Tell the story, and the concepts emerge from it.
+6. **L4: Own the human role.** Don't let the audience reduce this to "AI made your talk." The agents handled research, iteration, and coordination. YOU handled judgment, direction, and taste. Say it confidently, not defensively.
 7. **The meta-reveal needs the pause.** "That speaker script... is what I'm reading from right now." Pause before AND after. Let it land. This is the emotional peak of the talk.
 8. **L5: Understate, don't oversell.** "Proof-of-concept stage" is honest and credible. Frame it as solving complex problems end-to-end, not autonomous problem discovery. The audience will project the potential themselves.
 9. **Closing is practical.** No inspirational fluff. "Don't skip levels. Go to the next one. It compounds." This is actionable for everyone regardless of where they are.

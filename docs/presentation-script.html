@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5 Levels of Working with AI — Speaker Script</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f5f5f7;
+    --surface-alt: #eeeef2;
+    --text: #2a2a2a;
+    --text-muted: #6b6b80;
+    --accent: #5a4fd4;
+    --accent-dim: #7c6ff7;
+    --green: #1a8a6a;
+    --orange: #c07020;
+    --red: #c03050;
+    --border: #d8d8e0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    padding: 2rem 1rem;
+  }
+
+  .container {
+    max-width: 740px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: #111;
+  }
+
+  .meta {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+  }
+
+  /* Section headers */
+  .section {
+    margin-bottom: 2.5rem;
+    border-left: 3px solid var(--border);
+    padding-left: 1.25rem;
+  }
+
+  .section.level-3 { border-color: var(--green); }
+  .section.level-4 { border-color: var(--accent); }
+  .section.level-5 { border-color: var(--orange); }
+  .section.closing { border-color: var(--text-muted); }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #111;
+  }
+
+  .timing {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: rgba(124, 111, 247, 0.15);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    white-space: nowrap;
+  }
+
+  .section.level-3 .timing { color: var(--green); background: rgba(78, 204, 163, 0.15); }
+  .section.level-4 .timing { color: var(--accent); background: rgba(124, 111, 247, 0.15); }
+  .section.level-5 .timing { color: var(--orange); background: rgba(240, 160, 80, 0.15); }
+
+  .subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+    margin-top: 1.25rem;
+  }
+
+  .subtitle:first-of-type { margin-top: 0; }
+
+  /* Speaker lines */
+  .say {
+    background: var(--surface);
+    border-radius: 6px;
+    padding: 1rem 1.25rem;
+    margin: 0.5rem 0 1rem 0;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    border: 1px solid var(--border);
+  }
+
+  .say em { color: var(--text-muted); font-style: italic; }
+
+  .say .pause {
+    display: block;
+    color: var(--red);
+    font-weight: 600;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin: 0.5rem 0;
+  }
+
+  /* Screen directions */
+  .screen {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    padding: 0.4rem 0.75rem;
+    background: rgba(0,0,0,0.03);
+    border-radius: 4px;
+    margin: 0.5rem 0;
+    border-left: 2px solid var(--border);
+  }
+
+  .screen::before {
+    content: 'SCREEN';
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    color: var(--accent-dim);
+    margin-right: 0.5rem;
+  }
+
+  /* Takeaway */
+  .takeaway {
+    font-size: 0.82rem;
+    color: var(--green);
+    margin-top: 0.5rem;
+    padding: 0.4rem 0;
+    font-style: italic;
+  }
+
+  .takeaway::before {
+    content: 'TAKEAWAY:';
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    font-style: normal;
+    margin-right: 0.4rem;
+    opacity: 0.7;
+  }
+
+  /* Transition callout */
+  .transition {
+    font-size: 0.85rem;
+    color: var(--orange);
+    margin: 1rem 0 0.5rem 0;
+    font-weight: 600;
+  }
+
+  .transition::before {
+    content: '>';
+    margin-right: 0.4rem;
+    opacity: 0.5;
+  }
+
+  /* Sub-parts within L4 */
+  .subpart {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .subpart-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  /* Ladder visual */
+  .ladder {
+    list-style: none;
+    margin: 0.75rem 0 1rem 0;
+  }
+
+  .ladder li {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    border-left: 2px solid var(--border);
+    margin-bottom: 2px;
+    color: var(--text-muted);
+  }
+
+  .ladder li:nth-child(5) { border-color: var(--orange); color: var(--text); }
+  .ladder li:nth-child(4) { border-color: var(--accent); color: var(--text); }
+  .ladder li:nth-child(3) { border-color: var(--green); color: var(--text); }
+
+  .ladder li strong { color: #111; font-weight: 600; }
+
+  /* Tables */
+  .ref-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .ref-section h2 {
+    font-size: 1.1rem;
+    color: #111;
+    margin-bottom: 1rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    margin-bottom: 2rem;
+  }
+
+  th {
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border);
+  }
+
+  td {
+    padding: 0.5rem 0.75rem;
+    border-bottom: 1px solid rgba(51, 51, 96, 0.5);
+    vertical-align: top;
+  }
+
+  td:first-child {
+    white-space: nowrap;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Delivery notes */
+  .notes {
+    list-style: none;
+    counter-reset: note;
+  }
+
+  .notes li {
+    counter-increment: note;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    padding-left: 2rem;
+    position: relative;
+  }
+
+  .notes li::before {
+    content: counter(note);
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    width: 1.4rem;
+    height: 1.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .notes li strong { color: #111; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<h1>The 5 Levels of Working with AI</h1>
+<div class="meta">
+  Speaker: Vlad Georgescu &middot; Live screenshare, 7-8 min &middot; ~800 people, mixed technical &middot; Final session
+</div>
+
+<!-- OPENING -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">Opening Hook</span>
+    <span class="timing">0:00 - 0:30</span>
+  </div>
+
+  <div class="screen">Title slide -- clean, minimal. Just Vlad's name and a question.</div>
+
+  <div class="say">
+    Everyone who presented before me showed you what AI can do today -- and it's genuinely useful stuff. Copilot, ChatGPT, document analysis. But I want to show you something different.<br><br>
+    I want to show you what becomes possible when you stop thinking of AI as a tool that answers questions... and start thinking of it as a tool that achieves goals.<br><br>
+    I think about working with AI in 5 levels -- not by the tool you use, but by the ambition of the goal you set.
+  </div>
+
+  <div class="takeaway">This session is about ambition, not features. The extra beat lets the audience settle in.</div>
+</div>
+
+<!-- LEVEL 1 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">Level 1: Basic Prompting</span>
+    <span class="timing">0:30 - 0:50</span>
+  </div>
+
+  <div class="screen">5-level ladder visual -- all levels visible, "ambition of goals" on Y axis. L1 highlighted.</div>
+
+  <ul class="ladder">
+    <li><strong>L5:</strong> "Solve a complex problem end-to-end with minimal guidance"</li>
+    <li><strong>L4:</strong> "Create this entire presentation -- from a single goal"</li>
+    <li><strong>L3:</strong> "I never want to document our funnel manually again"</li>
+    <li><strong>L2:</strong> "Help me analyze this document"</li>
+    <li><strong>L1:</strong> "Write this email for me"</li>
+  </ul>
+
+  <div class="say">
+    <em>(point to L1)</em> Level 1: Basic Prompting. "Write this email." "Fix this paragraph." "Summarize this article." One-off requests, useful answers. You already know this -- it's where everyone starts.
+  </div>
+
+  <div class="takeaway">Quick acknowledgment. Moving past this fast.</div>
+</div>
+
+<!-- LEVEL 2 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-title">Level 2: Advanced Prompting</span>
+    <span class="timing">0:50 - 1:30</span>
+  </div>
+
+  <div class="screen">Level 2 highlighted on the ladder.</div>
+
+  <div class="say">
+    <em>(point to L2)</em> Level 2: Advanced Prompting. The goals get more specific. "Help me while I code." "Analyze this 50-page document and find the gaps." "Research this topic thoroughly and give me the key takeaways." This is Copilot, document analysis, iterative back-and-forth work.<br><br>
+    Most teams are here today, and that's great. AI is a powerful assistant at this level. But notice the pattern -- at levels 1 and 2, <em>you</em> are still doing the work. AI is helping you do it faster.<br><br>
+    <em>(gesture to L3-L5)</em> Now watch what happens when the goal changes from "help me with this task" to "I never want to do this task again."
+  </div>
+
+  <div class="takeaway">Levels 1-2 are powerful but bounded -- AI assists you. The jump to Level 3 changes the relationship entirely.</div>
+</div>
+
+<!-- LEVEL 3 -->
+<div class="section level-3">
+  <div class="section-header">
+    <span class="section-title">Level 3: Single Agentic Workflows</span>
+    <span class="timing">1:30 - 3:20</span>
+  </div>
+
+  <p class="subtitle">Automating the Repetitive</p>
+
+  <div class="screen">Automated funnel documentation tool running -- browser window + capture control panel side by side.</div>
+
+  <div class="say">
+    Level 3 is where AI starts working <em>for</em> you, not just <em>with</em> you. The goal changes completely. Let me show you what I mean with something everyone can relate to.<br><br>
+    I'm a PM, and I need to reference our consumer life insurance funnel constantly -- in PRDs, in design reviews, in conversations with engineers. Our funnel is 29 screens long. Every time I needed to reference it, I was taking screenshots, pasting them into docs, writing descriptions by hand. Took an hour. Outdated the next week.<br><br>
+    So the goal: I never want to do this manually again.
+  </div>
+
+  <div class="screen">Show the tool interface -- browser + capture panel.</div>
+
+  <div class="say">
+    I built a tool. It opens a browser, I navigate through the funnel, and every time I click "capture," it takes a screenshot and sends it to AI. It reads the screenshot and writes a structured description of what the user sees, what they can do, what data they're entering.
+  </div>
+
+  <div class="screen">Switch to the output -- funnel-capture.md showing 2-3 screens of structured text.</div>
+
+  <div class="say">
+    The result: a 29-screen text document of our entire funnel. Structured, searchable, shareable. I run it whenever the funnel changes.<br><br>
+    But here's what separates level 3 from level 2. I spent a couple of hours building this. Now 10 people on my team use it without doing that work themselves. Level 2 helps <em>you</em>. Level 3 helps your <em>team</em>. That's the compound return.
+  </div>
+
+  <div class="takeaway">Level 3 = automate the repetitive, not just get one-time answers. The investment compounds because it helps your whole team.</div>
+
+  <div class="transition">"Now, level 4. The goal gets much bigger -- and much more vague."</div>
+</div>
+
+<!-- LEVEL 4 -->
+<div class="section level-4">
+  <div class="section-header">
+    <span class="section-title">Level 4: Multi-Agent Orchestration</span>
+    <span class="timing">3:20 - 6:50</span>
+  </div>
+
+  <p class="subtitle">The Story: This Presentation</p>
+
+  <div class="say">
+    Level 4 is about combining multiple AI workflows -- not running one agent, but orchestrating many. And I want to show you what that looks like with something you can all relate to: putting together a presentation.
+  </div>
+
+  <!-- The Goal -->
+  <div class="subpart">
+    <div class="subpart-title">The Goal <span class="timing">3:30 - 3:50</span></div>
+
+    <div class="screen">Terminal showing the goal input: "Create a presentation about how I work with AI"</div>
+
+    <div class="say">
+      A few weeks ago, I knew I was going to present at this all-hands. And my goal was pretty vague: "Create a presentation about how I work with AI." That's it. I didn't have a narrative, I didn't have slides, I didn't know which examples to show. I just had the goal.<br><br>
+      So I assigned an agent to it.
+    </div>
+  </div>
+
+  <!-- Discovery -->
+  <div class="subpart">
+    <div class="subpart-title">Discovery <span class="timing">3:50 - 4:20</span></div>
+
+    <div class="screen">Agent exploring files -- CLAUDE.md files, prototypes, artifacts on the machine.</div>
+
+    <div class="say">
+      The first thing the agent did was explore. It looked at files on my machine -- project instructions I've written, prototypes I've built, artifacts I've saved along the way. It was trying to figure out: who is this person? What does he do? What has he been building? What's interesting enough to present?<br><br>
+      Then it asked me questions. A bunch of follow-up questions to fill in the gaps -- what's the audience like, what have other presenters covered, what's the vibe of the session. The agent was gathering context.
+    </div>
+  </div>
+
+  <!-- Milestone Decomposition -->
+  <div class="subpart">
+    <div class="subpart-title">Milestone Decomposition <span class="timing">4:20 - 4:50</span></div>
+
+    <div class="screen">Three milestones laid out.</div>
+
+    <div class="say">
+      Once it had enough context, the agent broke the goal down into three concrete milestones. First: align on the narrative -- what's the message? I could talk about a million things, so let's choose the one that resonates for 800 people at an Ethos all-hands. Second: turn that narrative into an actual web-based presentation -- what you're looking at right now. Third: delivery prep -- dry runs, timing, feedback, confidence that this is going to go well today.
+    </div>
+  </div>
+
+  <!-- Why Multiple Agents -->
+  <div class="subpart">
+    <div class="subpart-title">Why Multiple Agents <span class="timing">4:50 - 5:50</span></div>
+
+    <div class="screen">Diagram: orchestrator agent connected to three milestone agents, each with different skill labels.</div>
+
+    <div class="say">
+      Now here's what makes this level 4 and not just "I asked an AI to help me." The main agent -- the orchestrator -- didn't do much of the actual work. Its job was to coordinate. It assigned a <em>separate</em> agent to each milestone.<br><br>
+      Why? A few reasons. First, context. After a lot of back and forth, a single agent starts to drift -- it gets less sharp. Separate agents each get a fresh context window. Second, skills. One agent was loaded with skills for copywriting and narrative design. Another had skills for building beautiful web presentations. Different specializations, different context.<br><br>
+      And third -- this is the important one -- review loops. When a milestone agent finished its work, the orchestrator reviewed it. And now you have a back-and-forth. The orchestrator gives feedback: "this section is too long," "the closing needs to be more practical," "emphasize how the levels compound." The milestone agent integrates that, sends it back. Two, three, four rounds. Each round polishes the quality.<br><br>
+      You can even have an adversarial review agent whose only job is to poke holes -- find the flaws in the thinking, the gaps in the strategy. It produces a report, and the implementing agent integrates that too.
+    </div>
+  </div>
+
+  <!-- Human in the Loop -->
+  <div class="subpart">
+    <div class="subpart-title">Human in the Loop <span class="timing">5:50 - 6:20</span></div>
+
+    <div class="screen">Executive summary / review interface the orchestrator prepared for Vlad.</div>
+
+    <div class="say">
+      At some point, the orchestrator decides: this is ready for human review. It prepares an executive summary for me -- here's the work that's been done, here are the decisions we've made, here are open questions. I can review a lot of work very quickly and in a very concise way. If I spot a flawed assumption, I point it out, and the agents go back and integrate that.<br><br>
+      My role is judgment, direction, and taste. The agents handle the research, the iteration, the coordination. Some milestones run in parallel, some are sequential because they depend on each other. But the work comes together step by step.
+    </div>
+  </div>
+
+  <!-- The Meta-Reveal -->
+  <div class="subpart">
+    <div class="subpart-title">The Meta-Reveal <span class="timing">6:20 - 6:50</span></div>
+
+    <div class="say">
+      <em>(look at audience, pause)</em><br><br>
+      So the narrative you've been hearing... the presentation you've been watching... the timing, the structure, the transitions between levels...<br>
+      <span class="pause">-- beat --</span>
+      This is the output. Right now. This is what multi-agent orchestration produced.
+      <span class="pause">-- pause for effect --</span>
+    </div>
+
+    <div class="takeaway">Level 4 = multiple specialized agents with an orchestrator, review loops, adversarial feedback, and human-in-the-loop. The audience just experienced the output firsthand.</div>
+  </div>
+</div>
+
+<!-- LEVEL 5 -->
+<div class="section level-5">
+  <div class="section-header">
+    <span class="section-title">Level 5: Advanced Autonomous Solutioning</span>
+    <span class="timing">6:50 - 7:20</span>
+  </div>
+
+  <div class="screen">Level 5 highlighted on the ladder -- slightly dimmed, with "POC" label.</div>
+
+  <div class="say">
+    There's a Level 5, and it's where this is heading. AI that can take a complex, multi-step problem -- the kind that today requires weeks of cross-functional work -- and solve it end-to-end with minimal guidance. Not just executing tasks, but reasoning through the full problem space autonomously.<br><br>
+    Right now this is in proof-of-concept stage. But the trajectory is clear: every level makes the next one possible. The same way level 3 automated workflows funded level 4 orchestration, level 4 orchestration is building toward level 5 autonomy.
+  </div>
+
+  <div class="takeaway">The future is visible from here. Grounded in "solving complex problems," not sci-fi.</div>
+</div>
+
+<!-- CLOSING -->
+<div class="section closing">
+  <div class="section-header">
+    <span class="section-title">Closing</span>
+    <span class="timing">7:20 - 7:50</span>
+  </div>
+
+  <div class="screen">5-level ladder again, L3-L4 highlighted. A line connecting each level with "funds ->" between them.</div>
+
+  <div class="say">
+    Here's what I want you to take away. The investment is sequential, and each level funds the next. The tools I built at level 3 became the infrastructure that made level 4 orchestration possible. You can't skip levels. Each one teaches you where AI breaks and what you need to change to make it reliable.<br><br>
+    If you're at level 1 or 2 today -- great. Don't try to jump to level 4. Go to the next level. Get comfortable. Then think a little bigger. Put in the work, level by level, and it compounds.
+  </div>
+
+  <div class="takeaway">Figure out what level you're at. Start thinking about the next one. Each level teaches you something and funds the next. The investment compounds.</div>
+</div>
+
+<!-- REFERENCE SECTIONS -->
+<div class="ref-section">
+  <h2>Screen Flow Summary</h2>
+  <table>
+    <thead>
+      <tr><th>Timing</th><th>On Screen</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>0:00</td><td>Title slide with hook question</td></tr>
+      <tr><td>0:30</td><td>5-level ladder -- goals on Y axis</td></tr>
+      <tr><td>1:30</td><td>Automated funnel documentation tool (browser + panel)</td></tr>
+      <tr><td>2:20</td><td>funnel-capture.md output (structured text)</td></tr>
+      <tr><td>3:30</td><td>Terminal: goal input "Create a presentation about how I work with AI"</td></tr>
+      <tr><td>3:50</td><td>Agent exploring files -- CLAUDE.md files, prototypes, artifacts</td></tr>
+      <tr><td>4:20</td><td>Three milestones laid out (narrative, presentation build, delivery prep)</td></tr>
+      <tr><td>4:50</td><td>Diagram: orchestrator agent connected to milestone agents with skill labels</td></tr>
+      <tr><td>5:50</td><td>Executive summary / review interface prepared for Vlad</td></tr>
+      <tr><td>6:20</td><td>Meta-reveal moment (no screen change -- let the words land)</td></tr>
+      <tr><td>6:50</td><td>5-level ladder with L5 highlighted, "POC" label</td></tr>
+      <tr><td>7:20</td><td>5-level ladder (L3-L4 highlighted, "funds ->" connections)</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="ref-section">
+  <h2>Transition Language</h2>
+  <table>
+    <thead>
+      <tr><th>From -> To</th><th>Line</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Opening -> L1</td><td>"I think about working with AI in 5 levels -- not by the tool you use, but by the ambition of the goal you set."</td></tr>
+      <tr><td>L1 -> L2</td><td>"Level 2: Advanced Prompting. The goals get more specific."</td></tr>
+      <tr><td>L2 -> L3</td><td>"Now watch what happens when the goal changes from 'help me with this task' to 'I never want to do this task again.'"</td></tr>
+      <tr><td>L3 -> L4</td><td>"Level 4 is about combining multiple AI workflows -- not running one agent, but orchestrating many. And I want to show you what that looks like with something you can all relate to: putting together a presentation."</td></tr>
+      <tr><td>L4 -> L5</td><td>"There's a Level 5, and it's where this is heading."</td></tr>
+      <tr><td>L5 -> Close</td><td>"Here's what I want you to take away. The investment is sequential, and each level funds the next."</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="ref-section">
+  <h2>Delivery Notes</h2>
+  <ol class="notes">
+    <li><strong>State the goal first at each level.</strong> The audience should feel the jump in scope before you explain anything. The goal IS the hook.</li>
+    <li><strong>L1-L2: Move fast, don't linger.</strong> These levels are acknowledgment, not content. The audience knows this stuff. Get to Level 3 within 90 seconds.</li>
+    <li><strong>The L2->L3 transition is the fulcrum.</strong> "Help me with this task" vs. "I never want to do this task again" -- this is where the talk shifts from familiar to new. Land it clearly.</li>
+    <li><strong>L3: One strong story beats a montage.</strong> Go straight into the funnel capture problem. Don't list other tools -- the audience has no context for them. The funnel story IS the proof that Level 3 is a practice. End on shareability -- "10 people use it."</li>
+    <li><strong>L4: One story, five concepts.</strong> The presentation story naturally demonstrates exploration, decomposition, specialization, review loops, and human-in-the-loop -- don't let it feel like a feature list. Tell the story, and the concepts emerge from it.</li>
+    <li><strong>L4: Own the human role.</strong> Don't let the audience reduce this to "AI made your talk." The agents handled research, iteration, and coordination. YOU handled judgment, direction, and taste. Say it confidently, not defensively.</li>
+    <li><strong>The meta-reveal needs the pause.</strong> "That speaker script... is what I'm reading from right now." Pause before AND after. Let it land. This is the emotional peak of the talk.</li>
+    <li><strong>L5: Understate, don't oversell.</strong> "Proof-of-concept stage" is honest and credible. Frame it as solving complex problems end-to-end, not autonomous problem discovery. The audience will project the potential themselves.</li>
+    <li><strong>Closing is practical.</strong> No inspirational fluff. "Don't skip levels. Go to the next one. It compounds." This is actionable for everyone regardless of where they are.</li>
+    <li><strong>Don't over-explain tech.</strong> No one needs to hear "Playwright" or "Framer Motion." They need to feel the escalation of ambition and understand the compounding principle.</li>
+  </ol>
+</div>
+
+</div>
+</body>
+</html>
