@@ -6,7 +6,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function L5ToolSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-10"
@@ -17,7 +17,7 @@ export default function L5ToolSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
           Level 5
         </span>
-        <h2 className="font-serif text-3xl text-white">
+        <h2 className="font-serif text-3xl text-ink">
           The Funnel Capture Tool
         </h2>
       </motion.div>
@@ -26,7 +26,7 @@ export default function L5ToolSlide() {
       <div className="flex gap-5 w-full max-w-5xl">
         {/* LEFT: Mock browser */}
         <motion.div
-          className="w-[60%] rounded-2xl overflow-hidden border border-white/10 bg-white"
+          className="w-[60%] rounded-2xl overflow-hidden shadow-lg bg-white"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
@@ -92,7 +92,7 @@ export default function L5ToolSlide() {
 
         {/* RIGHT: Capture panel (terminal — dark bg is intentional) */}
         <motion.div
-          className="w-[40%] rounded-2xl overflow-hidden border border-white/10 bg-ink p-6 font-mono text-sm"
+          className="w-[40%] rounded-2xl overflow-hidden shadow-lg bg-ink p-6 font-mono text-sm"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
@@ -152,7 +152,7 @@ export default function L5ToolSlide() {
 
       {/* Bottom quote */}
       <motion.p
-        className="mt-8 text-[14px] text-white/50 italic max-w-2xl text-center"
+        className="mt-8 text-[14px] text-ink-60 italic max-w-2xl text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2, ease: EASE }}

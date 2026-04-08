@@ -44,7 +44,7 @@ function lineColor(style: string) {
 
 export default function L7SetupSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-8"
@@ -55,14 +55,14 @@ export default function L7SetupSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
           Level 7
         </span>
-        <h2 className="font-serif text-3xl text-white">
+        <h2 className="font-serif text-3xl text-ink">
           Achieve this goal &mdash; figure out the steps yourself
         </h2>
       </motion.div>
 
       {/* Terminal Window */}
       <motion.div
-        className="w-[700px] bg-ink rounded-2xl border border-white/10 overflow-hidden"
+        className="w-[700px] bg-ink rounded-2xl shadow-lg overflow-hidden"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2, ease: EASE }}
@@ -96,7 +96,7 @@ export default function L7SetupSlide() {
 
       {/* Bottom caption */}
       <motion.p
-        className="mt-8 text-sm text-white/60 italic"
+        className="mt-8 text-sm text-ink-60 italic"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, delay: 4.2, ease: EASE }}

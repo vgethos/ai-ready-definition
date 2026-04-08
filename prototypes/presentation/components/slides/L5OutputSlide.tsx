@@ -36,7 +36,7 @@ const screens = [
 
 export default function L5OutputSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-8"
@@ -47,14 +47,14 @@ export default function L5OutputSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
           Level 5
         </span>
-        <h2 className="font-serif text-2xl text-white">
+        <h2 className="font-serif text-2xl text-ink">
           The Output: 29 Screens, Structured &amp; Searchable
         </h2>
       </motion.div>
 
       {/* Document viewer */}
       <motion.div
-        className="w-full max-w-3xl rounded-2xl overflow-hidden bg-white border border-white/10"
+        className="w-full max-w-3xl rounded-2xl overflow-hidden bg-white shadow-lg"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
@@ -111,12 +111,12 @@ export default function L5OutputSlide() {
 
       {/* Bottom callout */}
       <motion.div
-        className="mt-6 w-full max-w-3xl rounded-xl bg-white/[0.07] border border-white/10 px-6 py-4 text-center"
+        className="mt-6 w-full max-w-3xl rounded-xl bg-subtle-2x px-6 py-4 text-center"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.1, ease: EASE }}
       >
-        <span className="text-white text-[14px]">
+        <span className="text-ink text-[14px]">
           I spent{" "}
           <span className="text-cypress font-semibold">2 hours</span>{" "}
           building this. Now{" "}

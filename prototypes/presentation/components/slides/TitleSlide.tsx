@@ -6,9 +6,9 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function TitleSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       <motion.h1
-        className="font-serif text-6xl text-white text-center max-w-4xl leading-tight"
+        className="font-serif text-6xl text-ink text-center max-w-4xl leading-tight"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: EASE }}
@@ -17,7 +17,7 @@ export default function TitleSlide() {
       </motion.h1>
 
       <motion.p
-        className="mt-10 text-[11px] text-white/60 tracking-[1.5px] uppercase font-medium"
+        className="mt-10 text-[11px] text-ink-60 tracking-[1.5px] uppercase font-medium"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.4, ease: EASE }}
@@ -26,7 +26,7 @@ export default function TitleSlide() {
       </motion.p>
 
       <motion.p
-        className="mt-2 text-[14px] text-white/40"
+        className="mt-2 text-[14px] text-ink-40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.6, ease: EASE }}

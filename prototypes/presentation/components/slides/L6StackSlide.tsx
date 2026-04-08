@@ -33,7 +33,7 @@ export default function L6StackSlide() {
   const allCardsVisible = 0.4 + CARDS.length * cardDelay;
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-3"
@@ -44,7 +44,7 @@ export default function L6StackSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-sm font-medium">
           Level 6
         </span>
-        <h2 className="font-serif text-2xl text-white">
+        <h2 className="font-serif text-2xl text-ink">
           Why this worked: L5 tools compounding
         </h2>
       </motion.div>
@@ -64,7 +64,7 @@ export default function L6StackSlide() {
         {CARDS.map((card, i) => (
           <div key={card.title} className="flex items-center gap-3">
             <motion.div
-              className="bg-white/[0.07] border border-white/10 rounded-xl p-6 flex flex-col items-center text-center w-[200px]"
+              className="bg-white rounded-xl shadow-sm p-6 flex flex-col items-center text-center w-[200px]"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
@@ -74,10 +74,10 @@ export default function L6StackSlide() {
               }}
             >
               <card.Icon className="w-7 h-7 text-cypress mb-3" />
-              <h3 className="text-sm font-medium text-white mb-1">
+              <h3 className="text-sm font-medium text-ink mb-1">
                 {card.title}
               </h3>
-              <p className="text-sm text-white/60">{card.description}</p>
+              <p className="text-sm text-ink-60">{card.description}</p>
             </motion.div>
 
             {/* Arrow between cards */}
@@ -115,7 +115,7 @@ export default function L6StackSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: allCardsVisible, ease: EASE }}
       >
-        <span className="text-4xl text-white/40 font-light">=</span>
+        <span className="text-4xl text-ink-40 font-light">=</span>
         <span className="text-xl text-cypress font-semibold">
           Creation capability
         </span>
