@@ -84,7 +84,7 @@ const SCREENS = [
 
 export default function L6FlowSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-12"
@@ -95,7 +95,7 @@ export default function L6FlowSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-sm font-medium">
           Level 6
         </span>
-        <h2 className="font-serif text-2xl text-ink">
+        <h2 className="font-serif text-2xl text-white">
           Four screens. From hypothesis to shipped prototype.
         </h2>
       </motion.div>
@@ -115,7 +115,7 @@ export default function L6FlowSlide() {
             }}
           >
             {/* Phone frame */}
-            <div className="w-[180px] h-[320px] bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="w-[180px] h-[320px] bg-white rounded-2xl border border-white/10 overflow-hidden">
               {/* Mini status bar */}
               <div className="flex items-center justify-center py-2 border-b border-gray-100">
                 <span className="text-[7px] font-semibold tracking-widest text-ink-40 uppercase">
@@ -126,14 +126,14 @@ export default function L6FlowSlide() {
               <div className="h-[calc(100%-28px)]">{screen.content}</div>
             </div>
             {/* Label */}
-            <span className="mt-3 text-sm text-ink-40">{screen.label}</span>
+            <span className="mt-3 text-sm text-white/40">{screen.label}</span>
           </motion.div>
         ))}
       </div>
 
       {/* Caption */}
       <motion.p
-        className="mt-10 text-sm text-ink-60 text-center max-w-2xl"
+        className="mt-10 text-sm text-white/60 text-center max-w-2xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2, ease: EASE }}

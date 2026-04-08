@@ -23,7 +23,7 @@ const tiles = [
 
 export default function L5BreadthSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-10"
@@ -34,7 +34,7 @@ export default function L5BreadthSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
           Level 5
         </span>
-        <h2 className="font-serif text-2xl text-ink">
+        <h2 className="font-serif text-2xl text-white">
           The Practice: Tool-Building
         </h2>
       </motion.div>
@@ -46,7 +46,7 @@ export default function L5BreadthSlide() {
           return (
             <motion.div
               key={tile.label}
-              className="relative w-[200px] h-[200px] flex flex-col items-center justify-center gap-3 rounded-xl shadow-sm bg-white"
+              className="relative w-[200px] h-[200px] flex flex-col items-center justify-center gap-3 rounded-xl bg-white/[0.07] border border-white/10"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
@@ -56,7 +56,7 @@ export default function L5BreadthSlide() {
               }}
             >
               <Icon className="size-8 text-cypress" />
-              <span className="text-[14px] text-ink text-center px-3">
+              <span className="text-[14px] text-white text-center px-3">
                 {tile.label}
               </span>
             </motion.div>
@@ -66,7 +66,7 @@ export default function L5BreadthSlide() {
 
       {/* Bottom text */}
       <motion.p
-        className="mt-10 text-[14px] text-ink-40"
+        className="mt-10 text-[14px] text-white/40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.0, ease: EASE }}

@@ -94,7 +94,7 @@ function FeedbackArrow({ delay, side }: { delay: number; side: "left" | "center"
 
 export default function L7TeamSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-10"
@@ -105,7 +105,7 @@ export default function L7TeamSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
           Level 7
         </span>
-        <h2 className="font-serif text-3xl text-ink">
+        <h2 className="font-serif text-3xl text-white">
           Not delegation. Collaboration.
         </h2>
       </motion.div>
@@ -117,20 +117,20 @@ export default function L7TeamSlide() {
           return (
             <div key={agent.name} className="flex items-stretch">
               <motion.div
-                className="w-[220px] bg-white rounded-xl shadow-sm p-6 flex flex-col"
+                className="w-[220px] bg-white/[0.07] rounded-xl border border-white/10 p-6 flex flex-col"
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 + i * 0.2, ease: EASE }}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <Icon className="size-6 text-cypress" />
-                  <span className="text-ink font-medium">{agent.name}</span>
+                  <span className="text-white font-medium">{agent.name}</span>
                 </div>
                 <ul className="flex flex-col gap-2">
                   {agent.bullets.map((bullet, j) => (
                     <motion.li
                       key={j}
-                      className="text-sm text-ink-60 flex items-start gap-2"
+                      className="text-sm text-white/70 flex items-start gap-2"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{
@@ -153,7 +153,7 @@ export default function L7TeamSlide() {
 
       {/* Director Row */}
       <motion.div
-        className="relative w-[720px] bg-white rounded-xl shadow-sm p-5 flex items-center justify-center gap-4"
+        className="relative w-[720px] bg-white/[0.07] rounded-xl border border-white/10 p-5 flex items-center justify-center gap-4"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 1.1, ease: EASE }}
@@ -162,7 +162,7 @@ export default function L7TeamSlide() {
         <FeedbackArrow delay={1.4} side="center" />
         <FeedbackArrow delay={1.5} side="right" />
         <Crown className="size-5 text-cypress flex-shrink-0" />
-        <span className="text-sm text-ink-60">
+        <span className="text-sm text-white/60">
           Reviews work · Sends revision notes · Coordinates dependencies
         </span>
       </motion.div>

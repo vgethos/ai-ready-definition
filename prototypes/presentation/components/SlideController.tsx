@@ -65,7 +65,7 @@ export default function SlideController({ children }: SlideControllerProps) {
   const progressPercent = total > 1 ? ((currentIndex + 1) / total) * 100 : 100;
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden bg-[#f5f5f5]">
+    <div className="relative w-screen h-screen overflow-hidden bg-canvas">
       <AnimatePresence mode="wait" custom={direction}>
         <motion.div
           key={currentIndex}
@@ -85,7 +85,7 @@ export default function SlideController({ children }: SlideControllerProps) {
       </AnimatePresence>
 
       {/* Progress bar */}
-      <div className="fixed bottom-0 left-0 w-full h-[2px] bg-subtle-2x">
+      <div className="fixed bottom-0 left-0 w-full h-[2px] bg-white/10">
         <motion.div
           className="h-full bg-cypress"
           initial={false}
@@ -98,7 +98,7 @@ export default function SlideController({ children }: SlideControllerProps) {
       </div>
 
       {/* Slide counter */}
-      <div className="fixed bottom-3 right-4 text-xs text-ink-40 select-none">
+      <div className="fixed bottom-3 right-4 text-xs text-white/40 select-none">
         {currentIndex + 1} / {total}
       </div>
     </div>

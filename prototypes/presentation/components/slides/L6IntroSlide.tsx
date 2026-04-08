@@ -12,7 +12,7 @@ const DASH_OFFSET = CIRCUMFERENCE * (1 - SCORE_PERCENT);
 
 export default function L6IntroSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12">
       {/* Level badge + headline */}
       <motion.div
         className="flex items-center gap-4 mb-10"
@@ -23,14 +23,14 @@ export default function L6IntroSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-sm font-medium">
           Level 6
         </span>
-        <h2 className="font-serif text-3xl text-ink">
+        <h2 className="font-serif text-3xl text-white">
           Create something that doesn&rsquo;t exist yet
         </h2>
       </motion.div>
 
       {/* Phone frame */}
       <motion.div
-        className="max-w-[375px] w-full rounded-[40px] bg-white shadow-2xl overflow-hidden"
+        className="max-w-[375px] w-full rounded-[40px] bg-white border border-white/10 overflow-hidden"
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2, ease: EASE }}
@@ -137,7 +137,7 @@ export default function L6IntroSlide() {
 
       {/* Caption below phone */}
       <motion.p
-        className="mt-8 text-sm text-ink-60 italic text-center max-w-xl"
+        className="mt-8 text-sm text-white/60 italic text-center max-w-xl"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 2.2, ease: EASE }}
