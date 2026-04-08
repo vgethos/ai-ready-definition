@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+
+  /* Ethos brand colors */
+  --color-canvas: #03211e;
+  --color-canvas-light: #042e2a;
+  --color-cypress: #056257;
+  --color-cypress-light: #5bbfb3;
+  --color-cypress-glow: #078476;
+  --color-ink: #272727;
+  --color-ink-80: #3d3d3d;
+  --color-ink-60: #727272;
+  --color-ink-40: #7e7e7e;
+  --color-ink-20: #d4d4d4;
+  --color-subtle: #dae7e6;
+  --color-subtle-2x: #f3f7f7;
+  --color-white: #ffffff;
+}
+
+:root {
+  --background: #03211e;
+  --foreground: #f3f7f7;
+}
+
+@layer base {
+  * {
+    @apply border-ink-20/10 outline-none;
+  }
+  body {
+    @apply bg-canvas text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
