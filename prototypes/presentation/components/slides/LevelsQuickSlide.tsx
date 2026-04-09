@@ -26,7 +26,7 @@ const LEVELS = [
 
 export default function LevelsQuickSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-white">
       <motion.p
         className="text-[11px] text-deck-faint tracking-[1.5px] uppercase font-medium mb-10"
         initial={{ opacity: 0 }}
@@ -43,7 +43,7 @@ export default function LevelsQuickSlide() {
             <motion.div
               key={level.num}
               className="relative flex flex-col items-center text-center bg-white rounded-xl shadow-card p-8"
-              initial={{ opacity: 0, y: 16 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.15, ease: EASE }}
             >

@@ -41,14 +41,14 @@ export default function L4WorkLoopSlide() {
         {/* Header */}
         <motion.div
           className="flex items-center gap-4 mb-10"
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
           <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
           </span>
-          <h2 className="font-serif text-[44px] leading-[1.15] text-ink">
+          <h2 className="font-serif text-[44px] leading-[1.15] text-ink text-balance">
             How the Work Gets Done
           </h2>
         </motion.div>
@@ -56,7 +56,7 @@ export default function L4WorkLoopSlide() {
         {/* Two agent nodes side by side */}
         <motion.div
           className="flex items-center justify-center gap-16 w-full mb-8"
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.15 }}
         >
@@ -116,12 +116,12 @@ export default function L4WorkLoopSlide() {
           {phase >= 1 && (
             <motion.div
               className="w-full mb-4"
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.5, ease: EASE }}
             >
-              <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/60 border border-ink/5">
+              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white shadow-card">
                 <div className="w-6 h-6 rounded-full bg-cypress/10 flex items-center justify-center shrink-0">
                   <span className="text-[11px] font-semibold text-cypress">
                     1
@@ -141,12 +141,12 @@ export default function L4WorkLoopSlide() {
           {phase >= 2 && (
             <motion.div
               className="w-full mb-4"
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.5, ease: EASE }}
             >
-              <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/60 border border-ink/5 mb-3">
+              <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-white shadow-card mb-3">
                 <div className="w-6 h-6 rounded-full bg-cypress/10 flex items-center justify-center shrink-0">
                   <span className="text-[11px] font-semibold text-cypress">
                     2
@@ -179,7 +179,7 @@ export default function L4WorkLoopSlide() {
           {phase >= 3 && (
             <motion.div
               className="w-full flex flex-col items-center"
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.5, ease: EASE }}

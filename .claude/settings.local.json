@@ -66,18 +66,10 @@
       "Bash(corepack:*)"
     ]
   },
-<<<<<<< Updated upstream
-  "enabledMcpjsonServers": [
-    "agentation"
-  ],
-  "outputStyle": "Explanatory",
-  "enableAllProjectMcpServers": true
-=======
   "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "agentation"
   ],
   "outputStyle": "default",
   "spinnerTipsEnabled": true
->>>>>>> Stashed changes
 }

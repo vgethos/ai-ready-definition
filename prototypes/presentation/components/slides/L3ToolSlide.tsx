@@ -9,12 +9,11 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const screens = [
   {
     image: "/funnel/screen-03.png",
-    number: 3,
-    title: "Screen 3: Goals",
+    title: "Screen 1: Goals",
     url: "app.ethos.com/q/goals",
     content: [
-      { type: "h2", text: "Screen 3: Goals" },
-      { type: "meta", text: "**URL:** app.ethos.com/q/goals" },
+      { type: "h2", text: "Screen 1: Goals" },
+      { type: "meta", text: "URL: app.ethos.com/q/goals" },
       { type: "h3", text: "What the user sees" },
       {
         type: "body",
@@ -26,12 +25,11 @@ const screens = [
   },
   {
     image: "/funnel/screen-04.png",
-    number: 4,
-    title: "Screen 4: Protections",
+    title: "Screen 2: Protections",
     url: "app.ethos.com/q/protections",
     content: [
-      { type: "h2", text: "Screen 4: Protections" },
-      { type: "meta", text: "**URL:** app.ethos.com/q/protections" },
+      { type: "h2", text: "Screen 2: Protections" },
+      { type: "meta", text: "URL: app.ethos.com/q/protections" },
       { type: "h3", text: "What the user sees" },
       {
         type: "body",
@@ -43,12 +41,11 @@ const screens = [
   },
   {
     image: "/funnel/screen-05.png",
-    number: 5,
-    title: "Screen 5: How It Works",
+    title: "Screen 3: How It Works",
     url: "app.ethos.com/q/howItWorks",
     content: [
-      { type: "h2", text: "Screen 5: How It Works" },
-      { type: "meta", text: "**URL:** app.ethos.com/q/howItWorks" },
+      { type: "h2", text: "Screen 3: How It Works" },
+      { type: "meta", text: "URL: app.ethos.com/q/howItWorks" },
       { type: "h3", text: "What the user sees" },
       {
         type: "body",
@@ -60,12 +57,11 @@ const screens = [
   },
   {
     image: "/funnel/screen-08.png",
-    number: 8,
-    title: "Screen 8: Children",
+    title: "Screen 4: Children",
     url: "app.ethos.com/q/children",
     content: [
-      { type: "h2", text: "Screen 8: Children" },
-      { type: "meta", text: "**URL:** app.ethos.com/q/children" },
+      { type: "h2", text: "Screen 4: Children" },
+      { type: "meta", text: "URL: app.ethos.com/q/children" },
       { type: "h3", text: "What the user sees" },
       {
         type: "body",
@@ -77,12 +73,11 @@ const screens = [
   },
   {
     image: "/funnel/screen-09.png",
-    number: 9,
-    title: "Screen 9: Estate Plan or Will",
+    title: "Screen 5: Estate Plan or Will",
     url: "app.ethos.com/q/wills",
     content: [
-      { type: "h2", text: "Screen 9: Estate Plan or Will" },
-      { type: "meta", text: "**URL:** app.ethos.com/q/wills" },
+      { type: "h2", text: "Screen 5: Estate Plan or Will" },
+      { type: "meta", text: "URL: app.ethos.com/q/wills" },
       { type: "h3", text: "What the user sees" },
       {
         type: "body",
@@ -94,14 +89,13 @@ const screens = [
   },
   {
     image: "/funnel/screen-10.png",
-    number: 10,
-    title: "Screen 10: Estate Planning Tools",
+    title: "Screen 6: Estate Planning Tools",
     url: "app.ethos.com/q/willsEducational",
     content: [
-      { type: "h2", text: "Screen 10: Estate Planning Tools" },
+      { type: "h2", text: "Screen 6: Estate Planning Tools" },
       {
         type: "meta",
-        text: "**URL:** app.ethos.com/q/willsEducational",
+        text: "URL: app.ethos.com/q/willsEducational",
       },
       { type: "h3", text: "What the user sees" },
       {
@@ -130,25 +124,25 @@ function ContentBlock({
   switch (block.type) {
     case "h2":
       return (
-        <div className="font-bold text-ink text-[11px] leading-relaxed mt-0.5">
+        <div className="font-bold text-ink text-[13px] leading-relaxed mt-0.5">
           ## {block.text}
         </div>
       );
     case "meta":
       return (
-        <div className="text-ink text-[11px] leading-relaxed">
+        <div className="text-ink text-[13px] leading-relaxed">
           {block.text}
         </div>
       );
     case "h3":
       return (
-        <div className="font-semibold text-ink text-[11px] leading-relaxed mt-1.5">
+        <div className="font-semibold text-ink text-[13px] leading-relaxed mt-4">
           ### {block.text}
         </div>
       );
     case "body":
       return (
-        <div className="text-ink text-[11px] leading-relaxed whitespace-pre-line pl-0">
+        <div className="text-ink text-[13px] leading-relaxed whitespace-pre-line pl-0">
           {block.text}
         </div>
       );
@@ -159,17 +153,17 @@ function ContentBlock({
 
 function AnimatedBar({ processing }: { processing: boolean }) {
   return (
-    <div className="flex flex-col items-center justify-center w-[48px] shrink-0">
-      <div className="relative h-[2px] w-[36px] overflow-hidden rounded-full bg-cypress/10">
+    <div className="flex flex-col items-center justify-center w-[80px] shrink-0">
+      <div className="relative h-[3px] w-[64px] overflow-hidden rounded-full bg-cypress/20">
         <motion.div
-          className="absolute top-0 left-0 h-full w-[16px] rounded-full bg-cypress/60"
+          className="absolute top-0 left-0 h-full w-[20px] rounded-full bg-cypress"
           animate={
             processing
               ? {
-                  x: ["-16px", "36px"],
+                  x: ["-20px", "64px"],
                   opacity: [0, 1, 1, 0],
                 }
-              : { x: "-16px", opacity: 0 }
+              : { x: "-20px", opacity: 0 }
           }
           transition={
             processing
@@ -187,46 +181,90 @@ function AnimatedBar({ processing }: { processing: boolean }) {
 }
 
 export default function L3ToolSlide() {
+  // Flatten all content blocks into a single line list for line-by-line reveal
+  const allLines = screens.flatMap((screen, screenIdx) =>
+    screen.content.map((block, blockIdx) => ({
+      ...block,
+      screenIdx,
+      blockIdx,
+      isFirst: blockIdx === 0,
+      isLast: blockIdx === screen.content.length - 1,
+    }))
+  );
+
+  const [runKey, setRunKey] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [processing, setProcessing] = useState(false);
-  const [visibleScreens, setVisibleScreens] = useState<number[]>([]);
+  const [visibleLineCount, setVisibleLineCount] = useState(0);
   const [done, setDone] = useState(false);
   const [phase, setPhase] = useState(1);
   const [showCards, setShowCards] = useState(false);
   const docRef = useRef<HTMLDivElement>(null);
 
-  // Phase 1: Auto-play funnel capture demo
+  const replay = useCallback(() => {
+    setCurrentStep(0);
+    setProcessing(false);
+    setVisibleLineCount(0);
+    setDone(false);
+    setPhase(1);
+    setShowCards(false);
+    setRunKey((k) => k + 1);
+  }, []);
+
+  // Phase 1: Auto-play funnel capture demo — line by line
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = [];
-    const SCREEN_DURATION = 2000;
+    const LINE_DELAY = 300; // ms between each line
+    const SCREEN_PAUSE = 800; // extra pause when switching screens
+    let elapsed = 0;
 
-    screens.forEach((_, i) => {
-      const base = i * SCREEN_DURATION;
+    allLines.forEach((line, i) => {
+      // Add extra pause at the start of each new screen (except the first line)
+      if (line.isFirst && i > 0) {
+        elapsed += SCREEN_PAUSE;
+      }
 
+      const showAt = elapsed;
+
+      // Switch screenshot when a new screen starts, with a processing delay before lines appear
+      if (line.isFirst) {
+        timers.push(
+          setTimeout(() => {
+            setCurrentStep(line.screenIdx);
+            setProcessing(true);
+          }, showAt)
+        );
+        elapsed += 1000; // wait 1s after screenshot appears before first line
+      }
+
+      // Reveal this line
       timers.push(
         setTimeout(() => {
-          setCurrentStep(i);
-          setProcessing(true);
-        }, base)
+          setVisibleLineCount(i + 1);
+        }, elapsed)
       );
 
-      timers.push(
-        setTimeout(() => {
-          setProcessing(false);
-          setVisibleScreens((prev) => [...prev, i]);
-        }, base + 1200)
-      );
+      // Stop processing indicator after the last line of a screen
+      if (line.isLast) {
+        timers.push(
+          setTimeout(() => {
+            setProcessing(false);
+          }, showAt + 200)
+        );
+      }
+
+      elapsed += LINE_DELAY;
     });
 
-    const endTime = screens.length * SCREEN_DURATION + 400;
+    // Mark done after all lines
     timers.push(
       setTimeout(() => {
         setDone(true);
-      }, endTime)
+      }, elapsed + 600)
     );
 
     return () => timers.forEach(clearTimeout);
-  }, []);
+  }, [runKey]);
 
   // Auto-scroll document panel when new content appears
   useEffect(() => {
@@ -236,7 +274,7 @@ export default function L3ToolSlide() {
         behavior: "smooth",
       });
     }
-  }, [visibleScreens, done]);
+  }, [visibleLineCount, done]);
 
   // Phase 2 staggered reveals
   useEffect(() => {
@@ -284,21 +322,18 @@ export default function L3ToolSlide() {
   const isPhase2 = phase === 2;
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-10 bg-[#f5f5f5]">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-10 bg-white">
       {/* Header */}
       <motion.div
         className="flex items-center gap-4 mb-8"
-        initial={{ opacity: 0, y: 12 }}
+        initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-[1.5px] uppercase">
-          Level 3
-        </span>
         <AnimatePresence mode="wait">
           <motion.h2
             key={isPhase2 ? "context" : "funnel"}
-            className="font-serif text-[44px] leading-[1.15] text-ink"
+            className="font-serif text-[44px] leading-[1.15] text-ink text-balance"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -313,7 +348,7 @@ export default function L3ToolSlide() {
 
       {/* Main content area */}
       <div
-        className="flex items-center justify-center w-full max-w-[700px] relative"
+        className="flex items-center justify-center w-full max-w-[800px] gap-8 relative"
         style={{ height: "580px" }}
       >
         {/* ===== PHASE 1: Funnel capture demo ===== */}
@@ -336,7 +371,7 @@ export default function L3ToolSlide() {
                   <div className="w-2 h-2 rounded-full bg-[#febc2e]" />
                   <div className="w-2 h-2 rounded-full bg-[#28c840]" />
                 </div>
-                <div className="flex-1 ml-2 px-2 py-0.5 rounded bg-white text-[11px] text-deck-secondary font-mono truncate">
+                <div className="flex-1 ml-2 px-2 py-0.5 rounded bg-white text-[13px] text-deck-secondary font-mono truncate">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={currentStep}
@@ -428,9 +463,9 @@ export default function L3ToolSlide() {
                 style={{ pointerEvents: isPhase2 ? "none" : "auto" }}
               >
                 {/* Title bar */}
-                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-ink-10 shrink-0 bg-[#fafafa]">
+                <div className="flex items-center gap-2 px-4 py-2.5 border-b border-ink/10 shrink-0 bg-[#fafafa]">
                   <div className="w-2.5 h-2.5 rounded-sm bg-cypress" />
-                  <span className="text-[11px] text-deck-faint uppercase tracking-[1.5px] font-medium font-mono">
+                  <span className="text-[13px] text-deck-faint uppercase tracking-[1.5px] font-medium font-mono">
                     funnel-capture.md
                   </span>
                 </div>
@@ -440,7 +475,7 @@ export default function L3ToolSlide() {
                   ref={docRef}
                   className="flex-1 overflow-y-auto px-4 py-3 font-mono"
                 >
-                  {visibleScreens.length === 0 && !done && (
+                  {visibleLineCount === 0 && !done && (
                     <motion.div
                       className="text-deck-faint text-center mt-16 text-xs"
                       initial={{ opacity: 0 }}
@@ -451,22 +486,19 @@ export default function L3ToolSlide() {
                     </motion.div>
                   )}
 
-                  <div className="space-y-3">
-                    {screens.map((screen, i) => (
+                  <div className="space-y-1">
+                    {allLines.map((line, i) => (
                       <AnimatePresence key={i}>
-                        {visibleScreens.includes(i) && (
+                        {i < visibleLineCount && (
                           <motion.div
-                            initial={{ opacity: 0, y: 8 }}
+                            initial={{ opacity: 0, y: 4 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.4, ease: EASE }}
-                            className="space-y-1"
+                            transition={{ duration: 0.25, ease: EASE }}
                           >
-                            {screen.content.map((block, j) => (
-                              <ContentBlock key={j} block={block} />
-                            ))}
-                            {i < screens.length - 1 && (
-                              <div className="border-b border-ink-5 mt-3 mb-3" />
+                            {line.isFirst && line.screenIdx > 0 && (
+                              <div className="border-b border-ink/5 mt-5 mb-5" />
                             )}
+                            <ContentBlock block={line} />
                           </motion.div>
                         )}
                       </AnimatePresence>
@@ -490,7 +522,7 @@ export default function L3ToolSlide() {
                   className="w-5 h-5 text-cypress"
                   strokeWidth={1.5}
                 />
-                <span className="text-[11px] font-mono text-cypress font-medium truncate max-w-[140px]">
+                <span className="text-[13px] font-mono text-cypress font-medium truncate max-w-[140px]">
                   funnel-capture.md
                 </span>
               </motion.div>
@@ -516,7 +548,7 @@ export default function L3ToolSlide() {
                       className="w-5 h-5 text-deck-faint"
                       strokeWidth={1.5}
                     />
-                    <span className="text-[11px] font-mono mt-2 truncate max-w-[140px] text-deck-secondary">
+                    <span className="text-[13px] font-mono mt-2 truncate max-w-[140px] text-deck-secondary">
                       {file.name}
                     </span>
                   </div>
@@ -526,21 +558,25 @@ export default function L3ToolSlide() {
         </div>
       </div>
 
-      {/* Bottom quote (phase 1 only) */}
+      {/* Replay button — appears when animation finishes, phase 1 only */}
       <AnimatePresence>
-        {!isPhase2 && (
-          <motion.p
-            className="mt-6 text-[14px] text-deck-secondary max-w-2xl text-center"
+        {done && !isPhase2 && (
+          <motion.button
+            onClick={replay}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 w-9 h-9 flex items-center justify-center rounded-full bg-[var(--deck-tag-bg)] text-deck-faint hover:text-ink transition-colors cursor-pointer"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, delay: 1.2, ease: EASE }}
+            transition={{ duration: 0.4, ease: EASE }}
+            aria-label="Replay animation"
           >
-            &ldquo;I need to reference our 29-screen funnel constantly &mdash;
-            in PRDs, design reviews, engineer conversations.&rdquo;
-          </motion.p>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M1 4v6h6" /><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10" />
+            </svg>
+          </motion.button>
         )}
       </AnimatePresence>
+
     </div>
   );
 }

@@ -4,10 +4,10 @@ import { motion } from "motion/react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function L3IntroSlide() {
+export default function L4DialUpSlide() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-white">
-      {/* ModeTag */}
+      {/* Eyebrow */}
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0 }}
@@ -15,7 +15,7 @@ export default function L3IntroSlide() {
         transition={{ duration: 0.6, ease: EASE }}
       >
         <span className="text-[14px] font-medium uppercase tracking-[2px] text-ink">
-          Level 3: Agentic Workflows
+          Level 4: Multi-Agent Orchestration
         </span>
       </motion.div>
 
@@ -26,9 +26,8 @@ export default function L3IntroSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.15, ease: EASE }}
       >
-        Can we make our end-to-end funnel accessible to Claude?
+        What if we dial it up a notch?
       </motion.h2>
-
     </div>
   );
 }

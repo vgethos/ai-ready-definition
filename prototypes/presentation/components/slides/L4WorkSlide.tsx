@@ -5,43 +5,13 @@ import { motion, AnimatePresence } from "motion/react";
 import PixelAgent from "@/components/PixelAgent";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-const MAX_PHASE = 4;
+const MAX_PHASE = 10;
 
-function DocIcon({
-  label,
-  accent,
-  checkmark,
-}: {
-  label: string;
-  accent?: string;
-  checkmark?: boolean;
-}) {
+function DocIcon({ label, src = "/doc.svg" }: { label: string; src?: string }) {
   return (
-    <div className="flex flex-col items-center gap-1">
-      <div className="w-[44px] h-[54px] rounded-lg bg-white border border-ink-20 flex flex-col items-center justify-center gap-1 relative shadow-card">
-        <div className="w-6 h-[2px] rounded-full bg-ink-20" />
-        <div
-          className="w-6 h-[2px] rounded-full"
-          style={{ backgroundColor: accent || "var(--color-ink-20)" }}
-        />
-        <div className="w-4 h-[2px] rounded-full bg-ink-20" />
-        {checkmark && (
-          <div className="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-white border border-ink-20 flex items-center justify-center">
-            <svg
-              width="10"
-              height="10"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#4ade80"
-              strokeWidth="3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M20 6L9 17l-5-5" />
-            </svg>
-          </div>
-        )}
-      </div>
+    <div className="flex flex-col items-center gap-2">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={src} alt={label} className="w-[42px] h-[62px]" />
       <span className="text-[11px] tracking-[1.5px] uppercase text-deck-faint font-medium">
         {label}
       </span>
@@ -85,11 +55,11 @@ export default function L4WorkSlide() {
       {phase === 0 && (
         <motion.div
           className="flex flex-col items-center"
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <h2 className="font-serif text-[44px] leading-[1.15] text-ink mb-10 text-center">
+          <h2 className="font-serif text-[44px] leading-[1.15] text-ink mb-10 text-center text-balance">
             How the actual work happens
           </h2>
           <div className="bg-white rounded-xl shadow-card px-8 py-6 text-center">
@@ -108,6 +78,17 @@ export default function L4WorkSlide() {
       {/* Phase 1+: Spatial flow diagram */}
       {phase >= 1 && (
         <div className="relative" style={{ width: 820, height: 520 }}>
+          {/*
+            Layout anchors (center points):
+            - Vlad headshot: (175, 155) — 90px circle
+            - Goal Agent capsule: (410, 155) — ~170×70
+            - M2 Agent circle: (410, 370) — 140×140
+            - Context label: (480, 265)
+            - Revisions doc: (630, 300)
+            - Feedback doc: (270, 300)
+            - Review doc: (310, 70)
+          */}
+
           {/* SVG connection lines */}
           <svg
             className="absolute inset-0 pointer-events-none"
@@ -117,10 +98,10 @@ export default function L4WorkSlide() {
           >
             {/* Vlad → Goal Agent dashed line */}
             <motion.line
-              x1="230"
-              y1="160"
-              x2="320"
-              y2="160"
+              x1="220"
+              y1="155"
+              x2="325"
+              y2="155"
               stroke="var(--color-ink-20)"
               strokeWidth="1"
               strokeDasharray="5 4"
@@ -130,98 +111,41 @@ export default function L4WorkSlide() {
             />
 
             {/* Goal Agent → M2 Agent vertical dashed line */}
-            <motion.line
-              x1="420"
-              y1="200"
-              x2="420"
-              y2="300"
-              stroke="var(--color-ink-20)"
-              strokeWidth="1"
-              strokeDasharray="5 4"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.4, ease: EASE, delay: 0.6 }}
-            />
-
-            {/* Phase 2+: Goal Agent → Revisions (curve right+down) */}
             {phase >= 2 && (
-              <motion.path
-                d="M 510 155 C 600 140, 640 200, 630 265"
+              <motion.line
+                x1="410"
+                y1="190"
+                x2="410"
+                y2="300"
                 stroke="var(--color-ink-20)"
                 strokeWidth="1"
                 strokeDasharray="5 4"
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, ease: EASE }}
               />
             )}
 
-            {/* Phase 3+: Revisions → M2 (curve down+left) */}
-            {phase >= 3 && (
-              <>
-                <motion.path
-                  d="M 630 330 C 640 410, 560 450, 480 420"
-                  stroke="var(--color-ink-20)"
-                  strokeWidth="1"
-                  strokeDasharray="5 4"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 0.6, ease: EASE, delay: 0.2 }}
-                />
-                {/* Feedback → M2 Agent */}
-                <motion.line
-                  x1="335"
-                  y1="305"
-                  x2="370"
-                  y2="340"
-                  stroke="var(--color-ink-20)"
-                  strokeWidth="1"
-                  strokeDasharray="5 4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4, ease: EASE, delay: 0.3 }}
-                />
-              </>
-            )}
 
-            {/* Phase 4: Vlad → Review doc → Goal Agent */}
-            {phase >= 4 && (
-              <>
-                <motion.line
-                  x1="200"
-                  y1="125"
-                  x2="280"
-                  y2="95"
-                  stroke="var(--color-ink-20)"
-                  strokeWidth="1"
-                  strokeDasharray="5 4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4, ease: EASE, delay: 0.15 }}
-                />
-                <motion.line
-                  x1="340"
-                  y1="95"
-                  x2="380"
-                  y2="125"
-                  stroke="var(--color-ink-20)"
-                  strokeWidth="1"
-                  strokeDasharray="5 4"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.4, ease: EASE, delay: 0.25 }}
-                />
-              </>
-            )}
           </svg>
 
           {/* Vlad headshot */}
           <motion.div
-            className="absolute"
-            style={{ left: 110, top: 110 }}
+            className="absolute -translate-y-1/2"
+            style={{ left: 130, top: 155 }}
             initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, ease: EASE }}
+            animate={{
+              opacity: 1,
+              x: 0,
+              scale: phase === 10 ? [1, 1.12, 1] : 1,
+            }}
+            transition={{
+              opacity: { duration: 0.5, ease: EASE },
+              x: { duration: 0.5, ease: EASE },
+              scale: phase === 10
+                ? { duration: 0.4, delay: 0.85, ease: EASE }
+                : { duration: 0.3 },
+            }}
           >
             <img
               src="/vlad-headshot.png"
@@ -232,96 +156,286 @@ export default function L4WorkSlide() {
 
           {/* Goal Agent capsule */}
           <motion.div
-            className="absolute"
-            style={{ left: 325, top: 125 }}
+            className="absolute flex justify-center -translate-y-1/2"
+            style={{ left: 325, top: 155, width: 170, zIndex: 1 }}
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.45, ease: EASE, delay: 0.15 }}
+            animate={{
+              opacity: 1,
+              scale: (phase === 4 || phase === 8) ? [1, 1.12, 1] : 1,
+            }}
+            transition={{
+              opacity: { duration: 0.45, ease: EASE, delay: 0.15 },
+              scale: (phase === 4 || phase === 8)
+                ? { duration: 0.4, delay: 0.85, ease: [0.22, 1, 0.36, 1] }
+                : { duration: 0.45, ease: EASE, delay: 0.15 },
+            }}
           >
-            <div className="bg-canvas rounded-full px-7 py-3 flex flex-col items-center gap-1.5">
-              <PixelAgent color="#D97757" size={24} />
-              <span className="text-[11px] tracking-[1.5px] uppercase text-white font-medium">
+            <div className="bg-canvas rounded-full px-9 py-4 flex flex-col items-center gap-2 relative">
+              <PixelAgent color="#D97757" size={28} />
+              {/* "Goal Agent" label — hidden during reviewing phases */}
+              <motion.span
+                className="text-[11px] tracking-[1.5px] uppercase text-white font-medium text-center"
+                animate={{ opacity: (phase === 4 || phase === 8) ? 0 : 1 }}
+                transition={{ duration: 0.25, ease: EASE, delay: (phase === 4 || phase === 8) ? 0.85 : 0.3 }}
+              >
                 Goal Agent
-              </span>
+              </motion.span>
+              {/* "Reviewing" overlay — fades in after swallow */}
+              <motion.span
+                className="absolute bottom-4 left-0 right-0 text-[11px] tracking-[1.5px] uppercase text-white font-medium text-center flex flex-col items-center gap-1"
+                animate={{ opacity: (phase === 4 || phase === 8) ? 1 : 0 }}
+                transition={{ duration: 0.25, ease: EASE, delay: (phase === 4 || phase === 8) ? 0.95 : 0 }}
+              >
+                Reviewing
+                <span className="flex gap-[3px]">
+                  {[0, 1, 2].map((i) => (
+                    <motion.span
+                      key={i}
+                      className="w-[4px] h-[4px] rounded-full bg-white/70"
+                      animate={{ opacity: [0.3, 1, 0.3] }}
+                      transition={{
+                        duration: 1.2,
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                        ease: "easeInOut",
+                      }}
+                    />
+                  ))}
+                </span>
+              </motion.span>
             </div>
           </motion.div>
 
-          {/* "CONTEXT" label */}
-          <motion.div
-            className="absolute text-[11px] tracking-[1.5px] uppercase text-deck-faint font-medium"
-            style={{ left: 435, top: 245 }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, ease: EASE, delay: 0.7 }}
-          >
-            Context
-          </motion.div>
+          {/* "CONTEXT" label — right of the vertical line, disappears when doc is produced */}
+          <AnimatePresence>
+            {phase >= 2 && phase < 3 && (
+              <motion.div
+                className="absolute text-[11px] tracking-[1.5px] uppercase text-deck-faint font-medium"
+                style={{ left: 425, top: 240 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.4, ease: EASE, delay: 0.2 }}
+              >
+                Context
+              </motion.div>
+            )}
+          </AnimatePresence>
 
-          {/* Milestone 2 Agent circle */}
-          <motion.div
-            className="absolute"
-            style={{ left: 340, top: 300 }}
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: EASE, delay: 0.5 }}
-          >
-            <div className="w-[140px] h-[140px] rounded-full bg-canvas flex flex-col items-center justify-center gap-1.5">
-              <PixelAgent color="#d478a8" size={28} />
-              <span className="text-[11px] tracking-[1.5px] uppercase text-white font-medium leading-tight text-center">
-                Milestone 2
-                <br />
-                Agent
-              </span>
-            </div>
-          </motion.div>
-
-          {/* Phase 2+: Revisions document */}
+          {/* Milestone 2 Agent circle — centered at (410, 370) */}
           <AnimatePresence>
             {phase >= 2 && (
               <motion.div
                 className="absolute"
-                style={{ left: 610, top: 265 }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.45, ease: EASE, delay: 0.1 }}
+                style={{ left: 355, top: 300 }}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.5, ease: EASE }}
               >
-                <DocIcon label="Revisions" />
+                <motion.div
+                  className="w-[110px] h-[110px] rounded-full bg-canvas flex flex-col items-center justify-center gap-1.5"
+                  animate={{
+                    scale: phase === 6 ? [1, 1.12, 1] : 1,
+                  }}
+                  transition={{
+                    scale: phase === 6
+                      ? { duration: 0.4, delay: 0.85, ease: EASE }
+                      : { duration: 0.3 },
+                  }}
+                >
+                  <PixelAgent color="#d478a8" size={24} />
+                  <motion.span
+                    className="text-[11px] tracking-[1.5px] uppercase text-white font-medium leading-tight text-center"
+                    animate={{ opacity: phase === 6 ? 0 : 1 }}
+                    transition={{ duration: 0.25, ease: EASE, delay: phase === 6 ? 0.85 : 0.3 }}
+                  >
+                    Milestone 2
+                    <br />
+                    Agent
+                  </motion.span>
+                  <motion.span
+                    className="absolute bottom-7 left-0 right-0 text-[11px] tracking-[1.5px] uppercase text-white font-medium text-center flex flex-col items-center gap-1"
+                    animate={{ opacity: phase === 6 ? 1 : 0 }}
+                    transition={{ duration: 0.25, ease: EASE, delay: phase === 6 ? 0.95 : 0 }}
+                  >
+                    Revising
+                    <span className="flex gap-[3px]">
+                      {[0, 1, 2].map((i) => (
+                        <motion.span
+                          key={i}
+                          className="w-[4px] h-[4px] rounded-full bg-white/70"
+                          animate={{ opacity: [0.3, 1, 0.3] }}
+                          transition={{
+                            duration: 1.2,
+                            repeat: Infinity,
+                            delay: i * 0.2,
+                            ease: "easeInOut",
+                          }}
+                        />
+                      ))}
+                    </span>
+                  </motion.span>
+                </motion.div>
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Phase 3+: Feedback document */}
+          {/* Phase 3+: Draft document — sits at M2's right, then flies to Goal Agent in phase 4 */}
           <AnimatePresence>
-            {phase >= 3 && (
+            {phase >= 3 && phase < 4 && (
               <motion.div
                 className="absolute"
-                style={{ left: 290, top: 240 }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                style={{ left: 530, top: 320 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.45, ease: EASE }}
               >
-                <DocIcon label="Feedback" accent="#ef4444" />
+                <DocIcon label="Draft" />
               </motion.div>
             )}
           </AnimatePresence>
 
-          {/* Phase 4: Review document with checkmark */}
+          {/* Phase 4: Doc flying along curve to Goal Agent, then disappearing under it */}
+          {phase === 4 && (
+            <motion.div
+              className="absolute"
+              style={{
+                left: 0,
+                top: 0,
+                offsetPath: `path("M 550 340 C 580 240, 540 170, 490 145")`,
+                offsetRotate: "0deg",
+                zIndex: 0,
+              }}
+              initial={{ offsetDistance: "0%", opacity: 1, scale: 1 }}
+              animate={{ offsetDistance: "100%", opacity: 0, scale: 0.3 }}
+              transition={{
+                offsetDistance: { duration: 1.0, ease: EASE },
+                opacity: { duration: 0.2, delay: 0.8, ease: EASE },
+                scale: { duration: 0.3, delay: 0.7, ease: EASE },
+              }}
+            >
+              <DocIcon label="Draft" />
+            </motion.div>
+          )}
+
+          {/* Phase 5: Feedback doc appears next to Goal Agent */}
           <AnimatePresence>
-            {phase >= 4 && (
+            {phase >= 5 && phase < 6 && (
               <motion.div
                 className="absolute"
-                style={{ left: 270, top: 60 }}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
+                style={{ left: 520, top: 115 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.45, ease: EASE }}
               >
-                <DocIcon label="Review" accent="#4ade80" checkmark />
+                <DocIcon label="Feedback" src="/feedback-doc.svg" />
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* Phase 6: Feedback doc flies down to M2 */}
+          {phase === 6 && (
+            <motion.div
+              className="absolute"
+              style={{
+                left: 0,
+                top: 0,
+                offsetPath: `path("M 540 135 C 530 220, 450 280, 410 300")`,
+                offsetRotate: "0deg",
+                zIndex: 0,
+              }}
+              initial={{ offsetDistance: "0%", opacity: 1, scale: 1 }}
+              animate={{ offsetDistance: "100%", opacity: 0, scale: 0.3 }}
+              transition={{
+                offsetDistance: { duration: 1.0, ease: EASE },
+                opacity: { duration: 0.2, delay: 0.8, ease: EASE },
+                scale: { duration: 0.3, delay: 0.7, ease: EASE },
+              }}
+            >
+              <DocIcon label="Feedback" src="/feedback-doc.svg" />
+            </motion.div>
+          )}
+
+          {/* Phase 7: Revision 2 doc appears next to M2 */}
+          <AnimatePresence>
+            {phase >= 7 && phase < 8 && (
+              <motion.div
+                className="absolute"
+                style={{ left: 530, top: 320 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.45, ease: EASE }}
+              >
+                <DocIcon label="Revision 2" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Phase 8: Revision 2 flies to Goal Agent */}
+          {phase === 8 && (
+            <motion.div
+              className="absolute"
+              style={{
+                left: 0,
+                top: 0,
+                offsetPath: `path("M 550 340 C 580 240, 540 170, 490 145")`,
+                offsetRotate: "0deg",
+                zIndex: 0,
+              }}
+              initial={{ offsetDistance: "0%", opacity: 1, scale: 1 }}
+              animate={{ offsetDistance: "100%", opacity: 0, scale: 0.3 }}
+              transition={{
+                offsetDistance: { duration: 1.0, ease: EASE },
+                opacity: { duration: 0.2, delay: 0.8, ease: EASE },
+                scale: { duration: 0.3, delay: 0.7, ease: EASE },
+              }}
+            >
+              <DocIcon label="Revision 2" />
+            </motion.div>
+          )}
+
+          {/* Phase 9: Doc-ready appears next to Goal Agent */}
+          <AnimatePresence>
+            {phase >= 9 && phase < 10 && (
+              <motion.div
+                className="absolute"
+                style={{ left: 520, top: 115 }}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.45, ease: EASE }}
+              >
+                <DocIcon label="Ready" src="/doc-ready.svg" />
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Phase 10: Doc-ready flies to Vlad */}
+          {phase === 10 && (
+            <motion.div
+              className="absolute"
+              style={{
+                left: 0,
+                top: 0,
+                offsetPath: `path("M 490 145 C 400 130, 280 120, 195 145")`,
+                offsetRotate: "0deg",
+                zIndex: 0,
+              }}
+              initial={{ offsetDistance: "0%", opacity: 1, scale: 1 }}
+              animate={{ offsetDistance: "100%", opacity: 0, scale: 0.3 }}
+              transition={{
+                offsetDistance: { duration: 1.0, ease: EASE },
+                opacity: { duration: 0.2, delay: 0.8, ease: EASE },
+                scale: { duration: 0.3, delay: 0.7, ease: EASE },
+              }}
+            >
+              <DocIcon label="Ready" src="/doc-ready.svg" />
+            </motion.div>
+          )}
         </div>
       )}
     </div>

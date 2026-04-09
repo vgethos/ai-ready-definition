@@ -6,23 +6,11 @@ import { motion } from "motion/react";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const LEVELS = [
-  { num: 1, goal: "Write this email for me", label: "Basic Prompting" },
-  { num: 2, goal: "Help me analyze this document", label: "Advanced Prompting" },
-  {
-    num: 3,
-    goal: "Make our entire funnel accessible to AI \u2014 structured, searchable, always current",
-    label: "Single Agentic Workflows",
-  },
-  {
-    num: 4,
-    goal: "Orchestrate a team of AI agents to research, design, build, and polish a complete project",
-    label: "Multi-Agent Orchestration",
-  },
-  {
-    num: 5,
-    goal: "Solve a complex problem end-to-end with minimal guidance",
-    label: "Advanced Autonomous Solutioning",
-  },
+  { num: 1, label: ["Basic", "Prompting"] },
+  { num: 2, label: ["Advanced", "Prompting"] },
+  { num: 3, label: ["Agentic", "Workflows"] },
+  { num: 4, label: ["Multi-Agent", "Orchestration"] },
+  { num: 5, label: ["Autonomous", "Systems"] },
 ];
 
 /* Each step rises by this many pixels */
@@ -63,11 +51,11 @@ export default function LadderSlide() {
   }, [handleKeyDown]);
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5] relative overflow-hidden">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-white relative overflow-hidden">
       {/* Title */}
       <motion.h2
-        className="font-serif text-[44px] leading-[1.15] text-ink mb-12"
-        initial={{ opacity: 0, y: 10 }}
+        className="font-serif text-[44px] leading-[1.15] text-ink text-balance mb-12"
+        initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
@@ -104,29 +92,21 @@ export default function LadderSlide() {
               }}
               transition={{ duration: 0.4, ease: EASE }}
             >
-              {/* The step card */}
-              <div className="w-[180px] bg-white rounded-xl shadow-card px-4 py-4 flex flex-col items-center text-center">
+              {/* Single card with integrated riser */}
+              <div
+                className="w-[180px] bg-white rounded-xl shadow-card px-4 pt-8 flex flex-col items-center text-center"
+                style={{ paddingBottom: riserHeight }}
+              >
                 {/* Level badge */}
                 <span className="w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium mb-2 bg-cypress text-white">
                   L{level.num}
                 </span>
 
-                {/* Goal text */}
-                <span className="text-[13px] leading-snug text-ink">
-                  &ldquo;{level.goal}&rdquo;
-                </span>
-
                 {/* Category label */}
-                <span className="text-[11px] tracking-[1.5px] uppercase mt-2 text-deck-faint">
-                  {level.label}
+                <span className="text-[13px] leading-snug text-ink font-medium">
+                  {level.label[0]}<br />{level.label[1]}
                 </span>
               </div>
-
-              {/* The riser — invisible vertical spacer that creates the stair effect */}
-              <div
-                className="w-[180px] mt-0 bg-cypress/[0.06] rounded-b-xl"
-                style={{ height: riserHeight }}
-              />
             </motion.div>
           );
         })}

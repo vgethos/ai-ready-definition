@@ -35,14 +35,14 @@ export default function L4ZoomSlide() {
         {/* Header */}
         <motion.div
           className="flex items-center gap-4 mb-7"
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0 }}
         >
           <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
           </span>
-          <h2 className="font-serif text-[44px] leading-[1.15] text-ink">
+          <h2 className="font-serif text-[44px] leading-[1.15] text-ink text-balance">
             Multi-Agent Orchestration
           </h2>
         </motion.div>
@@ -50,7 +50,7 @@ export default function L4ZoomSlide() {
         {/* Milestone pills row */}
         <motion.div
           className="flex items-center gap-3 justify-center mb-7 w-full"
-          initial={{ opacity: 0, y: 10 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.45, ease: EASE, delay: 0.15 }}
         >
@@ -93,7 +93,7 @@ export default function L4ZoomSlide() {
         {/* Expanded context card for Milestone 2 */}
         <motion.div
           className="w-full rounded-xl bg-white shadow-card border border-ink/5 px-5 py-5"
-          initial={{ opacity: 0, y: 14 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.4 }}
         >

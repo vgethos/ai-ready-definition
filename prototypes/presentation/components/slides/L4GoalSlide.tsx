@@ -70,48 +70,23 @@ export default function L4GoalSlide() {
       <div className="flex flex-col items-center">
         {/* Goal Card */}
         <motion.div
-          layout
-          className="bg-white rounded-2xl shadow-card text-center"
+          className="bg-white rounded-2xl shadow-card text-center px-16 py-10 max-w-[780px] origin-top"
+          initial={{ opacity: 0, y: 8 }}
           animate={{
             opacity: 1,
             y: 0,
-            maxWidth: isCompact ? 320 : 460,
-            paddingLeft: isCompact ? 20 : 48,
-            paddingRight: isCompact ? 20 : 48,
-            paddingTop: isCompact ? 14 : 40,
-            paddingBottom: isCompact ? 14 : 40,
-          }}
-          initial={{
-            maxWidth: 460,
-            paddingLeft: 48,
-            paddingRight: 48,
-            paddingTop: 40,
-            paddingBottom: 40,
-            opacity: 0,
-            y: 16,
+            scale: isCompact ? 0.55 : 1,
+            marginBottom: isCompact ? -130 : 0,
           }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <motion.div
-            layout
-            className="tracking-[1.5px] uppercase text-deck-faint font-medium"
-            animate={{
-              fontSize: isCompact ? 11 : 11,
-              marginBottom: isCompact ? 8 : 20,
-            }}
-            transition={{ duration: 0.5, ease: EASE }}
-          >
-            Goal
-          </motion.div>
-          <motion.p
-            layout
-            className="font-serif leading-snug text-ink"
-            animate={{ fontSize: isCompact ? 18 : 28 }}
-            transition={{ duration: 0.5, ease: EASE }}
-          >
+          <div className="text-[14px] font-medium uppercase tracking-[2px] text-ink mb-6">
+            Level 4: Multi-Agent Orchestration
+          </div>
+          <p className="font-serif text-[44px] leading-[1.15] text-ink text-balance">
             &ldquo;I need a presentation about how I work with AI for a
             show&amp;tell at the company all-hands&rdquo;
-          </motion.p>
+          </p>
         </motion.div>
 
         {/* Phase 1+: Agent capsule */}
@@ -121,41 +96,18 @@ export default function L4GoalSlide() {
               key="agent-section"
               layout
               className="flex flex-col items-center"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
+              exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.5, ease: EASE }}
             >
-              <motion.div
-                layout
-                className="bg-ink-20"
-                animate={{ width: 1, height: isCompact ? 16 : 32 }}
-                transition={{ duration: 0.5, ease: EASE }}
-              />
-              <motion.div
-                layout
-                className="bg-canvas rounded-full flex flex-col items-center"
-                animate={{
-                  paddingLeft: isCompact ? 24 : 40,
-                  paddingRight: isCompact ? 24 : 40,
-                  paddingTop: isCompact ? 8 : 16,
-                  paddingBottom: isCompact ? 8 : 16,
-                  gap: isCompact ? 4 : 8,
-                }}
-                transition={{ duration: 0.5, ease: EASE }}
-              >
-                <PixelAgent
-                  color="#D97757"
-                  size={isCompact ? 20 : 28}
-                />
-                <span
-                  className={`tracking-[1.5px] uppercase text-white font-medium ${
-                    isCompact ? "text-[11px]" : "text-[11px]"
-                  }`}
-                >
+              <div className="w-px h-8 bg-ink-20" />
+              <div className="bg-canvas rounded-full flex flex-col items-center px-10 py-4 gap-2">
+                <PixelAgent color="#D97757" size={28} />
+                <span className="tracking-[1.5px] uppercase text-white font-medium text-[11px]">
                   Agent Assigned
                 </span>
-              </motion.div>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -167,9 +119,9 @@ export default function L4GoalSlide() {
               key="milestones-section"
               layout
               className="flex flex-col items-center"
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 10 }}
+              exit={{ opacity: 0, y: 6 }}
               transition={{ duration: 0.5, ease: EASE }}
             >
               <div className="w-px h-4 bg-ink-20" />
@@ -212,7 +164,7 @@ export default function L4GoalSlide() {
                       <AnimatePresence>
                         {milestoneVisible && (
                           <motion.div
-                            className="w-full bg-white rounded-xl shadow-card px-3 py-3 text-center"
+                            className="w-full bg-white rounded-xl shadow-card px-3 py-8 text-center"
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 12 }}
@@ -228,28 +180,21 @@ export default function L4GoalSlide() {
                         )}
                       </AnimatePresence>
 
-                      {/* Sub-agent circle */}
-                      <AnimatePresence>
-                        {agentVisible && (
-                          <motion.div
-                            className="flex flex-col items-center"
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            exit={{ opacity: 0, scale: 0.8 }}
-                            transition={{ duration: 0.45, ease: EASE }}
-                          >
-                            <div className="w-px h-3 bg-ink-20" />
-                            <div className="w-[60px] h-[60px] rounded-full bg-canvas flex flex-col items-center justify-center gap-0.5">
-                              <PixelAgent color={m.agentColor} size={18} />
-                              <span className="text-[11px] tracking-[1px] uppercase text-white font-medium leading-tight text-center">
-                                Agent
-                                <br />
-                                Assigned
-                              </span>
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                      {/* Sub-agent circle — always in DOM, opacity only */}
+                      <div
+                        className="flex flex-col items-center transition-opacity duration-300"
+                        style={{ opacity: agentVisible ? 1 : 0 }}
+                      >
+                        <div className="w-px h-3 bg-ink-20" />
+                        <div className="w-[120px] h-[120px] rounded-full bg-canvas flex flex-col items-center justify-center gap-1">
+                          <PixelAgent color={m.agentColor} size={28} />
+                          <span className="text-[11px] tracking-[1px] uppercase text-white font-medium leading-tight text-center">
+                            Agent
+                            <br />
+                            Assigned
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   );
                 })}

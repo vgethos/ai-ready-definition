@@ -27,14 +27,14 @@ export default function L4MilestonesSlide() {
         {/* Goal Card (smaller) */}
         <motion.div
           className="bg-white rounded-2xl shadow-card px-8 py-6 max-w-[380px]"
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
           <div className="text-[11px] tracking-[1.5px] uppercase text-deck-faint text-center mb-4 font-medium">
             Goal
           </div>
-          <p className="font-serif text-[28px] leading-[1.2] text-ink text-center">
+          <p className="font-serif text-[28px] leading-[1.2] text-ink text-center text-balance">
             &ldquo;I need a presentation about how I work with AI for a
             show&amp;tell at the company all-hands&rdquo;
           </p>
@@ -119,7 +119,7 @@ export default function L4MilestonesSlide() {
               key={m.number}
               className="bg-white rounded-xl shadow-card px-4 py-5 text-center"
               style={{ width: CARD_W }}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.45,

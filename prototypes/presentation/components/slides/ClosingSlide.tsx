@@ -120,7 +120,7 @@ export default function ClosingSlide() {
   const showClosing = revealedCount === TOTAL_STEPS;
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-white">
       <div className="flex flex-col items-center max-w-2xl w-full">
         {/* Header — always visible */}
         <motion.p
@@ -196,11 +196,11 @@ export default function ClosingSlide() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
             >
-              <p className="text-[14px] text-deck-secondary mb-3">
+              <p className="text-[18px] leading-relaxed text-deck-secondary mb-3">
                 Each level teaches you where AI breaks and what you need to
                 change.
               </p>
-              <p className="text-[14px] text-ink font-medium">
+              <p className="text-[18px] leading-relaxed text-ink font-medium">
                 Figure out your level. Go to the next one. It compounds.
               </p>
             </motion.div>
