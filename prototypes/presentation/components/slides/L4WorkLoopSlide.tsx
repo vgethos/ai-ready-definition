@@ -62,10 +62,10 @@ export default function L4WorkLoopSlide() {
         >
           {/* M2 Agent node */}
           <div className="flex flex-col items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-cypress text-white flex items-center justify-center text-[12px] font-semibold">
+            <div className="w-10 h-10 rounded-full bg-cypress text-white flex items-center justify-center text-[13px] font-semibold">
               M2
             </div>
-            <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-60">
+            <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-deck-secondary">
               Agent
             </span>
           </div>
@@ -75,7 +75,7 @@ export default function L4WorkLoopSlide() {
             <AnimatePresence>
               {phase >= 1 && (
                 <motion.div
-                  className="text-ink-40 text-[18px] tracking-[1.5px]st"
+                  className="text-deck-faint text-[18px] tracking-[1.5px]st"
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 8 }}
@@ -88,7 +88,7 @@ export default function L4WorkLoopSlide() {
             <AnimatePresence>
               {phase >= 2 && (
                 <motion.div
-                  className="text-ink-40 text-[18px] tracking-[1.5px]st"
+                  className="text-deck-faint text-[18px] tracking-[1.5px]st"
                   initial={{ opacity: 0, x: 8 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -8 }}
@@ -102,10 +102,10 @@ export default function L4WorkLoopSlide() {
 
           {/* Director node */}
           <div className="flex flex-col items-center gap-2">
-            <div className="w-10 h-10 rounded-full bg-cypress text-white flex items-center justify-center text-[12px] font-semibold">
+            <div className="w-10 h-10 rounded-full bg-cypress text-white flex items-center justify-center text-[13px] font-semibold">
               D
             </div>
-            <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-60">
+            <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-deck-secondary">
               Director
             </span>
           </div>
@@ -123,14 +123,14 @@ export default function L4WorkLoopSlide() {
             >
               <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/60 border border-ink/5">
                 <div className="w-6 h-6 rounded-full bg-cypress/10 flex items-center justify-center shrink-0">
-                  <span className="text-[10px] font-semibold text-cypress">
+                  <span className="text-[11px] font-semibold text-cypress">
                     1
                   </span>
                 </div>
                 <span className="text-[14px] text-ink">
                   Agent creates first draft
                 </span>
-                <span className="text-ink-40 text-[14px] ml-auto">→</span>
+                <span className="text-deck-faint text-[14px] ml-auto">→</span>
               </div>
             </motion.div>
           )}
@@ -148,14 +148,14 @@ export default function L4WorkLoopSlide() {
             >
               <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-white/60 border border-ink/5 mb-3">
                 <div className="w-6 h-6 rounded-full bg-cypress/10 flex items-center justify-center shrink-0">
-                  <span className="text-[10px] font-semibold text-cypress">
+                  <span className="text-[11px] font-semibold text-cypress">
                     2
                   </span>
                 </div>
                 <span className="text-[14px] text-ink">
                   Director reviews with feedback
                 </span>
-                <span className="text-ink-40 text-[14px] ml-auto">←</span>
+                <span className="text-deck-faint text-[14px] ml-auto">←</span>
               </div>
 
               {/* Feedback loop pill */}
@@ -186,7 +186,7 @@ export default function L4WorkLoopSlide() {
             >
               {/* Director quote */}
               <motion.p
-                className="text-[13px] text-ink-60 mb-4 text-center"
+                className="text-[13px] text-deck-secondary mb-4 text-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.15, ease: EASE }}
@@ -211,7 +211,7 @@ export default function L4WorkLoopSlide() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.45, delay: 0.35, ease: EASE }}
               >
-                <div className="w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center text-[12px] font-semibold">
+                <div className="w-10 h-10 rounded-full bg-ink text-white flex items-center justify-center text-[13px] font-semibold">
                   V
                 </div>
                 <span className="text-[14px] font-medium text-ink">

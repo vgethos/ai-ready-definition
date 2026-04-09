@@ -31,7 +31,7 @@ export default function L4MilestonesSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <div className="text-[11px] tracking-[1.5px] uppercase text-ink-40 text-center mb-4 font-medium">
+          <div className="text-[11px] tracking-[1.5px] uppercase text-deck-faint text-center mb-4 font-medium">
             Goal
           </div>
           <p className="font-serif text-[28px] leading-[1.2] text-ink text-center">
@@ -57,7 +57,7 @@ export default function L4MilestonesSlide() {
           transition={{ duration: 0.45, ease: EASE, delay: 0.3 }}
         >
           <PixelAgent color="#c49a7c" size={24} />
-          <span className="text-[9px] tracking-[1.5px] uppercase text-white font-medium">
+          <span className="text-[11px] tracking-[1.5px] uppercase text-white font-medium">
             Agent Assigned
           </span>
         </motion.div>
@@ -127,10 +127,10 @@ export default function L4MilestonesSlide() {
                 delay: 0.7 + i * 0.1,
               }}
             >
-              <div className="text-[10px] tracking-[1.5px] uppercase text-ink-40 mb-3 font-medium">
+              <div className="text-[11px] tracking-[1.5px] uppercase text-deck-faint mb-3 font-medium">
                 Milestone {m.number}
               </div>
-              <p className="text-[16px] leading-snug text-ink font-medium">
+              <p className="text-[14px] leading-snug text-ink font-medium">
                 {m.title}
               </p>
             </motion.div>

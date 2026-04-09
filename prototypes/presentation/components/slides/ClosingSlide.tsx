@@ -50,7 +50,7 @@ function FoundationPill({ label }: { label: string }) {
   return (
     <motion.span
       layout
-      className="inline-flex items-center bg-subtle-2x text-ink-40 rounded-full px-3 py-1 text-xs whitespace-nowrap"
+      className="inline-flex items-center bg-subtle-2x text-deck-faint rounded-full px-3 py-1 text-xs whitespace-nowrap"
       transition={{ duration: 0.5, ease: EASE }}
     >
       {label}
@@ -124,7 +124,7 @@ export default function ClosingSlide() {
       <div className="flex flex-col items-center max-w-2xl w-full">
         {/* Header — always visible */}
         <motion.p
-          className="text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium mb-10"
+          className="text-[11px] text-deck-faint tracking-[1.5px] uppercase font-medium mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, ease: EASE }}
@@ -166,7 +166,7 @@ export default function ClosingSlide() {
                 <span className="text-cypress font-semibold text-[14px]">
                   {activeLevel.num}
                 </span>
-                <span className="text-ink-40 text-[14px]">&mdash;</span>
+                <span className="text-deck-faint text-[14px]">&mdash;</span>
                 <span className="text-ink font-medium text-[14px]">
                   {activeLevel.label}
                 </span>
@@ -196,7 +196,7 @@ export default function ClosingSlide() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
             >
-              <p className="text-[14px] text-ink-60 mb-3">
+              <p className="text-[14px] text-deck-secondary mb-3">
                 Each level teaches you where AI breaks and what you need to
                 change.
               </p>

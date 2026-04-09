@@ -58,7 +58,7 @@ export default function L5TeaserSlide() {
                   className={`flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium ${
                     isL5
                       ? "bg-cypress text-white"
-                      : "bg-subtle-2x text-ink-40"
+                      : "bg-subtle-2x text-deck-faint"
                   }`}
                 >
                   L{level.num}
@@ -67,7 +67,7 @@ export default function L5TeaserSlide() {
                 {/* Goal text */}
                 <span
                   className={`text-[14px] ${
-                    isL5 ? "text-ink" : "text-ink-40"
+                    isL5 ? "text-ink" : "text-deck-faint"
                   }`}
                 >
                   &ldquo;{level.goal}&rdquo;
@@ -87,7 +87,7 @@ export default function L5TeaserSlide() {
 
       {/* Quote below the ladder */}
       <motion.p
-        className="mt-10 text-[14px] text-ink-60"
+        className="mt-10 text-[14px] text-deck-secondary"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.7, ease: EASE }}

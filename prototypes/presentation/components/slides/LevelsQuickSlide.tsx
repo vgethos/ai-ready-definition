@@ -28,7 +28,7 @@ export default function LevelsQuickSlide() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       <motion.p
-        className="text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium mb-10"
+        className="text-[11px] text-deck-faint tracking-[1.5px] uppercase font-medium mb-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: EASE }}
@@ -48,17 +48,17 @@ export default function LevelsQuickSlide() {
               transition={{ duration: 0.5, delay: i * 0.15, ease: EASE }}
             >
               {/* Level badge */}
-              <span className="absolute top-4 left-4 text-[11px] font-medium text-ink-40 bg-subtle-2x px-3.5 py-1.5 rounded-full">
+              <span className="absolute top-4 left-4 text-[11px] font-medium text-deck-faint bg-subtle-2x px-3.5 py-1.5 rounded-full">
                 L{level.num}
               </span>
 
               <Icon className="w-10 h-10 text-cypress mb-5" strokeWidth={1.5} />
 
               <p className="text-lg text-ink font-medium">{level.label}</p>
-              <p className="mt-1 text-sm text-ink-60">
+              <p className="mt-1 text-sm text-deck-secondary">
                 &ldquo;{level.goal}&rdquo;
               </p>
-              <p className="mt-3 text-sm text-ink-60 leading-relaxed">
+              <p className="mt-3 text-sm text-deck-secondary leading-relaxed">
                 {level.description}
               </p>
             </motion.div>

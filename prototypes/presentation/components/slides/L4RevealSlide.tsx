@@ -46,7 +46,7 @@ export default function L4RevealSlide() {
       <div className="flex flex-col items-center max-w-[480px]">
         {/* Lead-in line 1 */}
         <motion.p
-          className="text-[16px] text-ink-60 text-center mb-3"
+          className="text-[14px] text-deck-secondary text-center mb-3"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
@@ -56,7 +56,7 @@ export default function L4RevealSlide() {
 
         {/* Lead-in line 2 */}
         <motion.p
-          className="text-[16px] text-ink-60 text-center mb-3"
+          className="text-[14px] text-deck-secondary text-center mb-3"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.5 }}
@@ -66,7 +66,7 @@ export default function L4RevealSlide() {
 
         {/* Lead-in line 3 */}
         <motion.p
-          className="text-[16px] text-ink-60 text-center mb-7"
+          className="text-[14px] text-deck-secondary text-center mb-7"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.9 }}
@@ -93,7 +93,7 @@ export default function L4RevealSlide() {
         <AnimatePresence>
           {showFollowUp && (
             <motion.p
-              className="text-[13px] text-ink-40 text-center"
+              className="text-[13px] text-deck-faint text-center"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}

@@ -62,7 +62,7 @@ export default function L4ZoomSlide() {
                 className={`flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-medium ${
                   isFocal
                     ? "bg-cypress text-white"
-                    : "bg-subtle-2x text-ink-40"
+                    : "bg-subtle-2x text-deck-faint"
                 }`}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{
@@ -79,7 +79,7 @@ export default function L4ZoomSlide() {
                   className={`w-5 h-5 rounded-full flex items-center justify-center text-[11px] font-semibold ${
                     isFocal
                       ? "bg-white/20 text-white"
-                      : "bg-ink/10 text-ink-40"
+                      : "bg-ink/10 text-deck-faint"
                   }`}
                 >
                   {m.number}
@@ -99,7 +99,7 @@ export default function L4ZoomSlide() {
         >
           {/* Context label */}
           <motion.div
-            className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40 mb-4"
+            className="text-[11px] tracking-[1.5px] uppercase font-medium text-deck-faint mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35, ease: EASE, delay: 0.55 }}
@@ -123,7 +123,7 @@ export default function L4ZoomSlide() {
               >
                 {/* Badge */}
                 <div
-                  className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-semibold shrink-0 ${input.badgeClass}`}
+                  className={`w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-semibold shrink-0 ${input.badgeClass}`}
                 >
                   {input.badge}
                 </div>

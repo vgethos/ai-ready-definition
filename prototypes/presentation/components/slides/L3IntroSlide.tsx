@@ -24,7 +24,7 @@ export default function L3IntroSlide() {
 
       {/* Goal quote */}
       <motion.p
-        className="text-[16px] text-ink-60 text-center max-w-[480px]"
+        className="text-[14px] text-deck-secondary text-center max-w-[480px]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
@@ -34,7 +34,7 @@ export default function L3IntroSlide() {
 
       {/* Framing line */}
       <motion.p
-        className="mt-8 text-[14px] text-ink-40 text-center max-w-[480px] leading-relaxed"
+        className="mt-8 text-[14px] text-deck-faint text-center max-w-[480px] leading-relaxed"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 0.7, ease: EASE }}

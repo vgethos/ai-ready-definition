@@ -76,7 +76,7 @@ export default function LadderSlide() {
 
       {/* "Ambition of goals" label on the left, rotated vertically */}
       <motion.div
-        className="absolute left-6 top-1/2 text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium"
+        className="absolute left-6 top-1/2 text-[11px] text-deck-faint tracking-[1.5px] uppercase font-medium"
         style={{
           transform: "translateY(-50%) rotate(-90deg)",
           transformOrigin: "center center",
@@ -117,7 +117,7 @@ export default function LadderSlide() {
                 </span>
 
                 {/* Category label */}
-                <span className="text-[11px] tracking-[1.5px] uppercase mt-2 text-ink-40">
+                <span className="text-[11px] tracking-[1.5px] uppercase mt-2 text-deck-faint">
                   {level.label}
                 </span>
               </div>

@@ -136,19 +136,19 @@ function ContentBlock({
       );
     case "meta":
       return (
-        <div className="text-ink text-[10px] leading-relaxed">
+        <div className="text-ink text-[11px] leading-relaxed">
           {block.text}
         </div>
       );
     case "h3":
       return (
-        <div className="font-semibold text-ink text-[10px] leading-relaxed mt-1.5">
+        <div className="font-semibold text-ink text-[11px] leading-relaxed mt-1.5">
           ### {block.text}
         </div>
       );
     case "body":
       return (
-        <div className="text-ink text-[10px] leading-relaxed whitespace-pre-line pl-0">
+        <div className="text-ink text-[11px] leading-relaxed whitespace-pre-line pl-0">
           {block.text}
         </div>
       );
@@ -336,7 +336,7 @@ export default function L3ToolSlide() {
                   <div className="w-2 h-2 rounded-full bg-[#febc2e]" />
                   <div className="w-2 h-2 rounded-full bg-[#28c840]" />
                 </div>
-                <div className="flex-1 ml-2 px-2 py-0.5 rounded bg-white text-[9px] text-ink-60 font-mono truncate">
+                <div className="flex-1 ml-2 px-2 py-0.5 rounded bg-white text-[11px] text-deck-secondary font-mono truncate">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={currentStep}
@@ -430,7 +430,7 @@ export default function L3ToolSlide() {
                 {/* Title bar */}
                 <div className="flex items-center gap-2 px-4 py-2.5 border-b border-ink-10 shrink-0 bg-[#fafafa]">
                   <div className="w-2.5 h-2.5 rounded-sm bg-cypress" />
-                  <span className="text-[9px] text-ink-40 uppercase tracking-[1.5px] font-medium font-mono">
+                  <span className="text-[11px] text-deck-faint uppercase tracking-[1.5px] font-medium font-mono">
                     funnel-capture.md
                   </span>
                 </div>
@@ -442,7 +442,7 @@ export default function L3ToolSlide() {
                 >
                   {visibleScreens.length === 0 && !done && (
                     <motion.div
-                      className="text-ink-40 text-center mt-16 text-xs"
+                      className="text-deck-faint text-center mt-16 text-xs"
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 0.6 }}
                       transition={{ duration: 0.4 }}
@@ -490,7 +490,7 @@ export default function L3ToolSlide() {
                   className="w-5 h-5 text-cypress"
                   strokeWidth={1.5}
                 />
-                <span className="text-[10px] font-mono text-cypress font-medium truncate max-w-[140px]">
+                <span className="text-[11px] font-mono text-cypress font-medium truncate max-w-[140px]">
                   funnel-capture.md
                 </span>
               </motion.div>
@@ -513,10 +513,10 @@ export default function L3ToolSlide() {
                     }}
                   >
                     <FileText
-                      className="w-5 h-5 text-ink-40"
+                      className="w-5 h-5 text-deck-faint"
                       strokeWidth={1.5}
                     />
-                    <span className="text-[10px] font-mono mt-2 truncate max-w-[140px] text-ink-60">
+                    <span className="text-[11px] font-mono mt-2 truncate max-w-[140px] text-deck-secondary">
                       {file.name}
                     </span>
                   </div>
@@ -530,7 +530,7 @@ export default function L3ToolSlide() {
       <AnimatePresence>
         {!isPhase2 && (
           <motion.p
-            className="mt-6 text-[16px] text-ink-60 max-w-2xl text-center"
+            className="mt-6 text-[14px] text-deck-secondary max-w-2xl text-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

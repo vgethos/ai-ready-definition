@@ -60,7 +60,7 @@ export default function L4ResearchSlide() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.35, delay: 0.45, ease: EASE }}
         >
-          <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40">
+          <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-deck-faint">
             Spawns research
           </span>
         </motion.div>
@@ -81,11 +81,11 @@ export default function L4ResearchSlide() {
             >
               {/* Sub-agent badge — smaller, lighter */}
               <div className="w-6 h-6 rounded-full bg-subtle-2x flex items-center justify-center shrink-0 mt-0.5">
-                <span className="text-[10px] font-semibold text-ink-60">
+                <span className="text-[11px] font-semibold text-deck-secondary">
                   {agent.id}
                 </span>
               </div>
-              <span className="text-[13px] text-ink-60 leading-snug">
+              <span className="text-[13px] text-deck-secondary leading-snug">
                 {agent.query}
               </span>
             </motion.div>
@@ -99,8 +99,8 @@ export default function L4ResearchSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 1.0, ease: EASE }}
         >
-          <span className="text-ink-40 text-sm">{"\u2191"}</span>
-          <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40">
+          <span className="text-deck-faint text-sm">{"\u2191"}</span>
+          <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-deck-faint">
             Findings flow back
           </span>
         </motion.div>

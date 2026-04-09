@@ -32,7 +32,7 @@ export default function L4AdversarialSlide() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.45, delay: 0.3, ease: EASE }}
           >
-            <div className="w-10 h-10 rounded-full bg-cypress text-white flex items-center justify-center text-[12px] font-semibold">
+            <div className="w-10 h-10 rounded-full bg-cypress text-white flex items-center justify-center text-[13px] font-semibold">
               M2
             </div>
             <span className="text-[14px] font-medium text-ink">M2 Agent</span>
@@ -45,8 +45,8 @@ export default function L4AdversarialSlide() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.6, ease: EASE }}
           >
-            <span className="text-ink-40 text-[20px] leading-none">⇄</span>
-            <span className="text-[11px] uppercase tracking-[1.5px] font-medium text-ink-40">
+            <span className="text-deck-faint text-[18px] leading-none">⇄</span>
+            <span className="text-[11px] uppercase tracking-[1.5px] font-medium text-deck-faint">
               Challenge / Defend
             </span>
           </motion.div>
@@ -58,7 +58,7 @@ export default function L4AdversarialSlide() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.45, delay: 0.4, ease: EASE }}
           >
-            <div className="w-10 h-10 rounded-full bg-subtle-2x text-ink-60 flex items-center justify-center text-[12px] font-semibold">
+            <div className="w-10 h-10 rounded-full bg-subtle-2x text-deck-secondary flex items-center justify-center text-[13px] font-semibold">
               AR
             </div>
             <span className="text-[14px] font-medium text-ink">Adversarial</span>
@@ -67,7 +67,7 @@ export default function L4AdversarialSlide() {
 
         {/* Until bulletproof label */}
         <motion.p
-          className="text-[11px] uppercase tracking-[1.5px] font-medium text-ink-40 mb-8"
+          className="text-[11px] uppercase tracking-[1.5px] font-medium text-deck-faint mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.75, ease: EASE }}
@@ -93,7 +93,7 @@ export default function L4AdversarialSlide() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 1.02, ease: EASE }}
           >
-            <div className="w-7 h-7 rounded-full bg-cypress text-white flex items-center justify-center text-[10px] font-semibold">
+            <div className="w-7 h-7 rounded-full bg-cypress text-white flex items-center justify-center text-[11px] font-semibold">
               D
             </div>
             <span className="text-[14px] font-medium text-ink">Director</span>
@@ -115,7 +115,7 @@ export default function L4AdversarialSlide() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 1.26, ease: EASE }}
           >
-            <div className="w-7 h-7 rounded-full bg-ink text-white flex items-center justify-center text-[10px] font-semibold">
+            <div className="w-7 h-7 rounded-full bg-ink text-white flex items-center justify-center text-[11px] font-semibold">
               V
             </div>
             <span className="text-[14px] font-medium text-ink">Human</span>
