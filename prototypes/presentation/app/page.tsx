@@ -5,7 +5,6 @@ import TitleSlide from "@/components/slides/TitleSlide";
 import LadderSlide from "@/components/slides/LadderSlide";
 import L3IntroSlide from "@/components/slides/L3IntroSlide";
 import L3ToolSlide from "@/components/slides/L3ToolSlide";
-import L3OutputSlide from "@/components/slides/L3OutputSlide";
 import L4GoalSlide from "@/components/slides/L4GoalSlide";
 import L4ReviewSlide from "@/components/slides/L4ReviewSlide";
 import L5TeaserSlide from "@/components/slides/L5TeaserSlide";
@@ -18,7 +17,6 @@ export default function Presentation() {
       <LadderSlide />
       <L3IntroSlide />
       <L3ToolSlide />
-      <L3OutputSlide />
       <L4GoalSlide />
       <L4ReviewSlide />
       <L5TeaserSlide />
