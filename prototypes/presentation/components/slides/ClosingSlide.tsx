@@ -1,45 +1,38 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+const TOTAL_STEPS = 5;
 
 interface LevelData {
   num: number;
   label: string;
-  carried: string[];
-  newComponents: string[];
+  pills: string[];
 }
 
 const LEVELS: LevelData[] = [
   {
     num: 1,
     label: "Basic Prompting",
-    carried: [],
-    newComponents: ["Prompting", "Context setting"],
+    pills: ["Prompting", "Context setting"],
   },
   {
     num: 2,
     label: "Advanced Prompting",
-    carried: ["Prompting", "Context setting"],
-    newComponents: ["Iterative refinement", "Document analysis"],
+    pills: ["Iterative refinement", "Document analysis"],
   },
   {
     num: 3,
     label: "Automated Workflows",
-    carried: [
-      "Prompting",
-      "Context setting",
-      "Iterative refinement",
-      "Document analysis",
-    ],
-    newComponents: ["Tool building", "Automation design", "Compound returns"],
+    pills: ["Tool building", "Automation design", "Compound returns"],
   },
   {
     num: 4,
     label: "Multi-Agent Orchestration",
-    carried: ["L1\u2013L3 foundation"],
-    newComponents: [
+    pills: [
       "Agent specialization",
       "Review loops",
       "Goal decomposition",
@@ -49,164 +42,171 @@ const LEVELS: LevelData[] = [
   {
     num: 5,
     label: "Autonomous Solutioning",
-    carried: ["L1\u2013L4 foundation"],
-    newComponents: ["End-to-end reasoning", "Autonomous execution"],
+    pills: ["End-to-end reasoning", "Autonomous execution"],
   },
 ];
 
-function CarriedPill({
-  label,
-  delay,
-}: {
-  label: string;
-  delay: number;
-}) {
+function FoundationPill({ label }: { label: string }) {
   return (
     <motion.span
+      layout
       className="inline-flex items-center bg-subtle-2x text-ink-40 rounded-full px-3 py-1 text-xs whitespace-nowrap"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.25, delay, ease: EASE }}
+      transition={{ duration: 0.5, ease: EASE }}
     >
       {label}
     </motion.span>
   );
 }
 
-function NewPill({
-  label,
-  delay,
-}: {
-  label: string;
-  delay: number;
-}) {
+function ActivePill({ label, delay }: { label: string; delay: number }) {
   return (
     <motion.span
-      className="inline-flex items-center bg-cypress/10 text-cypress border border-cypress/20 rounded-full px-3 py-1 text-xs font-medium whitespace-nowrap"
-      initial={{ opacity: 0, x: 12 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.4, delay, ease: EASE }}
+      layout
+      className="inline-flex items-center bg-cypress/10 text-cypress border border-cypress/20 rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap"
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.45, delay, ease: EASE }}
     >
       {label}
     </motion.span>
-  );
-}
-
-function LevelBand({
-  level,
-  bandDelay,
-}: {
-  level: LevelData;
-  bandDelay: number;
-}) {
-  const carriedBaseDelay = bandDelay + 0.1;
-  const newBaseDelay =
-    carriedBaseDelay + level.carried.length * 0.04 + 0.15;
-
-  return (
-    <motion.div
-      className="flex items-start gap-4 py-2.5 px-4"
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay: bandDelay, ease: EASE }}
-    >
-      {/* Level label */}
-      <div className="flex-shrink-0 w-56 flex items-center gap-2.5 pt-0.5">
-        <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-cypress/10 text-cypress text-[11px] font-semibold">
-          {level.num}
-        </span>
-        <span className="text-sm font-medium text-ink-60 leading-tight">
-          {level.label}
-        </span>
-      </div>
-
-      {/* Component pills */}
-      <div className="flex flex-wrap items-center gap-1.5">
-        {level.carried.map((comp, i) => (
-          <CarriedPill
-            key={`carried-${comp}`}
-            label={comp}
-            delay={carriedBaseDelay + i * 0.04}
-          />
-        ))}
-
-        {level.carried.length > 0 && level.newComponents.length > 0 && (
-          <motion.span
-            className="text-ink-20 text-xs mx-0.5 select-none"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.3,
-              delay: newBaseDelay - 0.08,
-              ease: EASE,
-            }}
-          >
-            +
-          </motion.span>
-        )}
-
-        {level.newComponents.map((comp, i) => (
-          <NewPill
-            key={`new-${comp}`}
-            label={comp}
-            delay={newBaseDelay + i * 0.08}
-          />
-        ))}
-      </div>
-    </motion.div>
   );
 }
 
 export default function ClosingSlide() {
-  const lastBandDelay = (LEVELS.length - 1) * 0.35;
-  const closingDelay = lastBandDelay + 0.8;
+  const [revealedCount, setRevealedCount] = useState(0);
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      const isForward =
+        e.key === "ArrowRight" || e.key === " " || e.key === "Enter";
+      const isBackward = e.key === "ArrowLeft";
+
+      if (isForward && revealedCount < TOTAL_STEPS) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        setRevealedCount((prev) => prev + 1);
+        return;
+      }
+
+      if (isBackward && revealedCount > 0) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        setRevealedCount((prev) => prev - 1);
+        return;
+      }
+
+      // Otherwise let events pass through to SlideController
+    },
+    [revealedCount]
+  );
+
+  useEffect(() => {
+    // Capture phase so this fires BEFORE SlideController's bubble-phase listener
+    window.addEventListener("keydown", handleKeyDown, true);
+    return () => window.removeEventListener("keydown", handleKeyDown, true);
+  }, [handleKeyDown]);
+
+  // Compute foundation pills (all pills from levels before the current one)
+  const foundationPills: string[] = [];
+  for (let i = 0; i < revealedCount - 1 && i < LEVELS.length; i++) {
+    foundationPills.push(...LEVELS[i].pills);
+  }
+
+  // Current active level (1-indexed display, 0-indexed in array)
+  const activeLevel = revealedCount > 0 ? LEVELS[revealedCount - 1] : null;
+
+  // Show closing message after level 5 is revealed (with delay via animation)
+  const showClosing = revealedCount === TOTAL_STEPS;
 
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
-      {/* Compounding components visualization */}
-      <motion.div
-        className="flex flex-col w-full max-w-4xl mb-10"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.4, ease: EASE }}
-      >
-        {/* Header */}
+      <div className="flex flex-col items-center max-w-2xl w-full">
+        {/* Header — always visible */}
         <motion.p
-          className="text-xs font-medium text-ink-40 uppercase tracking-widest mb-4 px-4"
+          className="text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.1, ease: EASE }}
+          transition={{ duration: 0.4, ease: EASE }}
         >
-          Skills compound
+          Skills Compound
         </motion.p>
 
-        {/* Level bands — bottom to top visually, but rendered top to bottom
-            with the lowest level at bottom. We reverse for the stacking effect. */}
-        <div className="flex flex-col-reverse">
-          {LEVELS.map((level, i) => (
-            <LevelBand
-              key={level.num}
-              level={level}
-              bandDelay={i * 0.35}
-            />
-          ))}
-        </div>
-      </motion.div>
+        {/* Foundation row — pills from all previous levels */}
+        <AnimatePresence mode="popLayout">
+          {foundationPills.length > 0 && (
+            <motion.div
+              key="foundation"
+              layout
+              className="flex flex-wrap items-center justify-center gap-2 mb-8 w-full"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.4, ease: EASE }}
+            >
+              {foundationPills.map((pill) => (
+                <FoundationPill key={`foundation-${pill}`} label={pill} />
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-      {/* Closing message */}
-      <motion.div
-        className="text-center max-w-2xl"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, delay: closingDelay, ease: EASE }}
-      >
-        <p className="text-lg text-ink-60 mb-3">
-          Each level teaches you where AI breaks and what you need to change.
-        </p>
-        <p className="font-serif text-xl text-ink font-semibold">
-          Figure out your level. Go to the next one. It compounds.
-        </p>
-      </motion.div>
+        {/* Active level section */}
+        <AnimatePresence mode="wait">
+          {activeLevel && (
+            <motion.div
+              key={`level-${activeLevel.num}`}
+              className="flex flex-col items-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.4, ease: EASE }}
+            >
+              {/* Level label */}
+              <div className="flex items-center gap-2.5 mb-5">
+                <span className="text-cypress font-semibold text-lg">
+                  {activeLevel.num}
+                </span>
+                <span className="text-ink-40 text-lg">&mdash;</span>
+                <span className="text-ink font-medium text-lg">
+                  {activeLevel.label}
+                </span>
+              </div>
+
+              {/* Active pills */}
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                {activeLevel.pills.map((pill, i) => (
+                  <ActivePill
+                    key={`active-${pill}`}
+                    label={pill}
+                    delay={0.1 + i * 0.1}
+                  />
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Closing message — appears after level 5 */}
+        <AnimatePresence>
+          {showClosing && (
+            <motion.div
+              className="text-center mt-12"
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
+            >
+              <p className="text-lg text-ink-60 mb-3">
+                Each level teaches you where AI breaks and what you need to
+                change.
+              </p>
+              <p className="font-serif text-xl text-ink font-semibold">
+                Figure out your level. Go to the next one. It compounds.
+              </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
     </div>
   );
 }
