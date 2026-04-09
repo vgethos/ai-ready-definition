@@ -10,7 +10,7 @@ export default function L4GoalSlide() {
       <div className="flex flex-col items-center max-w-[480px]">
         {/* Header */}
         <motion.div
-          className="flex items-center gap-4 mb-10"
+          className="flex items-center gap-4 mb-7"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease, delay: 0 }}

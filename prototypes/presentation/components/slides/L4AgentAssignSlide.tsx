@@ -4,25 +4,28 @@ import { motion } from "motion/react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-const MILESTONES = [
+const ASSIGNMENTS = [
   {
     number: 1,
-    title: "Find the right narrative",
-    description: "What\u2019s the message? What story do we tell?",
+    milestone: "Find the right narrative",
+    agent: "Narrative Agent",
+    scope: "Only cares about finding the right story",
   },
   {
     number: 2,
-    title: "Create the presentation structure",
-    description: "Script, outline, storyboard",
+    milestone: "Create the presentation structure",
+    agent: "Presentation Agent",
+    scope: "Only cares about creating the structure",
   },
   {
     number: 3,
-    title: "Visual polish & delivery prep",
-    description: "Animations, timing, rehearsal",
+    milestone: "Visual polish & delivery prep",
+    agent: "Polish Agent",
+    scope: "Only cares about visual quality and delivery",
   },
 ];
 
-export default function L4MilestonesSlide() {
+export default function L4AgentAssignSlide() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center bg-[#f5f5f5] relative overflow-hidden">
       <div className="flex flex-col items-center max-w-[480px] w-full">
@@ -41,23 +44,12 @@ export default function L4MilestonesSlide() {
           </h2>
         </motion.div>
 
-        {/* Goal text — receding context from previous slide */}
-        <motion.p
-          className="text-[13px] text-ink-40 text-center leading-relaxed mb-5"
+        {/* Director Agent — sits above, connected to all */}
+        <motion.div
+          className="flex items-center gap-3 mb-4"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease, delay: 0.2 }}
-        >
-          &ldquo;Create a presentation about how I work with AI for the Thursday
-          morning company all-hands&rdquo;
-        </motion.p>
-
-        {/* Director Agent node */}
-        <motion.div
-          className="flex items-center gap-3 mb-5"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease, delay: 0.3 }}
         >
           <div className="w-8 h-8 rounded-full bg-cypress flex items-center justify-center shrink-0">
             <span className="text-[11px] font-semibold text-white">D</span>
@@ -67,20 +59,21 @@ export default function L4MilestonesSlide() {
           </span>
         </motion.div>
 
-        {/* Connector line from Director to milestones */}
+        {/* Connector lines from Director down to each milestone-agent row */}
         <motion.div
-          className="w-px h-4 bg-ink-20 mb-1"
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ duration: 0.35, ease, delay: 0.4 }}
-          style={{ transformOrigin: "top" }}
-        />
+          className="flex justify-center mb-1"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35, ease, delay: 0.3 }}
+        >
+          <div className="w-px h-4 bg-ink-20" />
+        </motion.div>
 
-        {/* Milestones list — sequential flow */}
+        {/* Milestone + Agent rows */}
         <div className="w-full">
-          {MILESTONES.map((milestone, i) => (
-            <div key={milestone.number}>
-              {/* Connector between milestones */}
+          {ASSIGNMENTS.map((item, i) => (
+            <div key={item.number}>
+              {/* Connector between rows */}
               {i > 0 && (
                 <motion.div
                   className="flex justify-center"
@@ -92,7 +85,7 @@ export default function L4MilestonesSlide() {
                     ease,
                   }}
                 >
-                  <div className="w-px h-5 bg-ink-20" />
+                  <div className="w-px h-3 bg-ink-20" />
                 </motion.div>
               )}
 
@@ -108,17 +101,25 @@ export default function L4MilestonesSlide() {
               >
                 {/* Numbered badge */}
                 <div className="w-7 h-7 rounded-full bg-cypress/10 text-cypress flex items-center justify-center text-[13px] font-medium shrink-0 mt-0.5">
-                  {milestone.number}
+                  {item.number}
                 </div>
 
-                {/* Content — factor-row: label left, description right */}
-                <div className="flex items-baseline gap-3 min-w-0 flex-1">
-                  <span className="text-[14px] font-medium text-ink whitespace-nowrap">
-                    {milestone.title}
+                {/* Milestone + Agent pair */}
+                <div className="flex flex-col gap-1.5 min-w-0 flex-1">
+                  {/* Milestone title */}
+                  <span className="text-[14px] font-medium text-ink">
+                    {item.milestone}
                   </span>
-                  <span className="text-[13px] text-ink-40 leading-relaxed">
-                    {milestone.description}
-                  </span>
+
+                  {/* Agent badge + scope */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-2 py-0.5 rounded-full bg-cypress/10 text-cypress whitespace-nowrap">
+                      {item.agent}
+                    </span>
+                    <span className="text-[13px] text-ink-40 leading-snug">
+                      {item.scope}
+                    </span>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -132,7 +133,7 @@ export default function L4MilestonesSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease, delay: 0.7 }}
         >
-          Fuzzy goal &rarr; well-defined, sequential milestones.
+          Each agent is only concerned with its milestone.
         </motion.p>
       </div>
     </div>
