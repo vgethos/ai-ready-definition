@@ -20,7 +20,7 @@ const screens = [
         text: '"Let\'s get started! What are your goals for life insurance?"\nSelect all that apply: Protect my loved ones \u00b7 Leave an inheritance \u00b7 Cover my funeral expenses \u00b7 I\'m not sure',
       },
       { type: "h3", text: "What the user can do" },
-      { type: "body", text: "4 checkboxes, Next button" },
+      { type: "body", text: "Can select: Protect my loved ones, Leave an inheritance, Cover my funeral expenses, or I'm not sure\nCan tap Next to continue" },
     ],
   },
   {
@@ -37,7 +37,7 @@ const screens = [
         text: '"Who depends on you financially?"\nThis helps us customize your plan. Options: Spouse or partner \u00b7 Children \u00b7 Parent \u00b7 Other',
       },
       { type: "h3", text: "What the user can do" },
-      { type: "body", text: "4 checkboxes, Next button, Back button" },
+      { type: "body", text: "Can select: Spouse or partner, Children, Parent, or Other\nCan tap Next or go Back" },
     ],
   },
   {
@@ -54,7 +54,7 @@ const screens = [
         text: '"Great! We\'ll get your final rate in minutes."\n3-step process: Tell us about your needs \u2192 Add basic details \u2192 Provide health info\nGoogle review: "Holy cow! I\'m still blown away by how easy this was."',
       },
       { type: "h3", text: "What the user can do" },
-      { type: "body", text: "Next: Coverage Needs button, Back button" },
+      { type: "body", text: "Can tap Next: Coverage Needs to continue\nCan tap Back to return to previous screen" },
     ],
   },
   {
@@ -71,7 +71,7 @@ const screens = [
         text: '"How many children do you have under 18?"\nThis helps us estimate your family coverage needs.\nOptions: 0, 1, 2, 3, 4+',
       },
       { type: "h3", text: "What the user can do" },
-      { type: "body", text: "5 selection buttons, Back button" },
+      { type: "body", text: "Can tap 0, 1, 2, 3, or 4+ to select number of children\nCan tap Back to return" },
     ],
   },
   {
@@ -88,7 +88,7 @@ const screens = [
         text: '"Do you have an Estate Plan or Will in place?"\nOptions: Yes \u00b7 No \u00b7 I\'m not sure',
       },
       { type: "h3", text: "What the user can do" },
-      { type: "body", text: "3 selection buttons, Back button" },
+      { type: "body", text: "Can tap Yes, No, or I'm not sure\nCan tap Back to return" },
     ],
   },
   {
@@ -108,7 +108,7 @@ const screens = [
         text: '"Eligible policies include Estate Planning Tools"\nThese tools are provided at no additional cost. Family illustration with umbrella.',
       },
       { type: "h3", text: "What the user can do" },
-      { type: "body", text: "Next button" },
+      { type: "body", text: "Can tap Next to continue to the application" },
     ],
   },
 ];
