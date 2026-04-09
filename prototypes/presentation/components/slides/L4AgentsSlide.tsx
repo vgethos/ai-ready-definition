@@ -1,113 +1,172 @@
 "use client";
 
 import { motion } from "motion/react";
+import PixelAgent from "@/components/PixelAgent";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const MILESTONES = [
-  { number: 1, title: "Find the right narrative", agent: "Narrative Agent" },
-  {
-    number: 2,
-    title: "Create the presentation structure",
-    agent: "Presentation Agent",
-  },
-  { number: 3, title: "Visual polish & delivery prep", agent: "Polish Agent" },
+  { number: 1, title: "Decide on a topic", agentColor: "#b8c95c" },
+  { number: 2, title: "Outline the narrative", agentColor: "#d478a8" },
+  { number: 3, title: "Polish presentation", agentColor: "#5cc4a8" },
+];
+
+const CARD_W = 180;
+const GAP = 16;
+const TOTAL_W = CARD_W * 3 + GAP * 2;
+const CENTERS = [
+  CARD_W / 2,
+  CARD_W + GAP + CARD_W / 2,
+  (CARD_W + GAP) * 2 + CARD_W / 2,
 ];
 
 export default function L4AgentsSlide() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
-      <div className="flex flex-col items-center max-w-[520px] w-full">
-        {/* Header */}
+      <div className="flex flex-col items-center">
+        {/* Goal Card (smaller) */}
         <motion.div
-          className="flex items-center gap-4 mb-7"
+          className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-8 py-6 max-w-[380px]"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
+          transition={{ duration: 0.5, ease: EASE }}
         >
-          <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
-            Level 4
-          </span>
-          <h2 className="font-serif text-3xl text-ink">
-            Multi-Agent Orchestration
-          </h2>
-        </motion.div>
-
-        {/* Director Agent node */}
-        <motion.div
-          className="flex items-center gap-3 mb-5"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: EASE, delay: 0.15 }}
-        >
-          <div className="w-8 h-8 rounded-full bg-cypress flex items-center justify-center shrink-0">
-            <span className="text-[11px] font-semibold text-white">D</span>
+          <div className="text-[11px] tracking-[2px] uppercase text-ink-40 text-center mb-4 font-medium">
+            Goal
           </div>
-          <span className="text-[14px] font-medium text-ink">Director</span>
+          <p className="font-serif text-[20px] leading-snug text-ink text-center">
+            &ldquo;I need a presentation about how I work with AI for a
+            show&amp;tell at the company all-hands&rdquo;
+          </p>
         </motion.div>
 
-        {/* Connector line from Director to milestones */}
+        {/* Connector: goal → agent */}
         <motion.div
-          className="w-px h-4 bg-ink-20 mb-1"
+          className="w-px h-6 bg-ink-20"
           initial={{ scaleY: 0 }}
           animate={{ scaleY: 1 }}
-          transition={{ duration: 0.35, ease: EASE, delay: 0.3 }}
+          transition={{ duration: 0.3, ease: EASE, delay: 0.15 }}
           style={{ transformOrigin: "top" }}
         />
 
-        {/* Milestones + Agent assignments */}
-        <div className="w-full">
-          {MILESTONES.map((milestone, i) => {
-            const rowDelay = 0.4 + i * 0.1;
-            const pillDelay = rowDelay + 0.08;
+        {/* Director agent capsule */}
+        <motion.div
+          className="bg-canvas rounded-full px-8 py-3 flex flex-col items-center gap-1.5"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.4, ease: EASE, delay: 0.2 }}
+        >
+          <PixelAgent color="#c49a7c" size={24} />
+          <span className="text-[9px] tracking-[2px] uppercase text-white font-medium">
+            Agent Assigned
+          </span>
+        </motion.div>
 
-            return (
-              <div key={milestone.number}>
-                {/* Connector between milestones */}
-                {i > 0 && (
-                  <motion.div
-                    className="flex justify-center"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{
-                      duration: 0.35,
-                      delay: rowDelay - 0.05,
-                      ease: EASE,
-                    }}
-                  >
-                    <div className="w-px h-5 bg-ink-20" />
-                  </motion.div>
-                )}
+        {/* Connector: agent → bracket */}
+        <motion.div
+          className="w-px h-6 bg-ink-20"
+          initial={{ scaleY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 0.3, ease: EASE, delay: 0.35 }}
+          style={{ transformOrigin: "top" }}
+        />
 
-                <motion.div
-                  className="flex items-center justify-between gap-4 py-3 px-4 rounded-lg bg-white/60"
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.4, delay: rowDelay, ease: EASE }}
-                >
-                  {/* Left: number badge + milestone title */}
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-7 h-7 rounded-full bg-cypress/10 text-cypress flex items-center justify-center text-[13px] font-medium shrink-0">
-                      {milestone.number}
-                    </div>
-                    <span className="text-[14px] font-medium text-ink whitespace-nowrap">
-                      {milestone.title}
-                    </span>
-                  </div>
+        {/* Tree bracket */}
+        <motion.svg
+          width={TOTAL_W}
+          height={28}
+          className="block"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35, ease: EASE, delay: 0.4 }}
+        >
+          <line
+            x1={TOTAL_W / 2}
+            y1="0"
+            x2={TOTAL_W / 2}
+            y2="10"
+            stroke="var(--color-ink-20)"
+            strokeWidth="1"
+          />
+          <line
+            x1={CENTERS[0]}
+            y1="10"
+            x2={CENTERS[2]}
+            y2="10"
+            stroke="var(--color-ink-20)"
+            strokeWidth="1"
+          />
+          {CENTERS.map((cx, i) => (
+            <line
+              key={i}
+              x1={cx}
+              y1="10"
+              x2={cx}
+              y2="28"
+              stroke="var(--color-ink-20)"
+              strokeWidth="1"
+            />
+          ))}
+        </motion.svg>
 
-                  {/* Right: agent pill */}
-                  <motion.span
-                    className="text-[11px] uppercase tracking-[1.5px] font-medium px-2 py-0.5 rounded-full bg-cypress/10 text-cypress whitespace-nowrap shrink-0"
-                    initial={{ opacity: 0, x: 6 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.35, delay: pillDelay, ease: EASE }}
-                  >
-                    {milestone.agent}
-                  </motion.span>
-                </motion.div>
+        {/* Milestone cards + sub-agents */}
+        <div className="flex items-start" style={{ gap: GAP }}>
+          {MILESTONES.map((m, i) => (
+            <motion.div
+              key={m.number}
+              className="flex flex-col items-center"
+              style={{ width: CARD_W }}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.45,
+                ease: EASE,
+                delay: 0.5 + i * 0.1,
+              }}
+            >
+              {/* Milestone card */}
+              <div className="w-full bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-4 py-5 text-center">
+                <div className="text-[10px] tracking-[1.5px] uppercase text-ink-40 mb-3 font-medium">
+                  Milestone {m.number}
+                </div>
+                <p className="font-serif text-[18px] leading-tight text-ink">
+                  {m.title}
+                </p>
               </div>
-            );
-          })}
+
+              {/* Connector: card → sub-agent */}
+              <motion.div
+                className="w-px h-5 bg-ink-20"
+                initial={{ scaleY: 0 }}
+                animate={{ scaleY: 1 }}
+                transition={{
+                  duration: 0.3,
+                  ease: EASE,
+                  delay: 0.8 + i * 0.1,
+                }}
+                style={{ transformOrigin: "top" }}
+              />
+
+              {/* Sub-agent circle */}
+              <motion.div
+                className="w-[90px] h-[90px] rounded-full bg-canvas flex flex-col items-center justify-center gap-1"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.45,
+                  ease: EASE,
+                  delay: 0.9 + i * 0.12,
+                }}
+              >
+                <PixelAgent color={m.agentColor} size={24} />
+                <span className="text-[7px] tracking-[1.5px] uppercase text-white font-medium leading-tight text-center">
+                  Agent
+                  <br />
+                  Assigned
+                </span>
+              </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>
