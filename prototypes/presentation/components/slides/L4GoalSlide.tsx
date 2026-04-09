@@ -13,8 +13,8 @@ const MILESTONES = [
   { number: 3, title: "Polish presentation", agentColor: "#5cc4a8" },
 ];
 
-const CARD_W = 170;
-const GAP = 14;
+const CARD_W = 140;
+const GAP = 12;
 const TOTAL_W = CARD_W * 3 + GAP * 2;
 const CENTERS = [
   CARD_W / 2,
@@ -198,11 +198,11 @@ export default function L4GoalSlide() {
                       delay: 0.1 + i * 0.1,
                     }}
                   >
-                    <div className="w-full bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-3 py-4 text-center">
-                      <div className="text-[9px] tracking-[1.5px] uppercase text-ink-40 mb-2 font-medium">
+                    <div className="w-full bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-3 py-3 text-center">
+                      <div className="text-[8px] tracking-[1.5px] uppercase text-ink-40 mb-1.5 font-medium">
                         Milestone {m.number}
                       </div>
-                      <p className="font-serif text-[16px] leading-tight text-ink">
+                      <p className="font-serif text-[14px] leading-tight text-ink">
                         {m.title}
                       </p>
                     </div>
@@ -221,8 +221,8 @@ export default function L4GoalSlide() {
                           }}
                         >
                           <div className="w-px h-3 bg-ink-20" />
-                          <div className="w-[72px] h-[72px] rounded-full bg-canvas flex flex-col items-center justify-center gap-0.5">
-                            <PixelAgent color={m.agentColor} size={20} />
+                          <div className="w-[60px] h-[60px] rounded-full bg-canvas flex flex-col items-center justify-center gap-0.5">
+                            <PixelAgent color={m.agentColor} size={18} />
                             <span className="text-[6px] tracking-[1px] uppercase text-white font-medium leading-tight text-center">
                               Agent
                               <br />
