@@ -2,42 +2,42 @@
 
 import { motion } from "motion/react";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const EASE = [0.22, 1, 0.36, 1] as const;
 
 const milestones = [
-  { number: 1, title: "Narrative Design" },
+  { number: 1, title: "Narrative" },
   { number: 2, title: "Presentation Build" },
   { number: 3, title: "Delivery Prep" },
 ];
 
 const contextInputs = [
   {
-    indicator: "G",
-    indicatorClass: "bg-ink text-white",
-    label: "Goal",
+    badge: "G",
+    badgeClass: "bg-ink text-white",
+    label: "The original goal",
   },
   {
-    indicator: "D",
-    indicatorClass: "bg-cypress text-white",
-    label: "Director notes",
+    badge: "D",
+    badgeClass: "bg-cypress text-white",
+    label: "Director notes & strategy",
   },
   {
-    indicator: "M1",
-    indicatorClass: "bg-cypress text-white",
-    label: "M1 output: 5 levels framework",
+    badge: "M1",
+    badgeClass: "bg-cypress text-white",
+    label: "M1 output: the 5 levels narrative",
   },
 ];
 
 export default function L4ZoomSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center bg-[#f5f5f5] relative overflow-hidden">
+    <div className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="flex flex-col items-center max-w-[480px] w-full">
         {/* Header */}
         <motion.div
           className="flex items-center gap-4 mb-7"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease, delay: 0 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0 }}
         >
           <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
@@ -49,20 +49,20 @@ export default function L4ZoomSlide() {
 
         {/* Milestone pills row */}
         <motion.div
-          className="flex items-center gap-3 mb-7 w-full justify-center"
+          className="flex items-center gap-3 justify-center mb-7 w-full"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease, delay: 0.15 }}
+          transition={{ duration: 0.45, ease: EASE, delay: 0.15 }}
         >
           {milestones.map((m) => {
             const isFocal = m.number === 2;
             return (
               <motion.div
                 key={m.number}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-medium transition-none ${
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-medium ${
                   isFocal
                     ? "bg-cypress text-white"
-                    : "bg-subtle-2x text-ink-40 opacity-40"
+                    : "bg-subtle-2x text-ink-40"
                 }`}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{
@@ -71,7 +71,7 @@ export default function L4ZoomSlide() {
                 }}
                 transition={{
                   duration: 0.4,
-                  ease,
+                  ease: EASE,
                   delay: 0.2 + m.number * 0.08,
                 }}
               >
@@ -95,37 +95,37 @@ export default function L4ZoomSlide() {
           className="w-full rounded-xl bg-white shadow-sm border border-ink/5 px-5 py-5"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease, delay: 0.4 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.4 }}
         >
           {/* Context label */}
           <motion.div
             className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40 mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.35, ease, delay: 0.55 }}
+            transition={{ duration: 0.35, ease: EASE, delay: 0.55 }}
           >
             Context
           </motion.div>
 
-          {/* Context inputs list */}
+          {/* Context input rows */}
           <div className="flex flex-col gap-3">
             {contextInputs.map((input, i) => (
               <motion.div
-                key={input.label}
+                key={input.badge}
                 className="flex items-center gap-3"
                 initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
                   duration: 0.4,
-                  ease,
+                  ease: EASE,
                   delay: 0.6 + i * 0.12,
                 }}
               >
-                {/* Indicator badge */}
+                {/* Badge */}
                 <div
-                  className={`w-7 h-7 rounded-full ${input.indicatorClass} flex items-center justify-center text-[10px] font-semibold shrink-0`}
+                  className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-semibold shrink-0 ${input.badgeClass}`}
                 >
-                  {input.indicator}
+                  {input.badge}
                 </div>
 
                 <span className="text-[13px] font-medium text-ink">
@@ -135,7 +135,6 @@ export default function L4ZoomSlide() {
             ))}
           </div>
         </motion.div>
-
       </div>
     </div>
   );

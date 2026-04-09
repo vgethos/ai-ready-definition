@@ -2,84 +2,121 @@
 
 import { motion } from "motion/react";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const EASE = [0.22, 1, 0.36, 1] as const;
 
-const researchTasks = [
+const subAgents = [
   {
-    number: 1,
-    query: "AI Adoption Trends",
+    id: "R1",
+    query: "AI adoption in workforce 2026",
   },
   {
-    number: 2,
-    query: "Workflow Best Practices",
+    id: "R2",
+    query: "Interesting ways people use AI for ambitious work",
   },
   {
-    number: 3,
-    query: "Presentation Techniques",
+    id: "R3",
+    query: "Best practices for AI show-and-tells",
   },
 ];
 
 export default function L4ResearchSlide() {
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
-      {/* Header */}
-      <motion.div
-        className="flex items-center gap-4 mb-7"
-        initial={{ opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease }}
-      >
-        <span className="px-3 py-1 rounded-full bg-cypress text-white text-[11px] tracking-[1.5px] uppercase font-medium">
-          Level 4
-        </span>
-        <h2 className="font-serif text-3xl text-ink">
-          Multi-Agent Orchestration
-        </h2>
-      </motion.div>
-
-      {/* Content container */}
-      <div className="max-w-[480px] w-full flex flex-col">
-        {/* M2 Agent at top */}
+    <div className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
+      <div className="flex flex-col max-w-[520px] w-full">
+        {/* Header */}
         <motion.div
-          className="flex items-center gap-3 mb-4"
+          className="flex items-center gap-4 mb-8"
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: EASE }}
+        >
+          <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
+            Level 4
+          </span>
+          <h2 className="font-serif text-3xl text-ink">
+            Multi-Agent Orchestration
+          </h2>
+        </motion.div>
+
+        {/* M2 Agent node */}
+        <motion.div
+          className="flex items-center gap-3 mb-2"
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4, ease }}
+          transition={{ duration: 0.45, delay: 0.3, ease: EASE }}
         >
-          <div className="w-8 h-8 rounded-full bg-cypress text-white flex items-center justify-center shrink-0 text-[11px] font-semibold">
+          <div className="w-9 h-9 rounded-full bg-cypress text-white flex items-center justify-center shrink-0 text-[11px] font-semibold">
             M2
           </div>
           <span className="text-[14px] font-medium text-ink">
-            M2 Agent
+            Milestone 2 Agent
           </span>
         </motion.div>
 
-        {/* Spine layout: research sub-agents */}
-        <div className="ml-4 border-l-2 border-cypress/20 pl-5 space-y-3">
-          {researchTasks.map((task, i) => (
+        {/* "spawns research" label */}
+        <motion.div
+          className="ml-4 pl-5 border-l-2 border-cypress/20 py-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35, delay: 0.45, ease: EASE }}
+        >
+          <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40">
+            Spawns research
+          </span>
+        </motion.div>
+
+        {/* Sub-agents along left-border spine */}
+        <div className="ml-4 border-l-2 border-cypress/20 pl-5 space-y-3 pb-3">
+          {subAgents.map((agent, i) => (
             <motion.div
-              key={task.number}
+              key={agent.id}
               className="flex items-start gap-3"
               initial={{ opacity: 0, x: -8 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{
                 duration: 0.4,
-                delay: 0.6 + i * 0.15,
-                ease,
+                delay: 0.55 + i * 0.15,
+                ease: EASE,
               }}
             >
-              <div className="w-6 h-6 rounded-full bg-cypress/10 flex items-center justify-center shrink-0 mt-0.5">
-                <span className="text-[11px] font-semibold text-cypress">
-                  {task.number}
+              {/* Sub-agent badge — smaller, lighter */}
+              <div className="w-6 h-6 rounded-full bg-subtle-2x flex items-center justify-center shrink-0 mt-0.5">
+                <span className="text-[10px] font-semibold text-ink-60">
+                  {agent.id}
                 </span>
               </div>
-              <span className="text-[14px] text-ink leading-snug">
-                {task.query}
+              <span className="text-[13px] text-ink-60 leading-snug">
+                {agent.query}
               </span>
             </motion.div>
           ))}
         </div>
 
+        {/* Findings flow back indicator */}
+        <motion.div
+          className="ml-4 pl-5 flex items-center gap-2 mb-5"
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 1.0, ease: EASE }}
+        >
+          <span className="text-ink-40 text-sm">{"\u2191"}</span>
+          <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40">
+            Findings flow back
+          </span>
+        </motion.div>
+
+        {/* Then -> first draft */}
+        <motion.div
+          className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-cypress/5 border border-cypress/10 w-fit"
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 1.1, ease: EASE }}
+        >
+          <span className="text-cypress text-[14px]">{"\u2192"}</span>
+          <span className="text-[13px] font-medium text-cypress">
+            Then: first draft
+          </span>
+        </motion.div>
       </div>
     </div>
   );

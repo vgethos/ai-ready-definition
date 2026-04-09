@@ -7,12 +7,12 @@ import L3IntroSlide from "@/components/slides/L3IntroSlide";
 import L3ToolSlide from "@/components/slides/L3ToolSlide";
 import L4GoalSlide from "@/components/slides/L4GoalSlide";
 import L4MilestonesSlide from "@/components/slides/L4MilestonesSlide";
-import L4AgentAssignSlide from "@/components/slides/L4AgentAssignSlide";
+import L4AgentsSlide from "@/components/slides/L4AgentsSlide";
 import L4ZoomSlide from "@/components/slides/L4ZoomSlide";
 import L4WorkLoopSlide from "@/components/slides/L4WorkLoopSlide";
 import L4ResearchSlide from "@/components/slides/L4ResearchSlide";
 import L4AdversarialSlide from "@/components/slides/L4AdversarialSlide";
-import L4MetaRevealSlide from "@/components/slides/L4MetaRevealSlide";
+import L4RevealSlide from "@/components/slides/L4RevealSlide";
 import L5TeaserSlide from "@/components/slides/L5TeaserSlide";
 import ClosingSlide from "@/components/slides/ClosingSlide";
 
@@ -25,12 +25,12 @@ export default function Presentation() {
       <L3ToolSlide />
       <L4GoalSlide />
       <L4MilestonesSlide />
-      <L4AgentAssignSlide />
+      <L4AgentsSlide />
       <L4ZoomSlide />
       <L4WorkLoopSlide />
       <L4ResearchSlide />
       <L4AdversarialSlide />
-      <L4MetaRevealSlide />
+      <L4RevealSlide />
       <L5TeaserSlide />
       <ClosingSlide />
     </SlideController>

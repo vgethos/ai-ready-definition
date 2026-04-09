@@ -3,9 +3,9 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-const ease = [0.22, 1, 0.36, 1] as const;
+const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function L4MetaRevealSlide() {
+export default function L4RevealSlide() {
   const [step, setStep] = useState(0);
 
   const handleKeyDown = useCallback(
@@ -38,58 +38,58 @@ export default function L4MetaRevealSlide() {
     return () => window.removeEventListener("keydown", handleKeyDown, true);
   }, [handleKeyDown]);
 
-  const showMain = step >= 1;
+  const showPunchLine = step >= 1;
   const showFollowUp = step >= 2;
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center bg-[#f5f5f5] relative overflow-hidden">
+    <div className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="flex flex-col items-center max-w-[480px]">
-        {/* Beat 1 */}
+        {/* Lead-in line 1 */}
         <motion.p
           className="text-[14px] text-ink-60 text-center mb-3"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease, delay: 0.1 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.1 }}
         >
-          The narrative you&rsquo;re hearing...
+          The narrative you&rsquo;ve been hearing&hellip;
         </motion.p>
 
-        {/* Beat 2 */}
+        {/* Lead-in line 2 */}
         <motion.p
           className="text-[14px] text-ink-60 text-center mb-3"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease, delay: 0.5 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.5 }}
         >
-          The slides you&rsquo;re watching...
+          The slides you&rsquo;ve been watching&hellip;
         </motion.p>
 
-        {/* Beat 3 */}
+        {/* Lead-in line 3 */}
         <motion.p
           className="text-[14px] text-ink-60 text-center mb-7"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease, delay: 0.9 }}
+          transition={{ duration: 0.5, ease: EASE, delay: 0.9 }}
         >
-          The structure, the timing...
+          The structure, the timing&hellip;
         </motion.p>
 
-        {/* Beat 4 — the punch line */}
+        {/* Punch line — the ONE hero element */}
         <AnimatePresence>
-          {showMain && (
+          {showPunchLine && (
             <motion.h2
               className="font-serif text-3xl text-ink text-center mb-7"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.6, ease, delay: 0.15 }}
+              transition={{ duration: 0.6, ease: EASE, delay: 0.15 }}
             >
               This is the output. Right now.
             </motion.h2>
           )}
         </AnimatePresence>
 
-        {/* Beat 5 — the follow-up */}
+        {/* Follow-up */}
         <AnimatePresence>
           {showFollowUp && (
             <motion.p
@@ -97,7 +97,7 @@ export default function L4MetaRevealSlide() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.5, ease, delay: 0.3 }}
+              transition={{ duration: 0.5, ease: EASE, delay: 0.3 }}
             >
               Same pattern. Different goals.
             </motion.p>
