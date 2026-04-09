@@ -127,19 +127,19 @@ function ContentBlock({
       );
     case "meta":
       return (
-        <div className="text-ink-50 text-[10px] leading-relaxed">
+        <div className="text-ink text-[10px] leading-relaxed">
           {block.text}
         </div>
       );
     case "h3":
       return (
-        <div className="font-semibold text-ink-70 text-[10px] leading-relaxed mt-1.5">
+        <div className="font-semibold text-ink text-[10px] leading-relaxed mt-1.5">
           ### {block.text}
         </div>
       );
     case "body":
       return (
-        <div className="text-ink-60 text-[10px] leading-relaxed whitespace-pre-line pl-0">
+        <div className="text-ink text-[10px] leading-relaxed whitespace-pre-line pl-0">
           {block.text}
         </div>
       );
@@ -148,20 +148,19 @@ function ContentBlock({
   }
 }
 
-function AnimatedArrow({ processing }: { processing: boolean }) {
+function AnimatedBar({ processing }: { processing: boolean }) {
   return (
-    <div className="flex flex-col items-center justify-center gap-2 w-[80px] shrink-0">
-      {/* Flowing dots */}
-      <div className="relative h-[2px] w-[56px] overflow-hidden rounded-full bg-cypress/10">
+    <div className="flex flex-col items-center justify-center w-[48px] shrink-0">
+      <div className="relative h-[2px] w-[36px] overflow-hidden rounded-full bg-cypress/10">
         <motion.div
-          className="absolute top-0 left-0 h-full w-[20px] rounded-full bg-cypress/60"
+          className="absolute top-0 left-0 h-full w-[16px] rounded-full bg-cypress/60"
           animate={
             processing
               ? {
-                  x: ["-20px", "56px"],
+                  x: ["-16px", "36px"],
                   opacity: [0, 1, 1, 0],
                 }
-              : { x: "-20px", opacity: 0 }
+              : { x: "-16px", opacity: 0 }
           }
           transition={
             processing
@@ -174,62 +173,6 @@ function AnimatedArrow({ processing }: { processing: boolean }) {
           }
         />
       </div>
-
-      {/* Arrow with sparkle */}
-      <motion.div
-        className="flex items-center gap-1"
-        animate={
-          processing
-            ? { scale: [1, 1.08, 1], opacity: [0.7, 1, 0.7] }
-            : { scale: 1, opacity: 0.35 }
-        }
-        transition={
-          processing
-            ? { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
-            : { duration: 0.3 }
-        }
-      >
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          className="text-cypress"
-        >
-          <path
-            d="M8 1l1.5 3.5L13 6l-3.5 1.5L8 11 6.5 7.5 3 6l3.5-1.5L8 1z"
-            fill="currentColor"
-          />
-        </svg>
-        <svg
-          width="28"
-          height="14"
-          viewBox="0 0 28 14"
-          fill="none"
-          className="text-cypress"
-        >
-          <path
-            d="M2 7h20m0 0l-5-4.5m5 4.5l-5 4.5"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
-      </motion.div>
-
-      {/* Label */}
-      <motion.span
-        className="text-[9px] text-cypress font-medium tracking-wide uppercase"
-        animate={processing ? { opacity: [0.5, 1, 0.5] } : { opacity: 0.3 }}
-        transition={
-          processing
-            ? { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
-            : { duration: 0.3 }
-        }
-      >
-        AI
-      </motion.span>
     </div>
   );
 }
@@ -286,8 +229,6 @@ export default function L3ToolSlide() {
     }
   }, [visibleScreens, done]);
 
-  const counterNumber = done ? 29 : screens[currentStep]?.number ?? 3;
-
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-10 bg-[#f5f5f5]">
       {/* Header */}
@@ -308,7 +249,7 @@ export default function L3ToolSlide() {
       {/* Split-screen panels */}
       <div
         className="flex items-stretch w-full max-w-4xl"
-        style={{ height: "540px" }}
+        style={{ height: "600px" }}
       >
         {/* LEFT: Narrow mobile browser frame */}
         <motion.div
@@ -368,7 +309,7 @@ export default function L3ToolSlide() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
         >
-          <AnimatedArrow processing={processing} />
+          <AnimatedBar processing={processing} />
         </motion.div>
 
         {/* RIGHT: Document panel */}
@@ -380,12 +321,9 @@ export default function L3ToolSlide() {
         >
           {/* Title bar */}
           <div className="flex items-center gap-2 px-4 py-2.5 border-b border-ink-10 shrink-0 bg-[#fafafa]">
-            <div className="w-3 h-3 rounded-sm bg-cypress" />
-            <span className="text-[11px] text-ink-40 uppercase tracking-[1.5px] font-medium font-mono">
+            <div className="w-2.5 h-2.5 rounded-sm bg-cypress" />
+            <span className="text-[9px] text-ink-40 uppercase tracking-[1.5px] font-medium font-mono">
               funnel-capture.md
-            </span>
-            <span className="ml-auto text-[11px] font-mono font-medium text-ink-40">
-              {counterNumber} / 29
             </span>
           </div>
 
