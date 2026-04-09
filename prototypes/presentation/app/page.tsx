@@ -6,8 +6,7 @@ import LadderSlide from "@/components/slides/LadderSlide";
 import L3IntroSlide from "@/components/slides/L3IntroSlide";
 import L3ToolSlide from "@/components/slides/L3ToolSlide";
 import L4GoalSlide from "@/components/slides/L4GoalSlide";
-import L4ZoomSlide from "@/components/slides/L4ZoomSlide";
-import L4WorkLoopSlide from "@/components/slides/L4WorkLoopSlide";
+import L4WorkSlide from "@/components/slides/L4WorkSlide";
 import L4ResearchSlide from "@/components/slides/L4ResearchSlide";
 import L4AdversarialSlide from "@/components/slides/L4AdversarialSlide";
 import L4RevealSlide from "@/components/slides/L4RevealSlide";
@@ -22,8 +21,7 @@ export default function Presentation() {
       <L3IntroSlide />
       <L3ToolSlide />
       <L4GoalSlide />
-      <L4ZoomSlide />
-      <L4WorkLoopSlide />
+      <L4WorkSlide />
       <L4ResearchSlide />
       <L4AdversarialSlide />
       <L4RevealSlide />
