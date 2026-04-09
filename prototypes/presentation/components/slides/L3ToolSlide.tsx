@@ -253,7 +253,7 @@ export default function L3ToolSlide() {
       >
         {/* LEFT: Narrow mobile browser frame */}
         <motion.div
-          className="w-[270px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
+          className="w-[300px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
