@@ -17,7 +17,7 @@ export default function TitleSlide() {
       </motion.h1>
 
       <motion.p
-        className="mt-6 text-[14px] text-ink-60"
+        className="mt-6 text-[16px] text-ink-60"
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3, ease: EASE }}

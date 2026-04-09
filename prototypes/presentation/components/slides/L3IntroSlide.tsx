@@ -17,14 +17,14 @@ export default function L3IntroSlide() {
         <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-[0.5px] uppercase">
           Level 3
         </span>
-        <h2 className="font-serif text-3xl text-ink">
+        <h2 className="font-serif text-[36px] text-ink">
           Automated Workflows
         </h2>
       </motion.div>
 
       {/* Goal quote */}
       <motion.p
-        className="text-[14px] text-ink-60 italic text-center max-w-[480px]"
+        className="text-[16px] text-ink-60 text-center max-w-[480px]"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3, ease: EASE }}

@@ -48,7 +48,7 @@ export default function L4WorkLoopSlide() {
           <span className="text-[11px] tracking-[0.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
           </span>
-          <h2 className="font-serif text-3xl text-ink">
+          <h2 className="font-serif text-[36px] text-ink">
             How the Work Gets Done
           </h2>
         </motion.div>
@@ -186,7 +186,7 @@ export default function L4WorkLoopSlide() {
             >
               {/* Director quote */}
               <motion.p
-                className="text-[13px] text-ink-60 italic mb-4 text-center"
+                className="text-[13px] text-ink-60 mb-4 text-center"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.4, delay: 0.15, ease: EASE }}

@@ -33,7 +33,7 @@ export default function L4ResearchSlide() {
           <span className="text-[11px] tracking-[0.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
           </span>
-          <h2 className="font-serif text-3xl text-ink">
+          <h2 className="font-serif text-[36px] text-ink">
             Multi-Agent Orchestration
           </h2>
         </motion.div>

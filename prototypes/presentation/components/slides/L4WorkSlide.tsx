@@ -89,7 +89,7 @@ export default function L4WorkSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <h2 className="font-serif text-[32px] text-ink mb-10 text-center">
+          <h2 className="font-serif text-[42px] text-ink mb-10 text-center">
             How the actual work happens
           </h2>
           <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-8 py-6 text-center">

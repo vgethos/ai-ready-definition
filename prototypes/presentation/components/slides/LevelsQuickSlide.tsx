@@ -55,7 +55,7 @@ export default function LevelsQuickSlide() {
               <Icon className="w-10 h-10 text-cypress mb-5" strokeWidth={1.5} />
 
               <p className="text-lg text-ink font-medium">{level.label}</p>
-              <p className="mt-1 text-sm text-ink-60 italic">
+              <p className="mt-1 text-sm text-ink-60">
                 &ldquo;{level.goal}&rdquo;
               </p>
               <p className="mt-3 text-sm text-ink-60 leading-relaxed">

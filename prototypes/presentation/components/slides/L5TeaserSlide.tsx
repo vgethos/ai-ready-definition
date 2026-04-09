@@ -25,7 +25,7 @@ export default function L5TeaserSlide() {
         <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-cypress text-white text-sm font-medium">
           L5
         </span>
-        <h2 className="font-serif text-3xl text-ink">
+        <h2 className="font-serif text-[36px] text-ink">
           Where This Is Heading
         </h2>
       </motion.div>
@@ -87,7 +87,7 @@ export default function L5TeaserSlide() {
 
       {/* Quote below the ladder */}
       <motion.p
-        className="mt-10 text-[14px] italic text-ink-60"
+        className="mt-10 text-[14px] text-ink-60"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.7, ease: EASE }}
