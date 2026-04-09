@@ -62,6 +62,8 @@ export default function L4GoalSlide() {
           layout
           className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] text-center"
           animate={{
+            opacity: 1,
+            y: 0,
             maxWidth: isCompact ? 320 : 460,
             paddingLeft: isCompact ? 20 : 48,
             paddingRight: isCompact ? 20 : 48,
