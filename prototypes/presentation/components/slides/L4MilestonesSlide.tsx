@@ -26,7 +26,7 @@ export default function L4MilestonesSlide() {
       <div className="flex flex-col items-center">
         {/* Goal Card (smaller) */}
         <motion.div
-          className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-8 py-6 max-w-[380px]"
+          className="bg-white rounded-2xl shadow-card px-8 py-6 max-w-[380px]"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
@@ -117,7 +117,7 @@ export default function L4MilestonesSlide() {
           {MILESTONES.map((m, i) => (
             <motion.div
               key={m.number}
-              className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-4 py-5 text-center"
+              className="bg-white rounded-xl shadow-card px-4 py-5 text-center"
               style={{ width: CARD_W }}
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}

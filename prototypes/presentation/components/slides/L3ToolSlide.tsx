@@ -322,7 +322,7 @@ export default function L3ToolSlide() {
         <AnimatePresence>
           {!isPhase2 && (
             <motion.div
-              className="w-[280px] shrink-0 rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col"
+              className="w-[280px] shrink-0 rounded-2xl overflow-hidden shadow-card bg-white flex flex-col"
               style={{ height: "580px" }}
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -411,7 +411,7 @@ export default function L3ToolSlide() {
             {/* The document panel that collapses into a card */}
             <motion.div
               className={`shrink-0 rounded-2xl overflow-hidden bg-white flex flex-col relative ${
-                isPhase2 ? "rounded-xl shadow-sm z-10" : "shadow-sm"
+                isPhase2 ? "rounded-xl shadow-card z-10" : "shadow-card"
               }`}
               style={isPhase2 ? { position: "absolute", top: 0, left: "calc(50% - 80px)" } : undefined}
               animate={{
@@ -502,7 +502,7 @@ export default function L3ToolSlide() {
                 .map((file, i) => (
                   <div
                     key={file.name}
-                    className="absolute flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-sm transition-opacity duration-500"
+                    className="absolute flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-card transition-opacity duration-500"
                     style={{
                       zIndex: contextFiles.length - 1 - i,
                       top: (i + 1) * 4,

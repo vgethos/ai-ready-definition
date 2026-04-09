@@ -42,7 +42,7 @@ export default function LevelsQuickSlide() {
           return (
             <motion.div
               key={level.num}
-              className="relative flex flex-col items-center text-center bg-white rounded-xl shadow-sm p-8"
+              className="relative flex flex-col items-center text-center bg-white rounded-xl shadow-card p-8"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.15, ease: EASE }}

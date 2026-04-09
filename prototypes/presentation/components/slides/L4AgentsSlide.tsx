@@ -26,7 +26,7 @@ export default function L4AgentsSlide() {
       <div className="flex flex-col items-center">
         {/* Goal Card (smaller) */}
         <motion.div
-          className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-8 py-6 max-w-[380px]"
+          className="bg-white rounded-2xl shadow-card px-8 py-6 max-w-[380px]"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
@@ -125,7 +125,7 @@ export default function L4AgentsSlide() {
               }}
             >
               {/* Milestone card */}
-              <div className="w-full bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-4 py-5 text-center">
+              <div className="w-full bg-white rounded-xl shadow-card px-4 py-5 text-center">
                 <div className="text-[10px] tracking-[1.5px] uppercase text-ink-40 mb-3 font-medium">
                   Milestone {m.number}
                 </div>

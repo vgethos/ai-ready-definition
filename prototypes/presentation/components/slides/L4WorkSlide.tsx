@@ -18,7 +18,7 @@ function DocIcon({
 }) {
   return (
     <div className="flex flex-col items-center gap-1">
-      <div className="w-[44px] h-[54px] rounded-lg bg-white border border-ink-20 flex flex-col items-center justify-center gap-1 relative shadow-sm">
+      <div className="w-[44px] h-[54px] rounded-lg bg-white border border-ink-20 flex flex-col items-center justify-center gap-1 relative shadow-card">
         <div className="w-6 h-[2px] rounded-full bg-ink-20" />
         <div
           className="w-6 h-[2px] rounded-full"
@@ -92,7 +92,7 @@ export default function L4WorkSlide() {
           <h2 className="font-serif text-[44px] leading-[1.15] text-ink mb-10 text-center">
             How the actual work happens
           </h2>
-          <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-8 py-6 text-center">
+          <div className="bg-white rounded-xl shadow-card px-8 py-6 text-center">
             <div className="text-[10px] tracking-[1.5px] uppercase text-ink-40 mb-3 font-medium">
               Milestone 2
             </div>

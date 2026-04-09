@@ -92,7 +92,7 @@ export default function L4ZoomSlide() {
 
         {/* Expanded context card for Milestone 2 */}
         <motion.div
-          className="w-full rounded-xl bg-white shadow-sm border border-ink/5 px-5 py-5"
+          className="w-full rounded-xl bg-white shadow-card border border-ink/5 px-5 py-5"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0.4 }}

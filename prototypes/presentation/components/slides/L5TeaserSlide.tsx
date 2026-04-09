@@ -49,7 +49,7 @@ export default function L5TeaserSlide() {
               )}
 
               <div
-                className={`flex items-center gap-4 px-5 py-3 bg-white rounded-xl shadow-sm transition-opacity ${
+                className={`flex items-center gap-4 px-5 py-3 bg-white rounded-xl shadow-card transition-opacity ${
                   isL5 ? "opacity-100" : "opacity-50"
                 }`}
               >

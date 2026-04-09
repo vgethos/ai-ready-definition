@@ -105,7 +105,7 @@ export default function LadderSlide() {
               transition={{ duration: 0.4, ease: EASE }}
             >
               {/* The step card */}
-              <div className="w-[180px] bg-white rounded-xl shadow-sm px-4 py-4 flex flex-col items-center text-center">
+              <div className="w-[180px] bg-white rounded-xl shadow-card px-4 py-4 flex flex-col items-center text-center">
                 {/* Level badge */}
                 <span className="w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium mb-2 bg-cypress text-white">
                   L{level.num}

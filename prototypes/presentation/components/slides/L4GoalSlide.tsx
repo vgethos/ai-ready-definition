@@ -71,7 +71,7 @@ export default function L4GoalSlide() {
         {/* Goal Card */}
         <motion.div
           layout
-          className="bg-white rounded-2xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] text-center"
+          className="bg-white rounded-2xl shadow-card text-center"
           animate={{
             opacity: 1,
             y: 0,
@@ -212,7 +212,7 @@ export default function L4GoalSlide() {
                       <AnimatePresence>
                         {milestoneVisible && (
                           <motion.div
-                            className="w-full bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-3 py-3 text-center"
+                            className="w-full bg-white rounded-xl shadow-card px-3 py-3 text-center"
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 12 }}
