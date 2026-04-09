@@ -3,7 +3,6 @@
 import SlideController from "@/components/SlideController";
 import TitleSlide from "@/components/slides/TitleSlide";
 import LadderSlide from "@/components/slides/LadderSlide";
-import LevelsQuickSlide from "@/components/slides/LevelsQuickSlide";
 import L3IntroSlide from "@/components/slides/L3IntroSlide";
 import L3ToolSlide from "@/components/slides/L3ToolSlide";
 import L3OutputSlide from "@/components/slides/L3OutputSlide";
@@ -19,7 +18,6 @@ export default function Presentation() {
     <SlideController>
       <TitleSlide />
       <LadderSlide />
-      <LevelsQuickSlide />
       <L3IntroSlide />
       <L3ToolSlide />
       <L3OutputSlide />
