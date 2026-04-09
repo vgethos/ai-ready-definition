@@ -494,35 +494,33 @@ export default function L3ToolSlide() {
               </motion.div>
             </motion.div>
 
-            {/* Other context file cards (phase 2 only) */}
-            <AnimatePresence>
-              {isPhase2 &&
-                showCards &&
-                contextFiles
-                  .filter((f) => !f.highlight)
-                  .map((file, i) => (
-                    <motion.div
-                      key={file.name}
-                      className="flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-sm border border-transparent"
-                      initial={{ opacity: 0, scale: 0.9, y: 8 }}
-                      animate={{ opacity: 1, scale: 1, y: 0 }}
-                      exit={{ opacity: 0, scale: 0.9 }}
-                      transition={{
-                        duration: 0.4,
-                        delay: 0.06 * (i + 1),
-                        ease: EASE,
-                      }}
-                    >
-                      <FileText
-                        className="w-5 h-5 text-ink-40"
-                        strokeWidth={1.5}
-                      />
-                      <span className="text-[10px] font-mono mt-2 truncate max-w-[140px] text-ink-60">
-                        {file.name}
-                      </span>
-                    </motion.div>
-                  ))}
-            </AnimatePresence>
+            {/* Other context file cards — always rendered in phase 2 at opacity 0, then fade in */}
+            {isPhase2 &&
+              contextFiles
+                .filter((f) => !f.highlight)
+                .map((file, i) => (
+                  <motion.div
+                    key={file.name}
+                    className="flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-sm"
+                    initial={false}
+                    animate={{
+                      opacity: showCards ? 1 : 0,
+                    }}
+                    transition={{
+                      duration: 0.4,
+                      delay: showCards ? 0.08 * (i + 1) : 0,
+                      ease: EASE,
+                    }}
+                  >
+                    <FileText
+                      className="w-5 h-5 text-ink-40"
+                      strokeWidth={1.5}
+                    />
+                    <span className="text-[10px] font-mono mt-2 truncate max-w-[140px] text-ink-60">
+                      {file.name}
+                    </span>
+                  </motion.div>
+                ))}
           </div>
 
         </div>
