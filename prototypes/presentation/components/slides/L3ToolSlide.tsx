@@ -399,19 +399,21 @@ export default function L3ToolSlide() {
           }`}
         >
 
-          {/* File cards row (phase 2) or document panel (phase 1) */}
+          {/* File cards (stacked in phase 2) or document panel (phase 1) */}
           <div
-            className={`flex ${
+            className={`${
               isPhase2
-                ? "flex-wrap justify-center gap-4 items-center"
-                : "items-stretch"
+                ? "relative flex items-center justify-center"
+                : "flex items-stretch"
             }`}
+            style={isPhase2 ? { width: 260, height: 120 } : undefined}
           >
             {/* The document panel that collapses into a card */}
             <motion.div
-              className={`shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col relative ${
-                isPhase2 ? "rounded-xl shadow-sm" : ""
+              className={`shrink-0 rounded-2xl overflow-hidden bg-white flex flex-col relative ${
+                isPhase2 ? "rounded-xl shadow-md z-10" : "shadow-lg"
               }`}
+              style={isPhase2 ? { position: "absolute", top: 0, left: "calc(50% - 80px)" } : undefined}
               animate={{
                 width: isPhase2 ? 160 : 420,
                 height: isPhase2 ? 80 : 580,
@@ -494,21 +496,26 @@ export default function L3ToolSlide() {
               </motion.div>
             </motion.div>
 
-            {/* Other context file cards — always rendered in phase 2 at opacity 0, then fade in */}
+            {/* Other context file cards — stacked behind with offsets */}
             {isPhase2 &&
               contextFiles
                 .filter((f) => !f.highlight)
                 .map((file, i) => (
                   <motion.div
                     key={file.name}
-                    className="flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-sm"
+                    className="absolute flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-sm"
+                    style={{
+                      zIndex: contextFiles.length - 1 - i,
+                      top: (i + 1) * 4,
+                      left: `calc(50% - 80px + ${(i + 1) * 3}px)`,
+                    }}
                     initial={false}
                     animate={{
                       opacity: showCards ? 1 : 0,
                     }}
                     transition={{
-                      duration: 0.4,
-                      delay: showCards ? 0.08 * (i + 1) : 0,
+                      duration: 0.3,
+                      delay: showCards ? 0.06 * (i + 1) : 0,
                       ease: EASE,
                     }}
                   >
