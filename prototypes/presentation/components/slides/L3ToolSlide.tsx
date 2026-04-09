@@ -121,25 +121,25 @@ function ContentBlock({
   switch (block.type) {
     case "h2":
       return (
-        <div className="font-bold text-ink text-[11px] leading-tight mt-0.5">
+        <div className="font-bold text-ink text-[11px] leading-relaxed mt-0.5">
           ## {block.text}
         </div>
       );
     case "meta":
       return (
-        <div className="text-ink-50 text-[10px] leading-tight">
+        <div className="text-ink-50 text-[10px] leading-relaxed">
           {block.text}
         </div>
       );
     case "h3":
       return (
-        <div className="font-semibold text-ink-70 text-[10px] leading-tight mt-1">
+        <div className="font-semibold text-ink-70 text-[10px] leading-relaxed mt-1.5">
           ### {block.text}
         </div>
       );
     case "body":
       return (
-        <div className="text-ink-60 text-[10px] leading-snug whitespace-pre-line pl-0">
+        <div className="text-ink-60 text-[10px] leading-relaxed whitespace-pre-line pl-0">
           {block.text}
         </div>
       );
@@ -413,13 +413,13 @@ export default function L3ToolSlide() {
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, ease: EASE }}
-                      className="space-y-0.5"
+                      className="space-y-1"
                     >
                       {screen.content.map((block, j) => (
                         <ContentBlock key={j} block={block} />
                       ))}
                       {i < screens.length - 1 && (
-                        <div className="border-b border-ink-5 mt-2" />
+                        <div className="border-b border-ink-5 mt-3 mb-3" />
                       )}
                     </motion.div>
                   )}
