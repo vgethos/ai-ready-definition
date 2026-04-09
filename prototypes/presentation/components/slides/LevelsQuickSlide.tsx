@@ -66,14 +66,6 @@ export default function LevelsQuickSlide() {
         })}
       </div>
 
-      <motion.p
-        className="mt-10 text-base text-ink-40"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.5, ease: EASE }}
-      >
-        Most teams are here today. And that&rsquo;s great.
-      </motion.p>
     </div>
   );
 }

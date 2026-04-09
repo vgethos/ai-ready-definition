@@ -25,23 +25,6 @@ export default function TitleSlide() {
         5 levels. Same technology. Bigger thinking.
       </motion.p>
 
-      <motion.p
-        className="mt-10 text-[11px] text-ink-60 tracking-[1.5px] uppercase font-medium"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
-      >
-        Vlad Georgescu
-      </motion.p>
-
-      <motion.p
-        className="mt-2 text-[14px] text-ink-40"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.6, ease: EASE }}
-      >
-        Ethos · All-Hands 2026
-      </motion.p>
     </div>
   );
 }

@@ -109,23 +109,6 @@ export default function L3OutputSlide() {
         </div>
       </motion.div>
 
-      {/* Bottom callout */}
-      <motion.div
-        className="mt-6 w-full max-w-3xl rounded-xl bg-subtle-2x px-6 py-4 text-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.1, ease: EASE }}
-      >
-        <span className="text-ink text-[14px]">
-          I spent{" "}
-          <span className="text-cypress font-semibold">2 hours</span>{" "}
-          building this. Now{" "}
-          <span className="text-cypress font-semibold">
-            10 people on my team
-          </span>{" "}
-          use it.
-        </span>
-      </motion.div>
     </div>
   );
 }
