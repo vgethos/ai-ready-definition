@@ -407,24 +407,18 @@ export default function L3ToolSlide() {
                 : "items-stretch"
             }`}
           >
-            {/* The document panel that collapses into a card */}
-            <motion.div
-              className={`shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col relative ${
-                isPhase2 ? "rounded-xl shadow-sm" : ""
-              }`}
-              animate={{
-                width: isPhase2 ? 160 : 420,
-                height: isPhase2 ? 80 : 580,
-              }}
-              transition={{ duration: 0.8, ease: EASE }}
-            >
-              {/* Phase 1: Full document content */}
-              <motion.div
-                className="flex flex-col h-full w-full"
-                animate={{ opacity: isPhase2 ? 0 : 1 }}
-                transition={{ duration: isPhase2 ? 0.3 : 0.1 }}
-                style={{ pointerEvents: isPhase2 ? "none" : "auto" }}
-              >
+            {/* The document panel (phase 1) OR compact card (phase 2) */}
+            <AnimatePresence mode="wait">
+              {!isPhase2 ? (
+                <motion.div
+                  key="doc-panel"
+                  className="w-[420px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
+                  style={{ height: 580 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.35, ease: EASE }}
+                >
+              {/* Full document content */}
+              <div className="flex flex-col h-full w-full">
                 {/* Title bar */}
                 <div className="flex items-center gap-2 px-4 py-2.5 border-b border-ink-10 shrink-0 bg-[#fafafa]">
                   <div className="w-2.5 h-2.5 rounded-sm bg-cypress" />
@@ -471,28 +465,26 @@ export default function L3ToolSlide() {
                     ))}
                   </div>
                 </div>
-              </motion.div>
-
-              {/* Phase 2: Compact card content (FileText icon + label) */}
-              <motion.div
-                className="absolute inset-0 flex flex-col items-center justify-center gap-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isPhase2 ? 1 : 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: isPhase2 ? 0.5 : 0,
-                }}
-                style={{ pointerEvents: isPhase2 ? "auto" : "none" }}
-              >
-                <FileText
-                  className="w-5 h-5 text-cypress"
-                  strokeWidth={1.5}
-                />
-                <span className="text-[10px] font-mono text-cypress font-medium truncate max-w-[140px]">
-                  funnel-capture.md
-                </span>
-              </motion.div>
+              </div>
             </motion.div>
+              ) : (
+                <motion.div
+                  key="compact-card"
+                  className="flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-sm shrink-0"
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, ease: EASE }}
+                >
+                  <FileText
+                    className="w-5 h-5 text-cypress"
+                    strokeWidth={1.5}
+                  />
+                  <span className="text-[10px] font-mono mt-2 text-ink-60 truncate max-w-[140px]">
+                    funnel-capture.md
+                  </span>
+                </motion.div>
+              )}
+            </AnimatePresence>
 
             {/* Other context file cards (phase 2 only) */}
             <AnimatePresence>
