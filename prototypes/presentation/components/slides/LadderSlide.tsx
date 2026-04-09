@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "motion/react";
+import { motion } from "motion/react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -88,51 +88,48 @@ export default function LadderSlide() {
         ambition of goals &rarr;
       </motion.div>
 
-      {/* Staircase container — items align to bottom so height differences create stairs */}
+      {/* Staircase container — ALL steps always rendered, visibility controlled by opacity */}
       <div className="flex items-end gap-3 w-full max-w-[1100px] justify-center px-8">
-        <AnimatePresence>
-          {LEVELS.map((level, i) => {
-            if (i >= revealedCount) return null;
+        {LEVELS.map((level, i) => {
+          const isRevealed = i < revealedCount;
+          const riserHeight = STEP_HEIGHT * (i + 1);
 
-            const riserHeight = STEP_HEIGHT * (i + 1);
+          return (
+            <motion.div
+              key={level.num}
+              className="flex flex-col items-center"
+              initial={false}
+              animate={{
+                opacity: isRevealed ? 1 : 0,
+              }}
+              transition={{ duration: 0.4, ease: EASE }}
+            >
+              {/* The step card */}
+              <div className="w-[180px] bg-white rounded-xl shadow-sm px-4 py-4 flex flex-col items-center text-center">
+                {/* Level badge */}
+                <span className="w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium mb-2 bg-cypress text-white">
+                  L{level.num}
+                </span>
 
-            return (
-              <motion.div
-                key={level.num}
-                className="flex flex-col items-center"
-                style={{ paddingBottom: 0 }}
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 40 }}
-                transition={{ duration: 0.5, ease: EASE }}
-              >
-                {/* The step card */}
-                <div className="w-[180px] bg-white rounded-xl shadow-sm px-4 py-4 flex flex-col items-center text-center">
-                  {/* Level badge */}
-                  <span className="w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium mb-2 bg-cypress text-white">
-                    L{level.num}
-                  </span>
+                {/* Goal text */}
+                <span className="text-[13px] leading-snug text-ink">
+                  &ldquo;{level.goal}&rdquo;
+                </span>
 
-                  {/* Goal text */}
-                  <span className="text-[13px] leading-snug text-ink">
-                    &ldquo;{level.goal}&rdquo;
-                  </span>
+                {/* Category label */}
+                <span className="text-[10px] tracking-wide uppercase mt-2 text-ink-40">
+                  {level.label}
+                </span>
+              </div>
 
-                  {/* Category label */}
-                  <span className="text-[10px] tracking-wide uppercase mt-2 text-ink-40">
-                    {level.label}
-                  </span>
-                </div>
-
-                {/* The riser — invisible vertical spacer that creates the stair effect */}
-                <div
-                  className="w-[180px] mt-0 bg-cypress/[0.06] rounded-b-xl"
-                  style={{ height: riserHeight }}
-                />
-              </motion.div>
-            );
-          })}
-        </AnimatePresence>
+              {/* The riser — invisible vertical spacer that creates the stair effect */}
+              <div
+                className="w-[180px] mt-0 bg-cypress/[0.06] rounded-b-xl"
+                style={{ height: riserHeight }}
+              />
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Subtle baseline */}
