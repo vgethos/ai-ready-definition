@@ -78,7 +78,7 @@ export default function L4RevealSlide() {
         <AnimatePresence>
           {showPunchLine && (
             <motion.h2
-              className="font-serif text-[42px] text-ink text-center mb-7"
+              className="font-serif text-[44px] leading-[1.15] text-ink text-center mb-7"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}

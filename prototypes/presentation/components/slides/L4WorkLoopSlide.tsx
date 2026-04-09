@@ -45,10 +45,10 @@ export default function L4WorkLoopSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <span className="text-[11px] tracking-[0.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
+          <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
           </span>
-          <h2 className="font-serif text-[36px] text-ink">
+          <h2 className="font-serif text-[28px] leading-[1.2] text-ink">
             How the Work Gets Done
           </h2>
         </motion.div>
@@ -65,7 +65,7 @@ export default function L4WorkLoopSlide() {
             <div className="w-10 h-10 rounded-full bg-cypress text-white flex items-center justify-center text-[12px] font-semibold">
               M2
             </div>
-            <span className="text-[11px] tracking-[0.5px] uppercase font-medium text-ink-60">
+            <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-60">
               Agent
             </span>
           </div>
@@ -75,7 +75,7 @@ export default function L4WorkLoopSlide() {
             <AnimatePresence>
               {phase >= 1 && (
                 <motion.div
-                  className="text-ink-40 text-[18px] tracking-[0.5px]st"
+                  className="text-ink-40 text-[18px] tracking-[1.5px]st"
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: 8 }}
@@ -88,7 +88,7 @@ export default function L4WorkLoopSlide() {
             <AnimatePresence>
               {phase >= 2 && (
                 <motion.div
-                  className="text-ink-40 text-[18px] tracking-[0.5px]st"
+                  className="text-ink-40 text-[18px] tracking-[1.5px]st"
                   initial={{ opacity: 0, x: 8 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -8 }}
@@ -105,7 +105,7 @@ export default function L4WorkLoopSlide() {
             <div className="w-10 h-10 rounded-full bg-cypress text-white flex items-center justify-center text-[12px] font-semibold">
               D
             </div>
-            <span className="text-[11px] tracking-[0.5px] uppercase font-medium text-ink-60">
+            <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-60">
               Director
             </span>
           </div>
@@ -166,7 +166,7 @@ export default function L4WorkLoopSlide() {
                 transition={{ duration: 0.4, delay: 0.25, ease: EASE }}
               >
                 <span className="text-cypress text-[14px]">{"\u21BB"}</span>
-                <span className="text-[11px] tracking-[0.5px] uppercase font-medium text-cypress">
+                <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-cypress">
                   2-3 rounds
                 </span>
               </motion.div>

@@ -14,10 +14,10 @@ export default function L3IntroSlide() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-[0.5px] uppercase">
+        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-[1.5px] uppercase">
           Level 3
         </span>
-        <h2 className="font-serif text-[36px] text-ink">
+        <h2 className="font-serif text-[28px] leading-[1.2] text-ink">
           Automated Workflows
         </h2>
       </motion.div>

@@ -42,7 +42,7 @@ function DocIcon({
           </div>
         )}
       </div>
-      <span className="text-[9px] tracking-[0.5px] uppercase text-ink-40 font-medium">
+      <span className="text-[9px] tracking-[1.5px] uppercase text-ink-40 font-medium">
         {label}
       </span>
     </div>
@@ -89,14 +89,14 @@ export default function L4WorkSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <h2 className="font-serif text-[42px] text-ink mb-10 text-center">
+          <h2 className="font-serif text-[44px] leading-[1.15] text-ink mb-10 text-center">
             How the actual work happens
           </h2>
           <div className="bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-8 py-6 text-center">
-            <div className="text-[10px] tracking-[0.5px] uppercase text-ink-40 mb-3 font-medium">
+            <div className="text-[10px] tracking-[1.5px] uppercase text-ink-40 mb-3 font-medium">
               Milestone 2
             </div>
-            <p className="font-serif text-[20px] leading-tight text-ink">
+            <p className="text-[18px] leading-snug text-ink font-medium">
               Outline the
               <br />
               narrative
@@ -240,7 +240,7 @@ export default function L4WorkSlide() {
           >
             <div className="bg-canvas rounded-full px-7 py-3 flex flex-col items-center gap-1.5">
               <PixelAgent color="#D97757" size={24} />
-              <span className="text-[8px] tracking-[0.5px] uppercase text-white font-medium">
+              <span className="text-[8px] tracking-[1.5px] uppercase text-white font-medium">
                 Goal Agent
               </span>
             </div>
@@ -248,7 +248,7 @@ export default function L4WorkSlide() {
 
           {/* "CONTEXT" label */}
           <motion.div
-            className="absolute text-[9px] tracking-[0.5px] uppercase text-ink-40 font-medium"
+            className="absolute text-[9px] tracking-[1.5px] uppercase text-ink-40 font-medium"
             style={{ left: 435, top: 245 }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -267,7 +267,7 @@ export default function L4WorkSlide() {
           >
             <div className="w-[140px] h-[140px] rounded-full bg-canvas flex flex-col items-center justify-center gap-1.5">
               <PixelAgent color="#d478a8" size={28} />
-              <span className="text-[8px] tracking-[0.5px] uppercase text-white font-medium leading-tight text-center">
+              <span className="text-[8px] tracking-[1.5px] uppercase text-white font-medium leading-tight text-center">
                 Milestone 2
                 <br />
                 Agent

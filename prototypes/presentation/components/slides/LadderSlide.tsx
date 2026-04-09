@@ -66,7 +66,7 @@ export default function LadderSlide() {
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5] relative overflow-hidden">
       {/* Title */}
       <motion.h2
-        className="font-serif text-4xl text-ink mb-12"
+        className="font-serif text-[44px] leading-[1.15] text-ink mb-12"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
@@ -76,7 +76,7 @@ export default function LadderSlide() {
 
       {/* "Ambition of goals" label on the left, rotated vertically */}
       <motion.div
-        className="absolute left-6 top-1/2 text-[11px] text-ink-40 tracking-[0.5px] uppercase font-medium"
+        className="absolute left-6 top-1/2 text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium"
         style={{
           transform: "translateY(-50%) rotate(-90deg)",
           transformOrigin: "center center",
@@ -117,7 +117,7 @@ export default function LadderSlide() {
                 </span>
 
                 {/* Category label */}
-                <span className="text-[11px] tracking-[0.5px] uppercase mt-2 text-ink-40">
+                <span className="text-[11px] tracking-[1.5px] uppercase mt-2 text-ink-40">
                   {level.label}
                 </span>
               </div>

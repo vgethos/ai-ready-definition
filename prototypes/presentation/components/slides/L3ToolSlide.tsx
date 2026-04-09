@@ -292,13 +292,13 @@ export default function L3ToolSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-[0.5px] uppercase">
+        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-[1.5px] uppercase">
           Level 3
         </span>
         <AnimatePresence mode="wait">
           <motion.h2
             key={isPhase2 ? "context" : "funnel"}
-            className="font-serif text-[36px] text-ink"
+            className="font-serif text-[28px] leading-[1.2] text-ink"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
@@ -430,7 +430,7 @@ export default function L3ToolSlide() {
                 {/* Title bar */}
                 <div className="flex items-center gap-2 px-4 py-2.5 border-b border-ink-10 shrink-0 bg-[#fafafa]">
                   <div className="w-2.5 h-2.5 rounded-sm bg-cypress" />
-                  <span className="text-[9px] text-ink-40 uppercase tracking-[0.5px] font-medium font-mono">
+                  <span className="text-[9px] text-ink-40 uppercase tracking-[1.5px] font-medium font-mono">
                     funnel-capture.md
                   </span>
                 </div>

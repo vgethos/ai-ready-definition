@@ -94,10 +94,10 @@ export default function L4GoalSlide() {
         >
           <motion.div
             layout
-            className="tracking-[0.5px] uppercase text-ink-40 font-medium"
+            className="tracking-[1.5px] uppercase text-ink-40 font-medium"
             animate={{
-              fontSize: isCompact ? 9 : 12,
-              marginBottom: isCompact ? 8 : 24,
+              fontSize: isCompact ? 10 : 11,
+              marginBottom: isCompact ? 8 : 20,
             }}
             transition={{ duration: 0.5, ease: EASE }}
           >
@@ -106,7 +106,7 @@ export default function L4GoalSlide() {
           <motion.p
             layout
             className="font-serif leading-snug text-ink"
-            animate={{ fontSize: isCompact ? 15 : 26 }}
+            animate={{ fontSize: isCompact ? 16 : 28 }}
             transition={{ duration: 0.5, ease: EASE }}
           >
             &ldquo;I need a presentation about how I work with AI for a
@@ -149,7 +149,7 @@ export default function L4GoalSlide() {
                   size={isCompact ? 20 : 28}
                 />
                 <span
-                  className={`tracking-[0.5px] uppercase text-white font-medium ${
+                  className={`tracking-[1.5px] uppercase text-white font-medium ${
                     isCompact ? "text-[8px]" : "text-[10px]"
                   }`}
                 >
@@ -218,10 +218,10 @@ export default function L4GoalSlide() {
                             exit={{ opacity: 0, y: 12 }}
                             transition={{ duration: 0.45, ease: EASE }}
                           >
-                            <div className="text-[8px] tracking-[0.5px] uppercase text-ink-40 mb-1.5 font-medium">
+                            <div className="text-[8px] tracking-[1.5px] uppercase text-ink-40 mb-1.5 font-medium">
                               Milestone {m.number}
                             </div>
-                            <p className="font-serif text-[14px] leading-tight text-ink">
+                            <p className="text-[14px] leading-tight text-ink font-medium">
                               {m.title}
                             </p>
                           </motion.div>
@@ -241,7 +241,7 @@ export default function L4GoalSlide() {
                             <div className="w-px h-3 bg-ink-20" />
                             <div className="w-[60px] h-[60px] rounded-full bg-canvas flex flex-col items-center justify-center gap-0.5">
                               <PixelAgent color={m.agentColor} size={18} />
-                              <span className="text-[6px] tracking-[0.3px] uppercase text-white font-medium leading-tight text-center">
+                              <span className="text-[6px] tracking-[1px] uppercase text-white font-medium leading-tight text-center">
                                 Agent
                                 <br />
                                 Assigned

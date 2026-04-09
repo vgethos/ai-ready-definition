@@ -25,7 +25,7 @@ export default function L5TeaserSlide() {
         <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-cypress text-white text-sm font-medium">
           L5
         </span>
-        <h2 className="font-serif text-[36px] text-ink">
+        <h2 className="font-serif text-[28px] leading-[1.2] text-ink">
           Where This Is Heading
         </h2>
       </motion.div>

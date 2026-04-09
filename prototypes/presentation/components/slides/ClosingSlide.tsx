@@ -124,7 +124,7 @@ export default function ClosingSlide() {
       <div className="flex flex-col items-center max-w-2xl w-full">
         {/* Header — always visible */}
         <motion.p
-          className="text-[11px] text-ink-40 tracking-[0.5px] uppercase font-medium mb-10"
+          className="text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, ease: EASE }}
@@ -200,7 +200,7 @@ export default function ClosingSlide() {
                 Each level teaches you where AI breaks and what you need to
                 change.
               </p>
-              <p className="font-serif text-[14px] text-ink font-medium">
+              <p className="text-[14px] text-ink font-medium">
                 Figure out your level. Go to the next one. It compounds.
               </p>
             </motion.div>
