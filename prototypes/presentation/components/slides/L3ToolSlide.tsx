@@ -307,12 +307,12 @@ export default function L3ToolSlide() {
 
       {/* Split-screen panels */}
       <div
-        className="flex items-stretch w-full max-w-6xl"
+        className="flex items-stretch w-full max-w-4xl"
         style={{ height: "540px" }}
       >
         {/* LEFT: Narrow mobile browser frame */}
         <motion.div
-          className="w-[240px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
+          className="w-[270px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
@@ -373,7 +373,7 @@ export default function L3ToolSlide() {
 
         {/* RIGHT: Document panel */}
         <motion.div
-          className="flex-1 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
+          className="w-[420px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
@@ -384,13 +384,8 @@ export default function L3ToolSlide() {
             <span className="text-[11px] text-ink-40 uppercase tracking-[1.5px] font-medium font-mono">
               funnel-capture.md
             </span>
-            <span
-              className="ml-auto text-[11px] font-mono font-medium transition-colors duration-300"
-              style={{ color: done ? "#056257" : "#999" }}
-            >
-              {done
-                ? "29 / 29 screens captured \u2713"
-                : `${counterNumber} / 29`}
+            <span className="ml-auto text-[11px] font-mono font-medium text-ink-40">
+              {counterNumber} / 29
             </span>
           </div>
 
@@ -431,20 +426,6 @@ export default function L3ToolSlide() {
                 </AnimatePresence>
               ))}
 
-              {/* Truncation + completion indicator */}
-              <AnimatePresence>
-                {done && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, ease: EASE }}
-                  >
-                    <div className="border-t border-ink-10 pt-3 mt-3 text-center text-ink-40 text-[10px]">
-                      \u00b7\u00b7\u00b7 23 more screens \u00b7\u00b7\u00b7
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
             </div>
           </div>
         </motion.div>
