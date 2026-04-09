@@ -1,21 +1,67 @@
 "use client";
 
-import { motion } from "motion/react";
+import { useState, useEffect, useCallback } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const LEVELS = [
   { num: 1, goal: "Write this email for me", label: "Basic Prompting" },
   { num: 2, goal: "Help me analyze this document", label: "Advanced Prompting" },
-  { num: 3, goal: "I never want to document our funnel manually again", label: "Single Agentic Workflows" },
-  { num: 4, goal: "Build a complete presentation from a single sentence", label: "Multi-Agent Orchestration" },
-  { num: 5, goal: "Solve a complex problem end-to-end with minimal guidance", label: "Advanced Autonomous Solutioning" },
+  {
+    num: 3,
+    goal: "Make our entire funnel accessible to AI \u2014 structured, searchable, always current",
+    label: "Single Agentic Workflows",
+  },
+  {
+    num: 4,
+    goal: "Orchestrate a team of AI agents to research, design, build, and polish a complete project",
+    label: "Multi-Agent Orchestration",
+  },
+  {
+    num: 5,
+    goal: "Solve a complex problem end-to-end with minimal guidance",
+    label: "Advanced Autonomous Solutioning",
+  },
 ];
 
 /* Each step rises by this many pixels */
 const STEP_HEIGHT = 72;
 
 export default function LadderSlide() {
+  const [revealedCount, setRevealedCount] = useState(0);
+
+  const handleKeyDown = useCallback(
+    (e: KeyboardEvent) => {
+      const isForward =
+        e.key === "ArrowRight" || e.key === " " || e.key === "Enter";
+      const isBackward = e.key === "ArrowLeft";
+
+      if (isForward && revealedCount < LEVELS.length) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        setRevealedCount((prev) => prev + 1);
+        return;
+      }
+
+      if (isBackward && revealedCount > 0) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        setRevealedCount((prev) => prev - 1);
+        return;
+      }
+
+      // Otherwise, let the event pass through to SlideController
+    },
+    [revealedCount]
+  );
+
+  useEffect(() => {
+    // Use capture phase so this fires BEFORE SlideController's bubble-phase listener
+    window.addEventListener("keydown", handleKeyDown, true);
+    return () => window.removeEventListener("keydown", handleKeyDown, true);
+  }, [handleKeyDown]);
+
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5] relative overflow-hidden">
       {/* Title */}
@@ -44,67 +90,49 @@ export default function LadderSlide() {
 
       {/* Staircase container — items align to bottom so height differences create stairs */}
       <div className="flex items-end gap-3 w-full max-w-[1100px] justify-center px-8">
-        {LEVELS.map((level, i) => {
-          const isAdvanced = level.num >= 3;
-          const delay = 0.15 + i * 0.1;
-          /* Each step is progressively taller from bottom, creating the staircase */
-          const riserHeight = STEP_HEIGHT * (i + 1);
+        <AnimatePresence>
+          {LEVELS.map((level, i) => {
+            if (i >= revealedCount) return null;
 
-          return (
-            <motion.div
-              key={level.num}
-              className="flex flex-col items-center"
-              style={{ paddingBottom: 0 }}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay, ease: EASE }}
-            >
-              {/* The step card */}
-              <div
-                className="w-[180px] bg-white rounded-xl shadow-sm px-4 py-4 flex flex-col items-center text-center"
+            const riserHeight = STEP_HEIGHT * (i + 1);
+
+            return (
+              <motion.div
+                key={level.num}
+                className="flex flex-col items-center"
+                style={{ paddingBottom: 0 }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 40 }}
+                transition={{ duration: 0.5, ease: EASE }}
               >
-                {/* Level badge */}
-                <span
-                  className={`w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium mb-2 ${
-                    isAdvanced
-                      ? "bg-cypress text-white"
-                      : "bg-subtle-2x text-ink-40"
-                  }`}
-                >
-                  L{level.num}
-                </span>
+                {/* The step card */}
+                <div className="w-[180px] bg-white rounded-xl shadow-sm px-4 py-4 flex flex-col items-center text-center">
+                  {/* Level badge */}
+                  <span className="w-9 h-9 flex items-center justify-center rounded-full text-sm font-medium mb-2 bg-cypress text-white">
+                    L{level.num}
+                  </span>
 
-                {/* Goal text */}
-                <span
-                  className={`text-[13px] leading-snug ${
-                    isAdvanced ? "text-ink" : "text-ink-40"
-                  }`}
-                >
-                  &ldquo;{level.goal}&rdquo;
-                </span>
+                  {/* Goal text */}
+                  <span className="text-[13px] leading-snug text-ink">
+                    &ldquo;{level.goal}&rdquo;
+                  </span>
 
-                {/* Category label */}
-                <span
-                  className={`text-[10px] tracking-wide uppercase mt-2 ${
-                    isAdvanced ? "text-ink-40" : "text-ink-40/60"
-                  }`}
-                >
-                  {level.label}
-                </span>
-              </div>
+                  {/* Category label */}
+                  <span className="text-[10px] tracking-wide uppercase mt-2 text-ink-40">
+                    {level.label}
+                  </span>
+                </div>
 
-              {/* The riser — invisible vertical spacer that creates the stair effect */}
-              <div
-                className={`w-[180px] mt-0 ${
-                  isAdvanced
-                    ? "bg-cypress/[0.06]"
-                    : "bg-ink/[0.03]"
-                } rounded-b-xl`}
-                style={{ height: riserHeight }}
-              />
-            </motion.div>
-          );
-        })}
+                {/* The riser — invisible vertical spacer that creates the stair effect */}
+                <div
+                  className="w-[180px] mt-0 bg-cypress/[0.06] rounded-b-xl"
+                  style={{ height: riserHeight }}
+                />
+              </motion.div>
+            );
+          })}
+        </AnimatePresence>
       </div>
 
       {/* Subtle baseline */}
