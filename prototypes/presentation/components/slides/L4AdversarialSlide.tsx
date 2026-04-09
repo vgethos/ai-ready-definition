@@ -15,7 +15,7 @@ export default function L4AdversarialSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
+          <span className="text-[11px] tracking-[0.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
           </span>
           <h2 className="font-serif text-3xl text-ink">
@@ -46,7 +46,7 @@ export default function L4AdversarialSlide() {
             transition={{ duration: 0.4, delay: 0.6, ease: EASE }}
           >
             <span className="text-ink-40 text-[20px] leading-none">⇄</span>
-            <span className="text-[11px] uppercase tracking-[1.5px] font-medium text-ink-40">
+            <span className="text-[11px] uppercase tracking-[0.5px] font-medium text-ink-40">
               Challenge / Defend
             </span>
           </motion.div>
@@ -67,7 +67,7 @@ export default function L4AdversarialSlide() {
 
         {/* Until bulletproof label */}
         <motion.p
-          className="text-[11px] uppercase tracking-[1.5px] font-medium text-ink-40 mb-8"
+          className="text-[11px] uppercase tracking-[0.5px] font-medium text-ink-40 mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.4, delay: 0.75, ease: EASE }}

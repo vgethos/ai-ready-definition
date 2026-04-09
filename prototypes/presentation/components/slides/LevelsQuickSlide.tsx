@@ -28,7 +28,7 @@ export default function LevelsQuickSlide() {
   return (
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       <motion.p
-        className="text-[11px] text-ink-40 tracking-[1.5px] uppercase font-medium mb-10"
+        className="text-[11px] text-ink-40 tracking-[0.5px] uppercase font-medium mb-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: EASE }}

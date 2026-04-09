@@ -14,7 +14,7 @@ export default function L3IntroSlide() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: EASE }}
       >
-        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-wide uppercase">
+        <span className="px-3 py-1 rounded-full bg-cypress text-white text-xs font-medium tracking-[0.5px] uppercase">
           Level 3
         </span>
         <h2 className="font-serif text-3xl text-ink">

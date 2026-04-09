@@ -31,7 +31,7 @@ export default function L4AgentsSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE }}
         >
-          <div className="text-[11px] tracking-[2px] uppercase text-ink-40 text-center mb-4 font-medium">
+          <div className="text-[11px] tracking-[0.5px] uppercase text-ink-40 text-center mb-4 font-medium">
             Goal
           </div>
           <p className="font-serif text-[20px] leading-snug text-ink text-center">
@@ -57,7 +57,7 @@ export default function L4AgentsSlide() {
           transition={{ duration: 0.4, ease: EASE, delay: 0.2 }}
         >
           <PixelAgent color="#c49a7c" size={24} />
-          <span className="text-[9px] tracking-[2px] uppercase text-white font-medium">
+          <span className="text-[9px] tracking-[0.5px] uppercase text-white font-medium">
             Agent Assigned
           </span>
         </motion.div>
@@ -126,7 +126,7 @@ export default function L4AgentsSlide() {
             >
               {/* Milestone card */}
               <div className="w-full bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-4 py-5 text-center">
-                <div className="text-[10px] tracking-[1.5px] uppercase text-ink-40 mb-3 font-medium">
+                <div className="text-[10px] tracking-[0.5px] uppercase text-ink-40 mb-3 font-medium">
                   Milestone {m.number}
                 </div>
                 <p className="font-serif text-[18px] leading-tight text-ink">
@@ -159,7 +159,7 @@ export default function L4AgentsSlide() {
                 }}
               >
                 <PixelAgent color={m.agentColor} size={24} />
-                <span className="text-[7px] tracking-[1.5px] uppercase text-white font-medium leading-tight text-center">
+                <span className="text-[7px] tracking-[0.5px] uppercase text-white font-medium leading-tight text-center">
                   Agent
                   <br />
                   Assigned

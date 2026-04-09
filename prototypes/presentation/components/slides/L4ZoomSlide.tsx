@@ -39,7 +39,7 @@ export default function L4ZoomSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: EASE, delay: 0 }}
         >
-          <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
+          <span className="text-[11px] tracking-[0.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
           </span>
           <h2 className="font-serif text-3xl text-ink">
@@ -99,7 +99,7 @@ export default function L4ZoomSlide() {
         >
           {/* Context label */}
           <motion.div
-            className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40 mb-4"
+            className="text-[11px] tracking-[0.5px] uppercase font-medium text-ink-40 mb-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.35, ease: EASE, delay: 0.55 }}
