@@ -8,17 +8,17 @@ const SECTIONS = [
   {
     heading: "Decisions Made",
     content:
-      "5-level framework (per Calvin). Funnel capture as L3 bridge. Meta-reveal as L4 closer.",
+      "5-level framework confirmed. Funnel capture as L3 bridge. Meta-reveal as L4 closer.",
   },
   {
     heading: "Work Completed",
     content:
-      "Script: 7:50, 5 levels \u2713  |  Slides: 8 screens built \u2713  |  Delivery notes \u2713",
+      "Narrative finalized (7:50 runtime) \u00b7 Visual deck complete (8 screens) \u00b7 Delivery prep in progress",
   },
   {
     heading: "Open Questions",
     content:
-      "L3 demo pacing: auto-play or manual advance?  |  Closing CTA: Slack channel or office hours?",
+      "Demo pacing for L3 walkthrough \u00b7 Closing call-to-action format",
   },
 ];
 
@@ -30,7 +30,7 @@ export default function L4ReviewSlide() {
     <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
-        className="flex items-center gap-4 mb-10"
+        className="flex items-center gap-4 mb-7"
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
@@ -68,19 +68,19 @@ export default function L4ReviewSlide() {
                 ease: EASE,
               }}
             >
-              <h3 className="text-sm font-semibold text-ink mb-1">
+              <h3 className="text-[14px] font-medium text-ink mb-1">
                 {section.heading}
               </h3>
-              <p className="text-sm text-ink-60 leading-relaxed">
+              <p className="text-[14px] text-ink-60 leading-relaxed">
                 {section.content}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* Action buttons */}
+        {/* Caption */}
         <motion.div
-          className="px-6 py-4 border-t border-ink-20 flex items-center gap-3"
+          className="px-6 py-4 border-t border-ink-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{
@@ -89,18 +89,15 @@ export default function L4ReviewSlide() {
             ease: EASE,
           }}
         >
-          <button className="px-5 py-2 rounded-lg bg-cypress text-white text-sm font-medium">
-            Approve
-          </button>
-          <button className="px-5 py-2 rounded-lg border border-ink-20 text-ink text-sm font-medium">
-            Send Revision Notes
-          </button>
+          <p className="text-[13px] text-ink-40">
+            Review, redirect, approve &mdash; then move on.
+          </p>
         </motion.div>
       </motion.div>
 
       {/* Bottom caption */}
       <motion.p
-        className="mt-8 text-sm text-ink-40 italic"
+        className="mt-7 text-[14px] text-ink-60 italic"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{

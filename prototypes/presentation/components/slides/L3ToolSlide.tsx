@@ -313,7 +313,7 @@ export default function L3ToolSlide() {
 
       {/* Main content area */}
       <div
-        className="flex items-center justify-center w-full max-w-4xl relative"
+        className="flex items-center justify-center w-full max-w-[700px] relative"
         style={{ height: "580px" }}
       >
         {/* ===== PHASE 1: Funnel capture demo ===== */}
@@ -322,7 +322,7 @@ export default function L3ToolSlide() {
         <AnimatePresence>
           {!isPhase2 && (
             <motion.div
-              className="w-[280px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
+              className="w-[280px] shrink-0 rounded-2xl overflow-hidden shadow-sm bg-white flex flex-col"
               style={{ height: "580px" }}
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
@@ -411,7 +411,7 @@ export default function L3ToolSlide() {
             {/* The document panel that collapses into a card */}
             <motion.div
               className={`shrink-0 rounded-2xl overflow-hidden bg-white flex flex-col relative ${
-                isPhase2 ? "rounded-xl shadow-md z-10" : "shadow-lg"
+                isPhase2 ? "rounded-xl shadow-sm z-10" : "shadow-sm"
               }`}
               style={isPhase2 ? { position: "absolute", top: 0, left: "calc(50% - 80px)" } : undefined}
               animate={{

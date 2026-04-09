@@ -31,7 +31,7 @@ export default function L5TeaserSlide() {
       </motion.div>
 
       {/* Vertical ladder — bottom-to-top via flex-col-reverse */}
-      <div className="flex flex-col-reverse gap-2 w-full max-w-3xl">
+      <div className="flex flex-col-reverse gap-2 w-full max-w-[700px]">
         {LEVELS.map((level, i) => {
           const isL5 = level.num === 5;
           const delay = i * 0.08 + 0.15;
@@ -66,7 +66,7 @@ export default function L5TeaserSlide() {
 
                 {/* Goal text */}
                 <span
-                  className={`text-lg ${
+                  className={`text-[14px] ${
                     isL5 ? "text-ink" : "text-ink-40"
                   }`}
                 >
@@ -87,7 +87,7 @@ export default function L5TeaserSlide() {
 
       {/* Quote below the ladder */}
       <motion.p
-        className="mt-10 text-lg italic text-ink-60"
+        className="mt-10 text-[14px] italic text-ink-60"
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.7, ease: EASE }}

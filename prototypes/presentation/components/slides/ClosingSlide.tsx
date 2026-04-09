@@ -163,11 +163,11 @@ export default function ClosingSlide() {
             >
               {/* Level label */}
               <div className="flex items-center gap-2.5 mb-5">
-                <span className="text-cypress font-semibold text-lg">
+                <span className="text-cypress font-semibold text-[14px]">
                   {activeLevel.num}
                 </span>
-                <span className="text-ink-40 text-lg">&mdash;</span>
-                <span className="text-ink font-medium text-lg">
+                <span className="text-ink-40 text-[14px]">&mdash;</span>
+                <span className="text-ink font-medium text-[14px]">
                   {activeLevel.label}
                 </span>
               </div>
@@ -196,11 +196,11 @@ export default function ClosingSlide() {
               exit={{ opacity: 0 }}
               transition={{ duration: 0.7, delay: 0.6, ease: EASE }}
             >
-              <p className="text-lg text-ink-60 mb-3">
+              <p className="text-[14px] text-ink-60 mb-3">
                 Each level teaches you where AI breaks and what you need to
                 change.
               </p>
-              <p className="font-serif text-xl text-ink font-semibold">
+              <p className="font-serif text-[14px] text-ink font-medium">
                 Figure out your level. Go to the next one. It compounds.
               </p>
             </motion.div>

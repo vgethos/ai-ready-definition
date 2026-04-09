@@ -117,7 +117,7 @@ export default function LadderSlide() {
                 </span>
 
                 {/* Category label */}
-                <span className="text-[10px] tracking-wide uppercase mt-2 text-ink-40">
+                <span className="text-[11px] tracking-wide uppercase mt-2 text-ink-40">
                   {level.label}
                 </span>
               </div>
