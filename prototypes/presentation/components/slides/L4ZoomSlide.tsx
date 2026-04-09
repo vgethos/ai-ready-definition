@@ -42,7 +42,7 @@ export default function L4ZoomSlide() {
           <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-3 py-1 rounded-full bg-cypress text-white">
             Level 4
           </span>
-          <h2 className="font-serif text-[28px] leading-[1.2] text-ink">
+          <h2 className="font-serif text-[44px] leading-[1.15] text-ink">
             Multi-Agent Orchestration
           </h2>
         </motion.div>

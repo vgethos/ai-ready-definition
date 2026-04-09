@@ -298,7 +298,7 @@ export default function L3ToolSlide() {
         <AnimatePresence mode="wait">
           <motion.h2
             key={isPhase2 ? "context" : "funnel"}
-            className="font-serif text-[28px] leading-[1.2] text-ink"
+            className="font-serif text-[44px] leading-[1.15] text-ink"
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
