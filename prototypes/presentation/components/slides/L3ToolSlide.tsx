@@ -243,8 +243,8 @@ export default function L3ToolSlide() {
     if (phase !== 2) return;
     const timers: ReturnType<typeof setTimeout>[] = [];
 
-    // After collapse animation (0.8s), show the other file cards
-    timers.push(setTimeout(() => setShowCards(true), 900));
+    // Wait for collapse to fully finish (0.8s) + a beat, then show cards
+    timers.push(setTimeout(() => setShowCards(true), 1200));
 
     return () => timers.forEach(clearTimeout);
   }, [phase]);
@@ -496,27 +496,20 @@ export default function L3ToolSlide() {
               </motion.div>
             </motion.div>
 
-            {/* Other context file cards — stacked behind with offsets */}
+            {/* Other context file cards — stacked behind with offsets, pure CSS transitions */}
             {isPhase2 &&
               contextFiles
                 .filter((f) => !f.highlight)
                 .map((file, i) => (
-                  <motion.div
+                  <div
                     key={file.name}
-                    className="absolute flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-sm"
+                    className="absolute flex flex-col items-center justify-center w-[160px] h-[80px] bg-white rounded-xl shadow-sm transition-opacity duration-500"
                     style={{
                       zIndex: contextFiles.length - 1 - i,
                       top: (i + 1) * 4,
                       left: `calc(50% - 80px + ${(i + 1) * 3}px)`,
-                    }}
-                    initial={false}
-                    animate={{
                       opacity: showCards ? 1 : 0,
-                    }}
-                    transition={{
-                      duration: 0.3,
-                      delay: showCards ? 0.06 * (i + 1) : 0,
-                      ease: EASE,
+                      transitionDelay: showCards ? `${i * 80}ms` : "0ms",
                     }}
                   >
                     <FileText
@@ -526,7 +519,7 @@ export default function L3ToolSlide() {
                     <span className="text-[10px] font-mono mt-2 truncate max-w-[140px] text-ink-60">
                       {file.name}
                     </span>
-                  </motion.div>
+                  </div>
                 ))}
           </div>
 
