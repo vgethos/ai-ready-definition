@@ -7,20 +7,18 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const screens = [
   {
     number: 1,
-    title: "Welcome — Get a Quote",
+    title: "Homepage",
     lines: [
-      'The user sees a hero section with "Life insurance that\'s actually easy."',
-      'A single CTA: "Check my price" in cypress green.',
-      "No navigation distractions — full-bleed layout.",
+      'The user sees "Protect your family in minutes" with a prominent CTA.',
+      "Affordable life insurance with no medical exams, 100% online.",
     ],
   },
   {
     number: 7,
-    title: "Beneficiary Selection",
+    title: "Basic Details",
     lines: [
-      "User sees household members with checkboxes.",
-      "Can add additional beneficiaries via inline form.",
-      "Progress bar at 40%.",
+      '"Provide your sex at birth." Two options: Male, Female.',
+      "Progress bar at ~20%.",
     ],
   },
   {
@@ -28,8 +26,7 @@ const screens = [
     title: "Health Questions — Smoking Status",
     lines: [
       "Radio buttons: Never / Former / Current.",
-      "Info banner explains why this matters for pricing.",
-      "Back button visible; progress bar at 72%.",
+      "Info banner explains why this matters for pricing. Progress bar at 72%.",
     ],
   },
 ];
@@ -48,7 +45,7 @@ export default function L3OutputSlide() {
           Level 3
         </span>
         <h2 className="font-serif text-2xl text-ink">
-          The Output: 29 Screens, Structured &amp; Searchable
+          The Result: Always Current, Always Accessible
         </h2>
       </motion.div>
 
@@ -65,8 +62,8 @@ export default function L3OutputSlide() {
           <span className="text-[11px] text-ink-40 uppercase tracking-[1.5px] font-medium font-mono">
             funnel-capture.md
           </span>
-          <span className="ml-auto text-[11px] text-ink-40 uppercase tracking-[1.5px] font-medium">
-            29 screens
+          <span className="ml-auto text-[11px] font-mono font-medium text-cypress">
+            29 / 29 screens captured &#x2713;
           </span>
         </div>
 
@@ -108,7 +105,6 @@ export default function L3OutputSlide() {
           </motion.div>
         </div>
       </motion.div>
-
     </div>
   );
 }
