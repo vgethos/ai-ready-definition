@@ -5,7 +5,18 @@ import { motion, AnimatePresence } from "motion/react";
 import PixelAgent from "@/components/PixelAgent";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-const MAX_PHASE = 3;
+
+/*
+  Phase 0: Goal card
+  Phase 1: Agent capsule
+  Phase 2: Bracket + Milestone 1
+  Phase 3: Milestone 2
+  Phase 4: Milestone 3
+  Phase 5: Sub-agent 1
+  Phase 6: Sub-agent 2
+  Phase 7: Sub-agent 3
+*/
+const MAX_PHASE = 7;
 
 const MILESTONES = [
   { number: 1, title: "Decide on a topic", agentColor: "#b8c95c" },
@@ -83,7 +94,7 @@ export default function L4GoalSlide() {
         >
           <motion.div
             layout
-            className="tracking-[2.5px] uppercase text-ink-40 font-medium"
+            className="tracking-[0.5px] uppercase text-ink-40 font-medium"
             animate={{
               fontSize: isCompact ? 9 : 12,
               marginBottom: isCompact ? 8 : 24,
@@ -138,7 +149,7 @@ export default function L4GoalSlide() {
                   size={isCompact ? 20 : 28}
                 />
                 <span
-                  className={`tracking-[2px] uppercase text-white font-medium ${
+                  className={`tracking-[0.5px] uppercase text-white font-medium ${
                     isCompact ? "text-[8px]" : "text-[10px]"
                   }`}
                 >
@@ -163,6 +174,7 @@ export default function L4GoalSlide() {
             >
               <div className="w-px h-4 bg-ink-20" />
 
+              {/* Bracket SVG */}
               <svg width={TOTAL_W} height={22} className="block">
                 <line
                   x1={TOTAL_W / 2} y1="0"
@@ -184,56 +196,63 @@ export default function L4GoalSlide() {
                 ))}
               </svg>
 
+              {/* Milestone cards + sub-agents */}
               <div className="flex items-start" style={{ gap: GAP }}>
-                {MILESTONES.map((m, i) => (
-                  <motion.div
-                    key={m.number}
-                    className="flex flex-col items-center"
-                    style={{ width: CARD_W }}
-                    initial={{ opacity: 0, y: 12 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                      duration: 0.45,
-                      ease: EASE,
-                      delay: 0.1 + i * 0.1,
-                    }}
-                  >
-                    <div className="w-full bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-3 py-3 text-center">
-                      <div className="text-[8px] tracking-[1.5px] uppercase text-ink-40 mb-1.5 font-medium">
-                        Milestone {m.number}
-                      </div>
-                      <p className="font-serif text-[14px] leading-tight text-ink">
-                        {m.title}
-                      </p>
-                    </div>
+                {MILESTONES.map((m, i) => {
+                  const milestoneVisible = phase >= 2 + i;
+                  const agentVisible = phase >= 5 + i;
 
-                    <AnimatePresence>
-                      {phase >= 3 && (
-                        <motion.div
-                          className="flex flex-col items-center"
-                          initial={{ opacity: 0, scale: 0.8 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.8 }}
-                          transition={{
-                            duration: 0.45,
-                            ease: EASE,
-                            delay: i * 0.1,
-                          }}
-                        >
-                          <div className="w-px h-3 bg-ink-20" />
-                          <div className="w-[60px] h-[60px] rounded-full bg-canvas flex flex-col items-center justify-center gap-0.5">
-                            <PixelAgent color={m.agentColor} size={18} />
-                            <span className="text-[6px] tracking-[1px] uppercase text-white font-medium leading-tight text-center">
-                              Agent
-                              <br />
-                              Assigned
-                            </span>
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                ))}
+                  return (
+                    <div
+                      key={m.number}
+                      className="flex flex-col items-center"
+                      style={{ width: CARD_W }}
+                    >
+                      {/* Milestone card */}
+                      <AnimatePresence>
+                        {milestoneVisible && (
+                          <motion.div
+                            className="w-full bg-white rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.06)] px-3 py-3 text-center"
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: 12 }}
+                            transition={{ duration: 0.45, ease: EASE }}
+                          >
+                            <div className="text-[8px] tracking-[0.5px] uppercase text-ink-40 mb-1.5 font-medium">
+                              Milestone {m.number}
+                            </div>
+                            <p className="font-serif text-[14px] leading-tight text-ink">
+                              {m.title}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+
+                      {/* Sub-agent circle */}
+                      <AnimatePresence>
+                        {agentVisible && (
+                          <motion.div
+                            className="flex flex-col items-center"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            exit={{ opacity: 0, scale: 0.8 }}
+                            transition={{ duration: 0.45, ease: EASE }}
+                          >
+                            <div className="w-px h-3 bg-ink-20" />
+                            <div className="w-[60px] h-[60px] rounded-full bg-canvas flex flex-col items-center justify-center gap-0.5">
+                              <PixelAgent color={m.agentColor} size={18} />
+                              <span className="text-[6px] tracking-[0.3px] uppercase text-white font-medium leading-tight text-center">
+                                Agent
+                                <br />
+                                Assigned
+                              </span>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
               </div>
             </motion.div>
           )}
