@@ -8,24 +8,21 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const steps = [
   {
     id: "m2",
-    label: "Milestone 2 Agent",
-    description: "Creates first draft from context",
+    label: "M2 Agent",
     initials: "M2",
     color: "bg-cypress",
     textColor: "text-white",
   },
   {
     id: "director",
-    label: "Director Agent",
-    description: "Reviews, gives structured feedback",
+    label: "Director",
     initials: "D",
     color: "bg-cypress",
     textColor: "text-white",
   },
   {
     id: "human",
-    label: "Human Review",
-    description: "Final direction and approval",
+    label: "Human",
     initials: "V",
     color: "bg-ink",
     textColor: "text-white",
@@ -111,9 +108,6 @@ export default function L4WorkLoopSlide() {
                   <p className="text-[14px] font-medium text-ink">
                     {steps[0].label}
                   </p>
-                  <p className="text-[13px] text-ink-40 mt-0.5">
-                    {steps[0].description}
-                  </p>
                 </div>
               </motion.div>
             )}
@@ -139,9 +133,6 @@ export default function L4WorkLoopSlide() {
                     <p className="text-[14px] font-medium text-ink">
                       {steps[1].label}
                     </p>
-                    <p className="text-[13px] text-ink-40 mt-0.5">
-                      {steps[1].description}
-                    </p>
                   </div>
                 </div>
 
@@ -154,7 +145,7 @@ export default function L4WorkLoopSlide() {
                 >
                   <span className="text-cypress text-[14px]">{"\u21BB"}</span>
                   <span className="text-[11px] text-cypress font-medium tracking-wide">
-                    Iterate until approved
+                    Iterate
                   </span>
                 </motion.div>
               </motion.div>
@@ -181,30 +172,12 @@ export default function L4WorkLoopSlide() {
                   <p className="text-[14px] font-medium text-ink">
                     {steps[2].label}
                   </p>
-                  <p className="text-[13px] text-ink-40 mt-0.5">
-                    {steps[2].description}
-                  </p>
                 </div>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
 
-        {/* Bottom caption */}
-        <AnimatePresence>
-          {phase >= 3 && (
-            <motion.p
-              className="mt-7 text-[13px] text-ink-40 text-center"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.6, delay: 0.3, ease }}
-            >
-              Create &rarr; Review &rarr; Feedback &rarr; Iterate &rarr;
-              Approve &rarr; Human
-            </motion.p>
-          )}
-        </AnimatePresence>
       </div>
     </div>
   );

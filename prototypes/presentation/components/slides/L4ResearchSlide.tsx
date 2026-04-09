@@ -7,17 +7,15 @@ const ease = [0.22, 1, 0.36, 1] as const;
 const researchTasks = [
   {
     number: 1,
-    query: "AI adoption levels in the workforce, 2026",
+    query: "AI Adoption Trends",
   },
   {
     number: 2,
-    query:
-      "Most interesting ways people use AI for better, faster, more ambitious work",
+    query: "Workflow Best Practices",
   },
   {
     number: 3,
-    query:
-      "Best practices for AI show-and-tells \u2014 what resonates, what doesn\u2019t",
+    query: "Presentation Techniques",
   },
 ];
 
@@ -41,16 +39,6 @@ export default function L4ResearchSlide() {
 
       {/* Content container */}
       <div className="max-w-[480px] w-full flex flex-col">
-        {/* Section label */}
-        <motion.span
-          className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40 mb-4 block"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.3, ease }}
-        >
-          Before Writing
-        </motion.span>
-
         {/* M2 Agent at top */}
         <motion.div
           className="flex items-center gap-3 mb-4"
@@ -62,9 +50,8 @@ export default function L4ResearchSlide() {
             M2
           </div>
           <span className="text-[14px] font-medium text-ink">
-            Milestone 2 Agent
+            M2 Agent
           </span>
-          <span className="text-[13px] text-ink-40">spawns research</span>
         </motion.div>
 
         {/* Spine layout: research sub-agents */}
@@ -93,33 +80,6 @@ export default function L4ResearchSlide() {
           ))}
         </div>
 
-        {/* Findings flow back */}
-        <motion.div
-          className="ml-4 pl-5 mt-4 flex items-center gap-2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 1.1, ease }}
-        >
-          <span className="text-cypress text-[14px]">{"\u2191"}</span>
-          <span className="text-[13px] text-ink-40 italic">
-            Findings feed back to M2
-          </span>
-        </motion.div>
-
-        {/* Then indicator */}
-        <motion.div
-          className="mt-7 flex items-center gap-3 px-4 py-3 rounded-lg bg-white border border-ink-20"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 1.3, ease }}
-        >
-          <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-cypress">
-            Then {"\u2192"}
-          </span>
-          <span className="text-[14px] text-ink">
-            Only now does the agent write the first draft.
-          </span>
-        </motion.div>
       </div>
     </div>
   );

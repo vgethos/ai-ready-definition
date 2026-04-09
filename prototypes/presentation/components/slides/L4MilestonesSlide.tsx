@@ -5,21 +5,9 @@ import { motion } from "motion/react";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const MILESTONES = [
-  {
-    number: 1,
-    title: "Find the right narrative",
-    description: "What\u2019s the message? What story do we tell?",
-  },
-  {
-    number: 2,
-    title: "Create the presentation structure",
-    description: "Script, outline, storyboard",
-  },
-  {
-    number: 3,
-    title: "Visual polish & delivery prep",
-    description: "Animations, timing, rehearsal",
-  },
+  { number: 1, title: "Narrative" },
+  { number: 2, title: "Structure" },
+  { number: 3, title: "Polish" },
 ];
 
 export default function L4MilestonesSlide() {
@@ -40,17 +28,6 @@ export default function L4MilestonesSlide() {
             Multi-Agent Orchestration
           </h2>
         </motion.div>
-
-        {/* Goal text — receding context from previous slide */}
-        <motion.p
-          className="text-[13px] text-ink-40 text-center leading-relaxed mb-5"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease, delay: 0.2 }}
-        >
-          &ldquo;Create a presentation about how I work with AI for the Thursday
-          morning company all-hands&rdquo;
-        </motion.p>
 
         {/* Director Agent node */}
         <motion.div
@@ -111,29 +88,14 @@ export default function L4MilestonesSlide() {
                   {milestone.number}
                 </div>
 
-                {/* Content — factor-row: label left, description right */}
-                <div className="flex items-baseline gap-3 min-w-0 flex-1">
-                  <span className="text-[14px] font-medium text-ink whitespace-nowrap">
-                    {milestone.title}
-                  </span>
-                  <span className="text-[13px] text-ink-40 leading-relaxed">
-                    {milestone.description}
-                  </span>
-                </div>
+                <span className="text-[14px] font-medium text-ink whitespace-nowrap">
+                  {milestone.title}
+                </span>
               </motion.div>
             </div>
           ))}
         </div>
 
-        {/* Caption */}
-        <motion.p
-          className="text-[13px] text-ink-40 text-center mt-7"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease, delay: 0.7 }}
-        >
-          Fuzzy goal &rarr; well-defined, sequential milestones.
-        </motion.p>
       </div>
     </div>
   );

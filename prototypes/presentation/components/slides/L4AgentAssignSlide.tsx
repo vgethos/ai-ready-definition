@@ -5,24 +5,9 @@ import { motion } from "motion/react";
 const ease = [0.22, 1, 0.36, 1] as const;
 
 const ASSIGNMENTS = [
-  {
-    number: 1,
-    milestone: "Find the right narrative",
-    agent: "Narrative Agent",
-    scope: "Only cares about finding the right story",
-  },
-  {
-    number: 2,
-    milestone: "Create the presentation structure",
-    agent: "Presentation Agent",
-    scope: "Only cares about creating the structure",
-  },
-  {
-    number: 3,
-    milestone: "Visual polish & delivery prep",
-    agent: "Polish Agent",
-    scope: "Only cares about visual quality and delivery",
-  },
+  { number: 1, milestone: "Narrative", agent: "Narrative Agent" },
+  { number: 2, milestone: "Structure", agent: "Presentation Agent" },
+  { number: 3, milestone: "Polish", agent: "Polish Agent" },
 ];
 
 export default function L4AgentAssignSlide() {
@@ -106,35 +91,18 @@ export default function L4AgentAssignSlide() {
 
                 {/* Milestone + Agent pair */}
                 <div className="flex flex-col gap-1.5 min-w-0 flex-1">
-                  {/* Milestone title */}
                   <span className="text-[14px] font-medium text-ink">
                     {item.milestone}
                   </span>
-
-                  {/* Agent badge + scope */}
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-2 py-0.5 rounded-full bg-cypress/10 text-cypress whitespace-nowrap">
-                      {item.agent}
-                    </span>
-                    <span className="text-[13px] text-ink-40 leading-snug">
-                      {item.scope}
-                    </span>
-                  </div>
+                  <span className="text-[11px] tracking-[1.5px] uppercase font-medium px-2 py-0.5 rounded-full bg-cypress/10 text-cypress whitespace-nowrap w-fit">
+                    {item.agent}
+                  </span>
                 </div>
               </motion.div>
             </div>
           ))}
         </div>
 
-        {/* Caption */}
-        <motion.p
-          className="text-[13px] text-ink-40 text-center mt-7"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease, delay: 0.7 }}
-        >
-          Each agent is only concerned with its milestone.
-        </motion.p>
       </div>
     </div>
   );

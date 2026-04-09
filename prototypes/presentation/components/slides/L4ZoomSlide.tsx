@@ -14,23 +14,17 @@ const contextInputs = [
   {
     indicator: "G",
     indicatorClass: "bg-ink text-white",
-    label: "High-level goal",
-    value:
-      "\u201CCreate a presentation about how I work with AI for the company all-hands\u201D",
+    label: "Goal",
   },
   {
     indicator: "D",
     indicatorClass: "bg-cypress text-white",
     label: "Director notes",
-    value:
-      "Focus on what\u2019s relatable yet aspirational. Show real workflows, not theory.",
   },
   {
     indicator: "M1",
     indicatorClass: "bg-cypress text-white",
-    label: "Milestone 1 output",
-    value:
-      "5 levels of AI literacy \u2014 ambition scales with understanding",
+    label: "M1 output: 5 levels framework",
   },
 ];
 
@@ -118,7 +112,7 @@ export default function L4ZoomSlide() {
             {contextInputs.map((input, i) => (
               <motion.div
                 key={input.label}
-                className="flex items-start gap-3"
+                className="flex items-center gap-3"
                 initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{
@@ -129,34 +123,19 @@ export default function L4ZoomSlide() {
               >
                 {/* Indicator badge */}
                 <div
-                  className={`w-7 h-7 rounded-full ${input.indicatorClass} flex items-center justify-center text-[10px] font-semibold shrink-0 mt-0.5`}
+                  className={`w-7 h-7 rounded-full ${input.indicatorClass} flex items-center justify-center text-[10px] font-semibold shrink-0`}
                 >
                   {input.indicator}
                 </div>
 
-                {/* Text content */}
-                <div className="flex flex-col gap-0.5 min-w-0">
-                  <span className="text-[11px] tracking-[1.5px] uppercase font-medium text-ink-40">
-                    {input.label}
-                  </span>
-                  <span className="text-[13px] text-ink-60 leading-relaxed">
-                    {input.value}
-                  </span>
-                </div>
+                <span className="text-[13px] font-medium text-ink">
+                  {input.label}
+                </span>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Caption */}
-        <motion.p
-          className="mt-7 text-[13px] text-ink-40 text-center"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease, delay: 1.1 }}
-        >
-          Lots of context. Clear direction. Now: how to execute.
-        </motion.p>
       </div>
     </div>
   );

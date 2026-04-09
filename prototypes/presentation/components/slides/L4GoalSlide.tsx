@@ -44,15 +44,6 @@ export default function L4GoalSlide() {
           morning company all-hands&rdquo;
         </motion.p>
 
-        {/* Subtle note */}
-        <motion.p
-          className="text-[13px] text-ink-40 text-center"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease, delay: 0.5 }}
-        >
-          Fuzzy. Open-ended. Can be achieved in many ways.
-        </motion.p>
       </div>
     </div>
   );

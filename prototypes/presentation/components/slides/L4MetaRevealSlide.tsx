@@ -51,7 +51,7 @@ export default function L4MetaRevealSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease, delay: 0.1 }}
         >
-          The narrative you&rsquo;ve been hearing...
+          The narrative you&rsquo;re hearing...
         </motion.p>
 
         {/* Beat 2 */}
@@ -61,7 +61,7 @@ export default function L4MetaRevealSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease, delay: 0.5 }}
         >
-          The presentation you&rsquo;ve been watching...
+          The slides you&rsquo;re watching...
         </motion.p>
 
         {/* Beat 3 */}
@@ -71,7 +71,7 @@ export default function L4MetaRevealSlide() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease, delay: 0.9 }}
         >
-          The timing, the structure, the transitions...
+          The structure, the timing...
         </motion.p>
 
         {/* Beat 4 — the punch line */}
@@ -99,9 +99,7 @@ export default function L4MetaRevealSlide() {
               exit={{ opacity: 0, y: -8 }}
               transition={{ duration: 0.5, ease, delay: 0.3 }}
             >
-              The same pattern built a product prototype that shipped to
-              engineering, and analyzed 10 user research interviews into
-              evidence-based personas.
+              Same pattern. Different goals.
             </motion.p>
           )}
         </AnimatePresence>
