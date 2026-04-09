@@ -2,7 +2,7 @@
 
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { FileText, Sparkles } from "lucide-react";
+import { FileText } from "lucide-react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -193,8 +193,6 @@ export default function L3ToolSlide() {
   const [done, setDone] = useState(false);
   const [phase, setPhase] = useState(1);
   const [showCards, setShowCards] = useState(false);
-  const [showLabel, setShowLabel] = useState(false);
-  const [showSparkles, setShowSparkles] = useState(false);
   const docRef = useRef<HTMLDivElement>(null);
 
   // Phase 1: Auto-play funnel capture demo
@@ -247,10 +245,6 @@ export default function L3ToolSlide() {
 
     // After collapse animation (0.8s), show the other file cards
     timers.push(setTimeout(() => setShowCards(true), 900));
-    // Then the label
-    timers.push(setTimeout(() => setShowLabel(true), 1400));
-    // Then the sparkles line
-    timers.push(setTimeout(() => setShowSparkles(true), 2000));
 
     return () => timers.forEach(clearTimeout);
   }, [phase]);
@@ -274,8 +268,6 @@ export default function L3ToolSlide() {
         e.stopImmediatePropagation();
         setPhase(1);
         setShowCards(false);
-        setShowLabel(false);
-        setShowSparkles(false);
         return;
       }
 
@@ -406,20 +398,6 @@ export default function L3ToolSlide() {
             isPhase2 ? "gap-6 justify-center flex-1" : ""
           }`}
         >
-          {/* "Always available" label */}
-          <AnimatePresence>
-            {isPhase2 && showLabel && (
-              <motion.p
-                className="text-lg font-serif text-ink-60 tracking-wide"
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: EASE }}
-              >
-                Always available. Always current.
-              </motion.p>
-            )}
-          </AnimatePresence>
 
           {/* File cards row (phase 2) or document panel (phase 1) */}
           <div
@@ -432,7 +410,7 @@ export default function L3ToolSlide() {
             {/* The document panel that collapses into a card */}
             <motion.div
               className={`shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col relative ${
-                isPhase2 ? "border-l-[3px] border-l-cypress rounded-xl" : ""
+                isPhase2 ? "rounded-xl shadow-sm" : ""
               }`}
               animate={{
                 width: isPhase2 ? 160 : 420,
@@ -547,26 +525,6 @@ export default function L3ToolSlide() {
             </AnimatePresence>
           </div>
 
-          {/* Sparkles line */}
-          <AnimatePresence>
-            {isPhase2 && showSparkles && (
-              <motion.div
-                className="flex items-center gap-3 mt-4"
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.5, ease: EASE }}
-              >
-                <Sparkles
-                  className="w-4 h-4 text-cypress"
-                  strokeWidth={1.5}
-                />
-                <span className="text-sm text-ink-60 italic">
-                  Referenced in every AI conversation going forward
-                </span>
-              </motion.div>
-            )}
-          </AnimatePresence>
         </div>
       </div>
 
