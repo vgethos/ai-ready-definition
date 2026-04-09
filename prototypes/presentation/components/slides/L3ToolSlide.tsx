@@ -249,7 +249,7 @@ export default function L3ToolSlide() {
       {/* Split-screen panels */}
       <div
         className="flex items-stretch w-full max-w-4xl"
-        style={{ height: "600px" }}
+        style={{ height: "580px" }}
       >
         {/* LEFT: Narrow mobile browser frame */}
         <motion.div
