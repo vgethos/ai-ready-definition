@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Fonts ────────────────────────────────────────────── */
+@font-face {
+  font-family: 'NewTheinhardt';
+  src: url('/fonts/NewTheinhardt-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'NewTheinhardt';
+  src: url('/fonts/NewTheinhardt-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: block;
+}
+@font-face {
+  font-family: 'NewTheinhardt';
+  src: url('/fonts/NewTheinhardt-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'NewTheinhardt';
+  src: url('/fonts/NewTheinhardt-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Cambon';
+  src: url('/fonts/Cambon-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Cambon';
+  src: url('/fonts/Cambon-Book.woff2') format('woff2');
+  font-weight: 500;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Cambon';
+  src: url('/fonts/Cambon-Demi.woff2') format('woff2');
+  font-weight: 600;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Cambon';
+  src: url('/fonts/Cambon-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Hauss';
+  src: url('/fonts/Hauss-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Hauss';
+  src: url('/fonts/Hauss-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Hauss';
+  src: url('/fonts/Hauss-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-display: block;
+  src: url('/fonts/Material-Icons.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Material Icons Outlined';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/Material-Icons-Outlined.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Material Icons Round';
+  font-style: normal;
+  font-weight: 400;
+  font-display: block;
+  src: url('/fonts/Material-Icons-Round.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Portada';
+  src: url('/fonts/Portada-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Portada';
+  src: url('/fonts/Portada-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Portada';
+  src: url('/fonts/Portada-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: block;
+}
+@font-face {
+  font-family: 'Portada';
+  src: url('/fonts/Portada-Extrabold.woff2') format('woff2');
+  font-weight: 800;
+  font-display: block;
+}
+.material-icons { font-family: 'Material Icons'; }
+.material-icons-outlined { font-family: 'Material Icons Outlined'; }
+.material-icons-round { font-family: 'Material Icons Round'; }
+.material-icons,
+.material-icons-outlined,
+.material-icons-round {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Base ─────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'NewTheinhardt', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #e5e5e7;
+  color: #1a1a1a;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Phone frame ──────────────────────────────────────── */
+.phone-frame {
+  width: 100%;
+  max-width: 390px;
+  min-width: 320px;
+  background: #ffffff;
+  border-radius: 32px;
+  overflow: hidden;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15);
+}

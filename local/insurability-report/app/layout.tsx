@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import DialProvider from "@/components/DialProvider";
 import AgentationProvider from "@/components/AgentationProvider";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
+const hauss = localFont({
+  src: [
+    { path: "../fonts/Hauss-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/Hauss-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../fonts/Hauss-Bold.woff2", weight: "700", style: "normal" },
+  ],
   variable: "--font-sans",
 });
 
@@ -32,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${portada.variable} font-sans antialiased`}
+        className={`${hauss.variable} ${portada.variable} font-sans antialiased`}
       >
         <DialProvider />
         <AgentationProvider />

@@ -1,5 +1,6 @@
 Always use `/Users/vlad.georgescu/claude` as the working directory.
 
+<<<<<<< Updated upstream
 
 
 ## Milestone Leader Instructions
@@ -358,3 +359,45 @@ previous session, add a new date-stamped entry below it rather than replacing it
 - When you need clarification or approval, ask directly — don't guess
 - Commit meaningful checkpoints so progress is visible
 - If you hit a blocker, explain what's blocking and suggest options
+=======
+## Directory Structure
+
+- `sandbox-demos/` — The canonical prototype platform (Next.js + Okta SSO, deployed on Netlify). Add prototypes as routes under `apps/web/app/prototypes/<slug>/` and register in `lib/registry.ts`. Live at https://ethos-sandbox-demos.netlify.app/
+- `local/` — Local standalone experiments not yet in the sandbox:
+  - `pattern-demos/` — Next.js pattern demos
+  - `ai-office-hours/` — Next.js (port 3003)
+  - `insurability-report/` — Next.js
+  - `living-expenses/` — Next.js
+  - `ethos-prototypes/` — Vite/React prototype lab (EDS v2 components, IUL variants)
+- `docs/` — Reference documentation and assets:
+  - `pm/` — PM workspace: PRDs, project docs, IUL reference, meeting notes, ad descriptions
+  - `how-ethos-works.md`, `funnel-capture.md` — Ethos funnel documentation
+  - `screenshots/`, `thumbs/` — UI flow screenshots
+  - `funnel-output/` — Generated screen-by-screen funnel analysis
+  - `storyboard/` — Storyboard HTML + assets
+- `tools/` — Utility scripts (capture-funnel.mjs, pandoc, md_to_gdoc.py)
+
+## Ethos Design System v2 (EDS v2)
+
+**All React projects must use EDS v2 for UI components.** The package is cloned and pre-built at `/Users/vlad.georgescu/ethos-design-system-v2`.
+
+### When creating or setting up any new React project:
+
+1. Add the dependency to `package.json`:
+   ```json
+   "@getethos/ethos-design-system-v2": "file:/Users/vlad.georgescu/ethos-design-system-v2"
+   ```
+2. Copy fonts from `/Users/vlad.georgescu/ethos-design-system-v2/dist/fonts/` into the project's `public/fonts/` directory.
+3. Import components directly:
+   ```tsx
+   import { Button, Input, Modal } from '@getethos/ethos-design-system-v2';
+   ```
+
+### When adding UI to an existing project that doesn't have EDS v2 yet:
+- Add the `file:` dependency above to its `package.json` and run `npm install` (or `yarn`).
+
+### Notes:
+- The package exports ESM, CJS, and TypeScript types — works with both Next.js and Vite.
+- **Fonts:** Use `Hauss` for body/UI text and `Portada` for headlines. NewTheinhardt and Cambon are legacy — do not use.
+- If EDS v2 is updated upstream: `cd /Users/vlad.georgescu/ethos-design-system-v2 && git pull && yarn build`
+>>>>>>> Stashed changes

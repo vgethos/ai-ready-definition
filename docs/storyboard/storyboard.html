@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bottom of Funnel — Storyboard</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F1EB;
+    --card: #FFFFFF;
+    --ink: #1B1B18;
+    --sub: #6B6860;
+    --muted: #A09A90;
+    --faint: #C5C0B8;
+    --border: #E2DFD8;
+    --green: #1a3c34;
+    --gold: #C49A2A;
+    --violet: #7C5CBF;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .topbar {
+    padding: 16px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-shrink: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .brand h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+
+  .controls { display: flex; gap: 14px; align-items: center; }
+  .tg { display: flex; align-items: center; gap: 6px; }
+
+  .tg-label {
+    font-size: 10px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--muted);
+  }
+
+  .pills {
+    display: flex; border: 1px solid var(--border);
+    border-radius: 6px; overflow: hidden; background: #fff;
+  }
+
+  .pills button {
+    padding: 5px 10px; border: none; background: transparent;
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    cursor: pointer; color: var(--muted); transition: all 0.15s;
+    border-right: 1px solid var(--border);
+  }
+
+  .pills button:last-child { border-right: none; }
+  .pills button.on { background: var(--green); color: #fff; }
+  .sep { width: 1px; height: 20px; background: var(--border); margin: 0 2px; }
+
+  /* ── Scroll view ── */
+  .view-scroll {
+    flex: 1; overflow-x: auto; overflow-y: hidden;
+    display: flex; align-items: center; padding: 0 40px;
+  }
+
+  .scroll-track {
+    display: flex; gap: 0; align-items: stretch;
+    padding: 32px 0; height: calc(100% - 16px);
+  }
+
+  .scroll-track .arrow {
+    flex-shrink: 0; width: 32px; display: flex;
+    align-items: center; justify-content: center;
+    align-self: center; color: var(--faint);
+  }
+
+  .scroll-track .arrow svg { width: 14px; height: 14px; }
+
+  .scroll-track .card {
+    flex-shrink: 0;
+    width: 340px;
+    height: 100%;
+  }
+
+  /* ── Grid view ── */
+  .view-grid {
+    flex: 1; display: none; padding: 24px 40px; overflow: hidden;
+  }
+
+  .grid-wrap {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+  }
+
+  .grid-row {
+    display: grid;
+    gap: 10px;
+    min-height: 0;
+  }
+
+  .grid-row .card {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  /* ── Card (shared) ── */
+  .card {
+    background: var(--card); border-radius: 14px;
+    border: none;
+    padding: 28px;
+    display: flex; flex-direction: column;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .card.gone { display: none !important; }
+  .arrow.gone { display: none !important; }
+
+  .card.dimmed {
+    opacity: 0.5;
+    box-shadow: none;
+  }
+
+  .card.dimmed.toggled {
+    opacity: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+  }
+
+  .card:not(.dimmed).toggled {
+    opacity: 0.5;
+    box-shadow: none;
+  }
+
+  .card { cursor: pointer; }
+
+  .card-subtitle {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .card-head {
+    display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+  }
+
+  .card-step {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--green); color: #fff;
+    font-size: 14px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .card-step.done { background: #22c55e; font-size: 16px; }
+
+  .card-tag {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.08em; padding: 3px 8px; border-radius: 4px;
+  }
+
+  .tag-new { background: #EDE8F5; color: #6B50A0; }
+  .tag-exp { background: #FEF3C7; color: #92400E; }
+  .tag-grey { background: #EDEDEB; color: #6B6860; }
+
+  .card-title {
+    font-size: 22px; font-weight: 700; line-height: 1.2;
+    letter-spacing: -0.02em; margin-bottom: 16px;
+  }
+
+  .card-hook {
+    font-size: 16px; line-height: 1.55; color: var(--sub); flex: 1;
+  }
+
+  .card-hook strong { color: var(--ink); font-weight: 600; }
+
+  .card-feel {
+    margin-top: auto; padding-top: 16px;
+    border-top: 1px solid var(--border);
+    font-size: 15px; font-style: italic;
+    color: var(--green); line-height: 1.3;
+  }
+
+  .expand-btn {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.15s, background 0.15s;
+  }
+
+  .expand-btn:hover {
+    color: var(--ink);
+    background: var(--bg);
+  }
+
+  /* ── Preview overlay ── */
+  .preview-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .preview-overlay .preview-img {
+    border-radius: 32px;
+    box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .preview-overlay .preview-img img {
+    display: block;
+    height: 80vh;
+    width: auto;
+    max-width: none;
+  }
+
+  /* ── Grid overrides ── */
+  .view-grid .card { padding: 20px 32px 16px; border-radius: 12px; }
+  .view-grid .card-head { margin-bottom: 10px; gap: 8px; }
+  .view-grid .card-step { width: 20px; height: 20px; font-size: 10px; }
+  .view-grid .card-subtitle { font-size: 10px; margin-bottom: 3px; }
+  .view-grid .card-title { font-size: 17px; margin-bottom: 8px; line-height: 1.25; }
+  .view-grid .card-hook {
+    font-size: 13.5px; line-height: 1.5;
+    overflow: hidden; display: -webkit-box;
+    -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  }
+  .view-grid .card-feel { font-size: 13px; padding-top: 10px; }
+  .view-grid .card-tag { font-size: 9px; padding: 2px 6px; }
+
+  body.no-desc .card-hook { display: none; }
+  body.no-desc .card-feel { border-top: none; padding-top: 8px; }
+
+  body:not(.no-desc) .card-thumb { display: none; }
+
+  .card-thumb {
+    flex: 1;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .scroll-track .card-thumb {
+    flex: none;
+    aspect-ratio: 375 / 812;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  .card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .card-thumb .placeholder {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--faint);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  body.mode-grid .view-scroll { display: none; }
+  body.mode-grid .view-grid { display: block; }
+
+  .view-scroll::-webkit-scrollbar { height: 4px; }
+  .view-scroll::-webkit-scrollbar-track { background: transparent; }
+  .view-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+</style>
+</head>
+<body class="mode-grid no-desc">
+
+<div class="topbar">
+  <div class="brand"><h1>Bottom of Funnel Storyboard</h1></div>
+  <div class="controls">
+    <div class="tg">
+      <span class="tg-label">View</span>
+      <div class="pills">
+        <button onclick="setView('scroll',this)">Detail</button>
+        <button class="on" onclick="setView('grid',this)">Overview</button>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <div class="tg">
+      <span class="tg-label">Approval</span>
+      <div class="pills">
+        <button class="on" onclick="t('approval','base',this)">Baseline</button>
+        <button onclick="t('approval','instant',this)">Instant Coverage</button>
+      </div>
+    </div>
+    <div class="tg">
+      <span class="tg-label">Beneficiary</span>
+      <div class="pills">
+        <button class="on" onclick="t('bene','in',this)">In</button>
+        <button onclick="t('bene','out',this)">Out</button>
+      </div>
+    </div>
+    <div class="tg">
+      <span class="tg-label">Insurability Profile</span>
+      <div class="pills">
+        <button onclick="t('lift','off',this)">Off</button>
+        <button class="on" onclick="t('lift','on',this)">On</button>
+      </div>
+    </div>
+    <div class="tg" id="profileToggle" style="display:flex;">
+      <span class="tg-label">Score</span>
+      <div class="pills">
+        <button class="on" onclick="t('profile','prime',this)">Excellent</button>
+        <button onclick="t('profile','mid',this)">Great</button>
+      </div>
+    </div>
+    <div class="tg">
+      <span class="tg-label">Cards Show</span>
+      <div class="pills">
+        <button onclick="t('desc','on',this)">Narrative</button>
+        <button class="on" onclick="t('desc','off',this)">Screenshots</button>
+      </div>
+    </div>
+    <div class="sep"></div>
+    <div class="tg">
+      <span class="tg-label">Focus</span>
+      <div class="pills">
+        <button class="on" onclick="t('focus','on',this)">On</button>
+        <button onclick="t('focus','off',this)">Off</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="view-scroll" id="scrollView">
+  <div class="scroll-track" id="scrollTrack"></div>
+</div>
+
+<div class="view-grid" id="gridView">
+  <div class="grid-wrap" id="gridWrap"></div>
+</div>
+
+<!-- Preview overlay -->
+<div class="preview-overlay" id="previewOverlay" style="display:none;" onclick="closePreview()">
+  <div class="preview-img">
+    <img id="previewImg" src="" alt="" />
+  </div>
+</div>
+
+<script>
+const zoomSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>';
+
+const CARDS = [
+  {
+    v: 'always', context: true,
+    sub: 'Facebook Ad \u2192 Landing Page',
+    title: 'Something catches their eye',
+    hook: 'User sees a life insurance ad on Facebook. Clicks through to ethos.com. First impression: this looks modern and easy.',
+    feel: '\u201cMaybe I should finally do this.\u201d',
+    thumb: 'thumbs/01-landing.png'
+  },
+  {
+    v: 'always', context: true,
+    sub: 'Pre-Interview',
+    title: 'Tell us about your life',
+    hook: 'Long questionnaire: family details, dependents, income, employment, location. We\'re building a picture of who they are and who depends on them.',
+    feel: '\u201cThis is thorough but straightforward.\u201d',
+    thumb: 'thumbs/02-personal.png'
+  },
+  {
+    v: 'always', context: true,
+    sub: 'Interview \u2014 Medical History',
+    title: 'Tell us about your health',
+    hook: 'The heavy part. Smoking status, hospitalizations, family history of cancer, heart disease. Every answer shapes their rate and eligibility.',
+    feel: '\u201cI hope this doesn\'t disqualify me.\u201d',
+    thumb: 'thumbs/03-medical.png'
+  },
+  {
+    v: 'always', scope: true,
+    sub: 'Application Processing',
+    title: 'We did the hard part for you',
+    hook: 'Trying for instant approval. Rates fetched, coverage personalized. <strong>\u201cThat took 3 seconds and saved you 6 weeks.\u201d</strong>',
+    feel: '\u201cAm I approved? What\'s my rate?\u201d',
+    thumb: 'thumbs/04-processing.png'
+  },
+  {
+    v: 'instant', tag: 'Experiment', tagType: 'exp', scope: true,
+    sub: 'Instant Coverage Check',
+    title: 'You may qualify for something special',
+    hook: '<strong>\u201cChecking if you\'re approved for instant coverage.\u201d</strong> Reframes approval as something fast and special.',
+    feel: '\u201cI might skip the usual hassle?\u201d',
+    thumb: 'thumbs/05-instant-check.png'
+  },
+  {
+    v: 'lift-prime', tag: 'New Step', tagType: 'new', scope: true,
+    sub: 'Insurability Profile \u2014 Prime',
+    title: 'Your health is working in your favor',
+    hook: '<strong>\u201cYour health profile is excellent.\u201d</strong> Show factors that earned a top rate: age, non-smoker, clean history.',
+    feel: '\u201cI earned a great rate \u2014 let me see it.\u201d',
+    thumb: 'thumbs/06-profile-prime.png'
+  },
+  {
+    v: 'lift-mid', tag: 'New Step', tagType: 'new', scope: true,
+    sub: 'Insurability Profile \u2014 Mid-Road',
+    title: 'Here\'s what\'s working for you',
+    hook: '<strong>Only highlight positives.</strong> Never surface negatives. Frame rate as competitive. User feels seen, not judged.',
+    feel: '\u201cThey\'re focused on what\'s good, not bad.\u201d',
+    thumb: 'thumbs/07-profile-mid.png'
+  },
+  {
+    v: 'appr-base', scope: true,
+    sub: 'Approval',
+    title: 'Good news \u2014 you\'re in',
+    hook: '<strong>\u201cCongrats! You\'re approved.\u201d</strong> Carrier trust: Banner Life, #1 carrier, A+ rated. Estate planning upsell.',
+    feel: '\u201cI\'m in. This is legit.\u201d',
+    thumb: 'thumbs/08-approval.png'
+  },
+  {
+    v: 'appr-inst', tag: 'Experiment', tagType: 'exp', scope: true,
+    sub: 'Approval \u2014 Instant Coverage',
+    title: 'You\'re approved for instant coverage',
+    hook: '<strong>\u201cApproved for instant coverage.\u201d</strong> 3-step roadmap makes the rest feel short.',
+    feel: '\u201cOnly 3 steps left \u2014 let\'s go.\u201d',
+    thumb: 'thumbs/09-approval-instant.png'
+  },
+  {
+    v: 'bene', tag: 'May be removed', tagType: 'grey',
+    sub: 'Add Beneficiaries',
+    title: 'Who are you protecting?',
+    hook: 'Pre-populated from interview data. <strong>One tap to select.</strong> Policy becomes about real people.',
+    feel: '\u201cThis is for my family now.\u201d',
+    thumb: 'thumbs/10-bene-add.png'
+  },
+  {
+    v: 'bene', tag: 'May be removed', tagType: 'grey',
+    sub: 'Confirm Beneficiary Details',
+    title: 'Let\'s make sure we got it right',
+    hook: 'Name, relationship, birthdate per beneficiary. Mostly pre-filled. Low friction.',
+    feel: '\u201cAlmost done with this part.\u201d',
+    thumb: 'thumbs/11-bene-confirm.png'
+  },
+  {
+    v: 'always',
+    sub: 'Coverage Recommendation',
+    title: 'Here\'s what your family actually needs',
+    hook: '<strong>\u201cWe calculated how much you need.\u201d</strong> Broken into living costs, mortgage, education.',
+    feel: '\u201cThis is tailored to my life.\u201d',
+    thumb: 'thumbs/12-coverage-rec.png'
+  },
+  {
+    v: 'always',
+    sub: 'Rate Comparison',
+    title: 'You\'re getting the best deal out there',
+    hook: '<strong>\u201cSave up to $X/year with Ethos\u201d</strong> vs. 3 competitors. Kills the urge to shop around.',
+    feel: '\u201cI\'d pay double anywhere else.\u201d',
+    thumb: 'thumbs/13-rate-compare.png'
+  },
+  {
+    v: 'always',
+    sub: 'Coverage Customization',
+    title: 'Make it yours',
+    hook: 'Coverage slider + term pills with live pricing. <strong>User configures their own policy.</strong>',
+    feel: '\u201cI can adjust this to fit my budget.\u201d',
+    thumb: 'thumbs/14-customize.png'
+  },
+  {
+    v: 'always',
+    sub: 'Pre-Checkout Interstitial',
+    title: 'You can\'t make a wrong choice here',
+    hook: '<strong>30-day money-back. Cancel anytime. Keep estate plan.</strong> Catches anyone hesitating.',
+    feel: '\u201cNothing to lose.\u201d',
+    thumb: 'thumbs/15-pre-checkout.png'
+  },
+  {
+    v: 'always',
+    sub: 'Secure Checkout',
+    title: 'One step from protecting your family',
+    hook: '<strong>\u201cOne step from protecting [name].\u201d</strong> Payment + trust stack below.',
+    feel: '\u201cEverything checks out.\u201d',
+    thumb: 'thumbs/16-checkout.png'
+  },
+  {
+    v: 'always',
+    sub: 'Identity Verification',
+    title: 'Quick security check',
+    hook: 'Confirm last 4 SSN. Norton Secured. Quick final gate.',
+    feel: '\u201cUgh, this is annoying.\u201d',
+    thumb: 'thumbs/17-ssn.png'
+  },
+  {
+    v: 'always', complete: true,
+    sub: 'Confirmation',
+    title: 'Your family is protected',
+    hook: '<strong>\u201cCongrats \u2014 you\'re covered!\u201d</strong> Policy link. Referral. Estate planning next.',
+    feel: '\u201cI did the right thing.\u201d',
+    thumb: 'thumbs/18-covered.png'
+  }
+];
+
+const arrowSvg = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12m-4-4l4 4-4 4"/></svg>';
+const S = { approval: 'base', bene: 'in', lift: 'on', profile: 'prime', desc: 'off', focus: 'on', _view: 'grid' };
+
+function vis(v) {
+  return { always:true, instant:S.approval==='instant',
+    'lift-prime':S.lift==='on' && S.profile==='prime',
+    'lift-mid':S.lift==='on' && S.profile==='mid',
+    'appr-base':S.approval==='base', 'appr-inst':S.approval==='instant',
+    bene:S.bene==='in' }[v] ?? false;
+}
+
+function cardHTML(c, n) {
+  let h = '<div class="card-head">';
+  h += c.complete
+    ? '<div class="card-step done">&#10003;</div>'
+    : `<div class="card-step">${n}</div>`;
+  if (c.tag) h += `<span class="card-tag tag-${c.tagType}">${c.tag}</span>`;
+  h += `<button class="expand-btn" onmousedown="event.stopPropagation(); openPreview('${c.thumb}')" title="View screenshot">${zoomSvg}</button>`;
+  h += '</div>';
+  if (c.sub) h += `<div class="card-subtitle">${c.sub}</div>`;
+  h += `<div class="card-title">${c.title}</div>`;
+
+  h += `<div class="card-hook">${c.hook}</div>`;
+  h += `<div class="card-thumb"><img src="${c.thumb}" onerror="this.parentElement.innerHTML='<span class=placeholder>Screenshot</span>'" /></div>`;
+  if (c.feel) h += `<div class="card-feel">${c.feel}</div>`;
+  return h;
+}
+
+function isDimmed(c) {
+  return S.focus === 'on' && !c.scope;
+}
+
+function openPreview(src) {
+  document.getElementById('previewImg').src = src;
+  document.getElementById('previewOverlay').style.display = 'flex';
+}
+
+function closePreview() {
+  document.getElementById('previewOverlay').style.display = 'none';
+}
+
+function render() {
+  document.getElementById('profileToggle').style.display = S.lift === 'on' ? 'flex' : 'none';
+  const visible = CARDS.filter(c => vis(c.v));
+
+  // Scroll
+  let sh = '', n = 0;
+  CARDS.forEach((c,i) => {
+    const show = vis(c.v);
+    if (show) n++;
+    const dim = show && isDimmed(c);
+    if (i > 0) sh += `<div class="arrow${show?'':' gone'}">${arrowSvg}</div>`;
+    sh += `<div class="card${show?'':' gone'}${dim?' dimmed':''}" onmousedown="toggleCard(this)">${cardHTML(c, n)}</div>`;
+  });
+  document.getElementById('scrollTrack').innerHTML = sh;
+
+  // Grid — 5 cols
+  const perRow = 5;
+  const rows = [];
+  for (let i = 0; i < visible.length; i += perRow) {
+    rows.push(visible.slice(i, i + perRow));
+  }
+
+  let gh = '';
+  rows.forEach(row => {
+    gh += `<div class="grid-row" style="grid-template-columns: repeat(${perRow}, 1fr);">`;
+    row.forEach(c => {
+      const dim = isDimmed(c);
+      gh += `<div class="card${dim?' dimmed':''}" onmousedown="toggleCard(this)">${cardHTML(c, visible.indexOf(c) + 1)}</div>`;
+    });
+    for (let i = row.length; i < perRow; i++) {
+      gh += '<div></div>';
+    }
+    gh += '</div>';
+  });
+  document.getElementById('gridWrap').innerHTML = gh;
+}
+
+function t(key, val, btn) {
+  S[key] = val;
+  btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  updateBodyClass();
+  render();
+}
+
+function updateBodyClass() {
+  let cls = S._view === 'grid' ? 'mode-grid' : 'mode-scroll';
+  if (S.desc === 'off') cls += ' no-desc';
+  document.body.className = cls;
+}
+
+function setView(mode, btn) {
+  btn.parentElement.querySelectorAll('button').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  S._view = mode;
+  updateBodyClass();
+}
+
+function toggleCard(el) {
+  el.classList.toggle('toggled');
+}
+
+document.getElementById('scrollView').addEventListener('wheel', e => {
+  if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+    e.preventDefault();
+    document.getElementById('scrollView').scrollLeft += e.deltaY;
+  }
+}, { passive: false });
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closePreview();
+});
+
+render();
+</script>
+
+</body>
+</html>

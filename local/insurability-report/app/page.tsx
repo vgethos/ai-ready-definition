@@ -43,15 +43,11 @@ export default function Home() {
     colors: {
       _collapsed: true,
       cardBg: "#f3f7f7", checkIconBg: "#056257",
-      checkIconSize: [28, 16, 48], buttonBg: "#272727",
+      checkIconSize: [28, 16, 48], buttonBg: "#056257",
     },
   });
 
-  // Variant I DialKit controls
-  const p = PERSONA_SCORE_DEFAULTS[persona];
-  const variantI = useDialKit("I: Tiered", {
-    score: [p, 0, 100],
-  });
+  const score = PERSONA_SCORE_DEFAULTS[persona];
 
   // ── Navigation callbacks ───────────────────────────────────────────────
   const goToScore = useCallback(() => setScreen("score"), []);
@@ -113,19 +109,20 @@ export default function Home() {
       </div>
 
       <PhoneFrame>
-        <div className="h-full flex flex-col">
+        <div style={{ height: "100%" }} className="flex flex-col">
           {/* EthosHeader shows on all screens except interstitials */}
           {(screen === "score" || screen === "approval") && <EthosHeader />}
 
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={screen}
-              className="flex-1 min-h-0 relative"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-            >
+          <div className="flex-1 min-h-0 relative">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={screen}
+                className="absolute inset-0"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+              >
               {screen === "computing" && (
                 <ComputingResults onComplete={goToScore} persona={persona} />
               )}
@@ -137,7 +134,7 @@ export default function Home() {
                   spacing={shared.spacing}
                   typography={shared.typography}
                   colors={shared.colors}
-                  score={variantI.score}
+                  score={score}
                 />
               )}
 
@@ -148,8 +145,9 @@ export default function Home() {
               {screen === "approval" && (
                 <ApprovalScreen persona={persona} onRestart={restart} />
               )}
-            </motion.div>
-          </AnimatePresence>
+              </motion.div>
+            </AnimatePresence>
+          </div>
         </div>
       </PhoneFrame>
     </div>

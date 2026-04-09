@@ -328,7 +328,7 @@ export default function ApprovalScreen({
           style={{
             width: "100%",
             minHeight: 52,
-            backgroundColor: "#272727",
+            backgroundColor: "#056257",
             color: "#ffffff",
             border: "none",
             borderRadius: 8,
@@ -338,10 +338,10 @@ export default function ApprovalScreen({
             transition: "background-color 150ms ease",
           }}
           onMouseEnter={(e) =>
-            (e.currentTarget.style.backgroundColor = "#3a3a3a")
+            (e.currentTarget.style.backgroundColor = "#05594f")
           }
           onMouseLeave={(e) =>
-            (e.currentTarget.style.backgroundColor = "#272727")
+            (e.currentTarget.style.backgroundColor = "#056257")
           }
         >
           Restart demo ↺

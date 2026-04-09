@@ -19,12 +19,65 @@
       "mcp__figma-desktop__get_design_context",
       "mcp__Claude_in_Chrome__tabs_context_mcp",
       "Bash(/opt/homebrew/bin/npm install:*)",
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(open:*)",
+      "mcp__claude_ai_Notion__notion-fetch",
+      "Bash(/opt/homebrew/bin/brew install:*)",
+      "Bash(export PATH=/opt/homebrew/bin:$PATH)",
+      "Bash(curl -s http://localhost:3001/prototypes/bof-storyboard)",
+      "Bash(claude -p --bare --model sonnet)",
+      "Bash(claude -p --model sonnet)",
+      "Bash(find /Users/vlad.georgescu/claude/sandbox-demos/apps -name *.tsx -type f)",
+      "Bash(grep -r \"useDialKit\\\\|from.*dialkit\" /Users/vlad.georgescu/claude/sandbox-demos/apps --include=*.tsx --include=*.ts)",
+      "Bash(node:*)",
+      "mcp__claude_ai_Figma__get_design_context",
+      "mcp__claude_ai_Figma__get_code_connect_suggestions",
+      "mcp__claude_ai_Figma__send_code_connect_mappings",
+      "mcp__claude_ai_Figma__add_code_connect_map",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebSearch",
+      "WebFetch(domain:www.jsdelivr.com)",
+      "WebFetch(domain:joshpuckett.me)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:www.agentation.com)",
+      "Bash(mkdir:*)",
+      "Bash(rm:*)",
+      "Bash(lsof -ti:3002)",
+      "Bash(curl:*)",
+      "mcp__claude_ai_Figma__get_screenshot",
+      "mcp__claude_ai_Figma__use_figma",
+      "Bash(mv ai-office-hours/ prototypes/ai-office-hours/)",
+      "Bash(mv living-expenses/ prototypes/living-expenses/)",
+      "Bash(mv sandbox-demos/ prototypes/sandbox-demos/)",
+      "Bash(mkdir -p /Users/vlad.georgescu/claude/tools)",
+      "Bash(mv /Users/vlad.georgescu/claude/capture-funnel.mjs /Users/vlad.georgescu/claude/tools/capture-funnel.mjs)",
+      "Bash(mkdir -p docs/storyboard)",
+      "Bash(mv how-ethos-works.md docs/)",
+      "Bash(mv funnel-capture.md docs/)",
+      "Bash(mv screenshots/ docs/)",
+      "Bash(mv thumbs/ docs/)",
+      "Bash(rm -rf /Users/vlad.georgescu/claude/ai-office-hours/)",
+      "Bash(rm -rf /Users/vlad.georgescu/claude/sandbox-demos/)",
+      "Bash(git mv:*)",
+      "Bash(ln -s /Users/vlad.georgescu/claude/prototypes/pattern-demos/node_modules /Users/vlad.georgescu/claude/prototypes/living-expenses/node_modules)",
+      "Bash(cd /Users/vlad.georgescu/ethos-design-system-v2:*)",
+      "Bash(yarn:*)",
+      "Bash(corepack:*)"
     ]
   },
+<<<<<<< Updated upstream
   "enabledMcpjsonServers": [
     "agentation"
   ],
   "outputStyle": "Explanatory",
   "enableAllProjectMcpServers": true
+=======
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "agentation"
+  ],
+  "outputStyle": "default",
+  "spinnerTipsEnabled": true
+>>>>>>> Stashed changes
 }

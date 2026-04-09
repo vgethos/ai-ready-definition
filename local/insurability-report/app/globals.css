@@ -1,20 +1,27 @@
 @import "tailwindcss";
 
 @theme {
+  /* Palette — Ethos brand (from DESIGN.md) */
   --color-canvas: #131111;
   --color-cypress-100: #056257;
+  --color-cypress-125: #05594f;
   --color-cypress-150: #04463e;
   --color-cypress-10: #e6efee;
   --color-cypress-5: #f3f7f7;
   --color-forest: #054742;
+
+  /* Neutrals — Night scale */
   --color-gray-100: #272727;
   --color-gray-80: #525252;
-  --color-gray-60: #727272;
+  --color-gray-60: #7e7e7e;
+  --color-gray-40: #a9a9a9;
   --color-gray-20: #d4d4d4;
-  --color-gray-5: #e9e9e9;
+  --color-gray-10: #e9e9e9;
+  --color-gray-5: #f4f4f4;
 
-  --font-sans: "Inter", sans-serif;
-  --font-display: "Playfair Display", serif;
+  /* Fonts — Hauss (body), Portada (headlines) */
+  --font-sans: "Hauss", sans-serif;
+  --font-display: "Portada", serif;
 }
 
 * {
