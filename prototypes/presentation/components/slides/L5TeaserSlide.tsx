@@ -7,8 +7,8 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 const LEVELS = [
   { num: 1, goal: "Write this email for me" },
   { num: 2, goal: "Help me analyze this document" },
-  { num: 3, goal: "I never want to document our funnel manually again" },
-  { num: 4, goal: "Build a complete presentation from a single sentence" },
+  { num: 3, goal: "Make our entire funnel accessible to AI — structured, searchable, always current" },
+  { num: 4, goal: "Orchestrate a team of AI agents to research, design, build, and polish a complete project" },
   { num: 5, goal: "Solve a complex problem end-to-end with minimal guidance" },
 ];
 

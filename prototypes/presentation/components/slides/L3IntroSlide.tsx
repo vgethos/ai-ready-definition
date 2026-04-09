@@ -29,7 +29,7 @@ export default function L3IntroSlide() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3, ease: EASE }}
       >
-        &ldquo;I never want to document our funnel manually again.&rdquo;
+        &ldquo;Make our entire funnel accessible to AI &mdash; structured, searchable, always current.&rdquo;
       </motion.p>
 
       {/* Framing line */}

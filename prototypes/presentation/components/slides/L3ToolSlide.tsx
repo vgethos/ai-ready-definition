@@ -401,9 +401,9 @@ export default function L3ToolSlide() {
 
           {/* File cards (stacked in phase 2) or document panel (phase 1) */}
           <div
-            className={`${
+            className={`relative ${
               isPhase2
-                ? "relative flex items-center justify-center"
+                ? "flex items-center justify-center"
                 : "flex items-stretch"
             }`}
             style={isPhase2 ? { width: 260, height: 120 } : undefined}
@@ -496,9 +496,8 @@ export default function L3ToolSlide() {
               </motion.div>
             </motion.div>
 
-            {/* Other context file cards — stacked behind with offsets, pure CSS transitions */}
-            {isPhase2 &&
-              contextFiles
+            {/* Context file cards — always in DOM, opacity-only transitions avoid insertion jank */}
+            {contextFiles
                 .filter((f) => !f.highlight)
                 .map((file, i) => (
                   <div
@@ -508,8 +507,9 @@ export default function L3ToolSlide() {
                       zIndex: contextFiles.length - 1 - i,
                       top: (i + 1) * 4,
                       left: `calc(50% - 80px + ${(i + 1) * 3}px)`,
-                      opacity: showCards ? 1 : 0,
-                      transitionDelay: showCards ? `${i * 80}ms` : "0ms",
+                      opacity: isPhase2 && showCards ? 1 : 0,
+                      transitionDelay: isPhase2 && showCards ? `${i * 80}ms` : "0ms",
+                      willChange: "opacity",
                     }}
                   >
                     <FileText

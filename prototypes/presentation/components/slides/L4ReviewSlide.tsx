@@ -13,12 +13,12 @@ const SECTIONS = [
   {
     heading: "Work Completed",
     content:
-      "Script: 7:50, 5 levels \u2713  |  Slides: 12 screens built \u2713  |  Delivery notes \u2713",
+      "Script: 7:50, 5 levels \u2713  |  Slides: 8 screens built \u2713  |  Delivery notes \u2713",
   },
   {
     heading: "Open Questions",
     content:
-      "Font choice: Portada+Hauss or reference repo fonts?  |  Dark theme or light?",
+      "L3 demo pacing: auto-play or manual advance?  |  Closing CTA: Slack channel or office hours?",
   },
 ];
 
