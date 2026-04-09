@@ -1,111 +1,298 @@
 "use client";
 
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const steps = [
+const screens = [
   {
-    image: "/funnel/screen-01.png",
-    url: "ethoslife.com/",
-    number: 1,
-    title: "Screen 1: Homepage",
-    body: 'The user sees "Protect your family in minutes" with a prominent CTA. Affordable life insurance with no medical exams, 100% online.',
+    image: "/funnel/screen-03.png",
+    number: 3,
+    title: "Screen 3: Goals",
+    url: "app.ethos.com/q/goals",
+    content: [
+      { type: "h2", text: "Screen 3: Goals" },
+      { type: "meta", text: "**URL:** app.ethos.com/q/goals" },
+      { type: "h3", text: "What the user sees" },
+      {
+        type: "body",
+        text: '"Let\'s get started! What are your goals for life insurance?"\nSelect all that apply: Protect my loved ones \u00b7 Leave an inheritance \u00b7 Cover my funeral expenses \u00b7 I\'m not sure',
+      },
+      { type: "h3", text: "What the user can do" },
+      { type: "body", text: "4 checkboxes, Next button" },
+    ],
+  },
+  {
+    image: "/funnel/screen-04.png",
+    number: 4,
+    title: "Screen 4: Protections",
+    url: "app.ethos.com/q/protections",
+    content: [
+      { type: "h2", text: "Screen 4: Protections" },
+      { type: "meta", text: "**URL:** app.ethos.com/q/protections" },
+      { type: "h3", text: "What the user sees" },
+      {
+        type: "body",
+        text: '"Who depends on you financially?"\nThis helps us customize your plan. Options: Spouse or partner \u00b7 Children \u00b7 Parent \u00b7 Other',
+      },
+      { type: "h3", text: "What the user can do" },
+      { type: "body", text: "4 checkboxes, Next button, Back button" },
+    ],
   },
   {
     image: "/funnel/screen-05.png",
-    url: "ethoslife.com/app/start",
     number: 5,
-    title: "Screen 5: Getting Started",
-    body: '"We\'ll get your final rate in minutes." Three-step process: coverage needs, basic details, health info. Google review testimonial.',
+    title: "Screen 5: How It Works",
+    url: "app.ethos.com/q/howItWorks",
+    content: [
+      { type: "h2", text: "Screen 5: How It Works" },
+      { type: "meta", text: "**URL:** app.ethos.com/q/howItWorks" },
+      { type: "h3", text: "What the user sees" },
+      {
+        type: "body",
+        text: '"Great! We\'ll get your final rate in minutes."\n3-step process: Tell us about your needs \u2192 Add basic details \u2192 Provide health info\nGoogle review: "Holy cow! I\'m still blown away by how easy this was."',
+      },
+      { type: "h3", text: "What the user can do" },
+      { type: "body", text: "Next: Coverage Needs button, Back button" },
+    ],
   },
   {
-    image: "/funnel/screen-07.png",
-    url: "ethoslife.com/app/details",
-    number: 7,
-    title: "Screen 7: Basic Details",
-    body: '"Provide your sex at birth." Two options: Male, Female. Progress bar at ~20%.',
+    image: "/funnel/screen-08.png",
+    number: 8,
+    title: "Screen 8: Children",
+    url: "app.ethos.com/q/children",
+    content: [
+      { type: "h2", text: "Screen 8: Children" },
+      { type: "meta", text: "**URL:** app.ethos.com/q/children" },
+      { type: "h3", text: "What the user sees" },
+      {
+        type: "body",
+        text: '"How many children do you have under 18?"\nThis helps us estimate your family coverage needs.\nOptions: 0, 1, 2, 3, 4+',
+      },
+      { type: "h3", text: "What the user can do" },
+      { type: "body", text: "5 selection buttons, Back button" },
+    ],
+  },
+  {
+    image: "/funnel/screen-09.png",
+    number: 9,
+    title: "Screen 9: Estate Plan or Will",
+    url: "app.ethos.com/q/wills",
+    content: [
+      { type: "h2", text: "Screen 9: Estate Plan or Will" },
+      { type: "meta", text: "**URL:** app.ethos.com/q/wills" },
+      { type: "h3", text: "What the user sees" },
+      {
+        type: "body",
+        text: '"Do you have an Estate Plan or Will in place?"\nOptions: Yes \u00b7 No \u00b7 I\'m not sure',
+      },
+      { type: "h3", text: "What the user can do" },
+      { type: "body", text: "3 selection buttons, Back button" },
+    ],
+  },
+  {
+    image: "/funnel/screen-10.png",
+    number: 10,
+    title: "Screen 10: Estate Planning Tools",
+    url: "app.ethos.com/q/willsEducational",
+    content: [
+      { type: "h2", text: "Screen 10: Estate Planning Tools" },
+      {
+        type: "meta",
+        text: "**URL:** app.ethos.com/q/willsEducational",
+      },
+      { type: "h3", text: "What the user sees" },
+      {
+        type: "body",
+        text: '"Eligible policies include Estate Planning Tools"\nThese tools are provided at no additional cost. Family illustration with umbrella.',
+      },
+      { type: "h3", text: "What the user can do" },
+      { type: "body", text: "Next button" },
+    ],
   },
 ];
+
+function ContentBlock({
+  block,
+}: {
+  block: { type: string; text: string };
+}) {
+  switch (block.type) {
+    case "h2":
+      return (
+        <div className="font-bold text-ink text-[11px] leading-tight mt-0.5">
+          ## {block.text}
+        </div>
+      );
+    case "meta":
+      return (
+        <div className="text-ink-50 text-[10px] leading-tight">
+          {block.text}
+        </div>
+      );
+    case "h3":
+      return (
+        <div className="font-semibold text-ink-70 text-[10px] leading-tight mt-1">
+          ### {block.text}
+        </div>
+      );
+    case "body":
+      return (
+        <div className="text-ink-60 text-[10px] leading-snug whitespace-pre-line pl-0">
+          {block.text}
+        </div>
+      );
+    default:
+      return null;
+  }
+}
+
+function AnimatedArrow({ processing }: { processing: boolean }) {
+  return (
+    <div className="flex flex-col items-center justify-center gap-2 w-[80px] shrink-0">
+      {/* Flowing dots */}
+      <div className="relative h-[2px] w-[56px] overflow-hidden rounded-full bg-cypress/10">
+        <motion.div
+          className="absolute top-0 left-0 h-full w-[20px] rounded-full bg-cypress/60"
+          animate={
+            processing
+              ? {
+                  x: ["-20px", "56px"],
+                  opacity: [0, 1, 1, 0],
+                }
+              : { x: "-20px", opacity: 0 }
+          }
+          transition={
+            processing
+              ? {
+                  duration: 0.8,
+                  repeat: Infinity,
+                  ease: "linear",
+                }
+              : { duration: 0.2 }
+          }
+        />
+      </div>
+
+      {/* Arrow with sparkle */}
+      <motion.div
+        className="flex items-center gap-1"
+        animate={
+          processing
+            ? { scale: [1, 1.08, 1], opacity: [0.7, 1, 0.7] }
+            : { scale: 1, opacity: 0.35 }
+        }
+        transition={
+          processing
+            ? { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
+            : { duration: 0.3 }
+        }
+      >
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          className="text-cypress"
+        >
+          <path
+            d="M8 1l1.5 3.5L13 6l-3.5 1.5L8 11 6.5 7.5 3 6l3.5-1.5L8 1z"
+            fill="currentColor"
+          />
+        </svg>
+        <svg
+          width="28"
+          height="14"
+          viewBox="0 0 28 14"
+          fill="none"
+          className="text-cypress"
+        >
+          <path
+            d="M2 7h20m0 0l-5-4.5m5 4.5l-5 4.5"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </motion.div>
+
+      {/* Label */}
+      <motion.span
+        className="text-[9px] text-cypress font-medium tracking-wide uppercase"
+        animate={processing ? { opacity: [0.5, 1, 0.5] } : { opacity: 0.3 }}
+        transition={
+          processing
+            ? { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
+            : { duration: 0.3 }
+        }
+      >
+        AI
+      </motion.span>
+    </div>
+  );
+}
 
 export default function L3ToolSlide() {
   const [currentStep, setCurrentStep] = useState(0);
   const [processing, setProcessing] = useState(false);
-  const [visibleTexts, setVisibleTexts] = useState<number[]>([]);
+  const [visibleScreens, setVisibleScreens] = useState<number[]>([]);
   const [done, setDone] = useState(false);
+  const docRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Step 0: show first screenshot immediately (already visible via initial state)
-    // After 1.5s, start processing first screenshot
     const timers: ReturnType<typeof setTimeout>[] = [];
+    const SCREEN_DURATION = 2000; // 2 seconds per screen
 
-    // Step 1: Process screen 1
-    timers.push(
-      setTimeout(() => {
-        setProcessing(true);
-      }, 1000)
-    );
-    timers.push(
-      setTimeout(() => {
-        setProcessing(false);
-        setVisibleTexts([0]);
-      }, 1500)
-    );
+    screens.forEach((_, i) => {
+      const base = i * SCREEN_DURATION;
 
-    // Step 2: Transition to screen 2, process it
-    timers.push(
-      setTimeout(() => {
-        setCurrentStep(1);
-      }, 3000)
-    );
-    timers.push(
-      setTimeout(() => {
-        setProcessing(true);
-      }, 3300)
-    );
-    timers.push(
-      setTimeout(() => {
-        setProcessing(false);
-        setVisibleTexts([0, 1]);
-      }, 3800)
-    );
+      // Show screenshot (crossfade)
+      timers.push(
+        setTimeout(() => {
+          setCurrentStep(i);
+          setProcessing(true);
+        }, base)
+      );
 
-    // Step 3: Transition to screen 3, process it
-    timers.push(
-      setTimeout(() => {
-        setCurrentStep(2);
-      }, 4500)
-    );
-    timers.push(
-      setTimeout(() => {
-        setProcessing(true);
-      }, 4800)
-    );
-    timers.push(
-      setTimeout(() => {
-        setProcessing(false);
-        setVisibleTexts([0, 1, 2]);
-      }, 5300)
-    );
+      // Show text entry after processing
+      timers.push(
+        setTimeout(() => {
+          setProcessing(false);
+          setVisibleScreens((prev) => [...prev, i]);
+        }, base + 1200)
+      );
+    });
 
-    // Step 4: Show "done" state
+    // Done state after all 6 screens
+    const endTime = screens.length * SCREEN_DURATION + 400;
     timers.push(
       setTimeout(() => {
         setDone(true);
-      }, 6000)
+      }, endTime)
     );
 
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  const capturedCount = done ? 29 : visibleTexts.length;
+  // Auto-scroll document panel when new content appears
+  useEffect(() => {
+    if (docRef.current) {
+      docRef.current.scrollTo({
+        top: docRef.current.scrollHeight,
+        behavior: "smooth",
+      });
+    }
+  }, [visibleScreens, done]);
+
+  const counterNumber = done ? 29 : screens[currentStep]?.number ?? 3;
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center p-12 bg-[#f5f5f5]">
+    <div className="h-screen w-screen flex flex-col items-center justify-center p-10 bg-[#f5f5f5]">
       {/* Header */}
       <motion.div
-        className="flex items-center gap-4 mb-10"
+        className="flex items-center gap-4 mb-8"
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: EASE }}
@@ -119,23 +306,36 @@ export default function L3ToolSlide() {
       </motion.div>
 
       {/* Split-screen panels */}
-      <div className="flex gap-6 w-full max-w-6xl" style={{ height: "520px" }}>
-        {/* LEFT: Browser frame with real screenshots */}
+      <div
+        className="flex items-stretch w-full max-w-6xl"
+        style={{ height: "540px" }}
+      >
+        {/* LEFT: Narrow mobile browser frame */}
         <motion.div
-          className="w-[45%] rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
+          className="w-[240px] shrink-0 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.2, ease: EASE }}
         >
           {/* Browser chrome */}
-          <div className="flex items-center gap-2 px-4 py-2.5 bg-[#e8e8e8] shrink-0">
-            <div className="flex gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
+          <div className="flex items-center gap-1.5 px-3 py-2 bg-[#e8e8e8] shrink-0">
+            <div className="flex gap-1">
+              <div className="w-2 h-2 rounded-full bg-[#ff5f57]" />
+              <div className="w-2 h-2 rounded-full bg-[#febc2e]" />
+              <div className="w-2 h-2 rounded-full bg-[#28c840]" />
             </div>
-            <div className="flex-1 ml-3 px-3 py-1 rounded-md bg-white text-[11px] text-ink-60 font-mono truncate">
-              {steps[currentStep].url}
+            <div className="flex-1 ml-2 px-2 py-0.5 rounded bg-white text-[9px] text-ink-60 font-mono truncate">
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentStep}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  {screens[currentStep].url}
+                </motion.span>
+              </AnimatePresence>
             </div>
           </div>
 
@@ -144,61 +344,64 @@ export default function L3ToolSlide() {
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentStep}
-                className="absolute inset-0 flex items-start justify-center"
+                className="absolute inset-0"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.3, ease: EASE }}
+                transition={{ duration: 0.35, ease: EASE }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={steps[currentStep].image}
-                  alt={steps[currentStep].title}
+                  src={screens[currentStep].image}
+                  alt={screens[currentStep].title}
                   className="w-full h-full object-cover object-top"
                 />
               </motion.div>
             </AnimatePresence>
-
-            {/* Processing spinner overlay */}
-            <AnimatePresence>
-              {processing && (
-                <motion.div
-                  className="absolute inset-0 bg-black/30 flex items-center justify-center"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="w-10 h-10 border-3 border-white/30 border-t-white rounded-full animate-spin" />
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
+        </motion.div>
+
+        {/* CENTER: Animated arrow */}
+        <motion.div
+          className="flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
+        >
+          <AnimatedArrow processing={processing} />
         </motion.div>
 
         {/* RIGHT: Document panel */}
         <motion.div
-          className="w-[55%] rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
+          className="flex-1 rounded-2xl overflow-hidden shadow-lg bg-white flex flex-col"
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, delay: 0.35, ease: EASE }}
         >
           {/* Title bar */}
-          <div className="flex items-center gap-2 px-5 py-3 border-b border-ink-20 shrink-0">
+          <div className="flex items-center gap-2 px-4 py-2.5 border-b border-ink-10 shrink-0 bg-[#fafafa]">
             <div className="w-3 h-3 rounded-sm bg-cypress" />
             <span className="text-[11px] text-ink-40 uppercase tracking-[1.5px] font-medium font-mono">
               funnel-capture.md
             </span>
-            <span className="ml-auto text-[11px] font-mono font-medium" style={{ color: done ? "#056257" : "#999" }}>
-              {capturedCount} / 29 screens captured{done ? " \u2713" : ""}
+            <span
+              className="ml-auto text-[11px] font-mono font-medium transition-colors duration-300"
+              style={{ color: done ? "#056257" : "#999" }}
+            >
+              {done
+                ? "29 / 29 screens captured \u2713"
+                : `${counterNumber} / 29`}
             </span>
           </div>
 
           {/* Document content */}
-          <div className="flex-1 overflow-y-auto p-5 font-mono text-sm">
-            {visibleTexts.length === 0 && !done && (
+          <div
+            ref={docRef}
+            className="flex-1 overflow-y-auto px-4 py-3 font-mono"
+          >
+            {visibleScreens.length === 0 && !done && (
               <motion.div
-                className="text-ink-40 text-center mt-16"
+                className="text-ink-40 text-center mt-16 text-xs"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.6 }}
                 transition={{ duration: 0.4 }}
@@ -207,21 +410,22 @@ export default function L3ToolSlide() {
               </motion.div>
             )}
 
-            <div className="space-y-4">
-              {steps.map((step, i) => (
+            <div className="space-y-3">
+              {screens.map((screen, i) => (
                 <AnimatePresence key={i}>
-                  {visibleTexts.includes(i) && (
+                  {visibleScreens.includes(i) && (
                     <motion.div
                       initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, ease: EASE }}
+                      className="space-y-0.5"
                     >
-                      <div className="font-semibold text-ink mb-1">
-                        {step.title}
-                      </div>
-                      <div className="text-ink-60 leading-relaxed pl-4">
-                        {step.body}
-                      </div>
+                      {screen.content.map((block, j) => (
+                        <ContentBlock key={j} block={block} />
+                      ))}
+                      {i < screens.length - 1 && (
+                        <div className="border-b border-ink-5 mt-2" />
+                      )}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -235,8 +439,8 @@ export default function L3ToolSlide() {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, ease: EASE }}
                   >
-                    <div className="border-t border-ink-10 pt-4 mt-4 text-center text-ink-40 text-xs">
-                      ··· 26 more screens ···
+                    <div className="border-t border-ink-10 pt-3 mt-3 text-center text-ink-40 text-[10px]">
+                      \u00b7\u00b7\u00b7 23 more screens \u00b7\u00b7\u00b7
                     </div>
                   </motion.div>
                 )}
@@ -248,13 +452,13 @@ export default function L3ToolSlide() {
 
       {/* Bottom quote */}
       <motion.p
-        className="mt-8 text-[14px] text-ink-60 italic max-w-2xl text-center"
+        className="mt-6 text-[14px] text-ink-60 italic max-w-2xl text-center"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.2, ease: EASE }}
       >
-        &ldquo;I need to reference our 29-screen funnel constantly — in PRDs,
-        design reviews, engineer conversations.&rdquo;
+        &ldquo;I need to reference our 29-screen funnel constantly &mdash; in
+        PRDs, design reviews, engineer conversations.&rdquo;
       </motion.p>
     </div>
   );
