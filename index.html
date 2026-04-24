@@ -222,10 +222,10 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
     </div>
     <div class="found-item">
       <div class="found-name">Documentation</div>
-      <div class="found-state"><strong>No clear guidelines</strong> on which components to use where, how to combine them, or what the intended behavior is. Knowledge lives in people&rsquo;s heads, not in the system.</div>
+      <div class="found-state"><strong>Very poor and incomplete.</strong> What exists is just basic property descriptions, not actual usage guidance. Storybook says things like &ldquo;buttons come in different sizes to accommodate various use cases&rdquo; &mdash; not helpful. We need to start over.</div>
     </div>
   </div>
-  <p class="found-note">Because these foundations are incomplete, everything built on top inherits the problems. Fixing AI-readiness criteria without fixing foundations is putting a new roof on a cracked base.</p>
+  <p class="found-note">Because these foundations are incomplete, everything built on top inherits the problems.</p>
 </section>
 
 <section id="workflows">
@@ -267,11 +267,11 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
   <table class="sc-table">
     <thead><tr><th></th><th>Criterion</th><th>Finding</th><th>Status</th></tr></thead>
     <tbody>
-      <tr data-tip="When an agent sees a component in a design or codebase, can it figure out exactly which reusable building block to use? Right now the same component has different names in different places, so the agent has to guess."><td>C1</td><td>Standardized Component Naming</td><td>3 names per component: <code>Input</code>, <code>TextInput</code>, <code>"input"</code></td><td><span class="status s-partial">Partial</span></td></tr>
+      <tr data-tip="When an agent sees a component in a design or codebase, can it figure out exactly which reusable building block to use? Right now the same component has different names in different places, so the agent has to guess."><td>C1</td><td>One Consistent Name Per Component</td><td>3 names per component: <code>Input</code>, <code>TextInput</code>, <code>"input"</code></td><td><span class="status s-partial">Partial</span></td></tr>
       <tr data-tip="Every visual state a designer might use — primary, outline, error, disabled — should exist as a named option. Components are poorly architected with missing states, and the registry is out of sync with what actually exists."><td>C2</td><td>All Component States Defined</td><td>Components poorly architected. Missing states. Registry 8 variants behind source on Button alone.</td><td><span class="status s-fail">Fail</span></td></tr>
-      <tr data-tip="Colors, spacing, and fonts should reference named variables (tokens) instead of raw values. Tokens let you change the brand in one place. We don't have a real token system — Figma naming doesn't match code, and there's no shared abstraction."><td>C3</td><td>Shared Design Variables</td><td>No real token system. Figma and code naming don&rsquo;t match. Hardcoded values throughout. Spacing not defined.</td><td><span class="status s-fail">Fail</span></td></tr>
-      <tr data-tip="Code Connect is a Figma feature that explicitly maps each design component to its code equivalent. Without it, an agent looking at a Figma file has no way to know which code component to use — it has to guess from names alone."><td>C4</td><td>Figma-to-Code Bridge</td><td>Zero files. No Figma-to-code bridge.</td><td><span class="status s-fail">Fail</span></td></tr>
-      <tr data-tip="The font variables in our code point to old fonts (Cambon, NewTheinhardt) but our documentation says to use new ones (Hauss, Portada). An agent following the rules correctly will render the wrong fonts. There is no correct path right now."><td>C5</td><td>Wrong Fonts in Code</td><td>New font implementation is hacky. Docs say Hauss/Portada but code still references legacy fonts.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Colors, spacing, and fonts should reference named variables (tokens) instead of raw values. Tokens let you change the brand in one place. We don't have a real token system — Figma naming doesn't match code, and there's no shared abstraction."><td>C3</td><td>All Values Use Shared Variables</td><td>No real token system. Figma and code naming don&rsquo;t match. Hardcoded values throughout. Spacing not defined.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Code Connect is a Figma feature that explicitly maps each design component to its code equivalent. Without it, an agent looking at a Figma file has no way to know which code component to use — it has to guess from names alone."><td>C4</td><td>Figma Components Linked to Code</td><td>Zero files. No Figma-to-code bridge.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="The font variables in our code point to old fonts (Cambon, NewTheinhardt) but our documentation says to use new ones (Hauss, Portada). An agent following the rules correctly will render the wrong fonts. There is no correct path right now."><td>C5</td><td>Correct Fonts in Code</td><td>New font implementation is hacky.</td><td><span class="status s-fail">Fail</span></td></tr>
     </tbody>
   </table>
 </section>
