@@ -47,11 +47,11 @@ code{font-family:var(--mono);font-size:0.82em;background:var(--wash);padding:1px
 
 /* SECTIONS */
 section{padding-top:80px}
-.st{font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-bottom:36px}
+h2.st{font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-bottom:36px}
 .section-intro{font-size:17px;line-height:1.7;margin-bottom:32px;max-width:640px}
 
 /* CALLOUT */
-.callout{border-left:3px solid var(--red);padding:28px 32px;margin-bottom:48px;background:var(--wash);border-radius:0 6px 6px 0}
+.callout{border-left:3px solid var(--black);padding:28px 32px;margin-bottom:48px;background:var(--wash);border-radius:0 6px 6px 0}
 .callout-title{font-family:var(--sans);font-size:22px;font-weight:700;margin-bottom:10px;letter-spacing:-0.4px}
 .callout p{font-size:16px;line-height:1.7;margin-bottom:10px}
 .callout p:last-child{margin-bottom:0}
@@ -63,6 +63,7 @@ section{padding-top:80px}
 .found-name{font-weight:600;font-size:15px;margin-bottom:4px;letter-spacing:0.1px}
 .found-state{font-size:15px;line-height:1.6}
 .found-state strong{color:var(--red);font-weight:600}
+.found-state .ok{color:var(--green);font-weight:600}
 .found-note{font-size:15px;line-height:1.6;margin-top:8px}
 @media(max-width:600px){.found-grid{grid-template-columns:1fr} .found-item:nth-child(even){padding-left:0;border-left:none}}
 
@@ -79,15 +80,7 @@ section{padding-top:80px}
 .sc-table tr[data-tip]:hover{background:var(--wash)}
 .tip{display:none;position:fixed;z-index:1000;max-width:360px;padding:12px 16px;background:var(--black);color:#fff;font-size:13px;font-weight:400;line-height:1.55;letter-spacing:0;border-radius:5px;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
 .status{font-size:13px;font-weight:600;letter-spacing:0.3px}
-.s-pass{color:var(--green)} .s-partial{color:var(--dim)} .s-fail{color:var(--red)} .s-block{color:#fff;background:var(--red);padding:2px 8px;border-radius:3px;font-size:12px;font-weight:600} .s-unknown{color:var(--light)}
-
-/* MATURITY */
-.mat{display:flex;gap:3px;margin-bottom:8px}
-.mat-l{flex:1;padding:18px 14px;border-radius:5px;font-size:14px;font-weight:500;background:var(--wash);color:var(--light)}
-.mat-l .mn{font-family:var(--sans);font-size:28px;font-weight:700;display:block;margin-bottom:2px;color:var(--light)}
-.mat-l.now{background:var(--black);color:#fff} .mat-l.now .mn{color:#fff}
-.mat-l.next{outline:2px dashed var(--dim);outline-offset:-2px;color:var(--dim)} .mat-l.next .mn{color:var(--dim)}
-.mat-anno{display:flex;justify-content:space-between;font-size:13px;color:var(--light);letter-spacing:0.2px}
+.s-pass{color:var(--green)} .s-partial{color:var(--dim)} .s-fail{color:var(--red)} .s-unknown{color:var(--light)}
 
 /* WORKFLOWS */
 .wf-tabs{display:flex;gap:0;margin-bottom:40px;border-bottom:2px solid var(--rule)}
@@ -96,7 +89,6 @@ section{padding-top:80px}
 .wf-tab.active{color:var(--black);border-bottom-color:var(--black)}
 .wf-panel{display:none}
 .wf-panel.active{display:block}
-.wf-title{font-family:var(--sans);font-size:22px;font-weight:700;margin-bottom:6px;letter-spacing:-0.4px}
 .wf-sub{font-size:15px;margin-bottom:24px;line-height:1.6}
 .wf-steps{position:relative;padding-left:24px}
 .wf-steps::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--rule)}
@@ -113,31 +105,6 @@ section{padding-top:80px}
 .wf-legend span::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
 .wf-legend .lg-ok::before{background:var(--green)} .wf-legend .lg-mid::before{background:var(--dim)} .wf-legend .lg-bad::before{background:var(--red)}
 
-/* CRITERIA DETAILS */
-.acc{border-top:1px solid var(--rule)}
-.acc:last-child{border-bottom:1px solid var(--rule)}
-.acc-head{display:flex;align-items:center;gap:10px;padding:18px 0;cursor:pointer;user-select:none}
-.acc-head:hover .acc-name{color:var(--dim)}
-.acc-id{font-size:14px;font-weight:600;color:var(--light);min-width:32px}
-.acc-name{font-weight:600;font-size:16px;flex:1;transition:color .15s}
-.acc-chev{width:16px;color:var(--light);transition:transform .2s}
-.acc.open .acc-chev{transform:rotate(180deg)}
-.acc-body{display:none;padding:0 0 20px 42px;font-size:15px;line-height:1.65}
-.acc.open .acc-body{display:block}
-.acc-body ul,.acc-body ol{margin:0 0 0 18px}
-.acc-body li{margin-bottom:4px}
-.acc-body p{margin-bottom:10px} .acc-body p:last-child{margin-bottom:0}
-.acc-body strong{color:var(--black)}
-.lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--light);margin:16px 0 6px}
-.lbl:first-child{margin-top:0}
-
-/* DATA TABLE */
-.dtable{width:100%;border-collapse:collapse;font-size:15px;margin:6px 0 10px}
-.dtable th{text-align:left;font-weight:600;font-size:11px;text-transform:uppercase;letter-spacing:0.5px;color:var(--light);padding:8px 10px;border-bottom:1px solid var(--rule)}
-.dtable td{padding:8px 10px;border-bottom:1px solid var(--rule);font-family:var(--mono);font-size:13px}
-.dtable td:first-child{font-family:var(--sans);font-weight:500;font-size:15px}
-.dtable .bad{color:var(--red);font-weight:600}
-
 /* ROADMAP */
 .rm-phase{margin-bottom:36px}
 .rm-bar{font-family:var(--sans);font-size:20px;font-weight:700;padding-bottom:12px;border-bottom:2px solid var(--black);margin-bottom:12px;display:flex;align-items:baseline;gap:10px;letter-spacing:-0.2px}
@@ -146,7 +113,7 @@ section{padding-top:80px}
 .rm-list li{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);font-size:16px}
 .rm-list li:last-child{border-bottom:none}
 .rm-num{font-size:13px;color:var(--light);min-width:20px;text-align:right}
-.rm-tag{font-size:12px;color:var(--light);margin-left:auto;letter-spacing:0.3px}
+.rm-tag{font-size:12px;color:var(--light);margin-left:auto;letter-spacing:0.3px;white-space:nowrap}
 
 /* AUDIENCE */
 .aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
@@ -165,7 +132,7 @@ section{padding-top:80px}
 @media(max-width:600px){.gl{grid-template-columns:1fr} .gl-item:nth-child(even){padding-left:0;border-left:none}}
 
 footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color:var(--light);line-height:1.6}
-@media print{.acc-body{display:block!important} .nav{display:none} .layout{grid-template-columns:1fr}}
+@media print{.nav{display:none} .layout{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -179,7 +146,6 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
   <a href="#workflows">Where It Breaks</a>
   <a href="#scorecard">Assessment</a>
   <div class="nav-sep"></div>
-  <a href="#what-it-means">What It Means</a>
   <a href="#glossary">Glossary</a>
 </nav>
 
@@ -188,48 +154,47 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
 
 <div class="hero">
   <h1>AI-Ready Component Definition</h1>
-  <span class="hero-date">April 24, 2026</span>
+  <span class="hero-date">April 24, 2026 &mdash; Validated against EDS v2 source</span>
 </div>
 
 <section id="starting-point">
-  <div class="st">The Starting Point</div>
+  <h2 class="st">The Starting Point</h2>
   <div class="callout">
-    <div class="callout-title">Our design system has less than people assume.</div>
-    <p>Before evaluating AI-readiness, it&rsquo;s important to be honest about where the foundations are. The design system has gaps that affect humans and AI agents equally. AI just makes these gaps impossible to ignore because agents can&rsquo;t compensate the way experienced designers and developers do.</p>
+    <div class="callout-title">Our foundations are shaky.</div>
+    <p>Experienced developers work around the gaps &mdash; they know which font is current, which prop name is the exception, which Storybook description to ignore. AI agents can&rsquo;t. They follow the system literally, including its contradictions.</p>
   </div>
 
-  <div style="font-weight:700;font-size:16px;margin-bottom:16px">What&rsquo;s missing</div>
+  <h2 class="st">What&rsquo;s missing</h2>
   <div class="found-grid">
     <div class="found-item">
       <div class="found-name">Text Styles</div>
-      <div class="found-state">Definitions exist but are ambiguous. <strong>No clear guidance</strong> on when to use what, how, or why. Naming in Figma doesn&rsquo;t match naming in code.</div>
+      <div class="found-state">~90 classes (legacy + current) in one file. <strong>No separation.</strong> Agent can&rsquo;t tell which are current.</div>
     </div>
     <div class="found-item">
       <div class="found-name">Colors</div>
-      <div class="found-state">Missing functional-level colors. No abstraction layer for theming or modes. <strong>No guidance</strong> on what color to use when.</div>
+      <div class="found-state">Token system exists (253 tokens) but <strong>no enforcement</strong> of which tier to use. <strong>No guidance</strong> on what color to use when.</div>
     </div>
     <div class="found-item">
       <div class="found-name">Spacing</div>
-      <div class="found-state"><strong>No spacing system anywhere.</strong> Entirely assumed and left to individual judgment. No shared scale in Figma or code.</div>
+      <div class="found-state">10 tokens defined (2px&ndash;64px). <strong>Zero components use them.</strong> Entirely orphaned.</div>
     </div>
     <div class="found-item">
-      <div class="found-name">Tokens</div>
-      <div class="found-state">What may appear like tokens in some cases, but <strong>not a real token system.</strong> Figma naming doesn&rsquo;t match code. No shared abstraction.</div>
+      <div class="found-name">Fonts</div>
+      <div class="found-state"><strong>Hacky implementation.</strong> Legacy (Cambon, NewTheinhardt) and current (Hauss, Portada) both shipped. Nothing enforces which to use.</div>
     </div>
     <div class="found-item">
       <div class="found-name">Components</div>
-      <div class="found-state"><strong>Poorly architected</strong> from a variant, layering, and props perspective. Missing states. Would need significant rework even with proper foundations.</div>
+      <div class="found-state"><strong>Poorly architected.</strong> Missing states. Inconsistent prop naming (<code>size</code> / <code>inputSize</code> / <code>buttonSize</code>). No layout templates.</div>
     </div>
     <div class="found-item">
-      <div class="found-name">Documentation</div>
-      <div class="found-state"><strong>Very poor and incomplete.</strong> What exists is just basic property descriptions, not actual usage guidance. Storybook says things like &ldquo;buttons come in different sizes to accommodate various use cases&rdquo; &mdash; not helpful. We need to start over.</div>
+      <div class="found-name">Documentation &amp; Guidelines</div>
+      <div class="found-state"><strong>Very poor and incomplete.</strong> What exists is just property descriptions, not usage guidance. Storybook: &ldquo;buttons come in different sizes to accommodate various use cases.&rdquo; We need to start over.</div>
     </div>
   </div>
-  <p class="found-note">Because these foundations are incomplete, everything built on top inherits the problems.</p>
 </section>
 
 <section id="workflows">
-  <div class="st">Where the Workflows Break</div>
+  <h2 class="st">Where the Workflows Break</h2>
   <div class="wf-tabs">
     <div class="wf-tab active" onclick="switchWf(0)">Figma &rarr; Code</div>
     <div class="wf-tab" onclick="switchWf(1)">Prompt &rarr; UI</div>
@@ -238,12 +203,12 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
   <div class="wf-panel active" id="wf-0">
     <div class="wf-sub">Designer creates in Figma, AI agent turns it into production code.</div>
     <div class="wf-steps">
-      <div class="ws mid"><div class="ws-head"><span class="ws-name">Design in Figma</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Designers use wrong components, detach and modify them, or skip the library. No spacing system. Text style guidance unclear.</div></div>
-      <div class="ws mid"><div class="ws-head"><span class="ws-name">Agent reads the design</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Agent can read the Figma file, but our files are poorly layered, badly named, and inconsistently structured. The agent gets data, but the data itself is unreliable.</div></div>
-      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent maps design &rarr; code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Which Figma component = which code component? No bridge between Figma and code. Agent guesses.</div></div>
-      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent writes the code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Is it <code>size</code> or <code>inputSize</code>? Is it <code>label</code> or <code>buttonTitle</code>? No token system to reference. Agent improvises.</div></div>
-      <div class="ws bad"><div class="ws-head"><span class="ws-name">Output renders</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Wrong fonts, inconsistent spacing, off-brand colors. Looks wrong even when code is structurally correct.</div></div>
-      <div class="ws mid"><div class="ws-head"><span class="ws-name">Human reviews</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Developer catches everything. Fixes manually. Speed gain evaporates.</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Design in Figma</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Wrong components, detached instances, skipped library. No spacing system. Legacy/new text styles unclear.</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Agent reads the design</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Agent can read Figma, but our files are poorly layered, badly named, inconsistently structured. Data is unreliable.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent maps design &rarr; code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">No Code Connect. No bridge between Figma and code. Agent guesses.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent writes the code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail"><code>size</code> or <code>inputSize</code>? <code>label</code> or <code>buttonTitle</code>? Agent tries the common pattern and fails.</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Output renders</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Colors mostly right. Spacing improvised. Fonts unpredictable &mdash; legacy and current both configured.</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Human reviews</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Developer catches everything. Fix effort varies &mdash; sometimes small, sometimes a full rewrite.</div></div>
     </div>
   </div>
 
@@ -251,10 +216,10 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
     <div class="wf-sub">Developer describes what they need. AI agent builds it directly.</div>
     <div class="wf-steps">
       <div class="ws ok"><div class="ws-head"><span class="ws-name">Describe what you need</span><span class="ws-status ok">Works</span></div><div class="ws-detail">&ldquo;Build a registration form with name, email, and a submit button.&rdquo;</div></div>
-      <div class="ws mid"><div class="ws-head"><span class="ws-name">Agent discovers components</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Registry lists components but has drift. Agent may use options that don&rsquo;t exist or miss ones that do.</div></div>
-      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent picks components</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Alert or MessageBar? No guidance exists. Agent guesses.</div></div>
-      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent writes the code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Tries <code>label</code> on Button (wrong). Uses <code>size</code> on TextInput (wrong). No spacing system. Makes up values.</div></div>
-      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent composes layout</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">How many buttons in the footer? What spacing between elements? No rules. Agent improvises.</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Agent discovers components</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">registry.json lists 27 components. But Button is 8 variants behind source. Agent may miss valid options.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent picks components</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Alert or MessageBar? No guidance. Agent guesses from names.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent writes the code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Tries <code>label</code> on Button (wrong). Tries <code>size</code> on TextInput (wrong). No JSDoc. Guesses from patterns.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent composes layout</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">How many buttons in a footer? What spacing? No rules. Agent improvises.</div></div>
       <div class="ws bad"><div class="ws-head"><span class="ws-name">Output renders</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Wrong fonts, arbitrary spacing, off-brand. Manual cleanup on almost every run.</div></div>
     </div>
   </div>
@@ -263,78 +228,44 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
 </section>
 
 <section id="scorecard">
-  <div class="st">Assessment</div>
+  <h2 class="st">Assessment</h2>
+  <p class="section-intro">6 criteria validated against EDS v2 source code.</p>
   <table class="sc-table">
     <thead><tr><th></th><th>Criterion</th><th>Finding</th><th>Status</th></tr></thead>
     <tbody>
-      <tr data-tip="When an agent sees a component in a design or codebase, can it figure out exactly which reusable building block to use? Right now the same component has different names in different places, so the agent has to guess."><td>C1</td><td>One Consistent Name Per Component</td><td>3 names per component: <code>Input</code>, <code>TextInput</code>, <code>"input"</code></td><td><span class="status s-partial">Partial</span></td></tr>
-      <tr data-tip="Every visual state a designer might use — primary, outline, error, disabled — should exist as a named option. Components are poorly architected with missing states, and the registry is out of sync with what actually exists."><td>C2</td><td>All Component States Defined</td><td>Components poorly architected. Missing states. Registry 8 variants behind source on Button alone.</td><td><span class="status s-fail">Fail</span></td></tr>
-      <tr data-tip="Colors, spacing, and fonts should reference named variables (tokens) instead of raw values. Tokens let you change the brand in one place. We don't have a real token system — Figma naming doesn't match code, and there's no shared abstraction."><td>C3</td><td>All Values Use Shared Variables</td><td>No real token system. Figma and code naming don&rsquo;t match. Hardcoded values throughout. Spacing not defined.</td><td><span class="status s-fail">Fail</span></td></tr>
-      <tr data-tip="Code Connect is a Figma feature that explicitly maps each design component to its code equivalent. Without it, an agent looking at a Figma file has no way to know which code component to use — it has to guess from names alone."><td>C4</td><td>Figma Components Linked to Code</td><td>Zero files. No Figma-to-code bridge.</td><td><span class="status s-fail">Fail</span></td></tr>
-      <tr data-tip="The font variables in our code point to old fonts (Cambon, NewTheinhardt) but our documentation says to use new ones (Hauss, Portada). An agent following the rules correctly will render the wrong fonts. There is no correct path right now."><td>C5</td><td>Correct Fonts in Code</td><td>New font implementation is hacky.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Input is exported as Input, lives in TextInput/, registered as 'input'. Toggle exported as ToggleComponent. Button uses buttonTitle while every other component uses label. size/inputSize/buttonSize for the same concept. 2 of 40+ props have JSDoc."><td>1</td><td>Naming</td><td>Same component called different things in different places. Same concept named differently across components. Almost no inline documentation.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Button has 22 variants in source but only 14 in the registry — 8 missing. Error and disabled aren't first-class variants. Other components checked (Badge, Spinner, RadioButton) are in sync."><td>2</td><td>Component States</td><td>Missing states. What exists in code doesn&rsquo;t always match what&rsquo;s in the registry. Agents see an incomplete picture.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Color tokens (--theme-*) have 423 references but nothing prevents using raw palette tokens. 10 spacing tokens defined, zero components reference them. Legacy fonts (Cambon/NewTheinhardt) and current (Hauss/Portada) both shipped in tailwind.config.js. ~90 typography classes in one file."><td>3</td><td>Tokens</td><td>Some exist, nothing enforces using them correctly. Spacing tokens are completely unused. Legacy and current fonts shipped side by side.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Zero Code Connect files in the repo. No Figma SDK in package.json. An agent looking at a Figma design has no way to find the matching code component."><td>4</td><td>Figma &rarr; Code</td><td>No connection between what&rsquo;s designed in Figma and what exists in code. Agent has to guess.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="registry.json follows the ShadCN schema with 27 components, prop types, required flags, and enum values. No defaultValue fields, no whenToUse guidance, and some enums are out of sync with source."><td>5</td><td>Component Registry</td><td>A component index exists and the structure is solid. But it&rsquo;s missing defaults, usage guidance, and parts of it are stale.</td><td><span class="status s-partial">Partial</span></td></tr>
+      <tr data-tip="Button truncates long text silently. isLoading doesn't auto-disable. ProgressSteps accepts empty arrays. Alert defaults to error icon on success variants. No character limits or nesting rules documented."><td>6</td><td>Composition</td><td>No rules for how components work together. No constraints on content, behavior, or layout. Agents have to make it up.</td><td><span class="status s-fail">Fail</span></td></tr>
     </tbody>
   </table>
 </section>
 
-
-
-<section id="what-it-means">
-  <div class="st">What &ldquo;AI-Ready&rdquo; Means</div>
-  <div class="aud-grid">
-    <div class="aud-card">
-      <h4>For AI Agents</h4>
-      <ol>
-        <li>One file with every component, its options, usage rules, and defaults &mdash; no digging through source code</li>
-        <li>Consistent, predictable naming across all components</li>
-        <li>Design values (colors, fonts, spacing) that are correct and reliable</li>
-        <li>Layout templates for common pages &mdash; without them, agents improvise structure from scratch every time</li>
-      </ol>
-    </div>
-    <div class="aud-card">
-      <h4>For Designers</h4>
-      <ol>
-        <li>Figma and code are a 1:1 match &mdash; same names, same properties, same structure</li>
-        <li>No manual overrides &mdash; every visual state has a named variant</li>
-      </ol>
-    </div>
-    <div class="aud-card">
-      <h4>For Engineering</h4>
-      <ol>
-        <li>The component registry is the contract &mdash; if it&rsquo;s not there, agents can&rsquo;t use it</li>
-        <li>Component options are a stable API &mdash; renaming them breaks AI workflows</li>
-        <li>Automated checks keep the registry in sync with actual code</li>
-      </ol>
-    </div>
-  </div>
-</section>
-
 <section id="glossary">
-  <div class="st">Glossary</div>
+  <h2 class="st">Glossary</h2>
   <div class="gl">
-    <div class="gl-item"><div class="gl-term">Tokens</div><div class="gl-def">Named values for colors, spacing, and fonts. Instead of &ldquo;#0a5c4e&rdquo; everywhere, you write &ldquo;cypress-green&rdquo; and update one place if it changes.</div><div class="gl-why">If agents use tokens, every screen is on-brand. If they hardcode, every screen is a liability.</div></div>
-    <div class="gl-item"><div class="gl-term">MCP (Model Context Protocol)</div><div class="gl-def">How AI agents connect to external tools. Figma MCP lets an agent &ldquo;see&rdquo; designs. A Design System MCP gives it your component rules.</div><div class="gl-why">Without MCPs, an agent is blind to your designs and components.</div></div>
-    <div class="gl-item"><div class="gl-term">Code Connect (Figma-to-Code Bridge)</div><div class="gl-def">A Figma feature that links design components to code. A small file says &ldquo;this Figma button with Style=Primary = <code>&lt;Button variant=&quot;primary&quot;&gt;</code>.&rdquo;</div><div class="gl-why">Without it, agents guess which code matches which design. With 25+ components, guessing fails.</div></div>
-    <div class="gl-item"><div class="gl-term">Component Index</div><div class="gl-def">A single file listing every component, its options, and valid values. An agent reads one file and knows everything the system offers.</div><div class="gl-why">Without it, agents scan dozens of files to understand what&rsquo;s available.</div></div>
-    <div class="gl-item"><div class="gl-term">Props &amp; Variants</div><div class="gl-def">Props are options you pass to a component (&ldquo;make it large, green, with this label&rdquo;). Variants are predefined styles: primary, danger, outline.</div><div class="gl-why">Named variants = agent picks one. No variants = agent manually overrides = drift.</div></div>
-    <div class="gl-item"><div class="gl-term">JSDoc</div><div class="gl-def">Comments in the code that explain what each option does. Like a tooltip for developers and AI agents.</div><div class="gl-why">Agents can read code but not Storybook. Inline docs are the only guidance they see.</div></div>
-    <div class="gl-item"><div class="gl-term">Storybook</div><div class="gl-def">A visual catalog showing every component in every state. Used by humans as reference. Lives at a URL.</div><div class="gl-why">Agents can&rsquo;t browse websites. Storybook is invisible to them.</div></div>
-    <div class="gl-item"><div class="gl-term">CI Check</div><div class="gl-def">An automated test that runs on every code change. Catches mistakes before they ship.</div><div class="gl-why">Our registry already drifted (22 vs 14 variants). Automation would have caught it instantly.</div></div>
-    <div class="gl-item"><div class="gl-term">Semantic Naming</div><div class="gl-def">Naming by purpose, not appearance. &ldquo;error-red&rdquo; instead of &ldquo;#c33.&rdquo; If the palette changes, the name still works.</div><div class="gl-why">Semantic names are future-proof. Hardcoded values break when anything changes.</div></div>
-    <div class="gl-item"><div class="gl-term">Design Drift</div><div class="gl-def">When the product&rsquo;s UI gradually diverges from standards. Wrong green here, odd spacing there.</div><div class="gl-why">AI outputs 10&times; faster than humans. Drift doesn&rsquo;t accumulate &mdash; it scales exponentially.</div></div>
+    <div class="gl-item"><div class="gl-term">Tokens</div><div class="gl-def">Named variables for colors, spacing, and fonts. Change one value, it updates everywhere.</div><div class="gl-why">Color tokens work. Spacing tokens exist but no component uses them.</div></div>
+    <div class="gl-item"><div class="gl-term">MCP</div><div class="gl-def">Model Context Protocol. How AI agents connect to external tools like Figma or a design system.</div><div class="gl-why">Without MCPs, an agent is blind to your designs and components.</div></div>
+    <div class="gl-item"><div class="gl-term">Code Connect</div><div class="gl-def">Figma feature that maps design components to code. A small file links a Figma button to <code>&lt;Button variant=&quot;primary&quot;&gt;</code>.</div><div class="gl-why">We have zero. Agents guess which code matches which design.</div></div>
+    <div class="gl-item"><div class="gl-term">Component Registry</div><div class="gl-def">Single file listing every component, its options, and valid values. Agent reads one file and knows the whole system.</div><div class="gl-why">registry.json (27 components) is our strongest AI-readiness asset.</div></div>
+    <div class="gl-item"><div class="gl-term">Props &amp; Variants</div><div class="gl-def">Props are options you pass to a component. Variants are predefined styles: primary, danger, outline.</div><div class="gl-why">Named variants = agent picks one. No variants = agent overrides manually = drift.</div></div>
+    <div class="gl-item"><div class="gl-term">JSDoc</div><div class="gl-def">Inline code comments that explain what each prop does. The only documentation agents can read.</div><div class="gl-why">2 out of 40+ props have JSDoc. That&rsquo;s effectively zero.</div></div>
+    <div class="gl-item"><div class="gl-term">Storybook</div><div class="gl-def">Visual component catalog at a URL. Humans browse it; agents can&rsquo;t.</div><div class="gl-why">Invisible to AI. Anything only in Storybook doesn&rsquo;t exist for agents.</div></div>
+    <div class="gl-item"><div class="gl-term">CI Check</div><div class="gl-def">Automated test that runs on every code change. Catches mistakes before they ship.</div><div class="gl-why">Button&rsquo;s registry drifted (22 vs 14 variants). A CI check would have caught it.</div></div>
+    <div class="gl-item"><div class="gl-term">Semantic Naming</div><div class="gl-def">Naming by purpose, not appearance. <code>--theme-fg-default</code> instead of <code>#0f0f0f</code>.</div><div class="gl-why">Our semantic color layer works. The challenge is enforcing agents use it over raw tokens.</div></div>
+    <div class="gl-item"><div class="gl-term">Design Drift</div><div class="gl-def">When UI gradually diverges from standards. Wrong green here, odd spacing there.</div><div class="gl-why">AI is 10&times; faster than humans. Drift doesn&rsquo;t accumulate &mdash; it scales.</div></div>
   </div>
 </section>
 
-<footer></footer>
+<footer>Validated against EDS v2 source code. Every finding cites real files, not assumptions.</footer>
 
 </div><!-- .main -->
 </div><!-- .layout -->
 
 <div class="tip" id="tip"></div>
 <script>
-// Clear any stale edit mode data
-localStorage.removeItem('aiready-edits');
-localStorage.removeItem('aiready-edits_ver');
-
 // Workflow tabs
 function switchWf(i){
   document.querySelectorAll('.wf-tab').forEach((t,j)=>t.classList.toggle('active',j===i));
