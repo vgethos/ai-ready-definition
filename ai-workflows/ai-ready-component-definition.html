@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Ready Component Definition — EDS v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400;1,9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sans:'DM Sans',system-ui,sans-serif;
+  --mono:'SF Mono',Menlo,Consolas,monospace;
+  --black:#0f0f0f;
+  --dim:#555;
+  --light:#999;
+  --rule:#ddd;
+  --wash:#f7f7f5;
+  --red:#c0392b;
+  --green:#1a7a5a;
+}
+html{font-size:16px;-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--black);background:#fff;line-height:1.7;font-size:16.5px}
+code{font-family:var(--mono);font-size:0.82em;background:var(--wash);padding:1px 5px;border-radius:2px;letter-spacing:-0.2px}
+
+/* LAYOUT */
+.layout{display:grid;grid-template-columns:200px 1fr;min-height:100vh}
+.nav{position:sticky;top:0;height:100vh;padding:48px 24px 48px 32px;border-right:1px solid var(--rule);overflow-y:auto}
+.nav-title{font-family:var(--sans);font-size:15px;font-weight:700;line-height:1.3;margin-bottom:32px;letter-spacing:-0.2px}
+.nav a{display:block;font-size:13px;font-weight:500;color:var(--light);text-decoration:none;padding:6px 0;transition:color .15s;letter-spacing:0.1px}
+.nav a:hover,.nav a.active{color:var(--black)}
+.nav a.active{font-weight:600}
+.nav-sep{height:1px;background:var(--rule);margin:12px 0}
+.main{padding:0 64px 120px;max-width:840px}
+
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  .nav{display:none}
+  .main{padding:0 28px 80px}
+}
+
+/* HERO */
+.hero{padding:96px 0 64px}
+.hero h1{font-family:var(--sans);font-size:clamp(38px,5vw,52px);font-weight:700;line-height:1.1;letter-spacing:-1.5px;margin-bottom:12px}
+.hero-date{font-size:15px;color:var(--dim);letter-spacing:0.2px}
+
+/* SECTIONS */
+section{padding-top:80px}
+h2.st{font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--dim);margin-bottom:36px}
+.section-intro{font-size:17px;line-height:1.7;margin-bottom:32px;max-width:640px}
+
+/* CALLOUT */
+.callout{border-left:3px solid var(--black);padding:28px 32px;margin-bottom:48px;background:var(--wash);border-radius:0 6px 6px 0}
+.callout-title{font-family:var(--sans);font-size:22px;font-weight:700;margin-bottom:10px;letter-spacing:-0.4px}
+.callout p{font-size:16px;line-height:1.7;margin-bottom:10px}
+.callout p:last-child{margin-bottom:0}
+
+/* FOUNDATIONS */
+.found-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule);margin-bottom:16px}
+.found-item{padding:24px 28px 24px 0;border-bottom:1px solid var(--rule)}
+.found-item:nth-child(even){padding-left:28px;border-left:1px solid var(--rule)}
+.found-name{font-weight:600;font-size:15px;margin-bottom:4px;letter-spacing:0.1px}
+.found-state{font-size:15px;line-height:1.6}
+.found-state strong{color:var(--red);font-weight:600}
+.found-state .ok{color:var(--green);font-weight:600}
+.found-note{font-size:15px;line-height:1.6;margin-top:8px}
+@media(max-width:600px){.found-grid{grid-template-columns:1fr} .found-item:nth-child(even){padding-left:0;border-left:none}}
+
+/* SCORECARD */
+.sc-table{width:100%;border-collapse:collapse}
+.sc-table th{text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--light);padding:12px 0;border-bottom:2px solid var(--black)}
+.sc-table td{padding:18px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.sc-table td:first-child{width:40px;font-weight:600;color:var(--light);font-size:14px;padding-right:16px}
+.sc-table td:nth-child(2){font-weight:600;width:200px;font-size:16px;padding-right:32px}
+.sc-table td:nth-child(3){font-size:15px;padding-right:40px}
+.sc-table td:last-child{width:72px;text-align:right;white-space:nowrap}
+.sc-table code{font-size:0.78em}
+.sc-table tr[data-tip]{cursor:default}
+.sc-table tr[data-tip]:hover{background:var(--wash)}
+.tip{display:none;position:fixed;z-index:1000;max-width:360px;padding:12px 16px;background:var(--black);color:#fff;font-size:13px;font-weight:400;line-height:1.55;letter-spacing:0;border-radius:5px;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
+.status{font-size:13px;font-weight:600;letter-spacing:0.3px}
+.s-pass{color:var(--green)} .s-partial{color:var(--dim)} .s-fail{color:var(--red)} .s-unknown{color:var(--light)}
+
+/* WORKFLOWS */
+.wf-tabs{display:flex;gap:0;margin-bottom:40px;border-bottom:2px solid var(--rule)}
+.wf-tab{padding:12px 24px;font-size:15px;font-weight:600;color:var(--light);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color .15s,border-color .15s;user-select:none}
+.wf-tab:hover{color:var(--dim)}
+.wf-tab.active{color:var(--black);border-bottom-color:var(--black)}
+.wf-panel{display:none}
+.wf-panel.active{display:block}
+.wf-sub{font-size:15px;margin-bottom:24px;line-height:1.6}
+.wf-steps{position:relative;padding-left:24px}
+.wf-steps::before{content:'';position:absolute;left:5px;top:8px;bottom:8px;width:1px;background:var(--rule)}
+.ws{position:relative;padding:0 0 36px 20px}
+.ws:last-child{padding-bottom:0}
+.ws::before{content:'';position:absolute;left:-4px;top:7px;width:9px;height:9px;border-radius:50%;background:var(--rule)}
+.ws.ok::before{background:var(--green)} .ws.mid::before{background:var(--dim)} .ws.bad::before{background:var(--red)}
+.ws-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+.ws-name{font-weight:600;font-size:15px}
+.ws-status{font-size:12px;font-weight:600;letter-spacing:0.3px}
+.ws-status.ok{color:var(--green)} .ws-status.mid{color:var(--dim)} .ws-status.bad{color:var(--red)}
+.ws-detail{font-size:15px;line-height:1.6}
+.wf-legend{display:flex;gap:24px;font-size:13px;color:var(--light);margin-top:32px;letter-spacing:0.2px}
+.wf-legend span::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:6px;vertical-align:middle}
+.wf-legend .lg-ok::before{background:var(--green)} .wf-legend .lg-mid::before{background:var(--dim)} .wf-legend .lg-bad::before{background:var(--red)}
+
+/* ROADMAP */
+.rm-phase{margin-bottom:36px}
+.rm-bar{font-family:var(--sans);font-size:20px;font-weight:700;padding-bottom:12px;border-bottom:2px solid var(--black);margin-bottom:12px;display:flex;align-items:baseline;gap:10px;letter-spacing:-0.2px}
+.rm-bar .rm-n{font-family:var(--sans);color:var(--light);font-size:14px;font-weight:500;letter-spacing:0.2px}
+.rm-list{list-style:none}
+.rm-list li{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--rule);font-size:16px}
+.rm-list li:last-child{border-bottom:none}
+.rm-num{font-size:13px;color:var(--light);min-width:20px;text-align:right}
+.rm-tag{font-size:12px;color:var(--light);margin-left:auto;letter-spacing:0.3px;white-space:nowrap}
+
+/* AUDIENCE */
+.aud-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
+.aud-card h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:0.8px;color:var(--dim);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.aud-card ol{margin:0 0 0 18px}
+.aud-card li{font-size:15px;line-height:1.55;margin-bottom:12px}
+@media(max-width:800px){.aud-grid{grid-template-columns:1fr}}
+
+/* GLOSSARY */
+.gl{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--rule)}
+.gl-item{padding:24px 28px 24px 0;border-bottom:1px solid var(--rule)}
+.gl-item:nth-child(even){padding-left:28px;border-left:1px solid var(--rule)}
+.gl-term{font-weight:600;font-size:16px;margin-bottom:4px}
+.gl-def{font-size:15px;line-height:1.6}
+.gl-why{font-size:14px;color:var(--dim);margin-top:6px;font-weight:500}
+@media(max-width:600px){.gl{grid-template-columns:1fr} .gl-item:nth-child(even){padding-left:0;border-left:none}}
+
+footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color:var(--light);line-height:1.6}
+@media print{.nav{display:none} .layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="layout">
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-title">AI-Ready<br>Component<br>Definition</div>
+  <a href="#starting-point">The Starting Point</a>
+  <a href="#workflows">Where It Breaks</a>
+  <a href="#scorecard">Assessment</a>
+  <div class="nav-sep"></div>
+  <a href="#glossary">Glossary</a>
+</nav>
+
+<!-- MAIN -->
+<div class="main">
+
+<div class="hero">
+  <h1>AI-Ready Component Definition</h1>
+  <span class="hero-date">April 24, 2026 &mdash; Validated against EDS v2 source</span>
+</div>
+
+<section id="starting-point">
+  <h2 class="st">The Starting Point</h2>
+  <div class="callout">
+    <div class="callout-title">Our foundations are shaky.</div>
+    <p>Experienced developers work around the gaps &mdash; they know which font is current, which prop name is the exception, which Storybook description to ignore. AI agents can&rsquo;t. They follow the system literally, including its contradictions.</p>
+  </div>
+
+  <h2 class="st">What&rsquo;s missing</h2>
+  <div class="found-grid">
+    <div class="found-item">
+      <div class="found-name">Text Styles</div>
+      <div class="found-state">~90 classes (legacy + current) in one file. <strong>No separation.</strong> Agent can&rsquo;t tell which are current.</div>
+    </div>
+    <div class="found-item">
+      <div class="found-name">Colors</div>
+      <div class="found-state">Token system exists (253 tokens) but <strong>no enforcement</strong> of which tier to use. <strong>No guidance</strong> on what color to use when.</div>
+    </div>
+    <div class="found-item">
+      <div class="found-name">Spacing</div>
+      <div class="found-state">10 tokens defined (2px&ndash;64px). <strong>Zero components use them.</strong> Entirely orphaned.</div>
+    </div>
+    <div class="found-item">
+      <div class="found-name">Fonts</div>
+      <div class="found-state"><strong>Hacky implementation.</strong> Legacy (Cambon, NewTheinhardt) and current (Hauss, Portada) both shipped. Nothing enforces which to use.</div>
+    </div>
+    <div class="found-item">
+      <div class="found-name">Components</div>
+      <div class="found-state"><strong>Poorly architected.</strong> Missing states. Inconsistent prop naming (<code>size</code> / <code>inputSize</code> / <code>buttonSize</code>). No layout templates.</div>
+    </div>
+    <div class="found-item">
+      <div class="found-name">Documentation &amp; Guidelines</div>
+      <div class="found-state"><strong>Very poor and incomplete.</strong> What exists is just property descriptions, not usage guidance. Storybook: &ldquo;buttons come in different sizes to accommodate various use cases.&rdquo; We need to start over.</div>
+    </div>
+  </div>
+</section>
+
+<section id="workflows">
+  <h2 class="st">Where the Workflows Break</h2>
+  <div class="wf-tabs">
+    <div class="wf-tab active" onclick="switchWf(0)">Figma &rarr; Code</div>
+    <div class="wf-tab" onclick="switchWf(1)">Prompt &rarr; UI</div>
+  </div>
+
+  <div class="wf-panel active" id="wf-0">
+    <div class="wf-sub">Designer creates in Figma, AI agent turns it into production code.</div>
+    <div class="wf-steps">
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Design in Figma</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Wrong components, detached instances, skipped library. No spacing system. Legacy/new text styles unclear.</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Agent reads the design</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Agent can read Figma, but our files are poorly layered, badly named, inconsistently structured. Data is unreliable.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent maps design &rarr; code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">No Code Connect. No bridge between Figma and code. Agent guesses.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent writes the code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail"><code>size</code> or <code>inputSize</code>? <code>label</code> or <code>buttonTitle</code>? Agent tries the common pattern and fails.</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Output renders</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Colors mostly right. Spacing improvised. Fonts unpredictable &mdash; legacy and current both configured.</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Human reviews</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">Developer catches everything. Fix effort varies &mdash; sometimes small, sometimes a full rewrite.</div></div>
+    </div>
+  </div>
+
+  <div class="wf-panel" id="wf-1">
+    <div class="wf-sub">Developer describes what they need. AI agent builds it directly.</div>
+    <div class="wf-steps">
+      <div class="ws ok"><div class="ws-head"><span class="ws-name">Describe what you need</span><span class="ws-status ok">Works</span></div><div class="ws-detail">&ldquo;Build a registration form with name, email, and a submit button.&rdquo;</div></div>
+      <div class="ws mid"><div class="ws-head"><span class="ws-name">Agent discovers components</span><span class="ws-status mid">Partial</span></div><div class="ws-detail">registry.json lists 27 components. But Button is 8 variants behind source. Agent may miss valid options.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent picks components</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Alert or MessageBar? No guidance. Agent guesses from names.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent writes the code</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Tries <code>label</code> on Button (wrong). Tries <code>size</code> on TextInput (wrong). No JSDoc. Guesses from patterns.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Agent composes layout</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">How many buttons in a footer? What spacing? No rules. Agent improvises.</div></div>
+      <div class="ws bad"><div class="ws-head"><span class="ws-name">Output renders</span><span class="ws-status bad">Broken</span></div><div class="ws-detail">Wrong fonts, arbitrary spacing, off-brand. Manual cleanup on almost every run.</div></div>
+    </div>
+  </div>
+
+  <div class="wf-legend"><span class="lg-ok">Works</span><span class="lg-mid">Partial</span><span class="lg-bad">Broken</span></div>
+</section>
+
+<section id="scorecard">
+  <h2 class="st">Assessment</h2>
+  <p class="section-intro">6 criteria validated against EDS v2 source code.</p>
+  <table class="sc-table">
+    <thead><tr><th></th><th>Criterion</th><th>Finding</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr data-tip="Input is exported as Input, lives in TextInput/, registered as 'input'. Toggle exported as ToggleComponent. Button uses buttonTitle while every other component uses label. size/inputSize/buttonSize for the same concept. 2 of 40+ props have JSDoc."><td>1</td><td>Naming</td><td>Same component called different things in different places. Same concept named differently across components. Almost no inline documentation.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Button has 22 variants in source but only 14 in the registry — 8 missing. Error and disabled aren't first-class variants. Other components checked (Badge, Spinner, RadioButton) are in sync."><td>2</td><td>Component States</td><td>Missing states. What exists in code doesn&rsquo;t always match what&rsquo;s in the registry. Agents see an incomplete picture.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Color tokens (--theme-*) have 423 references but nothing prevents using raw palette tokens. 10 spacing tokens defined, zero components reference them. Legacy fonts (Cambon/NewTheinhardt) and current (Hauss/Portada) both shipped in tailwind.config.js. ~90 typography classes in one file."><td>3</td><td>Tokens</td><td>Some exist, nothing enforces using them correctly. Spacing tokens are completely unused. Legacy and current fonts shipped side by side.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="Zero Code Connect files in the repo. No Figma SDK in package.json. An agent looking at a Figma design has no way to find the matching code component."><td>4</td><td>Figma &rarr; Code</td><td>No connection between what&rsquo;s designed in Figma and what exists in code. Agent has to guess.</td><td><span class="status s-fail">Fail</span></td></tr>
+      <tr data-tip="registry.json follows the ShadCN schema with 27 components, prop types, required flags, and enum values. No defaultValue fields, no whenToUse guidance, and some enums are out of sync with source."><td>5</td><td>Component Registry</td><td>A component index exists and the structure is solid. But it&rsquo;s missing defaults, usage guidance, and parts of it are stale.</td><td><span class="status s-partial">Partial</span></td></tr>
+      <tr data-tip="Button truncates long text silently. isLoading doesn't auto-disable. ProgressSteps accepts empty arrays. Alert defaults to error icon on success variants. No character limits or nesting rules documented."><td>6</td><td>Composition</td><td>No rules for how components work together. No constraints on content, behavior, or layout. Agents have to make it up.</td><td><span class="status s-fail">Fail</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="glossary">
+  <h2 class="st">Glossary</h2>
+  <div class="gl">
+    <div class="gl-item"><div class="gl-term">Tokens</div><div class="gl-def">Named variables for colors, spacing, and fonts. Change one value, it updates everywhere.</div><div class="gl-why">Color tokens work. Spacing tokens exist but no component uses them.</div></div>
+    <div class="gl-item"><div class="gl-term">MCP</div><div class="gl-def">Model Context Protocol. How AI agents connect to external tools like Figma or a design system.</div><div class="gl-why">Without MCPs, an agent is blind to your designs and components.</div></div>
+    <div class="gl-item"><div class="gl-term">Code Connect</div><div class="gl-def">Figma feature that maps design components to code. A small file links a Figma button to <code>&lt;Button variant=&quot;primary&quot;&gt;</code>.</div><div class="gl-why">We have zero. Agents guess which code matches which design.</div></div>
+    <div class="gl-item"><div class="gl-term">Component Registry</div><div class="gl-def">Single file listing every component, its options, and valid values. Agent reads one file and knows the whole system.</div><div class="gl-why">registry.json (27 components) is our strongest AI-readiness asset.</div></div>
+    <div class="gl-item"><div class="gl-term">Props &amp; Variants</div><div class="gl-def">Props are options you pass to a component. Variants are predefined styles: primary, danger, outline.</div><div class="gl-why">Named variants = agent picks one. No variants = agent overrides manually = drift.</div></div>
+    <div class="gl-item"><div class="gl-term">JSDoc</div><div class="gl-def">Inline code comments that explain what each prop does. The only documentation agents can read.</div><div class="gl-why">2 out of 40+ props have JSDoc. That&rsquo;s effectively zero.</div></div>
+    <div class="gl-item"><div class="gl-term">Storybook</div><div class="gl-def">Visual component catalog at a URL. Humans browse it; agents can&rsquo;t.</div><div class="gl-why">Invisible to AI. Anything only in Storybook doesn&rsquo;t exist for agents.</div></div>
+    <div class="gl-item"><div class="gl-term">CI Check</div><div class="gl-def">Automated test that runs on every code change. Catches mistakes before they ship.</div><div class="gl-why">Button&rsquo;s registry drifted (22 vs 14 variants). A CI check would have caught it.</div></div>
+    <div class="gl-item"><div class="gl-term">Semantic Naming</div><div class="gl-def">Naming by purpose, not appearance. <code>--theme-fg-default</code> instead of <code>#0f0f0f</code>.</div><div class="gl-why">Our semantic color layer works. The challenge is enforcing agents use it over raw tokens.</div></div>
+    <div class="gl-item"><div class="gl-term">Design Drift</div><div class="gl-def">When UI gradually diverges from standards. Wrong green here, odd spacing there.</div><div class="gl-why">AI is 10&times; faster than humans. Drift doesn&rsquo;t accumulate &mdash; it scales.</div></div>
+  </div>
+</section>
+
+<footer>Validated against EDS v2 source code. Every finding cites real files, not assumptions.</footer>
+
+</div><!-- .main -->
+</div><!-- .layout -->
+
+<div class="tip" id="tip"></div>
+<script>
+// Workflow tabs
+function switchWf(i){
+  document.querySelectorAll('.wf-tab').forEach((t,j)=>t.classList.toggle('active',j===i));
+  document.querySelectorAll('.wf-panel').forEach((p,j)=>p.classList.toggle('active',j===i));
+}
+
+// Tooltip
+const tip=document.getElementById('tip');
+document.querySelectorAll('tr[data-tip]').forEach(row=>{
+  row.addEventListener('mouseenter',e=>{
+    const r=row.getBoundingClientRect();
+    tip.textContent=row.dataset.tip;
+    tip.style.display='block';
+    const tt=tip.getBoundingClientRect();
+    let left=r.left+36;
+    let top=r.bottom+6;
+    if(left+tt.width>window.innerWidth-16) left=window.innerWidth-tt.width-16;
+    if(top+tt.height>window.innerHeight-16) top=r.top-tt.height-6;
+    tip.style.left=left+'px';
+    tip.style.top=top+'px';
+  });
+  row.addEventListener('mouseleave',()=>{tip.style.display='none'});
+});
+
+// Nav active state
+const navLinks=document.querySelectorAll('.nav a');
+const sections=document.querySelectorAll('section[id]');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      navLinks.forEach(a=>a.classList.remove('active'));
+      const active=document.querySelector('.nav a[href="#'+entry.target.id+'"]');
+      if(active) active.classList.add('active');
+    }
+  });
+},{rootMargin:'-20% 0px -60% 0px'});
+sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
