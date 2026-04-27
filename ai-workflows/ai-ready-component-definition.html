@@ -255,24 +255,27 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
       <li data-tip="105 typography classes exist in one file — legacy and current mixed together. Separate them, remove what's obsolete, and make sure a class name in Figma matches the class name in code."><span class="rm-num">0.1</span> Clean up text styles, separate current from legacy, align Figma &harr; code naming</li>
       <li data-tip="We have three tiers of color tokens but nothing tells you which to use. Define the rules — semantic tokens for UI, palette tokens only for definitions — and enforce them."><span class="rm-num">0.2</span> Define color tier usage rules and enforce semantic over raw</li>
       <li data-tip="10 spacing tokens are defined in dimension.css (2px through 64px) but zero components reference them. Components use Tailwind utilities instead. Wire the tokens in."><span class="rm-num">0.3</span> Connect spacing tokens to components</li>
-      <li data-tip="Cambon and NewTheinhardt are still shipped and configured alongside Hauss and Portada. The current font implementation is hacky. Remove the legacy fonts entirely."><span class="rm-num">0.4</span> Complete the font migration to Hauss/Portada</li>
+      <li data-tip="The frontend audit found 9 missing token families (~80 usages silently failing), 45+ !important overrides for co-brand theming because there's no theming API, Icon missing size variants (15+ inline sx hacks), and 40+ hardcoded hex values duplicating existing tokens."><span class="rm-num">0.4</span> Address token gaps and override issues from EDS v2 audit</li>
+      <li data-tip="Cambon and NewTheinhardt are still shipped and configured alongside Hauss and Portada. The current font implementation is hacky. Remove the legacy fonts entirely."><span class="rm-num">0.5</span> Complete the font migration to Hauss/Portada</li>
+      <li data-tip="Button uses 'size', TextInput uses 'inputSize', RadioButton uses 'buttonSize'. Button uses 'buttonTitle' while every other component uses 'label'. Pick one name per concept and use it everywhere."><span class="rm-num">0.6</span> Standardize prop names across all components</li>
     </ul>
   </div>
 
   <div class="rm-phase">
     <div class="rm-bar">Make the System Legible <span class="rm-n">Unblocks Prompt &rarr; UI</span></div>
     <ul class="rm-list">
-      <li data-tip="Button has 22 variants in source but only 14 in the registry. The 8 missing ones (infoSolid, errorOutline, white, etc.) are invisible to agents. Sync the file and keep it synced."><span class="rm-num">1.1</span> Sync the component registry with source code</li>
-      <li data-tip="Button uses 'size', TextInput uses 'inputSize', RadioButton uses 'buttonSize'. Button uses 'buttonTitle' while every other component uses 'label'. Pick one name per concept and use it everywhere."><span class="rm-num">1.2</span> Standardize prop names across all components</li>
-      <li data-tip="2 out of 40+ component props have any inline documentation. Agents can't read Storybook — JSDoc comments in the source code are the only guidance they see."><span class="rm-num">1.3</span> Add inline documentation to component props</li>
+      <li data-tip="The registry currently covers EDS v2 primitives. Higher-level components in CMS and main app also need to be documented. Define what qualifies, and document the registry in both codebases."><span class="rm-num">1.1</span> Define what qualifies for the component registry and document it in CMS and main app</li>
+      <li data-tip="Button has 22 variants in source but only 14 in the registry. The 8 missing ones (infoSolid, errorOutline, white, etc.) are invisible to agents. Sync the file and keep it synced."><span class="rm-num">1.2</span> Sync the component registry with source code</li>
+      <li data-tip="2 out of 141 component props have any inline documentation. Agents can't read Storybook — JSDoc comments in the source code are the only guidance they see."><span class="rm-num">1.3</span> Add inline documentation to component props</li>
       <li data-tip="Some component descriptions don't match what the component actually does. An agent reading the description would use the component for the wrong purpose."><span class="rm-num">1.4</span> Fix misleading component descriptions</li>
     </ul>
   </div>
 
   <div class="rm-phase">
     <div class="rm-bar">Connect Figma and Code <span class="rm-n">Unblocks Figma &rarr; Code</span></div>
+    <p style="font-size:14px;color:var(--dim);margin-bottom:20px">Scope: EDS Figma library, component registry Figma, and feature-work Figmas (CMS &amp; main app).</p>
     <ul class="rm-list">
-      <li data-tip="We don't know if Figma component names match code export names. If a designer calls it 'Text Field' and the code exports 'Input', agents can't bridge the gap. Audit and align."><span class="rm-num">2.1</span> Audit Figma vs. code component naming</li>
+      <li data-tip="We don't know if Figma component names match code export names across the EDS library, component registry, or feature-work files. If a designer calls it 'Text Field' and the code exports 'Input', agents can't bridge the gap."><span class="rm-num">2.1</span> Audit Figma vs. code component naming across EDS, registry, and feature-work files</li>
       <li data-tip="Where Figma components are structured differently from code — different property names, different variant organization — restructure the Figma side to match."><span class="rm-num">2.2</span> Restructure Figma components where they diverge</li>
       <li data-tip="Code Connect is a Figma feature that explicitly maps design components to code. A small file declares 'this Figma button = this React component with these props.' We have zero of these files."><span class="rm-num">2.3</span> Create Code Connect mappings for top components</li>
       <li data-tip="How many buttons belong in a modal footer? What's the max length for a button label? Designers know these rules intuitively. Agents don't. Write them down."><span class="rm-num">2.4</span> Document composition rules and constraints</li>
