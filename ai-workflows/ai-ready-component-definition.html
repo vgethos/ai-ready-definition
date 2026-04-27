@@ -145,6 +145,7 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
   <a href="#starting-point">The Starting Point</a>
   <a href="#workflows">Where It Breaks</a>
   <a href="#scorecard">Assessment</a>
+  <a href="#action">Action Plan</a>
   <div class="nav-sep"></div>
   <a href="#glossary">Glossary</a>
 </nav>
@@ -241,6 +242,51 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
       <tr data-tip="Button truncates long text silently. isLoading doesn't auto-disable. ProgressSteps accepts empty arrays. Alert defaults to error icon on success variants. No character limits or nesting rules documented."><td>6</td><td>Composition</td><td>No rules for how components work together. No constraints on content, behavior, or layout. Agents have to make it up.</td><td><span class="status s-fail">Fail</span></td></tr>
     </tbody>
   </table>
+</section>
+
+<section id="action">
+  <h2 class="st">Action Plan</h2>
+  <p class="section-intro">Foundation work unblocks everything else. Without it, every downstream fix is fragile.</p>
+
+  <div class="rm-phase">
+    <div class="rm-bar">Foundations <span class="rm-n">Design + Eng &mdash; prerequisite for everything</span></div>
+    <ul class="rm-list">
+      <li><span class="rm-num">0.1</span> Text styles: clean up ~90 classes, separate current from legacy, align Figma &harr; code naming</li>
+      <li><span class="rm-num">0.2</span> Colors: define which tier to use when, enforce semantic over raw</li>
+      <li><span class="rm-num">0.3</span> Spacing: connect the 10 tokens to components (they exist but nothing uses them)</li>
+      <li><span class="rm-num">0.4</span> Fonts: complete the migration &mdash; Cambon/NewTheinhardt &rarr; Hauss/Portada</li>
+    </ul>
+  </div>
+
+  <div class="rm-phase">
+    <div class="rm-bar">Make the System Legible <span class="rm-n">Mostly eng, design input &mdash; unblocks Prompt &rarr; UI</span></div>
+    <ul class="rm-list">
+      <li><span class="rm-num">1.1</span> Sync registry.json with source (fix the variant drift)</li>
+      <li><span class="rm-num">1.2</span> Standardize prop names (<code>size</code> everywhere, <code>label</code> everywhere)</li>
+      <li><span class="rm-num">1.3</span> Add JSDoc to the 40+ undocumented props</li>
+      <li><span class="rm-num">1.4</span> Fix misleading component descriptions</li>
+    </ul>
+  </div>
+
+  <div class="rm-phase">
+    <div class="rm-bar">Connect Figma and Code <span class="rm-n">Shared, design-heavy &mdash; unblocks Figma &rarr; Code</span></div>
+    <ul class="rm-list">
+      <li><span class="rm-num">2.1</span> Figma&ndash;code naming audit (are Figma component names = code export names?)</li>
+      <li><span class="rm-num">2.2</span> Restructure Figma components where they diverge</li>
+      <li><span class="rm-num">2.3</span> Code Connect for top 5&ndash;10 components</li>
+      <li><span class="rm-num">2.4</span> Composition rules documented (max actions in modal, button groups, etc.)</li>
+    </ul>
+  </div>
+
+  <div class="rm-phase">
+    <div class="rm-bar">Enforce and Maintain <span class="rm-n">Eng-heavy &mdash; keeps it from regressing</span></div>
+    <ul class="rm-list">
+      <li><span class="rm-num">3.1</span> CI check: registry &harr; source validation on every PR</li>
+      <li><span class="rm-num">3.2</span> Token enforcement: lint rules preventing raw palette usage</li>
+      <li><span class="rm-num">3.3</span> Non-EDS component registry interop</li>
+      <li><span class="rm-num">3.4</span> New components must ship AI-ready from day one</li>
+    </ul>
+  </div>
 </section>
 
 <section id="glossary">
