@@ -76,8 +76,9 @@ h2.st{font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:upperca
 .sc-table td:nth-child(3){font-size:15px;padding-right:40px}
 .sc-table td:last-child{width:72px;text-align:right;white-space:nowrap}
 .sc-table code{font-size:0.78em}
-.sc-table tr[data-tip]{cursor:default}
+[data-tip]{cursor:default}
 .sc-table tr[data-tip]:hover{background:var(--wash)}
+.rm-list li[data-tip]:hover{background:var(--wash);margin:0 -10px;padding-left:10px;padding-right:10px;border-radius:4px}
 .tip{display:none;position:fixed;z-index:1000;max-width:360px;padding:12px 16px;background:var(--black);color:#fff;font-size:13px;font-weight:400;line-height:1.55;letter-spacing:0;border-radius:5px;pointer-events:none;box-shadow:0 8px 24px rgba(0,0,0,0.2)}
 .status{font-size:13px;font-weight:600;letter-spacing:0.3px}
 .s-pass{color:var(--green)} .s-partial{color:var(--dim)} .s-fail{color:var(--red)} .s-unknown{color:var(--light)}
@@ -251,40 +252,40 @@ footer{padding:40px 0 80px;border-top:1px solid var(--rule);font-size:14px;color
   <div class="rm-phase">
     <div class="rm-bar">Foundations <span class="rm-n">Prerequisite for everything</span></div>
     <ul class="rm-list">
-      <li><span class="rm-num">0.1</span> Text styles: clean up ~90 classes, separate current from legacy, align Figma &harr; code naming</li>
-      <li><span class="rm-num">0.2</span> Colors: define which tier to use when, enforce semantic over raw</li>
-      <li><span class="rm-num">0.3</span> Spacing: connect the 10 tokens to components (they exist but nothing uses them)</li>
-      <li><span class="rm-num">0.4</span> Fonts: complete the migration &mdash; Cambon/NewTheinhardt &rarr; Hauss/Portada</li>
+      <li data-tip="~90 typography classes exist in one file — legacy and current mixed together. Separate them, remove what's obsolete, and make sure a class name in Figma matches the class name in code."><span class="rm-num">0.1</span> Clean up text styles, separate current from legacy, align Figma &harr; code naming</li>
+      <li data-tip="We have three tiers of color tokens but nothing tells you which to use. Define the rules — semantic tokens for UI, palette tokens only for definitions — and enforce them."><span class="rm-num">0.2</span> Define color tier usage rules and enforce semantic over raw</li>
+      <li data-tip="10 spacing tokens are defined in dimension.css (2px through 64px) but zero components reference them. Components use Tailwind utilities instead. Wire the tokens in."><span class="rm-num">0.3</span> Connect spacing tokens to components</li>
+      <li data-tip="Cambon and NewTheinhardt are still shipped and configured alongside Hauss and Portada. The current font implementation is hacky. Remove the legacy fonts entirely."><span class="rm-num">0.4</span> Complete the font migration to Hauss/Portada</li>
     </ul>
   </div>
 
   <div class="rm-phase">
     <div class="rm-bar">Make the System Legible <span class="rm-n">Unblocks Prompt &rarr; UI</span></div>
     <ul class="rm-list">
-      <li><span class="rm-num">1.1</span> Sync registry.json with source (fix the variant drift)</li>
-      <li><span class="rm-num">1.2</span> Standardize prop names (<code>size</code> everywhere, <code>label</code> everywhere)</li>
-      <li><span class="rm-num">1.3</span> Add JSDoc to the 40+ undocumented props</li>
-      <li><span class="rm-num">1.4</span> Fix misleading component descriptions</li>
+      <li data-tip="Button has 22 variants in source but only 14 in the registry. The 8 missing ones (infoSolid, errorOutline, white, etc.) are invisible to agents. Sync the file and keep it synced."><span class="rm-num">1.1</span> Sync the component registry with source code</li>
+      <li data-tip="Button uses 'size', TextInput uses 'inputSize', RadioButton uses 'buttonSize'. Button uses 'buttonTitle' while every other component uses 'label'. Pick one name per concept and use it everywhere."><span class="rm-num">1.2</span> Standardize prop names across all components</li>
+      <li data-tip="2 out of 40+ component props have any inline documentation. Agents can't read Storybook — JSDoc comments in the source code are the only guidance they see."><span class="rm-num">1.3</span> Add inline documentation to component props</li>
+      <li data-tip="Some component descriptions don't match what the component actually does. An agent reading the description would use the component for the wrong purpose."><span class="rm-num">1.4</span> Fix misleading component descriptions</li>
     </ul>
   </div>
 
   <div class="rm-phase">
     <div class="rm-bar">Connect Figma and Code <span class="rm-n">Unblocks Figma &rarr; Code</span></div>
     <ul class="rm-list">
-      <li><span class="rm-num">2.1</span> Figma&ndash;code naming audit (are Figma component names = code export names?)</li>
-      <li><span class="rm-num">2.2</span> Restructure Figma components where they diverge</li>
-      <li><span class="rm-num">2.3</span> Code Connect for top 5&ndash;10 components</li>
-      <li><span class="rm-num">2.4</span> Composition rules documented (max actions in modal, button groups, etc.)</li>
+      <li data-tip="We don't know if Figma component names match code export names. If a designer calls it 'Text Field' and the code exports 'Input', agents can't bridge the gap. Audit and align."><span class="rm-num">2.1</span> Audit Figma vs. code component naming</li>
+      <li data-tip="Where Figma components are structured differently from code — different property names, different variant organization — restructure the Figma side to match."><span class="rm-num">2.2</span> Restructure Figma components where they diverge</li>
+      <li data-tip="Code Connect is a Figma feature that explicitly maps design components to code. A small file declares 'this Figma button = this React component with these props.' We have zero of these files."><span class="rm-num">2.3</span> Create Code Connect mappings for top components</li>
+      <li data-tip="How many buttons belong in a modal footer? What's the max length for a button label? Designers know these rules intuitively. Agents don't. Write them down."><span class="rm-num">2.4</span> Document composition rules and constraints</li>
     </ul>
   </div>
 
   <div class="rm-phase">
     <div class="rm-bar">Enforce and Maintain <span class="rm-n">Keeps it from regressing</span></div>
     <ul class="rm-list">
-      <li><span class="rm-num">3.1</span> CI check: registry &harr; source validation on every PR</li>
-      <li><span class="rm-num">3.2</span> Token enforcement: lint rules preventing raw palette usage</li>
-      <li><span class="rm-num">3.3</span> Non-EDS component registry interop</li>
-      <li><span class="rm-num">3.4</span> New components must ship AI-ready from day one</li>
+      <li data-tip="Button's registry drifted from 22 to 14 variants without anyone noticing. An automated check on every pull request would catch this instantly."><span class="rm-num">3.1</span> CI validation: registry must match source on every PR</li>
+      <li data-tip="Nothing prevents an agent from using raw palette tokens (--primary-cypress-100) instead of semantic ones (--theme-accent-default). Lint rules can enforce the right tier automatically."><span class="rm-num">3.2</span> Lint rules to enforce token tier usage</li>
+      <li data-tip="Andre is building a registry for non-EDS components — layouts, templates, page patterns. It needs to work alongside the EDS registry so agents see the full picture."><span class="rm-num">3.3</span> Non-EDS component registry interop</li>
+      <li data-tip="Once the standard is defined, every new component should meet it before shipping. AI-readiness isn't a retrofit — it's a release criterion."><span class="rm-num">3.4</span> New components must ship AI-ready from day one</li>
     </ul>
   </div>
 </section>
@@ -320,10 +321,10 @@ function switchWf(i){
 
 // Tooltip
 const tip=document.getElementById('tip');
-document.querySelectorAll('tr[data-tip]').forEach(row=>{
-  row.addEventListener('mouseenter',e=>{
-    const r=row.getBoundingClientRect();
-    tip.textContent=row.dataset.tip;
+document.querySelectorAll('[data-tip]').forEach(el=>{
+  el.addEventListener('mouseenter',e=>{
+    const r=el.getBoundingClientRect();
+    tip.textContent=el.dataset.tip;
     tip.style.display='block';
     const tt=tip.getBoundingClientRect();
     let left=r.left+36;
@@ -333,7 +334,7 @@ document.querySelectorAll('tr[data-tip]').forEach(row=>{
     tip.style.left=left+'px';
     tip.style.top=top+'px';
   });
-  row.addEventListener('mouseleave',()=>{tip.style.display='none'});
+  el.addEventListener('mouseleave',()=>{tip.style.display='none'});
 });
 
 // Nav active state
